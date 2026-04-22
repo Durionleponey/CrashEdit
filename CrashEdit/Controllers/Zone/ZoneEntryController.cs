@@ -1,4 +1,6 @@
 using AltUI.Forms;
+using CrashEdit.CE;
+using CrashEdit.CE.Forms;
 using CrashEdit.Crash;
 
 namespace CrashEdit.CE
@@ -12,7 +14,7 @@ namespace CrashEdit.CE
             AddMenuSeparator();
             AddMenu(CrashUI.Properties.Resources.ZoneEntryController_AcAddEntity, "Add", Menu_AddEntity);
             AddMenu(CrashUI.Properties.Resources.ZoneEntryController_AcChangeCollisionType, "Wrench", Menu_ChangeCollisionType);
-            AddMenu(CrashUI.Properties.Resources.ZoneEntryController_AcChangeEnvironmentType, "Wrench", Menu_ChangeCollisionType);
+            AddMenu(CrashUI.Properties.Resources.ZoneEntryController_AcChangeEnvironmentType, "Wrench", Menu_ChangeEnvironmentType);
 
 
         }
@@ -107,5 +109,63 @@ namespace CrashEdit.CE
                 return;
             }
         }
+
+
+        void Menu_ChangeEnvironmentType()
+        {
+            try
+            {
+                byte[] searchPattern = null!;
+                byte[] replacementPattern = null!;
+                using (EnvironmentEditor inputWindows = new EnvironmentEditor())
+                {
+                    if (inputWindows.ShowDialog() == DialogResult.OK)
+                    {
+                        //string input = inputwindows.input;
+                        //string input2 = inputwindows.input2;
+                        //if (input.length != 4 || input2.length != 4)
+                        //{
+                        //    throw new argumentexception("the input must be specified as a 4-digit hexadecimal number.");
+                        //}
+
+                        //searchpattern = bitconverter.getbytes(convert.touint16(input, 16));
+                        //replacementpattern = bitconverter.getbytes(convert.touint16(input2, 16));
+                    }
+                    else return;
+                }
+
+                byte[] layout = ZoneEntry.Layout;
+                for (int i = 0x24; i <= layout.Length - searchPattern.Length; i += 2)
+                {
+                    bool isMatch = true;
+
+                    for (int j = 0; j < searchPattern.Length; j++)
+                    {
+                        if (layout[i + j] != searchPattern[j])
+                        {
+                            isMatch = false;
+                            break;
+                        }
+                    }
+                    if (isMatch)
+                    {
+                        for (int j = 0; j < replacementPattern.Length; j++)
+                        {
+                            layout[i + j] = replacementPattern[j];
+                        }
+                    }
+                }
+
+                ZoneEntry.Layout = layout;
+            }
+            catch (Exception ex)
+            {
+                DarkMessageBox.ShowError($"Error: {ex.Message}", CrashUI.Properties.Resources.ZoneEntryController_AcChangeCollisionType);
+                return;
+            }
+        }
     }
 }
+
+
+

@@ -69,7 +69,7 @@
             // darkTitle1
             // 
             darkTitle1.AutoSize = true;
-            darkTitle1.Location = new Point(467, 165);
+            darkTitle1.Location = new Point(439, 193);
             darkTitle1.Name = "darkTitle1";
             darkTitle1.Size = new Size(115, 25);
             darkTitle1.TabIndex = 7;

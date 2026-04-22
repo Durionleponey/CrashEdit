@@ -7,6 +7,7 @@ namespace CrashEdit.CE.Forms
     {
         public EnvironmentEditor()
         {
+            Icon = Embeds.GetIcon("Wrench");
             InitializeComponent();
         }
 

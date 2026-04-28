@@ -35,6 +35,7 @@
             darkTitle2 = new AltUI.Controls.DarkTitle();
             darkTitle3 = new AltUI.Controls.DarkTitle();
             darkButton1 = new AltUI.Controls.DarkButton();
+            darkButton2 = new AltUI.Controls.DarkButton();
             ((System.ComponentModel.ISupportInitialize)trackBar1).BeginInit();
             SuspendLayout();
             // 
@@ -47,6 +48,7 @@
             darkCheckBox1.Size = new Size(103, 29);
             darkCheckBox1.TabIndex = 1;
             darkCheckBox1.Text = "Use Fog";
+            darkCheckBox1.CheckedChanged += darkCheckBox1_CheckedChanged;
             // 
             // darkCheckBox2
             // 
@@ -65,6 +67,7 @@
             trackBar1.Name = "trackBar1";
             trackBar1.Size = new Size(370, 69);
             trackBar1.TabIndex = 6;
+            trackBar1.Scroll += trackBar1_Scroll;
             // 
             // darkTitle1
             // 
@@ -101,18 +104,34 @@
             darkButton1.CustomColour = false;
             darkButton1.FlatBottom = false;
             darkButton1.FlatTop = false;
-            darkButton1.Location = new Point(633, 319);
+            darkButton1.Location = new Point(518, 323);
             darkButton1.Name = "darkButton1";
             darkButton1.Padding = new Padding(5);
             darkButton1.Size = new Size(112, 34);
             darkButton1.TabIndex = 10;
             darkButton1.Text = "Ok";
+            darkButton1.Click += darkButton1_Click;
+            // 
+            // darkButton2
+            // 
+            darkButton2.BorderColour = Color.Empty;
+            darkButton2.CustomColour = false;
+            darkButton2.FlatBottom = false;
+            darkButton2.FlatTop = false;
+            darkButton2.Location = new Point(662, 323);
+            darkButton2.Name = "darkButton2";
+            darkButton2.Padding = new Padding(5);
+            darkButton2.Size = new Size(112, 34);
+            darkButton2.TabIndex = 11;
+            darkButton2.Text = "Cancel";
+            darkButton2.Click += darkButton2_Click;
             // 
             // EnvironmentEditor
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 400);
+            Controls.Add(darkButton2);
             Controls.Add(darkButton1);
             Controls.Add(darkTitle3);
             Controls.Add(darkTitle2);
@@ -121,6 +140,9 @@
             Controls.Add(darkCheckBox2);
             Controls.Add(darkCheckBox1);
             CornerStyle = CornerPreference.Default;
+            FormBorderStyle = FormBorderStyle.FixedDialog;
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "EnvironmentEditor";
             Text = "EnvironmentEditor";
             ((System.ComponentModel.ISupportInitialize)trackBar1).EndInit();
@@ -138,5 +160,6 @@
         private AltUI.Controls.DarkTitle darkTitle2;
         private AltUI.Controls.DarkTitle darkTitle3;
         private AltUI.Controls.DarkButton darkButton1;
+        private AltUI.Controls.DarkButton darkButton2;
     }
 }

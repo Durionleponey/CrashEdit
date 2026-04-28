@@ -60,6 +60,8 @@ namespace CrashEdit.CE
             {
                 byte[] searchPattern = null!;
                 byte[] replacementPattern = null!;
+                Console.WriteLine($"searchPattern init ---> {searchPattern}");
+                Console.WriteLine($"replacementPattern init ---> {replacementPattern}");
                 using (InputWindow inputWindows = new InputWindow(CrashUI.Properties.Resources.ZoneEntryController_AcChangeCollisionType, "Wrench",
                     "Enter collision type to replace (as a literal):", string.Empty, 4,
                     "Enter new collision type (as a literal):", string.Empty, 4))
@@ -72,16 +74,32 @@ namespace CrashEdit.CE
                         {
                             throw new ArgumentException("The input must be specified as a 4-digit hexadecimal number.");
                         }
+                        Console.WriteLine("conversion lol");
 
                         searchPattern = BitConverter.GetBytes(Convert.ToUInt16(input, 16));
                         replacementPattern = BitConverter.GetBytes(Convert.ToUInt16(input2, 16));
+
+                        Console.WriteLine($"searchPattern converted ---> {BitConverter.ToString(searchPattern)}");
+                        Console.WriteLine($"searchPattern.length---> {searchPattern.Length}");
+
+                        Console.WriteLine($"replacementPattern converted ---> {BitConverter.ToString(replacementPattern)}");
                     }
                     else return;
                 }
 
                 byte[] layout = ZoneEntry.Layout;
+
+                Console.WriteLine($"zone ENtry.layout ---> {BitConverter.ToString(ZoneEntry.Layout)}");
+                Console.WriteLine("j");
+                Console.WriteLine("j");
+                Console.WriteLine("j");
+                Console.WriteLine("j");
+                Console.WriteLine($"zone ENtry ---> {ZoneEntry}");
                 for (int i = 0x24; i <= layout.Length - searchPattern.Length; i += 2)
                 {
+                    //Console.WriteLine($"i-->{i}");
+                    //Console.WriteLine($"layout[i] --> {layout[i]:X2}");
+
                     bool isMatch = true;
 
                     for (int j = 0; j < searchPattern.Length; j++)
@@ -111,7 +129,7 @@ namespace CrashEdit.CE
         }
 
 
-        void Menu_ChangeEnvironmentType()
+        void Menu_ChangeEnvironmentType()//robin
         {
             try
             {
@@ -121,6 +139,11 @@ namespace CrashEdit.CE
                 {
                     if (inputWindows.ShowDialog() == DialogResult.OK)
                     {
+                        Console.WriteLine("hello");
+                        Console.WriteLine(inputWindows.UseFog);
+                        Console.WriteLine(inputWindows.UseRain);
+                        Console.WriteLine(inputWindows.FogValue);
+                        return;
                         //string input = inputwindows.input;
                         //string input2 = inputwindows.input2;
                         //if (input.length != 4 || input2.length != 4)
@@ -151,7 +174,7 @@ namespace CrashEdit.CE
                     {
                         for (int j = 0; j < replacementPattern.Length; j++)
                         {
-                            layout[i + j] = replacementPattern[j];
+                            //layout[i + j] = replacementPattern[j];
                         }
                     }
                 }

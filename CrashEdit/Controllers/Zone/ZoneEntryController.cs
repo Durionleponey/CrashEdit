@@ -2,6 +2,7 @@ using AltUI.Forms;
 using CrashEdit.CE;
 using CrashEdit.CE.Forms;
 using CrashEdit.Crash;
+using System.Web;
 
 namespace CrashEdit.CE
 {
@@ -135,7 +136,8 @@ namespace CrashEdit.CE
             {
                 byte[] searchPattern = null!;
                 byte[] replacementPattern = null!;
-                using (EnvironmentEditor inputWindows = new EnvironmentEditor())
+                var camera2entity = ZoneEntry.Entities[1];
+                using (EnvironmentEditor inputWindows = new EnvironmentEditor(camera2entity.Flags))
                 {
                     if (inputWindows.ShowDialog() == DialogResult.OK)
                     {
@@ -143,6 +145,15 @@ namespace CrashEdit.CE
                         Console.WriteLine(inputWindows.UseFog);
                         Console.WriteLine(inputWindows.UseRain);
                         Console.WriteLine(inputWindows.FogValue);
+
+                        foreach (var entity in ZoneEntry.Entities)
+                        {
+                       
+                            Console.WriteLine($"fzfzefze{entity.Name}");
+                        }
+
+
+
                         return;
                         //string input = inputwindows.input;
                         //string input2 = inputwindows.input2;

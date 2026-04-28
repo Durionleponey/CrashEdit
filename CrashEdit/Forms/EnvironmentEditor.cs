@@ -1,5 +1,6 @@
 ﻿using AltUI.Controls;
 using AltUI.Forms;
+using CrashEdit.Crash;
 using System.Security.RightsManagement;
 
 namespace CrashEdit.CE.Forms
@@ -10,11 +11,13 @@ namespace CrashEdit.CE.Forms
         public bool UseFog => darkCheckBox1.Checked;
         public bool UseRain => darkCheckBox2.Checked;
         public int FogValue => trackBar1.Value;
-        public EnvironmentEditor()
+        public EnvironmentEditor(EntityUInt32Property flags)
         {
             Icon = Embeds.GetIcon("Wrench");
             InitializeComponent();
+
             trackBar1.Enabled = false;
+            darkCheckBox1.Checked = (flags != null);
 
         }
 

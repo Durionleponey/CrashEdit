@@ -144,6 +144,7 @@ namespace CrashEdit.Crash
             List<bool> chunkcompression = new List<bool>();
             while (offset < data.Length)
             {
+                Console.WriteLine(data.Length);
                 byte[] chunkdata = ReadChunk(data, ref offset, out bool compressed);
                 UnprocessedChunk chunk = Chunk.Load(chunkdata);
                 if (firstid == null)

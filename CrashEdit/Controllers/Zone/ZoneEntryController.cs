@@ -2,6 +2,7 @@ using AltUI.Forms;
 using CrashEdit.CE;
 using CrashEdit.CE.Forms;
 using CrashEdit.Crash;
+using OpenTK.Graphics.OpenGL;
 using System.Web;
 
 namespace CrashEdit.CE
@@ -75,7 +76,6 @@ namespace CrashEdit.CE
                         {
                             throw new ArgumentException("The input must be specified as a 4-digit hexadecimal number.");
                         }
-                        Console.WriteLine("conversion lol");
 
                         searchPattern = BitConverter.GetBytes(Convert.ToUInt16(input, 16));
                         replacementPattern = BitConverter.GetBytes(Convert.ToUInt16(input2, 16));
@@ -91,10 +91,7 @@ namespace CrashEdit.CE
                 byte[] layout = ZoneEntry.Layout;
 
                 Console.WriteLine($"zone ENtry.layout ---> {BitConverter.ToString(ZoneEntry.Layout)}");
-                Console.WriteLine("j");
-                Console.WriteLine("j");
-                Console.WriteLine("j");
-                Console.WriteLine("j");
+
                 Console.WriteLine($"zone ENtry ---> {ZoneEntry}");
                 for (int i = 0x24; i <= layout.Length - searchPattern.Length; i += 2)
                 {
@@ -130,72 +127,49 @@ namespace CrashEdit.CE
         }
 
 
-        void Menu_ChangeEnvironmentType()//robin
+
+        void Menu_ChangeEnvironmentType()
         {
             try
             {
-                byte[] searchPattern = null!;
-                byte[] replacementPattern = null!;
+                Console.WriteLine($"camera count---->{ZoneEntry.Zoneheader.CameraCount}");
+                Console.WriteLine($"lol---->{ZoneEntry.Entities[1]}");
+
                 var camera2entity = ZoneEntry.Entities[1];
                 using (EnvironmentEditor inputWindows = new EnvironmentEditor(camera2entity.Flags))
                 {
-                    if (inputWindows.ShowDialog() == DialogResult.OK)
-                    {
-                        Console.WriteLine("hello");
-                        Console.WriteLine(inputWindows.UseFog);
-                        Console.WriteLine(inputWindows.UseRain);
-                        Console.WriteLine(inputWindows.FogValue);
+                    if (inputWindows.ShowDialog() != DialogResult.OK) return;
 
-                        foreach (var entity in ZoneEntry.Entities)
-                        {
-                       
-                            Console.WriteLine($"fzfzefze{entity.Name}");
-                        }
+                    Console.WriteLine($"UseFog={inputWindows.UseFog}, UseRain={inputWindows.UseRain}, FogValue={inputWindows.FogValue}");
+
+                    const short FogDistanceID = 0x1DE;
+
+                    var fogProp = new EntityUInt32Property();
 
 
+                    fogProp.Rows[0].MetaValue = 0;
+                    fogProp.Rows[0].Values.Add(0);
+                    fogProp.Rows[1].Values.Add(1);
+                    fogProp.Rows[2].Values.Add(32);
+                    fogProp.Rows[1].MetaValue = 0;
+                    fogProp.Rows[2].MetaValue = 0;
 
-                        return;
-                        //string input = inputwindows.input;
-                        //string input2 = inputwindows.input2;
-                        //if (input.length != 4 || input2.length != 4)
-                        //{
-                        //    throw new argumentexception("the input must be specified as a 4-digit hexadecimal number.");
-                        //}
+                    camera2entity.FogDistance = fogProp;
 
-                        //searchpattern = bitconverter.getbytes(convert.touint16(input, 16));
-                        //replacementpattern = bitconverter.getbytes(convert.touint16(input2, 16));
-                    }
-                    else return;
+                    if (camera2entity.KnownProperties.ContainsKey(FogDistanceID))
+                        camera2entity.KnownProperties[FogDistanceID] = fogProp;
+                    else
+                        camera2entity.KnownProperties.Add(FogDistanceID, fogProp);
+
+
+
+
+
                 }
-
-                byte[] layout = ZoneEntry.Layout;
-                for (int i = 0x24; i <= layout.Length - searchPattern.Length; i += 2)
-                {
-                    bool isMatch = true;
-
-                    for (int j = 0; j < searchPattern.Length; j++)
-                    {
-                        if (layout[i + j] != searchPattern[j])
-                        {
-                            isMatch = false;
-                            break;
-                        }
-                    }
-                    if (isMatch)
-                    {
-                        for (int j = 0; j < replacementPattern.Length; j++)
-                        {
-                            //layout[i + j] = replacementPattern[j];
-                        }
-                    }
-                }
-
-                ZoneEntry.Layout = layout;
             }
             catch (Exception ex)
             {
                 DarkMessageBox.ShowError($"Error: {ex.Message}", CrashUI.Properties.Resources.ZoneEntryController_AcChangeCollisionType);
-                return;
             }
         }
     }

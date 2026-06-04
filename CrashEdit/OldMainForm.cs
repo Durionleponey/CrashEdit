@@ -22,7 +22,7 @@ namespace CrashEdit.CE
         private ToolStripButton tbbRebuild = new();
         private ToolStripButton tbbPlay = new();
         private ToolStripButton tbbBIN = new();
-        private ToolStripButton tbbPAL = new();
+        private ToolStripButton tbbPAL = new(); 
         private ToolStripLabel tlbDefaultVersion = new();
         private ToolStripComboBox tbxDefaultVersion = new();
         private ToolStripMenuItem tbxMakeBIN = new();
@@ -480,6 +480,8 @@ namespace CrashEdit.CE
 
         public void OpenNSF()
         {
+
+            Console.WriteLine("hello debug!");
             using (OpenFileDialog dialog = new OpenFileDialog())
             {
                 dialog.Filter = FileFilters.NSF + "|" + FileFilters.Any;

@@ -22,7 +22,9 @@ namespace CrashEdit.Crash
         {
             if (loaders.ContainsKey(Type))
             {
+                Console.WriteLine($"type--->{Type}");
                 return loaders[Type].Load(Data);
+                
             }
             else
             {

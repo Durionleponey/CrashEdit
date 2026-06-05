@@ -138,16 +138,15 @@ namespace CrashEdit.CE
                 //    Console.WriteLine($"[{i}] ID={entity.ID}");
                 //}
 
-                Entity camera2 = ZoneEntry.Entities[1];
 
-                foreach (var key in camera2.KnownProperties)
-                {
-                    Console.WriteLine($"------>>>>{key}");
-                    
-                }
-                Console.WriteLine($"------>>>>{camera2.PropertyFields[478].Name}");//fogdistance
-                Console.WriteLine($"------>>>>{camera2.PropertyFields[478].Attributes}");//Private ??
-                Console.WriteLine($"------>>>>{camera2.PropertyFields[478].FieldType}");//------>>>>CrashEdit.Crash.EntityUInt32Property
+                //foreach (var key in camera2.KnownProperties)
+                //{
+                //    Console.WriteLine($"------>>>>{key}");
+
+                //}
+                //Console.WriteLine($"------>>>>{camera2.PropertyFields[478].Name}");//fogdistance
+                //Console.WriteLine($"------>>>>{camera2.PropertyFields[478].Attributes}");//Private ??
+                //Console.WriteLine($"------>>>>{camera2.PropertyFields[478].FieldType}");//------>>>>CrashEdit.Crash.EntityUInt32Property
 
                 //var pomme = (EntityUInt32Property)camera2.KnownProperties[478];
                 //foreach (var row in pomme.Rows)
@@ -165,55 +164,65 @@ namespace CrashEdit.CE
 
                 //EntityUInt32Property = pommeDeTerre.KnownProperties[];
 
-                short FogDistanceID = 0x1DE;
-
-                var fogProp = new EntityUInt32Property();
-                fogProp.Rows.Add(new EntityPropertyRow<uint>());
-                fogProp.Rows[0].MetaValue = 0;
-                fogProp.Rows[0].Values.Add(0);
-                fogProp.Rows[0].Values.Add(1);
-                fogProp.Rows[0].Values.Add(0x00001F40);
-
-                camera2.FogDistance = fogProp;
-                camera2.KnownProperties[FogDistanceID] = fogProp;
-
-
-
-                short flagsID = 0x185;
-
-                var flagsProp = new EntityUInt32Property();
-
-                flagsProp.Rows.Add(new EntityPropertyRow<uint>());
-
-
-                flagsProp.Rows[0].MetaValue = 0;
-                flagsProp.Rows[0].Values.Add(0x00200090);
+                Entity camera2 = ZoneEntry.Entities[1];
 
 
 
 
-                camera2.Flags = flagsProp;
-                camera2.KnownProperties[flagsID] = flagsProp;
-
-
-
-
-
-
-                Console.WriteLine($"lolfjfoizj");
-
-
-               
 
                 using (EnvironmentEditor inputWindows = new EnvironmentEditor(camera2.Flags))
                 {
-                    if (inputWindows.ShowDialog() != DialogResult.OK) {
+                    if (inputWindows.ShowDialog() == DialogResult.OK) 
+                    {
+
+
+                        short FogDistanceID = 0x1DE;
+
+                        var fogProp = new EntityUInt32Property();
+                        fogProp.Rows.Add(new EntityPropertyRow<uint>());
+                        fogProp.Rows[0].MetaValue = 0;
+                        fogProp.Rows[0].Values.Add(0);
+                        fogProp.Rows[0].Values.Add(1);
+                        fogProp.Rows[0].Values.Add(0x00000F40);
+
+                        camera2.FogDistance = fogProp;
+                        camera2.KnownProperties[FogDistanceID] = fogProp;
+
+
+
+                        short flagsID = 0x185;
+                        var flagsProp = new EntityUInt32Property();
+
+                        flagsProp.Rows.Add(new EntityPropertyRow<uint>());
+                        flagsProp.Rows[0].MetaValue = 0;
+                        flagsProp.Rows[0].Values.Add(0x00200090);
+
+                        camera2.Flags = flagsProp;
+                        camera2.KnownProperties[flagsID] = flagsProp;
+
+
+
+                        short bgColorID = 0x1FA;
+
+                        var bgColorProp = new EntityUInt32Property();
+
+                        bgColorProp.Rows.Add(new EntityPropertyRow<uint>());
+                        bgColorProp.Rows[0].MetaValue = 0;
+                        bgColorProp.Rows[0].Values.Add(0x00000001);
+                        bgColorProp.Rows[0].Values.Add(0);
+                        bgColorProp.Rows[0].Values.Add(0);
+
+                        camera2.Backgrounds = bgColorProp;
+                        camera2.KnownProperties[bgColorID] = bgColorProp;
+
+
+
+                        Console.WriteLine($"UseFog={inputWindows.UseFog}, UseRain={inputWindows.UseRain}, FogValue={inputWindows.FogValue}");
+
 
 
                     }
-                    ;
 
-                    //Console.WriteLine($"UseFog={inputWindows.UseFog}, UseRain={inputWindows.UseRain}, FogValue={inputWindows.FogValue}");
 
 
                 }

@@ -132,40 +132,93 @@ namespace CrashEdit.CE
         {
             try
             {
-                Console.WriteLine($"camera count---->{ZoneEntry.Zoneheader.CameraCount}");
-                Console.WriteLine($"lol---->{ZoneEntry.Entities[1]}");
+                //for (int i = 0; i < ZoneEntry.Entities.Count; i++)
+                //{
+                //    Entity entity = ZoneEntry.Entities[i];
+                //    Console.WriteLine($"[{i}] ID={entity.ID}");
+                //}
 
-                var camera2entity = ZoneEntry.Entities[1];
-                using (EnvironmentEditor inputWindows = new EnvironmentEditor(camera2entity.Flags))
+                Entity camera2 = ZoneEntry.Entities[1];
+
+                foreach (var key in camera2.KnownProperties)
                 {
-                    if (inputWindows.ShowDialog() != DialogResult.OK) return;
+                    Console.WriteLine($"------>>>>{key}");
+                    
+                }
+                Console.WriteLine($"------>>>>{camera2.PropertyFields[478].Name}");//fogdistance
+                Console.WriteLine($"------>>>>{camera2.PropertyFields[478].Attributes}");//Private ??
+                Console.WriteLine($"------>>>>{camera2.PropertyFields[478].FieldType}");//------>>>>CrashEdit.Crash.EntityUInt32Property
 
-                    Console.WriteLine($"UseFog={inputWindows.UseFog}, UseRain={inputWindows.UseRain}, FogValue={inputWindows.FogValue}");
+                //var pomme = (EntityUInt32Property)camera2.KnownProperties[478];
+                //foreach (var row in pomme.Rows)
+                //{
+                //    Console.WriteLine($"--->{row.Values}");
+                //    foreach (var value in row.Values) {
+                //        Console.WriteLine($"-value --->-> {value}");
+                //    }
+                //    }
 
-                    const short FogDistanceID = 0x1DE;
-
-                    var fogProp = new EntityUInt32Property();
-
-
-                    fogProp.Rows[0].MetaValue = 0;
-                    fogProp.Rows[0].Values.Add(0);
-                    fogProp.Rows[1].Values.Add(1);
-                    fogProp.Rows[2].Values.Add(32);
-                    fogProp.Rows[1].MetaValue = 0;
-                    fogProp.Rows[2].MetaValue = 0;
-
-                    camera2entity.FogDistance = fogProp;
-
-                    if (camera2entity.KnownProperties.ContainsKey(FogDistanceID))
-                        camera2entity.KnownProperties[FogDistanceID] = fogProp;
-                    else
-                        camera2entity.KnownProperties.Add(FogDistanceID, fogProp);
+                //Console.WriteLine($"------>>>>{camera2.PropertyFields[478].FieldType}");//------>>>>CrashEdit.Crash.EntityUInt32Property
 
 
 
+
+                //EntityUInt32Property = pommeDeTerre.KnownProperties[];
+
+                short FogDistanceID = 0x1DE;
+
+                var fogProp = new EntityUInt32Property();
+                fogProp.Rows.Add(new EntityPropertyRow<uint>());
+                fogProp.Rows[0].MetaValue = 0;
+                fogProp.Rows[0].Values.Add(0);
+                fogProp.Rows[0].Values.Add(1);
+                fogProp.Rows[0].Values.Add(0x00001F40);
+
+                camera2.FogDistance = fogProp;
+                camera2.KnownProperties[FogDistanceID] = fogProp;
+
+
+
+                short flagsID = 0x185;
+
+                var flagsProp = new EntityUInt32Property();
+
+                flagsProp.Rows.Add(new EntityPropertyRow<uint>());
+
+
+                flagsProp.Rows[0].MetaValue = 0;
+                flagsProp.Rows[0].Values.Add(0x00200090);
+
+
+
+
+                camera2.Flags = flagsProp;
+                camera2.KnownProperties[flagsID] = flagsProp;
+
+
+
+
+
+
+                Console.WriteLine($"lolfjfoizj");
+
+
+               
+
+                using (EnvironmentEditor inputWindows = new EnvironmentEditor(camera2.Flags))
+                {
+                    if (inputWindows.ShowDialog() != DialogResult.OK) {
+
+
+                    }
+                    ;
+
+                    //Console.WriteLine($"UseFog={inputWindows.UseFog}, UseRain={inputWindows.UseRain}, FogValue={inputWindows.FogValue}");
 
 
                 }
+
+                return;
             }
             catch (Exception ex)
             {

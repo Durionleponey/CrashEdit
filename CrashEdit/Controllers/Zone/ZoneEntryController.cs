@@ -185,7 +185,10 @@ namespace CrashEdit.CE
                         fogProp.Rows[0].Values.Add(1);
 
 
-                        fogProp.Rows[0].Values.Add(0x00000F40);
+                        byte result = (byte)inputWindows.FogValue;
+                        uint fogValueEx = (0x00000F40u & ~0x0000FF00u) | ((uint)result << 8);
+                        Console.WriteLine($"0x{fogValueEx:X8}");
+                        fogProp.Rows[0].Values.Add(fogValueEx);
 
                         camera2.FogDistance = fogProp;
                         camera2.KnownProperties[FogDistanceID] = fogProp;
@@ -216,6 +219,10 @@ namespace CrashEdit.CE
 
                         camera2.Backgrounds = bgColorProp;
                         camera2.KnownProperties[bgColorID] = bgColorProp;
+
+
+
+                        Console.WriteLine(result);
 
 
 

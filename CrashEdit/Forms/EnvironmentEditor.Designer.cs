@@ -65,7 +65,7 @@
             // trackBar1
             // 
             trackBar1.Location = new Point(313, 121);
-            trackBar1.Maximum = 20;
+            trackBar1.Maximum = 64;
             trackBar1.Name = "trackBar1";
             trackBar1.Size = new Size(370, 69);
             trackBar1.TabIndex = 6;

@@ -19,47 +19,70 @@ namespace CrashEdit.CE.Forms
             trackBar1.Enabled = false;
             darkCheckBox1.Checked = (flags != null);
 
+            darkTitle4.Text = trackBar1.Value.ToString();
+
+            darkTitle4.Visible = false;
+
+
         }
 
 
-        private void darkCheckBox2_CheckedChanged(object sender, EventArgs e)
+        private void useRain_CheckedChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void darkTitle1_Click(object sender, EventArgs e)
+        private void fogDistanceTXT(object sender, EventArgs e)
         {
 
         }
 
-        private void darkTitle2_Click(object sender, EventArgs e)
+        private void veryCloseFogTXT(object sender, EventArgs e)
         {
 
 
         }
 
-        private void darkButton2_Click(object sender, EventArgs e)
+        private void cancelButtonClick(object sender, EventArgs e)
         {
 
             DialogResult = DialogResult.Cancel;
 
         }
 
-        private void darkButton1_Click(object sender, EventArgs e)
+        private void okButtonClick(object sender, EventArgs e)
         {
             DialogResult = DialogResult.OK;
 
         }
 
-        private void trackBar1_Scroll(object sender, EventArgs e)
+        private void trackBarFogValue_Scroll(object sender, EventArgs e)
         {
 
         }
 
-        private void darkCheckBox1_CheckedChanged(object sender, EventArgs e)
+        private void UseFog_CheckedChanged(object sender, EventArgs e)
         {
             trackBar1.Enabled = darkCheckBox1.Checked;
+            darkTitle4.Visible = darkCheckBox1.Checked;
             Console.WriteLine($"hello ---> {trackBar1.Value}");
+
+        }
+
+        private void fogDistanceValue(object sender, EventArgs e)
+        {
+
+
+        }
+
+        private void trackBar1_ValueChanged(object sender, EventArgs e)
+        {
+            darkTitle4.Text = trackBar1.Value.ToString();
+
+        }
+
+        private void veryFarFogValueTXT(object sender, EventArgs e)
+        {
 
         }
     }

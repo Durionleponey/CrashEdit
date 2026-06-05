@@ -183,6 +183,8 @@ namespace CrashEdit.CE
                         fogProp.Rows[0].MetaValue = 0;
                         fogProp.Rows[0].Values.Add(0);
                         fogProp.Rows[0].Values.Add(1);
+
+
                         fogProp.Rows[0].Values.Add(0x00000F40);
 
                         camera2.FogDistance = fogProp;

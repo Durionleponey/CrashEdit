@@ -1,5 +1,6 @@
 ﻿using AltUI.Controls;
 using AltUI.Forms;
+using CrashEdit.CE.Properties;
 using CrashEdit.Crash;
 using System.Security.RightsManagement;
 
@@ -16,12 +17,17 @@ namespace CrashEdit.CE.Forms
             Icon = Embeds.GetIcon("Wrench");
             InitializeComponent();
 
-            trackBar1.Enabled = false;
-            darkCheckBox1.Checked = (flags != null);
+            darkCheckBox1.Checked = Settings.Default.DefaultFogIsActive;
+
+            darkCheckBox2.Checked = Settings.Default.DefaultRainIsActive;
+
+            //darkCheckBox1.Checked = (flags != null);
+
+            trackBar1.Value = Settings.Default.DefaultFogValue;
 
             darkTitle4.Text = trackBar1.Value.ToString();
 
-            darkTitle4.Visible = false;
+            darkTitle4.Visible = darkCheckBox1.Checked;
 
 
         }
@@ -83,6 +89,21 @@ namespace CrashEdit.CE.Forms
 
         private void veryFarFogValueTXT(object sender, EventArgs e)
         {
+
+        }
+
+        private void saveAsDefaultButtonClick(object sender, EventArgs e)
+        {
+            Settings.Default.DefaultFogValue = (byte)trackBar1.Value;
+            Settings.Default.DefaultFogIsActive = darkCheckBox1.Checked;
+            Settings.Default.DefaultRainIsActive = darkCheckBox2.Checked;
+            Settings.Default.Save();
+
+            DarkMessageBox.ShowInformation("Default values saved.", "Settings");
+
+
+
+
 
         }
     }

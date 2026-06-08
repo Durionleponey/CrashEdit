@@ -580,5 +580,10 @@ namespace CrashEdit.CE
         {
 
         }
+
+        private void ConfigEditor_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

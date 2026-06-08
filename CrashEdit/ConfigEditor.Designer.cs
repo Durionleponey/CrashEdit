@@ -1164,6 +1164,7 @@ namespace CrashEdit.CE
             Name = "ConfigEditor";
             Padding = new Padding(6, 5, 6, 5);
             Size = new Size(1143, 1000);
+            Load += ConfigEditor_Load;
             tableLayoutPanel4.ResumeLayout(false);
             tableLayoutPanel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)numFontSize).EndInit();

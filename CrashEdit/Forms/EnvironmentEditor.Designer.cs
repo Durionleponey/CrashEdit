@@ -37,6 +37,7 @@
             darkButton1 = new AltUI.Controls.DarkButton();
             darkButton2 = new AltUI.Controls.DarkButton();
             darkTitle4 = new AltUI.Controls.DarkTitle();
+            darkButton3 = new AltUI.Controls.DarkButton();
             ((System.ComponentModel.ISupportInitialize)trackBar1).BeginInit();
             SuspendLayout();
             // 
@@ -65,10 +66,12 @@
             // trackBar1
             // 
             trackBar1.Location = new Point(313, 121);
+            trackBar1.Margin = new Padding(5);
             trackBar1.Maximum = 64;
             trackBar1.Name = "trackBar1";
             trackBar1.Size = new Size(370, 69);
             trackBar1.TabIndex = 6;
+            trackBar1.Tag = "";
             trackBar1.Scroll += trackBarFogValue_Scroll;
             trackBar1.ValueChanged += trackBar1_ValueChanged;
             // 
@@ -76,6 +79,7 @@
             // 
             darkTitle1.AutoSize = true;
             darkTitle1.Location = new Point(376, 70);
+            darkTitle1.Margin = new Padding(3, 0, 3, 15);
             darkTitle1.Name = "darkTitle1";
             darkTitle1.Size = new Size(115, 25);
             darkTitle1.TabIndex = 7;
@@ -108,7 +112,7 @@
             darkButton1.CustomColour = false;
             darkButton1.FlatBottom = false;
             darkButton1.FlatTop = false;
-            darkButton1.Location = new Point(518, 323);
+            darkButton1.Location = new Point(532, 323);
             darkButton1.Name = "darkButton1";
             darkButton1.Padding = new Padding(5);
             darkButton1.Size = new Size(112, 34);
@@ -122,7 +126,7 @@
             darkButton2.CustomColour = false;
             darkButton2.FlatBottom = false;
             darkButton2.FlatTop = false;
-            darkButton2.Location = new Point(662, 323);
+            darkButton2.Location = new Point(673, 323);
             darkButton2.Name = "darkButton2";
             darkButton2.Padding = new Padding(5);
             darkButton2.Size = new Size(112, 34);
@@ -134,26 +138,44 @@
             // 
             darkTitle4.AutoSize = true;
             darkTitle4.Location = new Point(497, 70);
+            darkTitle4.Margin = new Padding(3, 0, 3, 15);
             darkTitle4.Name = "darkTitle4";
             darkTitle4.Size = new Size(115, 25);
             darkTitle4.TabIndex = 12;
             darkTitle4.Text = "Fog Distance";
             darkTitle4.Click += fogDistanceValue;
             // 
+            // darkButton3
+            // 
+            darkButton3.BorderColour = Color.Empty;
+            darkButton3.CustomColour = false;
+            darkButton3.FlatBottom = false;
+            darkButton3.FlatTop = false;
+            darkButton3.Location = new Point(41, 323);
+            darkButton3.Name = "darkButton3";
+            darkButton3.Padding = new Padding(5);
+            darkButton3.Size = new Size(163, 34);
+            darkButton3.TabIndex = 13;
+            darkButton3.Text = "Save As Default";
+            darkButton3.Click += saveAsDefaultButtonClick;
+            // 
             // EnvironmentEditor
             // 
+            AcceptButton = darkButton1;
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 400);
+            CancelButton = darkButton2;
+            ClientSize = new Size(822, 400);
+            Controls.Add(darkButton3);
+            Controls.Add(darkTitle1);
             Controls.Add(darkTitle4);
             Controls.Add(darkButton2);
             Controls.Add(darkButton1);
             Controls.Add(darkTitle3);
             Controls.Add(darkTitle2);
-            Controls.Add(darkTitle1);
-            Controls.Add(trackBar1);
             Controls.Add(darkCheckBox2);
             Controls.Add(darkCheckBox1);
+            Controls.Add(trackBar1);
             CornerStyle = CornerPreference.Default;
             FormBorderStyle = FormBorderStyle.FixedDialog;
             MaximizeBox = false;
@@ -177,5 +199,6 @@
         private AltUI.Controls.DarkButton darkButton1;
         private AltUI.Controls.DarkButton darkButton2;
         private AltUI.Controls.DarkTitle darkTitle4;
+        private AltUI.Controls.DarkButton darkButton3;
     }
 }

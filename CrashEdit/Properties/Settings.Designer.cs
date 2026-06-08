@@ -659,5 +659,41 @@ namespace CrashEdit.CE.Properties {
                 this["ShowAnimTex0"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("15")]
+        public byte DefaultFogValue {
+            get {
+                return ((byte)(this["DefaultFogValue"]));
+            }
+            set {
+                this["DefaultFogValue"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool DefaultFogIsActive {
+            get {
+                return ((bool)(this["DefaultFogIsActive"]));
+            }
+            set {
+                this["DefaultFogIsActive"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool DefaultRainIsActive {
+            get {
+                return ((bool)(this["DefaultRainIsActive"]));
+            }
+            set {
+                this["DefaultRainIsActive"] = value;
+            }
+        }
     }
 }

@@ -186,7 +186,7 @@ namespace CrashEdit.CE
 
 
                         byte result = (byte)inputWindows.FogValue;
-                        uint fogValueEx = (0x00000F40u & ~0x0000FF00u) | ((uint)result << 8);
+                        uint fogValueEx = (0x00000040u & ~0x0000FF00u) | ((uint)result << 8);
                         Console.WriteLine($"0x{fogValueEx:X8}");
                         fogProp.Rows[0].Values.Add(fogValueEx);
 

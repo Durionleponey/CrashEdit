@@ -1702,7 +1702,7 @@ namespace CrashEdit.CE
                         }
                     }
                 }
-               
+
             }
         }
 
@@ -1743,7 +1743,7 @@ namespace CrashEdit.CE
             }
             else if (e.Control && e.KeyCode == Keys.R)
             {
-                  ReloadSavedProperties();
+                ReloadSavedProperties();
                 e.Handled = true;
             }
         }
@@ -1789,6 +1789,26 @@ namespace CrashEdit.CE
         {
             ReloadSavedProperties();
             rbtReload.Checked = false;
+        }
+
+        public void RefreshFromEntity()
+        {
+            selectedField = null;
+
+            if (lvPropertyHeader != null) lvPropertyHeader.Items.Clear();
+            if (lbPropertyRaw != null) lbPropertyRaw.Items.Clear();
+            if (dgvPropertyMetaValues != null) dgvPropertyMetaValues.Rows.Clear();
+            if (dgvPropertyValues != null) dgvPropertyValues.Rows.Clear();
+            if (lblUnsupportedProperty != null) lblUnsupportedProperty.Visible = false;
+            if (lbProperties != null) lbProperties.DataSource = null;
+
+            UpdatePropertyIDList();
+        }
+
+        private void metroSetRadioButton1_CheckedChanged(object sender)
+        {
+            RefreshFromEntity();
+
         }
     }
 

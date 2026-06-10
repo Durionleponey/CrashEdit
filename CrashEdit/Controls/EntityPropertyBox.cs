@@ -82,6 +82,9 @@ namespace CrashEdit.CE
             tipSavedProperties.SetToolTip(lbProperties, Resources.EntityPropertyBox_tipProperties);
             tipSavedProperties.SetToolTip(lbSavedProperties, Resources.EntityPropertyBox_tipSavedProperties);
             tipReloadTPage.SetToolTip(rbtReload, "Reload");
+            tipReloadTPage.SetToolTip(rbtReloadProp, "Reload Properties");
+
+
 
             chkPropertyShowAsHex.Checked = propertyShowAsHex;
             CreatePropertyHeaderColumns();
@@ -1810,7 +1813,7 @@ namespace CrashEdit.CE
         {
 
             RefreshFromEntity();
-            metroSetRadioButton1.Checked = false;
+            rbtReloadProp.Checked = false;
 
 
         }

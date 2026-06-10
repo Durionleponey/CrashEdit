@@ -49,7 +49,7 @@ namespace CrashEdit.CE
             lbProperties = new DarkListBox();
             fraPropertyID = new DarkGroupBox();
             fraPropertyField = new DarkGroupBox();
-            metroSetRadioButton1 = new MetroSet_UI.Controls.MetroSetRadioButton();
+            rbtReloadProp = new MetroSet_UI.Controls.MetroSetRadioButton();
             fraSaveProperties = new DarkGroupBox();
             rbtReload = new MetroSet_UI.Controls.MetroSetRadioButton();
             pnControlsSaved = new Panel();
@@ -335,7 +335,7 @@ namespace CrashEdit.CE
             // fraPropertyField
             // 
             fraPropertyField.BackColor = Color.Transparent;
-            fraPropertyField.Controls.Add(metroSetRadioButton1);
+            fraPropertyField.Controls.Add(rbtReloadProp);
             fraPropertyField.Controls.Add(lvPropertyHeader);
             fraPropertyField.Controls.Add(dgvPropertyValues);
             fraPropertyField.Controls.Add(dgvPropertyMetaValues);
@@ -349,27 +349,27 @@ namespace CrashEdit.CE
             fraPropertyField.TabStop = false;
             fraPropertyField.Text = "Properties";
             // 
-            // metroSetRadioButton1
+            // rbtReloadProp
             // 
-            metroSetRadioButton1.BackgroundColor = Color.FromArgb(30, 30, 30);
-            metroSetRadioButton1.BorderColor = Color.FromArgb(155, 155, 155);
-            metroSetRadioButton1.Checked = true;
-            metroSetRadioButton1.CheckSignColor = Color.FromArgb(65, 177, 225);
-            metroSetRadioButton1.CheckState = MetroSet_UI.Enums.CheckState.Checked;
-            metroSetRadioButton1.DisabledBorderColor = Color.FromArgb(85, 85, 85);
-            metroSetRadioButton1.Font = new Font("Microsoft Sans Serif", 10F);
-            metroSetRadioButton1.Group = 0;
-            metroSetRadioButton1.IsDerivedStyle = true;
-            metroSetRadioButton1.Location = new Point(456, 690);
-            metroSetRadioButton1.Margin = new Padding(4, 5, 4, 5);
-            metroSetRadioButton1.Name = "metroSetRadioButton1";
-            metroSetRadioButton1.Size = new Size(27, 17);
-            metroSetRadioButton1.Style = MetroSet_UI.Enums.Style.Dark;
-            metroSetRadioButton1.StyleManager = null;
-            metroSetRadioButton1.TabIndex = 22;
-            metroSetRadioButton1.ThemeAuthor = "Narwin";
-            metroSetRadioButton1.ThemeName = "MetroDark";
-            metroSetRadioButton1.Click += metroSetRadioButton1_Click;
+            rbtReloadProp.BackgroundColor = Color.FromArgb(30, 30, 30);
+            rbtReloadProp.BorderColor = Color.FromArgb(155, 155, 155);
+            rbtReloadProp.Checked = true;
+            rbtReloadProp.CheckSignColor = Color.FromArgb(65, 177, 225);
+            rbtReloadProp.CheckState = MetroSet_UI.Enums.CheckState.Checked;
+            rbtReloadProp.DisabledBorderColor = Color.FromArgb(85, 85, 85);
+            rbtReloadProp.Font = new Font("Microsoft Sans Serif", 10F);
+            rbtReloadProp.Group = 0;
+            rbtReloadProp.IsDerivedStyle = true;
+            rbtReloadProp.Location = new Point(456, 690);
+            rbtReloadProp.Margin = new Padding(4, 5, 4, 5);
+            rbtReloadProp.Name = "rbtReloadProp";
+            rbtReloadProp.Size = new Size(27, 17);
+            rbtReloadProp.Style = MetroSet_UI.Enums.Style.Dark;
+            rbtReloadProp.StyleManager = null;
+            rbtReloadProp.TabIndex = 22;
+            rbtReloadProp.ThemeAuthor = "Narwin";
+            rbtReloadProp.ThemeName = "MetroDark";
+            rbtReloadProp.Click += metroSetRadioButton1_Click;
             // 
             // fraSaveProperties
             // 
@@ -562,6 +562,6 @@ namespace CrashEdit.CE
         private DarkButton cmdRemoveSavedList;
         private Panel pnControlsSaved;
         private MetroSet_UI.Controls.MetroSetRadioButton rbtReload;
-        private MetroSet_UI.Controls.MetroSetRadioButton metroSetRadioButton1;
+        private MetroSet_UI.Controls.MetroSetRadioButton rbtReloadProp;
     }
 }

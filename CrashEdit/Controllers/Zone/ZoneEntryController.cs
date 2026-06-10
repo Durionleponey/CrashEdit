@@ -164,16 +164,20 @@ namespace CrashEdit.CE
 
                 //EntityUInt32Property = pommeDeTerre.KnownProperties[];
 
+
+
+
                 Entity camera2 = ZoneEntry.Entities[1];
-
-
-
 
 
                 using (EnvironmentEditor inputWindows = new EnvironmentEditor(camera2.Flags))
                 {
 
+                    
+
                     short FogDistanceID = 0x1DE;
+                    short particules1ID = 0x1B5;
+                    short particules2ID = 0x1B6;
 
                     if (inputWindows.ShowDialog() == DialogResult.OK)
                     {
@@ -258,10 +262,79 @@ namespace CrashEdit.CE
 
                         }
 
-                        if (inputWindows.UseRain) {flagPropFog = flagPropFog | 0x00000010;}
+                        if (inputWindows.UseRain)
+                        {
+                            flagPropFog = flagPropFog | 0x00000010;
 
 
-                        short flagsID = 0x185;
+
+                            var particules1Prop = new EntityVictimProperty();
+
+                            particules1Prop.Rows.Add(new EntityPropertyRow<EntityVictim>());
+                            particules1Prop.Rows[0].MetaValue = 2;
+
+                            particules1Prop.Rows[0].Values.Add(new EntityVictim(0x20));
+                            particules1Prop.Rows[0].Values.Add(new EntityVictim(0x100));
+                            particules1Prop.Rows[0].Values.Add(new EntityVictim(0x0));
+                            particules1Prop.Rows[0].Values.Add(new EntityVictim(0x1));
+                            particules1Prop.Rows[0].Values.Add(new EntityVictim(0x0));
+                            particules1Prop.Rows[0].Values.Add(new EntityVictim(0x770));
+
+
+                            particules1Prop.Rows.Add(new EntityPropertyRow<EntityVictim>());
+                            particules1Prop.Rows[1].MetaValue = 30;
+
+                            particules1Prop.Rows[1].Values.Add(new EntityVictim(0x20));
+                            particules1Prop.Rows[1].Values.Add(new EntityVictim(0x100));
+                            particules1Prop.Rows[1].Values.Add(new EntityVictim(0x0));
+                            particules1Prop.Rows[1].Values.Add(new EntityVictim(0x11A));
+                            particules1Prop.Rows[1].Values.Add(new EntityVictim(0x0));
+                            particules1Prop.Rows[1].Values.Add(new EntityVictim(0x770));
+
+
+
+                            camera2.Particles1 = particules1Prop;
+                            camera2.KnownProperties[particules1ID] = particules1Prop;
+
+
+
+
+
+                            var particules2Prop = new EntityUInt32Property();
+
+                            particules2Prop.Rows.Add(new EntityPropertyRow<uint>());
+                            particules2Prop.Rows[0].MetaValue = 2;
+                            particules2Prop.Rows[0].Values.Add(0x00404040);
+                            particules2Prop.Rows[0].Values.Add(0x00C0C0C0);
+                            particules2Prop.Rows[0].Values.Add(0xE1000A60);
+
+                            camera2.Particles2 = particules2Prop;
+                            camera2.KnownProperties[particules2ID] = particules2Prop;
+
+
+
+                        }
+                        else {
+
+
+
+
+                            camera2.Particles1 = null;
+
+                            camera2.KnownProperties.Remove(particules1ID);
+
+                            camera2.Particles2 = null;
+
+                            camera2.KnownProperties.Remove(particules2ID);
+
+
+
+
+
+                        }
+
+
+                            short flagsID = 0x185;
                         var flagsProp = new EntityUInt32Property();
 
                         flagsProp.Rows.Add(new EntityPropertyRow<uint>());

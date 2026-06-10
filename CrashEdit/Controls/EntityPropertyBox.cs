@@ -1808,7 +1808,6 @@ namespace CrashEdit.CE
             UpdatePropertyIDList();
         }
 
-
         private void metroSetRadioButton1_Click(object sender, EventArgs e)
         {
 

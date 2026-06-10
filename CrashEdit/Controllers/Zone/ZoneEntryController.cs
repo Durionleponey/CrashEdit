@@ -178,9 +178,12 @@ namespace CrashEdit.CE
                     if (inputWindows.ShowDialog() == DialogResult.OK)
                     {
 
+                        uint flagPropFog = 0x00000000;
+
 
                         if (inputWindows.UseFog)
                         {
+                            flagPropFog = 0x00200000;
 
 
                             var fogProp = new EntityUInt32Property();
@@ -200,15 +203,15 @@ namespace CrashEdit.CE
 
 
 
-                            short flagsID = 0x185;
-                            var flagsProp = new EntityUInt32Property();
+                            //short flagsID = 0x185;
+                            //var flagsProp = new EntityUInt32Property();
 
-                            flagsProp.Rows.Add(new EntityPropertyRow<uint>());
-                            flagsProp.Rows[0].MetaValue = 0;
-                            flagsProp.Rows[0].Values.Add(0x00200090);
+                            //flagsProp.Rows.Add(new EntityPropertyRow<uint>());
+                            //flagsProp.Rows[0].MetaValue = 0;
+                            //flagsProp.Rows[0].Values.Add(0x00200090);
 
-                            camera2.Flags = flagsProp;
-                            camera2.KnownProperties[flagsID] = flagsProp;
+                            //camera2.Flags = flagsProp;
+                            //camera2.KnownProperties[flagsID] = flagsProp;
 
 
 
@@ -227,11 +230,11 @@ namespace CrashEdit.CE
 
 
 
-                            Console.WriteLine(result);
+                            //Console.WriteLine(result);
 
 
 
-                            Console.WriteLine($"UseFog={inputWindows.UseFog}, UseRain={inputWindows.UseRain}, FogValue={inputWindows.FogValue}");
+                            //Console.WriteLine($"UseFog={inputWindows.UseFog}, UseRain={inputWindows.UseRain}, FogValue={inputWindows.FogValue}");
 
                         }
                         else
@@ -242,18 +245,31 @@ namespace CrashEdit.CE
                             camera2.KnownProperties.Remove(FogDistanceID);
 
 
-                            short flagsID = 0x185;
-                            var flagsProp = new EntityUInt32Property();
+                            //short flagsID = 0x185;
+                            //var flagsProp = new EntityUInt32Property();
 
-                            flagsProp.Rows.Add(new EntityPropertyRow<uint>());
-                            flagsProp.Rows[0].MetaValue = 0;
-                            flagsProp.Rows[0].Values.Add(0x00000010);
+                            //flagsProp.Rows.Add(new EntityPropertyRow<uint>());
+                            //flagsProp.Rows[0].MetaValue = 0;
+                            //flagsProp.Rows[0].Values.Add(0x00000010);
 
-                            camera2.Flags = flagsProp;
-                            camera2.KnownProperties[flagsID] = flagsProp;
+                            //camera2.Flags = flagsProp;
+                            //camera2.KnownProperties[flagsID] = flagsProp;
 
 
                         }
+
+                        if (inputWindows.UseRain) {flagPropFog = flagPropFog | 0x00000010;}
+
+
+                        short flagsID = 0x185;
+                        var flagsProp = new EntityUInt32Property();
+
+                        flagsProp.Rows.Add(new EntityPropertyRow<uint>());
+                        flagsProp.Rows[0].MetaValue = 0;
+                        flagsProp.Rows[0].Values.Add(flagPropFog);
+
+                        camera2.Flags = flagsProp;
+                        camera2.KnownProperties[flagsID] = flagsProp;
 
 
 

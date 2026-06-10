@@ -1805,9 +1805,13 @@ namespace CrashEdit.CE
             UpdatePropertyIDList();
         }
 
-        private void metroSetRadioButton1_CheckedChanged(object sender)
+
+        private void metroSetRadioButton1_Click(object sender, EventArgs e)
         {
+
             RefreshFromEntity();
+            metroSetRadioButton1.Checked = false;
+
 
         }
     }

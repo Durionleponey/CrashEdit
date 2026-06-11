@@ -10,7 +10,7 @@ namespace CrashEdit.CE.Forms
     {
 
         public bool UseFog => darkCheckBox1.Checked;
-        public bool UseRain => darkCheckBox2.Checked;
+        //public bool UseRain => darkCheckBox2.Checked;
         public int FogValue => trackBar1.Value;
         public EnvironmentEditor(EntityUInt32Property flags)
         {
@@ -19,7 +19,7 @@ namespace CrashEdit.CE.Forms
 
             darkCheckBox1.Checked = Settings.Default.DefaultFogIsActive;
 
-            darkCheckBox2.Checked = Settings.Default.DefaultRainIsActive;
+            //darkCheckBox2.Checked = Settings.Default.DefaultRainIsActive;
 
             //darkCheckBox1.Checked = (flags != null);
 
@@ -96,7 +96,7 @@ namespace CrashEdit.CE.Forms
         {
             Settings.Default.DefaultFogValue = (byte)trackBar1.Value;
             Settings.Default.DefaultFogIsActive = darkCheckBox1.Checked;
-            Settings.Default.DefaultRainIsActive = darkCheckBox2.Checked;
+            //Settings.Default.DefaultRainIsActive = darkCheckBox2.Checked;
             Settings.Default.Save();
 
             DarkMessageBox.ShowInformation("Default values saved.", "Settings");

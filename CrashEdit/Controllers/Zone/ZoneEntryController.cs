@@ -262,7 +262,7 @@ namespace CrashEdit.CE
 
                         }
 
-                        if (inputWindows.UseRain)
+                        if (true)
                         {
                             flagPropFog = flagPropFog | 0x00000010;
 

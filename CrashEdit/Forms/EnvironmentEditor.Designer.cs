@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             darkCheckBox1 = new AltUI.Controls.DarkCheckBox();
-            darkCheckBox2 = new AltUI.Controls.DarkCheckBox();
             trackBar1 = new TrackBar();
             darkTitle1 = new AltUI.Controls.DarkTitle();
             darkTitle2 = new AltUI.Controls.DarkTitle();
@@ -38,6 +37,8 @@
             darkButton2 = new AltUI.Controls.DarkButton();
             darkTitle4 = new AltUI.Controls.DarkTitle();
             darkButton3 = new AltUI.Controls.DarkButton();
+            darkComboBox1 = new AltUI.Controls.DarkComboBox();
+            darkTitle5 = new AltUI.Controls.DarkTitle();
             ((System.ComponentModel.ISupportInitialize)trackBar1).BeginInit();
             SuspendLayout();
             // 
@@ -51,17 +52,6 @@
             darkCheckBox1.TabIndex = 1;
             darkCheckBox1.Text = "Use Fog";
             darkCheckBox1.CheckedChanged += UseFog_CheckedChanged;
-            // 
-            // darkCheckBox2
-            // 
-            darkCheckBox2.AutoSize = true;
-            darkCheckBox2.Location = new Point(61, 209);
-            darkCheckBox2.Name = "darkCheckBox2";
-            darkCheckBox2.Offset = 1;
-            darkCheckBox2.Size = new Size(106, 29);
-            darkCheckBox2.TabIndex = 2;
-            darkCheckBox2.Text = "Use Rain";
-            darkCheckBox2.CheckedChanged += useRain_CheckedChanged;
             // 
             // trackBar1
             // 
@@ -159,6 +149,26 @@
             darkButton3.Text = "Save As Default";
             darkButton3.Click += saveAsDefaultButtonClick;
             // 
+            // darkComboBox1
+            // 
+            darkComboBox1.DrawMode = DrawMode.OwnerDrawVariable;
+            darkComboBox1.FormattingEnabled = true;
+            darkComboBox1.Items.AddRange(new object[] { "None", "Rain", "Snow" });
+            darkComboBox1.Location = new Point(222, 223);
+            darkComboBox1.Name = "darkComboBox1";
+            darkComboBox1.Size = new Size(182, 32);
+            darkComboBox1.TabIndex = 14;
+            // 
+            // darkTitle5
+            // 
+            darkTitle5.AutoSize = true;
+            darkTitle5.Location = new Point(64, 226);
+            darkTitle5.Margin = new Padding(3, 0, 3, 15);
+            darkTitle5.Name = "darkTitle5";
+            darkTitle5.Size = new Size(116, 25);
+            darkTitle5.TabIndex = 15;
+            darkTitle5.Text = "Particle effect";
+            // 
             // EnvironmentEditor
             // 
             AcceptButton = darkButton1;
@@ -166,6 +176,8 @@
             AutoScaleMode = AutoScaleMode.Font;
             CancelButton = darkButton2;
             ClientSize = new Size(822, 400);
+            Controls.Add(darkTitle5);
+            Controls.Add(darkComboBox1);
             Controls.Add(darkButton3);
             Controls.Add(darkTitle1);
             Controls.Add(darkTitle4);
@@ -173,7 +185,6 @@
             Controls.Add(darkButton1);
             Controls.Add(darkTitle3);
             Controls.Add(darkTitle2);
-            Controls.Add(darkCheckBox2);
             Controls.Add(darkCheckBox1);
             Controls.Add(trackBar1);
             CornerStyle = CornerPreference.Default;
@@ -191,7 +202,6 @@
 
         private MetroSet_UI.Controls.MetroSetCheckBox metroSetCheckBox1;
         private AltUI.Controls.DarkCheckBox darkCheckBox1;
-        private AltUI.Controls.DarkCheckBox darkCheckBox2;
         private TrackBar trackBar1;
         private AltUI.Controls.DarkTitle darkTitle1;
         private AltUI.Controls.DarkTitle darkTitle2;
@@ -200,5 +210,7 @@
         private AltUI.Controls.DarkButton darkButton2;
         private AltUI.Controls.DarkTitle darkTitle4;
         private AltUI.Controls.DarkButton darkButton3;
+        private AltUI.Controls.DarkComboBox darkComboBox1;
+        private AltUI.Controls.DarkTitle darkTitle5;
     }
 }

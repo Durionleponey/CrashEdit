@@ -686,13 +686,13 @@ namespace CrashEdit.CE.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool DefaultRainIsActive {
+        [global::System.Configuration.DefaultSettingValueAttribute("None")]
+        public string DefaultParticleEffec {
             get {
-                return ((bool)(this["DefaultRainIsActive"]));
+                return ((string)(this["DefaultParticleEffec"]));
             }
             set {
-                this["DefaultRainIsActive"] = value;
+                this["DefaultParticleEffec"] = value;
             }
         }
     }

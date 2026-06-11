@@ -37,7 +37,7 @@
             darkButton2 = new AltUI.Controls.DarkButton();
             darkTitle4 = new AltUI.Controls.DarkTitle();
             darkButton3 = new AltUI.Controls.DarkButton();
-            darkComboBox1 = new AltUI.Controls.DarkComboBox();
+            dpdParticuleEffect = new AltUI.Controls.DarkComboBox();
             darkTitle5 = new AltUI.Controls.DarkTitle();
             ((System.ComponentModel.ISupportInitialize)trackBar1).BeginInit();
             SuspendLayout();
@@ -149,15 +149,15 @@
             darkButton3.Text = "Save As Default";
             darkButton3.Click += saveAsDefaultButtonClick;
             // 
-            // darkComboBox1
+            // dpdParticuleEffect
             // 
-            darkComboBox1.DrawMode = DrawMode.OwnerDrawVariable;
-            darkComboBox1.FormattingEnabled = true;
-            darkComboBox1.Items.AddRange(new object[] { "None", "Rain", "Snow" });
-            darkComboBox1.Location = new Point(222, 223);
-            darkComboBox1.Name = "darkComboBox1";
-            darkComboBox1.Size = new Size(182, 32);
-            darkComboBox1.TabIndex = 14;
+            dpdParticuleEffect.DrawMode = DrawMode.OwnerDrawVariable;
+            dpdParticuleEffect.FormattingEnabled = true;
+            dpdParticuleEffect.Items.AddRange(new object[] { "None", "Rain", "Snow" });
+            dpdParticuleEffect.Location = new Point(222, 223);
+            dpdParticuleEffect.Name = "dpdParticuleEffect";
+            dpdParticuleEffect.Size = new Size(182, 32);
+            dpdParticuleEffect.TabIndex = 14;
             // 
             // darkTitle5
             // 
@@ -177,7 +177,7 @@
             CancelButton = darkButton2;
             ClientSize = new Size(822, 400);
             Controls.Add(darkTitle5);
-            Controls.Add(darkComboBox1);
+            Controls.Add(dpdParticuleEffect);
             Controls.Add(darkButton3);
             Controls.Add(darkTitle1);
             Controls.Add(darkTitle4);
@@ -210,7 +210,7 @@
         private AltUI.Controls.DarkButton darkButton2;
         private AltUI.Controls.DarkTitle darkTitle4;
         private AltUI.Controls.DarkButton darkButton3;
-        private AltUI.Controls.DarkComboBox darkComboBox1;
+        private AltUI.Controls.DarkComboBox dpdParticuleEffect;
         private AltUI.Controls.DarkTitle darkTitle5;
     }
 }

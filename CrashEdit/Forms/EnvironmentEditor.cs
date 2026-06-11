@@ -19,7 +19,7 @@ namespace CrashEdit.CE.Forms
 
             darkCheckBox1.Checked = Settings.Default.DefaultFogIsActive;
 
-            //darkCheckBox2.Checked = Settings.Default.DefaultRainIsActive;
+            dpdParticuleEffect.SelectedItem = Settings.Default.DefaultParticleEffec;
 
             //darkCheckBox1.Checked = (flags != null);
 
@@ -96,7 +96,8 @@ namespace CrashEdit.CE.Forms
         {
             Settings.Default.DefaultFogValue = (byte)trackBar1.Value;
             Settings.Default.DefaultFogIsActive = darkCheckBox1.Checked;
-            //Settings.Default.DefaultRainIsActive = darkCheckBox2.Checked;
+            Console.WriteLine(dpdParticuleEffect.SelectedItem);
+            Settings.Default.DefaultParticleEffec = (string)dpdParticuleEffect.SelectedItem;
             Settings.Default.Save();
 
             DarkMessageBox.ShowInformation("Default values saved.", "Settings");

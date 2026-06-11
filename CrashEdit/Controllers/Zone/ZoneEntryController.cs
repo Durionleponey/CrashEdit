@@ -262,7 +262,7 @@ namespace CrashEdit.CE
 
                         }
 
-                        if (true)
+                        if (inputWindows.DefaultParticleEffec == "Rain")
                         {
                             flagPropFog = flagPropFog | 0x00000010;
 
@@ -314,9 +314,15 @@ namespace CrashEdit.CE
 
 
                         }
+                        else if (inputWindows.DefaultParticleEffec == "Snow")
+                        {
+
+
+
+
+
+                        }
                         else {
-
-
 
 
                             camera2.Particles1 = null;
@@ -326,9 +332,6 @@ namespace CrashEdit.CE
                             camera2.Particles2 = null;
 
                             camera2.KnownProperties.Remove(particules2ID);
-
-
-
 
 
                         }

@@ -10,7 +10,7 @@ namespace CrashEdit.CE.Forms
     {
 
         public bool UseFog => darkCheckBox1.Checked;
-        //public bool UseRain => darkCheckBox2.Checked;
+        public string DefaultParticleEffec => (string)dpdParticuleEffect.SelectedItem;
         public int FogValue => trackBar1.Value;
         public EnvironmentEditor(EntityUInt32Property flags)
         {

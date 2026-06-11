@@ -67,11 +67,10 @@
             // 
             // darkTitle1
             // 
-            darkTitle1.AutoSize = true;
             darkTitle1.Location = new Point(376, 70);
             darkTitle1.Margin = new Padding(3, 0, 3, 15);
             darkTitle1.Name = "darkTitle1";
-            darkTitle1.Size = new Size(115, 25);
+            darkTitle1.Size = new Size(115, 30);
             darkTitle1.TabIndex = 7;
             darkTitle1.Text = "Fog Distance";
             darkTitle1.Click += fogDistanceTXT;

@@ -46,9 +46,9 @@
             darkTitle7 = new AltUI.Controls.DarkTitle();
             darkTitle6 = new AltUI.Controls.DarkTitle();
             darkGroupBox4 = new AltUI.Controls.DarkGroupBox();
+            darkCheckBox2 = new AltUI.Controls.DarkCheckBox();
             darkTitle14 = new AltUI.Controls.DarkTitle();
             pictureBox2 = new PictureBox();
-            darkButton7 = new AltUI.Controls.DarkButton();
             darkTitle10 = new AltUI.Controls.DarkTitle();
             pictureBox1 = new PictureBox();
             darkGroupBox3 = new AltUI.Controls.DarkGroupBox();
@@ -278,9 +278,9 @@
             // 
             // darkGroupBox4
             // 
+            darkGroupBox4.Controls.Add(darkCheckBox2);
             darkGroupBox4.Controls.Add(darkTitle14);
             darkGroupBox4.Controls.Add(pictureBox2);
-            darkGroupBox4.Controls.Add(darkButton7);
             darkGroupBox4.Controls.Add(darkTitle10);
             darkGroupBox4.Controls.Add(pictureBox1);
             darkGroupBox4.Location = new Point(20, 457);
@@ -289,6 +289,16 @@
             darkGroupBox4.TabIndex = 29;
             darkGroupBox4.TabStop = false;
             darkGroupBox4.Text = "Particle Color";
+            // 
+            // darkCheckBox2
+            // 
+            darkCheckBox2.AutoSize = true;
+            darkCheckBox2.Location = new Point(45, 40);
+            darkCheckBox2.Name = "darkCheckBox2";
+            darkCheckBox2.Offset = 1;
+            darkCheckBox2.Size = new Size(195, 29);
+            darkCheckBox2.TabIndex = 34;
+            darkCheckBox2.Text = "Use Only One Color";
             // 
             // darkTitle14
             // 
@@ -307,19 +317,6 @@
             pictureBox2.Size = new Size(36, 39);
             pictureBox2.TabIndex = 32;
             pictureBox2.TabStop = false;
-            // 
-            // darkButton7
-            // 
-            darkButton7.BorderColour = Color.Empty;
-            darkButton7.CustomColour = false;
-            darkButton7.FlatBottom = false;
-            darkButton7.FlatTop = false;
-            darkButton7.Location = new Point(21, 39);
-            darkButton7.Name = "darkButton7";
-            darkButton7.Padding = new Padding(5);
-            darkButton7.Size = new Size(284, 34);
-            darkButton7.TabIndex = 18;
-            darkButton7.Text = "Sync Upper And Lower Color";
             // 
             // darkTitle10
             // 
@@ -450,6 +447,7 @@
             darkButton4.Size = new Size(163, 34);
             darkButton4.TabIndex = 18;
             darkButton4.Text = "Save Preset";
+            darkButton4.Click += darkButton4_Click;
             // 
             // dpdParticuleEffect
             // 
@@ -488,6 +486,7 @@
             darkGroupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)trackBar2).EndInit();
             darkGroupBox4.ResumeLayout(false);
+            darkGroupBox4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             darkGroupBox3.ResumeLayout(false);
@@ -534,8 +533,8 @@
         private Cyotek.Windows.Forms.ColorWheel colorWheel1;
         private PictureBox pictureBox1;
         private AltUI.Controls.DarkTitle darkTitle10;
-        private AltUI.Controls.DarkButton darkButton7;
         private AltUI.Controls.DarkTitle darkTitle14;
         private PictureBox pictureBox2;
+        private AltUI.Controls.DarkCheckBox darkCheckBox2;
     }
 }

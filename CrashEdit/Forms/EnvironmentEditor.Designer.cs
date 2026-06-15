@@ -37,15 +37,21 @@
             darkButton2 = new AltUI.Controls.DarkButton();
             darkTitle4 = new AltUI.Controls.DarkTitle();
             darkButton3 = new AltUI.Controls.DarkButton();
-            dpdParticuleEffect = new AltUI.Controls.DarkComboBox();
             darkTitle5 = new AltUI.Controls.DarkTitle();
+            fogSettingsBox = new AltUI.Controls.DarkGroupBox();
+            darkGroupBox1 = new AltUI.Controls.DarkGroupBox();
+            dpdParticuleEffect = new AltUI.Controls.DarkComboBox();
+            darkButton4 = new AltUI.Controls.DarkButton();
+            darkButton5 = new AltUI.Controls.DarkButton();
             ((System.ComponentModel.ISupportInitialize)trackBar1).BeginInit();
+            fogSettingsBox.SuspendLayout();
+            darkGroupBox1.SuspendLayout();
             SuspendLayout();
             // 
             // darkCheckBox1
             // 
             darkCheckBox1.AutoSize = true;
-            darkCheckBox1.Location = new Point(64, 121);
+            darkCheckBox1.Location = new Point(26, 76);
             darkCheckBox1.Name = "darkCheckBox1";
             darkCheckBox1.Offset = 1;
             darkCheckBox1.Size = new Size(103, 29);
@@ -55,7 +61,7 @@
             // 
             // trackBar1
             // 
-            trackBar1.Location = new Point(313, 121);
+            trackBar1.Location = new Point(275, 76);
             trackBar1.Margin = new Padding(5);
             trackBar1.Maximum = 64;
             trackBar1.Name = "trackBar1";
@@ -67,7 +73,7 @@
             // 
             // darkTitle1
             // 
-            darkTitle1.Location = new Point(376, 70);
+            darkTitle1.Location = new Point(338, 25);
             darkTitle1.Margin = new Padding(3, 0, 3, 15);
             darkTitle1.Name = "darkTitle1";
             darkTitle1.Size = new Size(115, 30);
@@ -78,7 +84,7 @@
             // darkTitle2
             // 
             darkTitle2.AutoSize = true;
-            darkTitle2.Location = new Point(222, 125);
+            darkTitle2.Location = new Point(184, 80);
             darkTitle2.Name = "darkTitle2";
             darkTitle2.Size = new Size(94, 25);
             darkTitle2.TabIndex = 8;
@@ -88,7 +94,7 @@
             // darkTitle3
             // 
             darkTitle3.AutoSize = true;
-            darkTitle3.Location = new Point(689, 121);
+            darkTitle3.Location = new Point(651, 76);
             darkTitle3.Name = "darkTitle3";
             darkTitle3.Size = new Size(74, 25);
             darkTitle3.TabIndex = 9;
@@ -101,7 +107,7 @@
             darkButton1.CustomColour = false;
             darkButton1.FlatBottom = false;
             darkButton1.FlatTop = false;
-            darkButton1.Location = new Point(532, 323);
+            darkButton1.Location = new Point(538, 611);
             darkButton1.Name = "darkButton1";
             darkButton1.Padding = new Padding(5);
             darkButton1.Size = new Size(112, 34);
@@ -115,7 +121,7 @@
             darkButton2.CustomColour = false;
             darkButton2.FlatBottom = false;
             darkButton2.FlatTop = false;
-            darkButton2.Location = new Point(673, 323);
+            darkButton2.Location = new Point(689, 611);
             darkButton2.Name = "darkButton2";
             darkButton2.Padding = new Padding(5);
             darkButton2.Size = new Size(112, 34);
@@ -126,7 +132,7 @@
             // darkTitle4
             // 
             darkTitle4.AutoSize = true;
-            darkTitle4.Location = new Point(497, 70);
+            darkTitle4.Location = new Point(459, 25);
             darkTitle4.Margin = new Padding(3, 0, 3, 15);
             darkTitle4.Name = "darkTitle4";
             darkTitle4.Size = new Size(115, 25);
@@ -140,7 +146,7 @@
             darkButton3.CustomColour = false;
             darkButton3.FlatBottom = false;
             darkButton3.FlatTop = false;
-            darkButton3.Location = new Point(41, 323);
+            darkButton3.Location = new Point(38, 611);
             darkButton3.Name = "darkButton3";
             darkButton3.Padding = new Padding(5);
             darkButton3.Size = new Size(163, 34);
@@ -148,25 +154,80 @@
             darkButton3.Text = "Save As Default";
             darkButton3.Click += saveAsDefaultButtonClick;
             // 
+            // darkTitle5
+            // 
+            darkTitle5.AutoSize = true;
+            darkTitle5.Location = new Point(47, 56);
+            darkTitle5.Margin = new Padding(3, 0, 3, 15);
+            darkTitle5.Name = "darkTitle5";
+            darkTitle5.Size = new Size(120, 25);
+            darkTitle5.TabIndex = 15;
+            darkTitle5.Text = "Particle Preset";
+            // 
+            // fogSettingsBox
+            // 
+            fogSettingsBox.AccessibleName = "Fog Settings";
+            fogSettingsBox.Controls.Add(darkCheckBox1);
+            fogSettingsBox.Controls.Add(trackBar1);
+            fogSettingsBox.Controls.Add(darkTitle2);
+            fogSettingsBox.Controls.Add(darkTitle3);
+            fogSettingsBox.Controls.Add(darkTitle1);
+            fogSettingsBox.Controls.Add(darkTitle4);
+            fogSettingsBox.Location = new Point(38, 23);
+            fogSettingsBox.Name = "fogSettingsBox";
+            fogSettingsBox.Size = new Size(748, 150);
+            fogSettingsBox.TabIndex = 16;
+            fogSettingsBox.TabStop = false;
+            fogSettingsBox.Text = "Fog Settings";
+            // 
+            // darkGroupBox1
+            // 
+            darkGroupBox1.Controls.Add(darkButton5);
+            darkGroupBox1.Controls.Add(darkButton4);
+            darkGroupBox1.Controls.Add(dpdParticuleEffect);
+            darkGroupBox1.Controls.Add(darkTitle5);
+            darkGroupBox1.Location = new Point(38, 195);
+            darkGroupBox1.Name = "darkGroupBox1";
+            darkGroupBox1.Size = new Size(748, 386);
+            darkGroupBox1.TabIndex = 17;
+            darkGroupBox1.TabStop = false;
+            darkGroupBox1.Text = "Particle Settings";
+            // 
             // dpdParticuleEffect
             // 
             dpdParticuleEffect.DrawMode = DrawMode.OwnerDrawVariable;
             dpdParticuleEffect.FormattingEnabled = true;
             dpdParticuleEffect.Items.AddRange(new object[] { "None", "Rain", "Snow" });
-            dpdParticuleEffect.Location = new Point(222, 223);
+            dpdParticuleEffect.Location = new Point(184, 53);
             dpdParticuleEffect.Name = "dpdParticuleEffect";
             dpdParticuleEffect.Size = new Size(182, 32);
-            dpdParticuleEffect.TabIndex = 14;
+            dpdParticuleEffect.TabIndex = 16;
             // 
-            // darkTitle5
+            // darkButton4
             // 
-            darkTitle5.AutoSize = true;
-            darkTitle5.Location = new Point(64, 226);
-            darkTitle5.Margin = new Padding(3, 0, 3, 15);
-            darkTitle5.Name = "darkTitle5";
-            darkTitle5.Size = new Size(116, 25);
-            darkTitle5.TabIndex = 15;
-            darkTitle5.Text = "Particle effect";
+            darkButton4.BorderColour = Color.Empty;
+            darkButton4.CustomColour = false;
+            darkButton4.FlatBottom = false;
+            darkButton4.FlatTop = false;
+            darkButton4.Location = new Point(393, 51);
+            darkButton4.Name = "darkButton4";
+            darkButton4.Padding = new Padding(5);
+            darkButton4.Size = new Size(163, 34);
+            darkButton4.TabIndex = 18;
+            darkButton4.Text = "Save As Preset";
+            // 
+            // darkButton5
+            // 
+            darkButton5.BorderColour = Color.Empty;
+            darkButton5.CustomColour = false;
+            darkButton5.FlatBottom = false;
+            darkButton5.FlatTop = false;
+            darkButton5.Location = new Point(562, 51);
+            darkButton5.Name = "darkButton5";
+            darkButton5.Padding = new Padding(5);
+            darkButton5.Size = new Size(163, 34);
+            darkButton5.TabIndex = 19;
+            darkButton5.Text = "Remove Preset";
             // 
             // EnvironmentEditor
             // 
@@ -174,18 +235,12 @@
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             CancelButton = darkButton2;
-            ClientSize = new Size(822, 400);
-            Controls.Add(darkTitle5);
-            Controls.Add(dpdParticuleEffect);
+            ClientSize = new Size(822, 672);
+            Controls.Add(darkGroupBox1);
+            Controls.Add(fogSettingsBox);
             Controls.Add(darkButton3);
-            Controls.Add(darkTitle1);
-            Controls.Add(darkTitle4);
             Controls.Add(darkButton2);
             Controls.Add(darkButton1);
-            Controls.Add(darkTitle3);
-            Controls.Add(darkTitle2);
-            Controls.Add(darkCheckBox1);
-            Controls.Add(trackBar1);
             CornerStyle = CornerPreference.Default;
             FormBorderStyle = FormBorderStyle.FixedDialog;
             MaximizeBox = false;
@@ -193,8 +248,11 @@
             Name = "EnvironmentEditor";
             Text = "EnvironmentEditor";
             ((System.ComponentModel.ISupportInitialize)trackBar1).EndInit();
+            fogSettingsBox.ResumeLayout(false);
+            fogSettingsBox.PerformLayout();
+            darkGroupBox1.ResumeLayout(false);
+            darkGroupBox1.PerformLayout();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
@@ -209,7 +267,11 @@
         private AltUI.Controls.DarkButton darkButton2;
         private AltUI.Controls.DarkTitle darkTitle4;
         private AltUI.Controls.DarkButton darkButton3;
-        private AltUI.Controls.DarkComboBox dpdParticuleEffect;
         private AltUI.Controls.DarkTitle darkTitle5;
+        private AltUI.Controls.DarkGroupBox fogSettingsBox;
+        private AltUI.Controls.DarkGroupBox darkGroupBox1;
+        private AltUI.Controls.DarkButton darkButton5;
+        private AltUI.Controls.DarkButton darkButton4;
+        private AltUI.Controls.DarkComboBox dpdParticuleEffect;
     }
 }

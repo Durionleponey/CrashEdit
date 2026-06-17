@@ -39,6 +39,8 @@ namespace CrashEdit.CE.Forms
 
 
 
+
+
         public class FieldData
         {
             public short ParticleAmount { get; set; }
@@ -163,11 +165,11 @@ namespace CrashEdit.CE.Forms
                     string jsonString = File.ReadAllText(FilePath);
                     savedItems = JsonSerializer.Deserialize<List<ListItem>>(jsonString) ?? new List<ListItem>();
 
-                    //lbSavedProperties.Items.Clear();
+                    dpdParticuleEffect.Items.Clear();
                     foreach (var item in savedItems)
                     {
                         Console.WriteLine(item.Name.ToString());
-                        //lbSavedProperties.Items.Add(item.Name);
+                        dpdParticuleEffect.Items.Add(item.Name);
                     }
 
                     Console.WriteLine("Properties list loaded successfully.");
@@ -217,6 +219,12 @@ namespace CrashEdit.CE.Forms
         private void darkButton4_Click(object sender, EventArgs e)
         {
             AddSavedItem(Robin.Name, Robin.Fields);
+        }
+
+        private void EnvironmentEditor_Load(object sender, EventArgs e)
+        {
+            LoadItemsFromFile();
+
         }
     }
 }

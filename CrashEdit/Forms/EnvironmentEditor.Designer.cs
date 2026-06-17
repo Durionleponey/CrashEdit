@@ -477,6 +477,7 @@
             MinimizeBox = false;
             Name = "EnvironmentEditor";
             Text = " Environment Editor";
+            Load += EnvironmentEditor_Load;
             ((System.ComponentModel.ISupportInitialize)trackBar1).EndInit();
             fogSettingsBox.ResumeLayout(false);
             fogSettingsBox.PerformLayout();

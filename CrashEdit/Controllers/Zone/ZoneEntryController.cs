@@ -62,8 +62,6 @@ namespace CrashEdit.CE
             {
                 byte[] searchPattern = null!;
                 byte[] replacementPattern = null!;
-                Console.WriteLine($"searchPattern init ---> {searchPattern}");
-                Console.WriteLine($"replacementPattern init ---> {replacementPattern}");
                 using (InputWindow inputWindows = new InputWindow(CrashUI.Properties.Resources.ZoneEntryController_AcChangeCollisionType, "Wrench",
                     "Enter collision type to replace (as a literal):", string.Empty, 4,
                     "Enter new collision type (as a literal):", string.Empty, 4))
@@ -80,23 +78,15 @@ namespace CrashEdit.CE
                         searchPattern = BitConverter.GetBytes(Convert.ToUInt16(input, 16));
                         replacementPattern = BitConverter.GetBytes(Convert.ToUInt16(input2, 16));
 
-                        Console.WriteLine($"searchPattern converted ---> {BitConverter.ToString(searchPattern)}");
-                        Console.WriteLine($"searchPattern.length---> {searchPattern.Length}");
-
-                        Console.WriteLine($"replacementPattern converted ---> {BitConverter.ToString(replacementPattern)}");
                     }
                     else return;
                 }
 
                 byte[] layout = ZoneEntry.Layout;
 
-                Console.WriteLine($"zone ENtry.layout ---> {BitConverter.ToString(ZoneEntry.Layout)}");
 
-                Console.WriteLine($"zone ENtry ---> {ZoneEntry}");
                 for (int i = 0x24; i <= layout.Length - searchPattern.Length; i += 2)
                 {
-                    //Console.WriteLine($"i-->{i}");
-                    //Console.WriteLine($"layout[i] --> {layout[i]:X2}");
 
                     bool isMatch = true;
 
@@ -179,7 +169,7 @@ namespace CrashEdit.CE
                     short particules1ID = 0x1B5;
                     short particules2ID = 0x1B6;
 
-                    if (inputWindows.ShowDialog() == DialogResult.OK)
+                    if (inputWindows.ShowDialog() == DialogResult.OK)//PROTO
                     {
 
                         uint flagPropFog = 0x00000000;
@@ -225,7 +215,7 @@ namespace CrashEdit.CE
 
                             bgColorProp.Rows.Add(new EntityPropertyRow<uint>());
                             bgColorProp.Rows[0].MetaValue = 0;
-                            bgColorProp.Rows[0].Values.Add(0x00000001);
+                            bgColorProp.Rows[0].Values.Add(0x00000001);//ROBIN:try to remove, useless ? 
                             bgColorProp.Rows[0].Values.Add(0);
                             bgColorProp.Rows[0].Values.Add(0);
 
@@ -265,7 +255,7 @@ namespace CrashEdit.CE
 
 
 
-                        if (inputWindows.DefaultParticleEffec == "None")
+                        if (inputWindows.ParticleEffec == "None")
                         {
 
                             camera2.Particles1 = null;
@@ -286,7 +276,7 @@ namespace CrashEdit.CE
 
                         }
 
-                        if (inputWindows.DefaultParticleEffec == "Rain")
+                        if (inputWindows.ParticleEffec == "Rain")
                         {
 
 
@@ -337,7 +327,7 @@ namespace CrashEdit.CE
                         }
 
 
-                        if (inputWindows.DefaultParticleEffec == "Snow")
+                        if (inputWindows.ParticleEffec == "Snow")
                         {
 
                             var particules1Prop = new EntityVictimProperty();
@@ -425,7 +415,7 @@ namespace CrashEdit.CE
                         camera2.Flags = flagsProp;
                         camera2.KnownProperties[flagsID] = flagsProp;
 
-
+                            
 
                     }
 

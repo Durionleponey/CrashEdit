@@ -675,7 +675,7 @@ namespace CrashEdit.CE
                 lbProperties.DataSource = listKnownFields;
                 LoadFieldFromSelectedItem();
 
-                if (listKnownFields.Count == 0) { lbProperties.SelectedIndex = 0; }
+                if (listKnownFields.Count == 0)
                 {
                     dgvPropertyMetaValues.Visible =
                     dgvPropertyValues.Visible = false;
@@ -1812,7 +1812,7 @@ namespace CrashEdit.CE
         {
 
             RefreshFromEntity();
-            rbtReloadProp.Checked = false;//ROBIN
+            rbtReloadProp.Checked = false;
 
 
         }

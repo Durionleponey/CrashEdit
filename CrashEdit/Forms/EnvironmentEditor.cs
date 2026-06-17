@@ -13,8 +13,9 @@ namespace CrashEdit.CE.Forms
     {
 
         public bool UseFog => darkCheckBox1.Checked;
-        public string DefaultParticleEffec => (string)dpdParticuleEffect.SelectedItem;
-        public int FogValue => trackBar1.Value;
+        public string ParticleEffec => (string)dpdParticuleEffect.SelectedItem;
+        public int FogValue => trackBarFog.Value;
+        public int ParticleValue => trackBarParticleAmount.Value;
 
 
         private List<ListItem> savedItems = new List<ListItem>();
@@ -71,9 +72,9 @@ namespace CrashEdit.CE.Forms
 
             //darkCheckBox1.Checked = (flags != null);
 
-            trackBar1.Value = Settings.Default.DefaultFogValue;
+            trackBarFog.Value = Settings.Default.DefaultFogValue;
 
-            darkTitle4.Text = trackBar1.Value.ToString();
+            darkTitle4.Text = trackBarFog.Value.ToString();
 
             darkTitle4.Visible = darkCheckBox1.Checked;
 
@@ -83,17 +84,6 @@ namespace CrashEdit.CE.Forms
 
         private void useRain_CheckedChanged(object sender, EventArgs e)
         {
-
-        }
-
-        private void fogDistanceTXT(object sender, EventArgs e)
-        {
-
-        }
-
-        private void veryCloseFogTXT(object sender, EventArgs e)
-        {
-
 
         }
 
@@ -117,9 +107,9 @@ namespace CrashEdit.CE.Forms
 
         private void UseFog_CheckedChanged(object sender, EventArgs e)
         {
-            trackBar1.Enabled = darkCheckBox1.Checked;
+            trackBarFog.Enabled = darkCheckBox1.Checked;
             darkTitle4.Visible = darkCheckBox1.Checked;
-            Console.WriteLine($"hello ---> {trackBar1.Value}");
+            Console.WriteLine($"hello ---> {trackBarFog.Value}");
 
         }
 
@@ -131,7 +121,7 @@ namespace CrashEdit.CE.Forms
 
         private void trackBar1_ValueChanged(object sender, EventArgs e)
         {
-            darkTitle4.Text = trackBar1.Value.ToString();
+            darkTitle4.Text = trackBarFog.Value.ToString();
 
         }
 
@@ -142,7 +132,7 @@ namespace CrashEdit.CE.Forms
 
         private void saveAsDefaultButtonClick(object sender, EventArgs e)
         {
-            Settings.Default.DefaultFogValue = (byte)trackBar1.Value;
+            Settings.Default.DefaultFogValue = (byte)trackBarFog.Value;
             Settings.Default.DefaultFogIsActive = darkCheckBox1.Checked;
             Console.WriteLine(dpdParticuleEffect.SelectedItem);
             Settings.Default.DefaultParticleEffec = (string)dpdParticuleEffect.SelectedItem;
@@ -165,7 +155,7 @@ namespace CrashEdit.CE.Forms
                     string jsonString = File.ReadAllText(FilePath);
                     savedItems = JsonSerializer.Deserialize<List<ListItem>>(jsonString) ?? new List<ListItem>();
 
-                    dpdParticuleEffect.Items.Clear();
+                    //dpdParticuleEffect.Items.Clear();
                     foreach (var item in savedItems)
                     {
                         Console.WriteLine(item.Name.ToString());
@@ -180,7 +170,6 @@ namespace CrashEdit.CE.Forms
                 DarkMessageBox.ShowError($"Error loading properties list: {ex.Message}", Resources.Title_Error);
             }
         }
-
 
         private void AddSavedItem(string itemName, List<FieldData> fields)
         {
@@ -200,7 +189,6 @@ namespace CrashEdit.CE.Forms
                 DarkMessageBox.ShowError($"Error saving fields: {ex.Message}", Resources.Title_Error);
             }
         }
-
 
         private void SaveItemsToFile()
         {
@@ -224,7 +212,38 @@ namespace CrashEdit.CE.Forms
         private void EnvironmentEditor_Load(object sender, EventArgs e)
         {
             LoadItemsFromFile();
+            ParticleAmountPourcent.Text = trackBarParticleAmount.Value.ToString() + "%";
 
+
+            if (dpdParticuleEffect.SelectedIndex == 0) { 
+
+                darkGroupBoxParticleAmount.Enabled = false;
+                darkGroupBoxParticleColor.Enabled = false;
+                darkGroupBoxParticleVelocity.Enabled = false;
+
+                darkButtonRemovePreset.Enabled = false;
+                darkButtonSaveAsNewPreset.Enabled = false;
+                darkButtonSavePreset.Enabled = false;
+
+
+            }
+
+
+
+
+        }
+
+        private void dpdParticuleEffect_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            Console.WriteLine(Robin.Name);
+            //Robin
+
+        }
+
+        private void trackBarParticleAmount_Scroll(object sender, EventArgs e)
+        {
+            ParticleAmountPourcent.Text = trackBarParticleAmount.Value.ToString() + "%";
         }
     }
 }

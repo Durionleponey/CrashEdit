@@ -23,13 +23,15 @@ namespace CrashEdit.CE.Forms
 
         private const string FilePath = "CrashEdit.exe.savedenvironmentPreset.json";
 
+        private bool isParticlePresetNone = true;
+
 
 
         //test ROBIN
         public static readonly ListItem Robin = new()
         {
 
-            Name = "test",
+            Name = "test2",
             Fields = new List<FieldData>
                 {
                     new FieldData { ParticleAmount = 50, VelocityY = 200, VelocityX = 150}
@@ -163,13 +165,32 @@ namespace CrashEdit.CE.Forms
                         dpdParticuleEffect.Items.Add(item.Name);
                     }
 
-                    Console.WriteLine("Properties list loaded successfully.");
+                    Console.WriteLine("Preset list loaded successfully.");
                 }
             }
             catch (Exception ex)
             {
-                DarkMessageBox.ShowError($"Error loading properties list: {ex.Message}", Resources.Title_Error);
+                DarkMessageBox.ShowError($"Error loading Preset list: {ex.Message}", Resources.Title_Error);
             }
+        }
+
+        private void LoadIemsValueInForm() {
+
+            if (dpdParticuleEffect.SelectedIndex == 0) { return; }
+
+            var selectedIndex = dpdParticuleEffect.SelectedIndex-1;
+            var selectedPreset = savedItems[selectedIndex].Fields[0];
+
+
+            trackBarParticleAmount.Value = selectedPreset.ParticleAmount;
+            darkNumericUpDownParticleX.Value = selectedPreset.VelocityX;
+            darkNumericUpDownParticleY.Value = selectedPreset.VelocityY;
+            darkNumericUpDownParticleZ.Value = selectedPreset.VelocityZ;
+
+
+
+
+
         }
 
         private void AddSavedItem(string itemName, List<FieldData> fields)
@@ -213,18 +234,42 @@ namespace CrashEdit.CE.Forms
         private void EnvironmentEditor_Load(object sender, EventArgs e)
         {
             LoadItemsFromFile();
+            LoadIemsValueInForm();
             ParticleAmountPourcent.Text = trackBarParticleAmount.Value.ToString() + "%";
+            EnableDisableParticleEffect();
 
 
-            if (dpdParticuleEffect.SelectedIndex == 0) { 
+        }
 
-                darkGroupBoxParticleAmount.Enabled = false;
-                darkGroupBoxParticleColor.Enabled = false;
-                darkGroupBoxParticleVelocity.Enabled = false;
 
-                darkButtonRemovePreset.Enabled = false;
-                darkButtonSaveAsNewPreset.Enabled = false;
-                darkButtonSavePreset.Enabled = false;
+        private void EnableDisableParticleEffect() {
+
+            var enable = true;
+
+            if (dpdParticuleEffect.SelectedIndex != 0)
+            {
+                enable = true;
+            }
+            else
+            {
+                enable = false;
+            }
+
+            if (isParticlePresetNone != enable)
+            {
+                darkGroupBoxParticleAmount.Enabled = enable;
+                darkGroupBoxParticleVelocity.Enabled = enable;
+                darkGroupBoxParticleColor.Enabled = enable;
+
+                darkButtonRemovePreset.Enabled = enable;
+                darkButtonSaveAsNewPreset.Enabled = enable;
+                darkButtonSavePreset.Enabled = enable;
+
+                pictureBoxUpperColor.Visible = enable;
+                pictureBoxLowerColor.Visible = enable;
+
+
+                isParticlePresetNone = enable;
 
 
             }
@@ -237,30 +282,10 @@ namespace CrashEdit.CE.Forms
         private void dpdParticuleEffect_SelectedIndexChanged(object sender, EventArgs e)
         {
 
-            Console.WriteLine(Robin.Name);
+            //Console.WriteLine(Robin.Name);
             //Robin
-
-            var enable = true;
-
-            if (dpdParticuleEffect.SelectedIndex != 0) 
-            { 
-                enable = true;
-            }
-            else 
-            {
-                enable = false;
-            }
-
-            darkGroupBoxParticleAmount.Enabled = enable;
-            darkGroupBoxParticleVelocity.Enabled = enable;
-            darkGroupBoxParticleColor.Enabled = enable;
-
-            darkButtonRemovePreset.Enabled = enable;
-            darkButtonSaveAsNewPreset.Enabled = enable;
-            darkButtonSavePreset.Enabled = enable;
-
-            pictureBoxUpperColor.Visible = enable;
-            pictureBoxLowerColor.Visible = enable;
+            EnableDisableParticleEffect();
+            LoadIemsValueInForm();
 
 
 

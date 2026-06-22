@@ -53,11 +53,11 @@
             darkTitleUpperColor = new AltUI.Controls.DarkTitle();
             pictureBoxUpperColor = new PictureBox();
             darkGroupBoxParticleVelocity = new AltUI.Controls.DarkGroupBox();
-            darkNumericUpDown2 = new AltUI.Controls.DarkNumericUpDown();
-            darkNumericUpDown1 = new AltUI.Controls.DarkNumericUpDown();
+            darkNumericUpDownParticleZ = new AltUI.Controls.DarkNumericUpDown();
+            darkNumericUpDownParticleY = new AltUI.Controls.DarkNumericUpDown();
             darkTitle13 = new AltUI.Controls.DarkTitle();
             darkTitle9 = new AltUI.Controls.DarkTitle();
-            darkNumericUpDown3 = new AltUI.Controls.DarkNumericUpDown();
+            darkNumericUpDownParticleX = new AltUI.Controls.DarkNumericUpDown();
             darkTitle12 = new AltUI.Controls.DarkTitle();
             darkTitle11 = new AltUI.Controls.DarkTitle();
             darkButtonSaveAsNewPreset = new AltUI.Controls.DarkButton();
@@ -73,9 +73,9 @@
             ((System.ComponentModel.ISupportInitialize)pictureBoxLowerColor).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxUpperColor).BeginInit();
             darkGroupBoxParticleVelocity.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)darkNumericUpDown2).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)darkNumericUpDown1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)darkNumericUpDown3).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)darkNumericUpDownParticleZ).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)darkNumericUpDownParticleY).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)darkNumericUpDownParticleX).BeginInit();
             SuspendLayout();
             // 
             // darkCheckBox1
@@ -349,11 +349,11 @@
             // 
             // darkGroupBoxParticleVelocity
             // 
-            darkGroupBoxParticleVelocity.Controls.Add(darkNumericUpDown2);
-            darkGroupBoxParticleVelocity.Controls.Add(darkNumericUpDown1);
+            darkGroupBoxParticleVelocity.Controls.Add(darkNumericUpDownParticleZ);
+            darkGroupBoxParticleVelocity.Controls.Add(darkNumericUpDownParticleY);
             darkGroupBoxParticleVelocity.Controls.Add(darkTitle13);
             darkGroupBoxParticleVelocity.Controls.Add(darkTitle9);
-            darkGroupBoxParticleVelocity.Controls.Add(darkNumericUpDown3);
+            darkGroupBoxParticleVelocity.Controls.Add(darkNumericUpDownParticleX);
             darkGroupBoxParticleVelocity.Controls.Add(darkTitle12);
             darkGroupBoxParticleVelocity.Controls.Add(darkTitle11);
             darkGroupBoxParticleVelocity.Location = new Point(20, 324);
@@ -363,19 +363,19 @@
             darkGroupBoxParticleVelocity.TabStop = false;
             darkGroupBoxParticleVelocity.Text = "Particle Velocity";
             // 
-            // darkNumericUpDown2
+            // darkNumericUpDownParticleZ
             // 
-            darkNumericUpDown2.Location = new Point(514, 42);
-            darkNumericUpDown2.Name = "darkNumericUpDown2";
-            darkNumericUpDown2.Size = new Size(72, 31);
-            darkNumericUpDown2.TabIndex = 30;
+            darkNumericUpDownParticleZ.Location = new Point(514, 42);
+            darkNumericUpDownParticleZ.Name = "darkNumericUpDownParticleZ";
+            darkNumericUpDownParticleZ.Size = new Size(72, 31);
+            darkNumericUpDownParticleZ.TabIndex = 30;
             // 
-            // darkNumericUpDown1
+            // darkNumericUpDownParticleY
             // 
-            darkNumericUpDown1.Location = new Point(403, 42);
-            darkNumericUpDown1.Name = "darkNumericUpDown1";
-            darkNumericUpDown1.Size = new Size(72, 31);
-            darkNumericUpDown1.TabIndex = 29;
+            darkNumericUpDownParticleY.Location = new Point(403, 42);
+            darkNumericUpDownParticleY.Name = "darkNumericUpDownParticleY";
+            darkNumericUpDownParticleY.Size = new Size(72, 31);
+            darkNumericUpDownParticleY.TabIndex = 29;
             // 
             // darkTitle13
             // 
@@ -395,12 +395,12 @@
             darkTitle9.TabIndex = 27;
             darkTitle9.Text = "X:";
             // 
-            // darkNumericUpDown3
+            // darkNumericUpDownParticleX
             // 
-            darkNumericUpDown3.Location = new Point(286, 42);
-            darkNumericUpDown3.Name = "darkNumericUpDown3";
-            darkNumericUpDown3.Size = new Size(72, 31);
-            darkNumericUpDown3.TabIndex = 23;
+            darkNumericUpDownParticleX.Location = new Point(286, 42);
+            darkNumericUpDownParticleX.Name = "darkNumericUpDownParticleX";
+            darkNumericUpDownParticleX.Size = new Size(72, 31);
+            darkNumericUpDownParticleX.TabIndex = 23;
             // 
             // darkTitle12
             // 
@@ -504,9 +504,9 @@
             ((System.ComponentModel.ISupportInitialize)pictureBoxLowerColor).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBoxUpperColor).EndInit();
             darkGroupBoxParticleVelocity.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)darkNumericUpDown2).EndInit();
-            ((System.ComponentModel.ISupportInitialize)darkNumericUpDown1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)darkNumericUpDown3).EndInit();
+            ((System.ComponentModel.ISupportInitialize)darkNumericUpDownParticleZ).EndInit();
+            ((System.ComponentModel.ISupportInitialize)darkNumericUpDownParticleY).EndInit();
+            ((System.ComponentModel.ISupportInitialize)darkNumericUpDownParticleX).EndInit();
             ResumeLayout(false);
         }
 
@@ -533,15 +533,15 @@
         private AltUI.Controls.DarkTitle darkTitle7;
         private AltUI.Controls.DarkTitle darkTitle8;
         private AltUI.Controls.DarkButton darkButtonSaveAsNewPreset;
-        private AltUI.Controls.DarkNumericUpDown darkNumericUpDown3;
+        private AltUI.Controls.DarkNumericUpDown darkNumericUpDownParticleX;
         private AltUI.Controls.DarkGroupBox darkGroupBoxParticleAmount;
         private AltUI.Controls.DarkTitle darkTitle12;
         private AltUI.Controls.DarkTitle darkTitle11;
         private AltUI.Controls.DarkGroupBox darkGroupBoxParticleVelocity;
         private AltUI.Controls.DarkTitle darkTitle13;
         private AltUI.Controls.DarkTitle darkTitle9;
-        private AltUI.Controls.DarkNumericUpDown darkNumericUpDown2;
-        private AltUI.Controls.DarkNumericUpDown darkNumericUpDown1;
+        private AltUI.Controls.DarkNumericUpDown darkNumericUpDownParticleZ;
+        private AltUI.Controls.DarkNumericUpDown darkNumericUpDownParticleY;
         private AltUI.Controls.DarkGroupBox darkGroupBoxParticleColor;
         private Cyotek.Windows.Forms.ColorWheel colorWheel2;
         private Cyotek.Windows.Forms.ColorWheel colorWheel1;

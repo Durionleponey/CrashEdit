@@ -118,7 +118,7 @@ namespace CrashEdit.CE
 
 
 
-        void Menu_ChangeEnvironmentType()
+        void Menu_ChangeEnvironmentType()//PROTO
         {
             try
             {

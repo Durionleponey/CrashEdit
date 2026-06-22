@@ -47,7 +47,7 @@
             darkTitle7 = new AltUI.Controls.DarkTitle();
             darkTitle6 = new AltUI.Controls.DarkTitle();
             darkGroupBoxParticleColor = new AltUI.Controls.DarkGroupBox();
-            darkCheckBox2 = new AltUI.Controls.DarkCheckBox();
+            darkCheckBoxUseOnlyOneColor = new AltUI.Controls.DarkCheckBox();
             darkTitleLowerColor = new AltUI.Controls.DarkTitle();
             pictureBoxLowerColor = new PictureBox();
             darkTitleUpperColor = new AltUI.Controls.DarkTitle();
@@ -289,7 +289,7 @@
             // 
             // darkGroupBoxParticleColor
             // 
-            darkGroupBoxParticleColor.Controls.Add(darkCheckBox2);
+            darkGroupBoxParticleColor.Controls.Add(darkCheckBoxUseOnlyOneColor);
             darkGroupBoxParticleColor.Controls.Add(darkTitleLowerColor);
             darkGroupBoxParticleColor.Controls.Add(pictureBoxLowerColor);
             darkGroupBoxParticleColor.Controls.Add(darkTitleUpperColor);
@@ -301,15 +301,16 @@
             darkGroupBoxParticleColor.TabStop = false;
             darkGroupBoxParticleColor.Text = "Particle Color";
             // 
-            // darkCheckBox2
+            // darkCheckBoxUseOnlyOneColor
             // 
-            darkCheckBox2.AutoSize = true;
-            darkCheckBox2.Location = new Point(45, 40);
-            darkCheckBox2.Name = "darkCheckBox2";
-            darkCheckBox2.Offset = 1;
-            darkCheckBox2.Size = new Size(195, 29);
-            darkCheckBox2.TabIndex = 34;
-            darkCheckBox2.Text = "Use Only One Color";
+            darkCheckBoxUseOnlyOneColor.AutoSize = true;
+            darkCheckBoxUseOnlyOneColor.Location = new Point(45, 40);
+            darkCheckBoxUseOnlyOneColor.Name = "darkCheckBoxUseOnlyOneColor";
+            darkCheckBoxUseOnlyOneColor.Offset = 1;
+            darkCheckBoxUseOnlyOneColor.Size = new Size(195, 29);
+            darkCheckBoxUseOnlyOneColor.TabIndex = 34;
+            darkCheckBoxUseOnlyOneColor.Text = "Use Only One Color";
+            darkCheckBoxUseOnlyOneColor.CheckedChanged += darkCheckBoxUseOnlyOneColor_CheckedChanged;
             // 
             // darkTitleLowerColor
             // 
@@ -549,7 +550,7 @@
         private AltUI.Controls.DarkTitle darkTitleUpperColor;
         private AltUI.Controls.DarkTitle darkTitleLowerColor;
         private PictureBox pictureBoxLowerColor;
-        private AltUI.Controls.DarkCheckBox darkCheckBox2;
+        private AltUI.Controls.DarkCheckBox darkCheckBoxUseOnlyOneColor;
         private AltUI.Controls.DarkTitle ParticleAmountPourcent;
     }
 }

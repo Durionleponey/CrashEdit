@@ -174,11 +174,12 @@ namespace CrashEdit.CE.Forms
             }
         }
 
-        private void LoadIemsValueInForm() {
+        private void LoadIemsValueInForm()
+        {
 
             if (dpdParticuleEffect.SelectedIndex == 0) { return; }
 
-            var selectedIndex = dpdParticuleEffect.SelectedIndex-1;
+            var selectedIndex = dpdParticuleEffect.SelectedIndex - 1;
             var selectedPreset = savedItems[selectedIndex].Fields[0];
 
 
@@ -235,14 +236,21 @@ namespace CrashEdit.CE.Forms
         {
             LoadItemsFromFile();
             LoadIemsValueInForm();
-            ParticleAmountPourcent.Text = trackBarParticleAmount.Value.ToString() + "%";
+            UpdatePourcentTrackBarParticleAmount();
             EnableDisableParticleEffect();
 
 
         }
 
+        private void UpdatePourcentTrackBarParticleAmount() {
 
-        private void EnableDisableParticleEffect() {
+            ParticleAmountPourcent.Text = trackBarParticleAmount.Value.ToString() + "%";
+
+        }
+
+
+        private void EnableDisableParticleEffect()
+        {
 
             var enable = true;
 
@@ -271,7 +279,6 @@ namespace CrashEdit.CE.Forms
 
                 isParticlePresetNone = enable;
 
-
             }
 
 
@@ -286,6 +293,8 @@ namespace CrashEdit.CE.Forms
             //Robin
             EnableDisableParticleEffect();
             LoadIemsValueInForm();
+            UpdatePourcentTrackBarParticleAmount();
+
 
 
 
@@ -296,6 +305,38 @@ namespace CrashEdit.CE.Forms
         private void trackBarParticleAmount_Scroll(object sender, EventArgs e)
         {
             ParticleAmountPourcent.Text = trackBarParticleAmount.Value.ToString() + "%";
+        }
+
+        private void showHideLowerColor() {
+
+            var hideLowerColor = darkCheckBoxUseOnlyOneColor.Checked;
+
+            if (hideLowerColor)
+            {
+
+                darkTitleUpperColor.Text = "Particle Color";
+
+
+            }
+            else {
+
+                darkTitleUpperColor.Text = "Upper Color";
+
+
+            }
+
+            darkTitleLowerColor.Visible = !hideLowerColor;
+            pictureBoxLowerColor.Visible = !hideLowerColor;
+
+
+        }
+
+
+
+        private void darkCheckBoxUseOnlyOneColor_CheckedChanged(object sender, EventArgs e)
+        {
+            showHideLowerColor();
+
         }
     }
 }

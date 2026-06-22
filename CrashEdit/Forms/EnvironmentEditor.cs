@@ -2,6 +2,7 @@
 using AltUI.Forms;
 using CrashEdit.CE.Properties;
 using CrashEdit.Crash;
+using System.Diagnostics.Eventing.Reader;
 using System.Net.Security;
 using System.Security.RightsManagement;
 using System.Text.Json;
@@ -239,7 +240,33 @@ namespace CrashEdit.CE.Forms
             Console.WriteLine(Robin.Name);
             //Robin
 
+            var enable = true;
+
+            if (dpdParticuleEffect.SelectedIndex != 0) 
+            { 
+                enable = true;
+            }
+            else 
+            {
+                enable = false;
+            }
+
+            darkGroupBoxParticleAmount.Enabled = enable;
+            darkGroupBoxParticleVelocity.Enabled = enable;
+            darkGroupBoxParticleColor.Enabled = enable;
+
+            darkButtonRemovePreset.Enabled = enable;
+            darkButtonSaveAsNewPreset.Enabled = enable;
+            darkButtonSavePreset.Enabled = enable;
+
+            pictureBoxUpperColor.Visible = enable;
+            pictureBoxLowerColor.Visible = enable;
+
+
+
         }
+
+
 
         private void trackBarParticleAmount_Scroll(object sender, EventArgs e)
         {

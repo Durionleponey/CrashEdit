@@ -31,10 +31,10 @@ namespace CrashEdit.CE.Forms
         public static readonly ListItem Robin = new()
         {
 
-            Name = "test2",
+            Name = "test4",
             Fields = new List<FieldData>
                 {
-                    new FieldData { ParticleAmount = 50, VelocityY = 200, VelocityX = 150}
+                    new FieldData { ParticleAmount = 50, VelocityY = 20, VelocityX = 15, VelocityZ = 10, UpperColor = 0x4067FFFF, LowerColor = 0xFF67FFFF}
                 }
 
 
@@ -84,12 +84,6 @@ namespace CrashEdit.CE.Forms
 
         }
 
-
-        private void useRain_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void cancelButtonClick(object sender, EventArgs e)
         {
 
@@ -103,22 +97,11 @@ namespace CrashEdit.CE.Forms
 
         }
 
-        private void trackBarFogValue_Scroll(object sender, EventArgs e)
-        {
-
-        }
-
         private void UseFog_CheckedChanged(object sender, EventArgs e)
         {
             trackBarFog.Enabled = darkCheckBox1.Checked;
             darkTitle4.Visible = darkCheckBox1.Checked;
             Console.WriteLine($"hello ---> {trackBarFog.Value}");
-
-        }
-
-        private void fogDistanceValue(object sender, EventArgs e)
-        {
-
 
         }
 
@@ -187,9 +170,8 @@ namespace CrashEdit.CE.Forms
             darkNumericUpDownParticleX.Value = selectedPreset.VelocityX;
             darkNumericUpDownParticleY.Value = selectedPreset.VelocityY;
             darkNumericUpDownParticleZ.Value = selectedPreset.VelocityZ;
-
-
-
+            pictureBoxUpperColor.BackColor = Color.FromArgb(unchecked((int)selectedPreset.UpperColor));
+            pictureBoxLowerColor.BackColor = Color.FromArgb(unchecked((int)selectedPreset.LowerColor));
 
 
         }
@@ -248,7 +230,6 @@ namespace CrashEdit.CE.Forms
 
         }
 
-
         private void EnableDisableParticleEffect()
         {
 
@@ -300,8 +281,6 @@ namespace CrashEdit.CE.Forms
 
         }
 
-
-
         private void trackBarParticleAmount_Scroll(object sender, EventArgs e)
         {
             ParticleAmountPourcent.Text = trackBarParticleAmount.Value.ToString() + "%";
@@ -330,8 +309,6 @@ namespace CrashEdit.CE.Forms
 
 
         }
-
-
 
         private void darkCheckBoxUseOnlyOneColor_CheckedChanged(object sender, EventArgs e)
         {

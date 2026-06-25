@@ -98,7 +98,6 @@
             trackBarFog.Size = new Size(370, 69);
             trackBarFog.TabIndex = 6;
             trackBarFog.Tag = "";
-            trackBarFog.Scroll += trackBarFogValue_Scroll;
             trackBarFog.ValueChanged += trackBar1_ValueChanged;
             // 
             // darkTitle1
@@ -166,7 +165,6 @@
             darkTitle4.Size = new Size(115, 25);
             darkTitle4.TabIndex = 12;
             darkTitle4.Text = "Fog Distance";
-            darkTitle4.Click += fogDistanceValue;
             // 
             // darkButton3
             // 

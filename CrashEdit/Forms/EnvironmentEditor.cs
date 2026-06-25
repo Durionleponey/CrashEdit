@@ -23,9 +23,6 @@ namespace CrashEdit.CE.Forms
 
         private const string FilePath = "CrashEdit.exe.savedenvironmentPreset.json";
 
-        private bool isParticlePresetNone = true;
-
-
 
         //test ROBIN
         public static readonly ListItem Robin = new()
@@ -162,7 +159,7 @@ namespace CrashEdit.CE.Forms
 
             if (dpdParticuleEffect.SelectedIndex == 0) { return; }
 
-            var selectedIndex = dpdParticuleEffect.SelectedIndex - 1;
+            var selectedIndex = dpdParticuleEffect.SelectedIndex;
             var selectedPreset = savedItems[selectedIndex].Fields[0];
 
 
@@ -237,34 +234,22 @@ namespace CrashEdit.CE.Forms
         private void EnableDisableParticleEffect()
         {
 
-            var enable = true;
+            var enable = darkCheckBoxUseParticleEffect.Checked;
+            
+            darkGroupBoxParticleAmount.Enabled = enable;
+            darkGroupBoxParticleVelocity.Enabled = enable;
+            darkGroupBoxParticleColor.Enabled = enable;
 
-            if (dpdParticuleEffect.SelectedIndex != 0)
-            {
-                enable = true;
-            }
-            else
-            {
-                enable = false;
-            }
+            darkButtonRemovePreset.Enabled = enable;
+            darkButtonSaveAsNewPreset.Enabled = enable;
+            darkButtonSavePreset.Enabled = enable;
 
-            if (isParticlePresetNone != enable)
-            {
-                darkGroupBoxParticleAmount.Enabled = enable;
-                darkGroupBoxParticleVelocity.Enabled = enable;
-                darkGroupBoxParticleColor.Enabled = enable;
-
-                darkButtonRemovePreset.Enabled = enable;
-                darkButtonSaveAsNewPreset.Enabled = enable;
-                darkButtonSavePreset.Enabled = enable;
-
-                pictureBoxUpperColor.Visible = enable;
-                pictureBoxLowerColor.Visible = enable;
+            pictureBoxUpperColor.Visible = enable;
+            pictureBoxLowerColor.Visible = enable;
 
 
-                isParticlePresetNone = enable;
 
-            }
+            
 
 
 
@@ -276,7 +261,7 @@ namespace CrashEdit.CE.Forms
 
             //Console.WriteLine(Robin.Name);
             //Robin
-            EnableDisableParticleEffect();
+            //EnableDisableParticleEffect();
             LoadIemsValueInForm();
             UpdatePourcentTrackBarParticleAmount();
 
@@ -334,6 +319,18 @@ namespace CrashEdit.CE.Forms
                 else { return; }
 
             }
+        }
+
+        private void darkButtonRemovePreset_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void darkCheckBoxUseParticleEffect_CheckedChanged(object sender, EventArgs e)
+        {
+            EnableDisableParticleEffect();
+
+
         }
     }
 }

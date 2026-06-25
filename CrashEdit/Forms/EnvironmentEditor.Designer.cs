@@ -64,6 +64,7 @@
             darkButtonRemovePreset = new AltUI.Controls.DarkButton();
             darkButtonSavePreset = new AltUI.Controls.DarkButton();
             dpdParticuleEffect = new AltUI.Controls.DarkComboBox();
+            darkCheckBoxUseParticleEffect = new AltUI.Controls.DarkCheckBox();
             ((System.ComponentModel.ISupportInitialize)trackBarFog).BeginInit();
             fogSettingsBox.SuspendLayout();
             darkGroupBoxParticleSettings.SuspendLayout();
@@ -183,7 +184,7 @@
             // darkTitle5
             // 
             darkTitle5.AutoSize = true;
-            darkTitle5.Location = new Point(47, 56);
+            darkTitle5.Location = new Point(236, 43);
             darkTitle5.Margin = new Padding(3, 0, 3, 15);
             darkTitle5.Name = "darkTitle5";
             darkTitle5.Size = new Size(116, 25);
@@ -208,6 +209,7 @@
             // 
             // darkGroupBoxParticleSettings
             // 
+            darkGroupBoxParticleSettings.Controls.Add(darkCheckBoxUseParticleEffect);
             darkGroupBoxParticleSettings.Controls.Add(darkGroupBoxParticleAmount);
             darkGroupBoxParticleSettings.Controls.Add(darkGroupBoxParticleColor);
             darkGroupBoxParticleSettings.Controls.Add(darkGroupBoxParticleVelocity);
@@ -425,7 +427,7 @@
             darkButtonSaveAsNewPreset.CustomColour = false;
             darkButtonSaveAsNewPreset.FlatBottom = false;
             darkButtonSaveAsNewPreset.FlatTop = false;
-            darkButtonSaveAsNewPreset.Location = new Point(459, 91);
+            darkButtonSaveAsNewPreset.Location = new Point(477, 37);
             darkButtonSaveAsNewPreset.Name = "darkButtonSaveAsNewPreset";
             darkButtonSaveAsNewPreset.Padding = new Padding(5);
             darkButtonSaveAsNewPreset.Size = new Size(203, 34);
@@ -439,7 +441,7 @@
             darkButtonRemovePreset.CustomColour = false;
             darkButtonRemovePreset.FlatBottom = false;
             darkButtonRemovePreset.FlatTop = false;
-            darkButtonRemovePreset.Location = new Point(562, 51);
+            darkButtonRemovePreset.Location = new Point(574, 72);
             darkButtonRemovePreset.Name = "darkButtonRemovePreset";
             darkButtonRemovePreset.Padding = new Padding(5);
             darkButtonRemovePreset.Size = new Size(163, 34);
@@ -452,7 +454,7 @@
             darkButtonSavePreset.CustomColour = false;
             darkButtonSavePreset.FlatBottom = false;
             darkButtonSavePreset.FlatTop = false;
-            darkButtonSavePreset.Location = new Point(393, 51);
+            darkButtonSavePreset.Location = new Point(411, 72);
             darkButtonSavePreset.Name = "darkButtonSavePreset";
             darkButtonSavePreset.Padding = new Padding(5);
             darkButtonSavePreset.Size = new Size(163, 34);
@@ -465,11 +467,22 @@
             dpdParticuleEffect.DrawMode = DrawMode.OwnerDrawVariable;
             dpdParticuleEffect.FormattingEnabled = true;
             dpdParticuleEffect.Items.AddRange(new object[] { "None" });
-            dpdParticuleEffect.Location = new Point(184, 53);
+            dpdParticuleEffect.Location = new Point(196, 86);
             dpdParticuleEffect.Name = "dpdParticuleEffect";
             dpdParticuleEffect.Size = new Size(182, 32);
             dpdParticuleEffect.TabIndex = 16;
             dpdParticuleEffect.SelectedIndexChanged += dpdParticuleEffect_SelectedIndexChanged;
+            // 
+            // darkCheckBoxUseParticleEffect
+            // 
+            darkCheckBoxUseParticleEffect.AutoSize = true;
+            darkCheckBoxUseParticleEffect.Location = new Point(26, 77);
+            darkCheckBoxUseParticleEffect.Name = "darkCheckBoxUseParticleEffect";
+            darkCheckBoxUseParticleEffect.Offset = 1;
+            darkCheckBoxUseParticleEffect.Size = new Size(127, 29);
+            darkCheckBoxUseParticleEffect.TabIndex = 13;
+            darkCheckBoxUseParticleEffect.Text = "Use Particle";
+            darkCheckBoxUseParticleEffect.CheckedChanged += darkCheckBoxUseParticleEffect_CheckedChanged;
             // 
             // EnvironmentEditor
             // 
@@ -551,5 +564,6 @@
         private PictureBox pictureBoxLowerColor;
         private AltUI.Controls.DarkCheckBox darkCheckBoxUseOnlyOneColor;
         private AltUI.Controls.DarkTitle ParticleAmountPourcent;
+        private AltUI.Controls.DarkCheckBox darkCheckBoxUseParticleEffect;
     }
 }

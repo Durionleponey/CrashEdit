@@ -247,9 +247,12 @@ namespace CrashEdit.CE.Forms
             pictureBoxUpperColor.Visible = enable;
             pictureBoxLowerColor.Visible = enable;
 
+            darkTitleLowerColor.Visible = enable;
+            darkTitleUpperColor.Visible = enable;
 
+            dpdParticuleEffect.Enabled = enable;
 
-            
+            ParticleAmountPourcent.Visible = enable;
 
 
 

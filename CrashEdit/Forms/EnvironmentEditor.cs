@@ -209,8 +209,11 @@ namespace CrashEdit.CE.Forms
             }
         }
 
-        private void darkButton4_Click(object sender, EventArgs e)
+        private void darkButtonSavePreset_Click(object sender, EventArgs e)
         {
+
+
+
             AddSavedItem(Robin.Name, Robin.Fields);
         }
 
@@ -224,7 +227,8 @@ namespace CrashEdit.CE.Forms
 
         }
 
-        private void UpdatePourcentTrackBarParticleAmount() {
+        private void UpdatePourcentTrackBarParticleAmount()
+        {
 
             ParticleAmountPourcent.Text = trackBarParticleAmount.Value.ToString() + "%";
 
@@ -286,7 +290,8 @@ namespace CrashEdit.CE.Forms
             ParticleAmountPourcent.Text = trackBarParticleAmount.Value.ToString() + "%";
         }
 
-        private void showHideLowerColor() {
+        private void showHideLowerColor()
+        {
 
             var hideLowerColor = darkCheckBoxUseOnlyOneColor.Checked;
 
@@ -297,7 +302,8 @@ namespace CrashEdit.CE.Forms
 
 
             }
-            else {
+            else
+            {
 
                 darkTitleUpperColor.Text = "Upper Color";
 
@@ -314,6 +320,20 @@ namespace CrashEdit.CE.Forms
         {
             showHideLowerColor();
 
+        }
+
+        private void darkButtonSaveAsNewPreset_Click(object sender, EventArgs e)
+        {
+            using (InputWindow inputWindow = new InputWindow(Resources.EntityBox_CmdAdd, "Save As Preset", "Enter Preset Name:", string.Empty, -1))
+            {
+
+                if (inputWindow.ShowDialog(this) == DialogResult.OK)
+                {
+                    AddSavedItem(Robin.Name, Robin.Fields);
+                }
+                else { return; }
+
+            }
         }
     }
 }

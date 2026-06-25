@@ -431,6 +431,7 @@
             darkButtonSaveAsNewPreset.Size = new Size(203, 34);
             darkButtonSaveAsNewPreset.TabIndex = 20;
             darkButtonSaveAsNewPreset.Text = "Save As New Preset";
+            darkButtonSaveAsNewPreset.Click += darkButtonSaveAsNewPreset_Click;
             // 
             // darkButtonRemovePreset
             // 
@@ -457,7 +458,7 @@
             darkButtonSavePreset.Size = new Size(163, 34);
             darkButtonSavePreset.TabIndex = 18;
             darkButtonSavePreset.Text = "Save Preset";
-            darkButtonSavePreset.Click += darkButton4_Click;
+            darkButtonSavePreset.Click += darkButtonSavePreset_Click;
             // 
             // dpdParticuleEffect
             // 

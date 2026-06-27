@@ -208,6 +208,7 @@ namespace CrashEdit.CE.Forms
             //LoadIemsValueInForm();
             UpdatePourcentTrackBarParticleAmount();
             EnableDisableParticleEffect();
+            EnableDisableRemoveButton();
 
 
         }
@@ -319,6 +320,15 @@ namespace CrashEdit.CE.Forms
 
             }
 
+            EnableDisableRemoveButton();
+
+            if (savedItems.Count == 1)
+            {
+
+                dpdParticuleEffect.SelectedIndex = 0;
+
+            }
+
 
         }
 
@@ -337,11 +347,6 @@ namespace CrashEdit.CE.Forms
 
             return list;
 
-
-        }
-
-        private void darkButtonRemovePreset_Click(object sender, EventArgs e)
-        {
 
         }
 
@@ -422,6 +427,55 @@ namespace CrashEdit.CE.Forms
         {
             Console.WriteLine("hello");
             pictureBoxLowerColor.BackColor = colorPicker(pictureBoxLowerColor.BackColor);
+        }
+
+        private void darkButtonRemovePreset_Click_1(object sender, EventArgs e)
+        {
+
+            int targetIndex = dpdParticuleEffect.SelectedIndex;
+
+            dpdParticuleEffect.Items.RemoveAt(targetIndex);
+            savedItems.RemoveAt(targetIndex);
+            try
+            {
+                SaveItemsToFile();
+                DarkMessageBox.ShowInformation($"Remove Preset successfully.", "Remove Preset");
+            }
+            catch (Exception ex)
+            {
+                DarkMessageBox.ShowError($"Error Removing Preset", Resources.Title_Error);
+            }
+
+            if (savedItems.Count > 0)
+            {
+
+                dpdParticuleEffect.SelectedIndex = 0;
+
+            }
+            else
+            {
+                dpdParticuleEffect.SelectedIndex = -1;
+                dpdParticuleEffect.SelectedItem = null;
+                dpdParticuleEffect.Text = string.Empty;
+                dpdParticuleEffect.Refresh();
+            }
+
+            EnableDisableRemoveButton();
+
+        }
+
+        private void EnableDisableRemoveButton() {
+
+            bool enable = true;
+
+            if (savedItems.Count == 0)
+            {
+                enable = false;
+
+            }
+                dpdParticuleEffect.Enabled = enable;
+                darkButtonRemovePreset.Enabled = enable;
+
         }
     }
 }

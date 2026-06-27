@@ -2,6 +2,7 @@
 using AltUI.Forms;
 using CrashEdit.CE.Properties;
 using CrashEdit.Crash;
+using System.Collections.Generic;
 using System.Diagnostics.Eventing.Reader;
 using System.Net.Security;
 using System.Security.RightsManagement;
@@ -22,24 +23,6 @@ namespace CrashEdit.CE.Forms
         private List<ListItem> savedItems = new List<ListItem>();
 
         private const string FilePath = "CrashEdit.exe.savedenvironmentPreset.json";
-
-
-        //test ROBIN
-        public static readonly ListItem Robin = new()
-        {
-
-            Name = "test4",
-            Fields = new List<FieldData>
-                {
-                    new FieldData { ParticleAmount = 50, VelocityY = 20, VelocityX = 15, VelocityZ = 10, UpperColor = 0x4067FFFF, LowerColor = 0xFF67FFFF}
-                }
-
-
-        };
-
-
-
-
 
 
         public class FieldData
@@ -141,6 +124,7 @@ namespace CrashEdit.CE.Forms
                     //dpdParticuleEffect.Items.Clear();
                     foreach (var item in savedItems)
                     {
+                        Console.Write(item);
                         Console.WriteLine(item.Name.ToString());
                         dpdParticuleEffect.Items.Add(item.Name);
                     }
@@ -157,7 +141,8 @@ namespace CrashEdit.CE.Forms
         private void LoadIemsValueInForm()
         {
 
-            if (dpdParticuleEffect.SelectedIndex == 0) { return; }
+            //Console.WriteLine(savedItems);
+
 
             var selectedIndex = dpdParticuleEffect.SelectedIndex;
             var selectedPreset = savedItems[selectedIndex].Fields[0];
@@ -210,14 +195,13 @@ namespace CrashEdit.CE.Forms
         {
 
 
-
-            AddSavedItem(Robin.Name, Robin.Fields);
         }
 
         private void EnvironmentEditor_Load(object sender, EventArgs e)
         {
+            EnableDisableParticleEffect();
             LoadItemsFromFile();
-            LoadIemsValueInForm();
+            //LoadIemsValueInForm();
             UpdatePourcentTrackBarParticleAmount();
             EnableDisableParticleEffect();
 
@@ -262,9 +246,7 @@ namespace CrashEdit.CE.Forms
         private void dpdParticuleEffect_SelectedIndexChanged(object sender, EventArgs e)
         {
 
-            //Console.WriteLine(Robin.Name);
-            //Robin
-            //EnableDisableParticleEffect();
+
             LoadIemsValueInForm();
             UpdatePourcentTrackBarParticleAmount();
 
@@ -312,16 +294,41 @@ namespace CrashEdit.CE.Forms
 
         private void darkButtonSaveAsNewPreset_Click(object sender, EventArgs e)
         {
+
+            
             using (InputWindow inputWindow = new InputWindow(Resources.EntityBox_CmdAdd, "Save As Preset", "Enter Preset Name:", string.Empty, -1))
             {
 
                 if (inputWindow.ShowDialog(this) == DialogResult.OK)
                 {
-                    AddSavedItem(Robin.Name, Robin.Fields);
+
+                    string presetName = inputWindow.Input;
+                    List<FieldData> fields = createPresetFields();
+
+                    AddSavedItem(presetName,fields);
+
                 }
                 else { return; }
 
             }
+
+            
+        }
+
+        private List<FieldData> createPresetFields()
+        {
+
+            List<FieldData> list = new List<FieldData>();
+            list[0].ParticleAmount = (short)trackBarParticleAmount.Value;
+            list[0].VelocityX = (short)darkNumericUpDownParticleX.Value;
+            list[0].VelocityY = (short)darkNumericUpDownParticleY.Value;
+            list[0].VelocityZ = (short)darkNumericUpDownParticleZ.Value;
+            list[0].UpperColor = (uint)pictureBoxLowerColor.BackColor.ToArgb();
+            list[0].LowerColor = (uint)pictureBoxLowerColor.BackColor.ToArgb();
+
+            return list;
+
+
         }
 
         private void darkButtonRemovePreset_Click(object sender, EventArgs e)

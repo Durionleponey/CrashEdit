@@ -40,6 +40,7 @@
             darkTitle5 = new AltUI.Controls.DarkTitle();
             fogSettingsBox = new AltUI.Controls.DarkGroupBox();
             darkGroupBoxParticleSettings = new AltUI.Controls.DarkGroupBox();
+            darkCheckBoxUseParticleEffect = new AltUI.Controls.DarkCheckBox();
             darkGroupBoxParticleAmount = new AltUI.Controls.DarkGroupBox();
             ParticleAmountPourcent = new AltUI.Controls.DarkTitle();
             trackBarParticleAmount = new TrackBar();
@@ -64,7 +65,6 @@
             darkButtonRemovePreset = new AltUI.Controls.DarkButton();
             darkButtonSavePreset = new AltUI.Controls.DarkButton();
             dpdParticuleEffect = new AltUI.Controls.DarkComboBox();
-            darkCheckBoxUseParticleEffect = new AltUI.Controls.DarkCheckBox();
             ((System.ComponentModel.ISupportInitialize)trackBarFog).BeginInit();
             fogSettingsBox.SuspendLayout();
             darkGroupBoxParticleSettings.SuspendLayout();
@@ -224,6 +224,17 @@
             darkGroupBoxParticleSettings.TabIndex = 17;
             darkGroupBoxParticleSettings.TabStop = false;
             darkGroupBoxParticleSettings.Text = "Particle Settings";
+            // 
+            // darkCheckBoxUseParticleEffect
+            // 
+            darkCheckBoxUseParticleEffect.AutoSize = true;
+            darkCheckBoxUseParticleEffect.Location = new Point(26, 77);
+            darkCheckBoxUseParticleEffect.Name = "darkCheckBoxUseParticleEffect";
+            darkCheckBoxUseParticleEffect.Offset = 1;
+            darkCheckBoxUseParticleEffect.Size = new Size(127, 29);
+            darkCheckBoxUseParticleEffect.TabIndex = 13;
+            darkCheckBoxUseParticleEffect.Text = "Use Particle";
+            darkCheckBoxUseParticleEffect.CheckedChanged += darkCheckBoxUseParticleEffect_CheckedChanged;
             // 
             // darkGroupBoxParticleAmount
             // 
@@ -466,23 +477,11 @@
             // 
             dpdParticuleEffect.DrawMode = DrawMode.OwnerDrawVariable;
             dpdParticuleEffect.FormattingEnabled = true;
-            dpdParticuleEffect.Items.AddRange(new object[] { "None" });
             dpdParticuleEffect.Location = new Point(196, 86);
             dpdParticuleEffect.Name = "dpdParticuleEffect";
             dpdParticuleEffect.Size = new Size(182, 32);
             dpdParticuleEffect.TabIndex = 16;
             dpdParticuleEffect.SelectedIndexChanged += dpdParticuleEffect_SelectedIndexChanged;
-            // 
-            // darkCheckBoxUseParticleEffect
-            // 
-            darkCheckBoxUseParticleEffect.AutoSize = true;
-            darkCheckBoxUseParticleEffect.Location = new Point(26, 77);
-            darkCheckBoxUseParticleEffect.Name = "darkCheckBoxUseParticleEffect";
-            darkCheckBoxUseParticleEffect.Offset = 1;
-            darkCheckBoxUseParticleEffect.Size = new Size(127, 29);
-            darkCheckBoxUseParticleEffect.TabIndex = 13;
-            darkCheckBoxUseParticleEffect.Text = "Use Particle";
-            darkCheckBoxUseParticleEffect.CheckedChanged += darkCheckBoxUseParticleEffect_CheckedChanged;
             // 
             // EnvironmentEditor
             // 

@@ -340,6 +340,7 @@
             pictureBoxLowerColor.Size = new Size(36, 39);
             pictureBoxLowerColor.TabIndex = 32;
             pictureBoxLowerColor.TabStop = false;
+            pictureBoxLowerColor.Click += pictureBoxLowerColor_Click;
             // 
             // darkTitleUpperColor
             // 
@@ -358,6 +359,7 @@
             pictureBoxUpperColor.Size = new Size(36, 39);
             pictureBoxUpperColor.TabIndex = 0;
             pictureBoxUpperColor.TabStop = false;
+            pictureBoxUpperColor.Click += pictureBoxUpperColor_Click;
             // 
             // darkGroupBoxParticleVelocity
             // 

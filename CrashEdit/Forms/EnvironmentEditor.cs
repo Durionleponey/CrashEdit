@@ -2,12 +2,15 @@
 using AltUI.Forms;
 using CrashEdit.CE.Properties;
 using CrashEdit.Crash;
+using Cyotek.Windows.Forms;
 using System.Collections.Generic;
 using System.Diagnostics.Eventing.Reader;
+using System.Drawing.Drawing2D;
 using System.Net.Security;
 using System.Security.RightsManagement;
 using System.Text.Json;
 using static CrashEdit.CE.EntityPropertyBox;
+
 
 namespace CrashEdit.CE.Forms
 {
@@ -220,7 +223,7 @@ namespace CrashEdit.CE.Forms
         {
 
             var enable = darkCheckBoxUseParticleEffect.Checked;
-            
+
             darkGroupBoxParticleAmount.Enabled = enable;
             darkGroupBoxParticleVelocity.Enabled = enable;
             darkGroupBoxParticleColor.Enabled = enable;
@@ -291,30 +294,32 @@ namespace CrashEdit.CE.Forms
         private void darkButtonSaveAsNewPreset_Click(object sender, EventArgs e)
         {
 
-            
+
             using (InputWindow inputWindow = new InputWindow(Resources.EntityBox_CmdAdd, "Save As Preset", "Enter Preset Name:", string.Empty, -1))
             {
 
                 if (inputWindow.ShowDialog(this) == DialogResult.OK)
                 {
-                    if (inputWindow.Input.Length == 0) {
+                    if (inputWindow.Input.Length == 0)
+                    {
 
                         DarkMessageBox.ShowError("Please input name of the preset", "Error name empty");
-                        return;}
+                        return;
+                    }
 
                     string presetName = inputWindow.Input;
                     List<FieldData> fields = createPresetFields();
 
 
 
-                    AddSavedItem(presetName,fields);
+                    AddSavedItem(presetName, fields);
 
                 }
                 else { return; }
 
             }
 
-            
+
         }
 
         private List<FieldData> createPresetFields()
@@ -343,6 +348,80 @@ namespace CrashEdit.CE.Forms
         private void darkCheckBoxUseParticleEffect_CheckedChanged(object sender, EventArgs e)
         {
             EnableDisableParticleEffect();
+        }
+
+        private void pictureBoxUpperColor_Click(object sender, EventArgs e)
+        {
+
+            pictureBoxUpperColor.BackColor = colorPicker(pictureBoxUpperColor.BackColor);
+
+
+        }
+
+
+
+        private Color colorPicker(Color startColor)
+        {
+
+
+            var editor = new ColorEditor
+            {
+                Dock = DockStyle.Fill,
+                Color = startColor,
+                ShowAlphaChannel = true,
+                ShowHsl = false,
+                ShowColorSpaceLabels = false,
+                Padding = new Padding(12)
+            };
+
+            var preview = new Panel { Dock = DockStyle.Top, Height = 32 };
+            preview.Paint += (s, ev) =>
+            {
+                var r = preview.ClientRectangle;
+                using (var bg = new HatchBrush(HatchStyle.LargeCheckerBoard, Color.LightGray, Color.White))
+                    ev.Graphics.FillRectangle(bg, r);
+                using (var fg = new SolidBrush(editor.Color))
+                    ev.Graphics.FillRectangle(fg, r);
+            };
+            editor.ColorChanged += (s, ev) => preview.Invalidate();
+
+            var btnOk = new DarkButton
+            {
+                Text = "OK",
+                Dock = DockStyle.Bottom,
+                DialogResult = DialogResult.OK
+            };
+
+            using var form = new DarkForm
+            {
+                Text = "Pick color",
+                ClientSize = new Size(320, 280),
+                FormBorderStyle = FormBorderStyle.FixedDialog,
+                StartPosition = FormStartPosition.CenterParent,
+                MaximizeBox = false,
+                MinimizeBox = false,
+                AcceptButton = btnOk
+            };
+
+            form.Controls.Add(editor);
+            form.Controls.Add(preview);
+            form.Controls.Add(btnOk);
+
+            if (form.ShowDialog(this) == DialogResult.OK)
+            {
+                Console.WriteLine($"---> {editor.Color}");
+                return editor.Color;
+            }
+
+            return startColor;
+
+
+        }
+
+        private void pictureBoxLowerColor_Click(object sender, EventArgs e)
+        {
+            Console.WriteLine("hello");
+            pictureBoxLowerColor.BackColor = colorPicker(pictureBoxLowerColor.BackColor);
         }
     }
 }

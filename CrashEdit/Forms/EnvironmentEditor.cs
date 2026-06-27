@@ -332,7 +332,7 @@ namespace CrashEdit.CE.Forms
             list[0].VelocityX = (short)darkNumericUpDownParticleX.Value;
             list[0].VelocityY = (short)darkNumericUpDownParticleY.Value;
             list[0].VelocityZ = (short)darkNumericUpDownParticleZ.Value;
-            list[0].UpperColor = (uint)pictureBoxLowerColor.BackColor.ToArgb();
+            list[0].UpperColor = (uint)pictureBoxUpperColor.BackColor.ToArgb();
             list[0].LowerColor = (uint)pictureBoxLowerColor.BackColor.ToArgb();
 
             return list;

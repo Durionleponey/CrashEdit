@@ -50,8 +50,9 @@ namespace CrashEdit.CE.Forms
             InitializeComponent();
 
             darkCheckBox1.Checked = Settings.Default.DefaultFogIsActive;
+            darkCheckBoxUseParticleEffect.Checked = Settings.Default.DefaultParticleIsActive;
 
-            dpdParticuleEffect.SelectedItem = Settings.Default.DefaultParticleEffec;
+            dpdParticuleEffect.SelectedItem = Settings.Default.DefaultParticleIsActive;
 
             //darkCheckBox1.Checked = (flags != null);
 
@@ -101,7 +102,7 @@ namespace CrashEdit.CE.Forms
             Settings.Default.DefaultFogValue = (byte)trackBarFog.Value;
             Settings.Default.DefaultFogIsActive = darkCheckBox1.Checked;
             Console.WriteLine(dpdParticuleEffect.SelectedItem);
-            Settings.Default.DefaultParticleEffec = (string)dpdParticuleEffect.SelectedItem;
+            Settings.Default.DefaultParticleIsActive = darkCheckBoxUseParticleEffect.Checked;
             Settings.Default.Save();
 
             DarkMessageBox.ShowInformation("Default values saved.", "Settings");
@@ -339,8 +340,6 @@ namespace CrashEdit.CE.Forms
         private void darkCheckBoxUseParticleEffect_CheckedChanged(object sender, EventArgs e)
         {
             EnableDisableParticleEffect();
-
-
         }
     }
 }

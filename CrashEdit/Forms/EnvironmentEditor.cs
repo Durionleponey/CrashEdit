@@ -86,7 +86,7 @@ namespace CrashEdit.CE.Forms
 
         }
 
-        private void trackBar1_ValueChanged(object sender, EventArgs e)
+        private void trackBarFog_ValueChanged(object sender, EventArgs e)
         {
             darkTitle4.Text = trackBarFog.Value.ToString();
 
@@ -101,7 +101,6 @@ namespace CrashEdit.CE.Forms
         {
             Settings.Default.DefaultFogValue = (byte)trackBarFog.Value;
             Settings.Default.DefaultFogIsActive = darkCheckBox1.Checked;
-            Console.WriteLine(dpdParticuleEffect.SelectedItem);
             Settings.Default.DefaultParticleIsActive = darkCheckBoxUseParticleEffect.Checked;
             Settings.Default.Save();
 
@@ -166,6 +165,7 @@ namespace CrashEdit.CE.Forms
                 Name = itemName,
                 Fields = fields
             };
+            dpdParticuleEffect.Items.Add(newItem.Name);
             savedItems.Add(newItem);
             try
             {
@@ -246,13 +246,8 @@ namespace CrashEdit.CE.Forms
 
         private void dpdParticuleEffect_SelectedIndexChanged(object sender, EventArgs e)
         {
-
-
             LoadIemsValueInForm();
             UpdatePourcentTrackBarParticleAmount();
-
-
-
 
         }
 
@@ -302,9 +297,15 @@ namespace CrashEdit.CE.Forms
 
                 if (inputWindow.ShowDialog(this) == DialogResult.OK)
                 {
+                    if (inputWindow.Input.Length == 0) {
+
+                        DarkMessageBox.ShowError("Please input name of the preset", "Error name empty");
+                        return;}
 
                     string presetName = inputWindow.Input;
                     List<FieldData> fields = createPresetFields();
+
+
 
                     AddSavedItem(presetName,fields);
 
@@ -320,6 +321,8 @@ namespace CrashEdit.CE.Forms
         {
 
             List<FieldData> list = new List<FieldData>();
+
+            list.Add(new FieldData());
             list[0].ParticleAmount = (short)trackBarParticleAmount.Value;
             list[0].VelocityX = (short)darkNumericUpDownParticleX.Value;
             list[0].VelocityY = (short)darkNumericUpDownParticleY.Value;

@@ -99,7 +99,7 @@
             trackBarFog.Size = new Size(370, 69);
             trackBarFog.TabIndex = 6;
             trackBarFog.Tag = "";
-            trackBarFog.ValueChanged += trackBar1_ValueChanged;
+            trackBarFog.ValueChanged += trackBarFog_ValueChanged;
             // 
             // darkTitle1
             // 

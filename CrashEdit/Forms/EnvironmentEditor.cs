@@ -208,9 +208,30 @@ namespace CrashEdit.CE.Forms
 
         private void darkButtonSavePreset_Click(object sender, EventArgs e)
         {
+            try
+            {
+
+                List<FieldData> fields = createPresetFields();
+
+                int selectedIndexdpd = dpdParticuleEffect.SelectedIndex;
+                savedItems[selectedIndexdpd].Fields = fields;
+                try
+                {
+                    SaveItemsToFile();
+                    DarkMessageBox.ShowInformation($"Preset updated successfully.", "Save Preset");
+                }
+                catch (Exception ex)
+                {
+                    DarkMessageBox.ShowError($"Error updating Preset", Resources.Title_Error);
+                }
+            }
+            catch
+            {
+                DarkMessageBox.ShowError($"Error updating Preset", Resources.Title_Error);
+            }
 
 
-        }
+            }
 
         private void EnvironmentEditor_Load(object sender, EventArgs e)
         {
@@ -219,7 +240,7 @@ namespace CrashEdit.CE.Forms
             //LoadIemsValueInForm();
             UpdatePourcentTrackBarParticleAmount();
             EnableDisableParticleEffect();
-            EnableDisableRemoveButton();
+            EnableDisableSaveAndRemoveButton();
             InitializeDefaultPreset();
 
 
@@ -296,7 +317,6 @@ namespace CrashEdit.CE.Forms
 
                 darkTitleUpperColor.Text = "Particle Color";
 
-
             }
             else
             {
@@ -356,7 +376,7 @@ namespace CrashEdit.CE.Forms
 
             }
 
-            EnableDisableRemoveButton();
+            EnableDisableSaveAndRemoveButton();
 
             if (savedItems.Count == 1)
             {
@@ -403,8 +423,6 @@ namespace CrashEdit.CE.Forms
 
 
         }
-
-
 
         private Color colorPicker(Color startColor)
         {
@@ -501,11 +519,11 @@ namespace CrashEdit.CE.Forms
                 dpdParticuleEffect.Refresh();
             }
 
-            EnableDisableRemoveButton();
+            EnableDisableSaveAndRemoveButton();
 
         }
 
-        private void EnableDisableRemoveButton() {
+        private void EnableDisableSaveAndRemoveButton() {
 
             bool enable = true;
 
@@ -516,6 +534,8 @@ namespace CrashEdit.CE.Forms
             }
                 dpdParticuleEffect.Enabled = enable;
                 darkButtonRemovePreset.Enabled = enable;
+
+                darkButtonSavePreset.Enabled = enable;
 
         }
     }

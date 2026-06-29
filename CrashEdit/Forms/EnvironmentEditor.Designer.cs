@@ -40,6 +40,7 @@
             darkTitle5 = new AltUI.Controls.DarkTitle();
             fogSettingsBox = new AltUI.Controls.DarkGroupBox();
             darkGroupBoxParticleSettings = new AltUI.Controls.DarkGroupBox();
+            darkButtonRestoreDefaultPreset = new AltUI.Controls.DarkButton();
             darkCheckBoxUseParticleEffect = new AltUI.Controls.DarkCheckBox();
             darkGroupBoxParticleAmount = new AltUI.Controls.DarkGroupBox();
             ParticleAmountPourcent = new AltUI.Controls.DarkTitle();
@@ -184,12 +185,12 @@
             // darkTitle5
             // 
             darkTitle5.AutoSize = true;
-            darkTitle5.Location = new Point(236, 43);
+            darkTitle5.Location = new Point(209, 37);
             darkTitle5.Margin = new Padding(3, 0, 3, 15);
             darkTitle5.Name = "darkTitle5";
-            darkTitle5.Size = new Size(116, 25);
+            darkTitle5.Size = new Size(169, 25);
             darkTitle5.TabIndex = 15;
-            darkTitle5.Text = "Particle Effect";
+            darkTitle5.Text = "Particle Effect Preset";
             // 
             // fogSettingsBox
             // 
@@ -209,6 +210,7 @@
             // 
             // darkGroupBoxParticleSettings
             // 
+            darkGroupBoxParticleSettings.Controls.Add(darkButtonRestoreDefaultPreset);
             darkGroupBoxParticleSettings.Controls.Add(darkCheckBoxUseParticleEffect);
             darkGroupBoxParticleSettings.Controls.Add(darkGroupBoxParticleAmount);
             darkGroupBoxParticleSettings.Controls.Add(darkGroupBoxParticleColor);
@@ -224,6 +226,20 @@
             darkGroupBoxParticleSettings.TabIndex = 17;
             darkGroupBoxParticleSettings.TabStop = false;
             darkGroupBoxParticleSettings.Text = "Particle Settings";
+            // 
+            // darkButtonRestoreDefaultPreset
+            // 
+            darkButtonRestoreDefaultPreset.BorderColour = Color.Empty;
+            darkButtonRestoreDefaultPreset.CustomColour = false;
+            darkButtonRestoreDefaultPreset.FlatBottom = false;
+            darkButtonRestoreDefaultPreset.FlatTop = false;
+            darkButtonRestoreDefaultPreset.Location = new Point(477, 107);
+            darkButtonRestoreDefaultPreset.Name = "darkButtonRestoreDefaultPreset";
+            darkButtonRestoreDefaultPreset.Padding = new Padding(5);
+            darkButtonRestoreDefaultPreset.Size = new Size(203, 34);
+            darkButtonRestoreDefaultPreset.TabIndex = 30;
+            darkButtonRestoreDefaultPreset.Text = "Restore Default Preset";
+            darkButtonRestoreDefaultPreset.Click += darkButtonRestoreDefaultPreset_Click_1;
             // 
             // darkCheckBoxUseParticleEffect
             // 
@@ -380,6 +396,7 @@
             // darkNumericUpDownParticleZ
             // 
             darkNumericUpDownParticleZ.Location = new Point(514, 42);
+            darkNumericUpDownParticleZ.Maximum = new decimal(new int[] { 255, 0, 0, 0 });
             darkNumericUpDownParticleZ.Name = "darkNumericUpDownParticleZ";
             darkNumericUpDownParticleZ.Size = new Size(72, 31);
             darkNumericUpDownParticleZ.TabIndex = 30;
@@ -387,6 +404,7 @@
             // darkNumericUpDownParticleY
             // 
             darkNumericUpDownParticleY.Location = new Point(403, 42);
+            darkNumericUpDownParticleY.Maximum = new decimal(new int[] { 255, 0, 0, 0 });
             darkNumericUpDownParticleY.Name = "darkNumericUpDownParticleY";
             darkNumericUpDownParticleY.Size = new Size(72, 31);
             darkNumericUpDownParticleY.TabIndex = 29;
@@ -398,7 +416,7 @@
             darkTitle13.Name = "darkTitle13";
             darkTitle13.Size = new Size(61, 30);
             darkTitle13.TabIndex = 28;
-            darkTitle13.Text = "[0-256]";
+            darkTitle13.Text = "[0-255]";
             // 
             // darkTitle9
             // 
@@ -412,6 +430,7 @@
             // darkNumericUpDownParticleX
             // 
             darkNumericUpDownParticleX.Location = new Point(286, 42);
+            darkNumericUpDownParticleX.Maximum = new decimal(new int[] { 255, 0, 0, 0 });
             darkNumericUpDownParticleX.Name = "darkNumericUpDownParticleX";
             darkNumericUpDownParticleX.Size = new Size(72, 31);
             darkNumericUpDownParticleX.TabIndex = 23;
@@ -567,5 +586,6 @@
         private AltUI.Controls.DarkCheckBox darkCheckBoxUseOnlyOneColor;
         private AltUI.Controls.DarkTitle ParticleAmountPourcent;
         private AltUI.Controls.DarkCheckBox darkCheckBoxUseParticleEffect;
+        private AltUI.Controls.DarkButton darkButtonRestoreDefaultPreset;
     }
 }

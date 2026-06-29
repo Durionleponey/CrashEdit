@@ -127,7 +127,9 @@ namespace CrashEdit.CE.Forms
                     string jsonString = File.ReadAllText(FilePath);
                     savedItems = JsonSerializer.Deserialize<List<ListItem>>(jsonString) ?? new List<ListItem>();
 
-                    //dpdParticuleEffect.Items.Clear();
+                    dpdParticuleEffect.Items.Clear();
+                    if (savedItems.Count == 0) { savedItems = GetBuiltInPresets(); }
+
                     foreach (var item in savedItems)
                     {
                         Console.Write(item);
@@ -165,7 +167,8 @@ namespace CrashEdit.CE.Forms
             {
                 darkCheckBoxUseOnlyOneColor.Checked = true;
             }
-            else {
+            else
+            {
                 darkCheckBoxUseOnlyOneColor.Checked = false;
             }
 
@@ -231,7 +234,7 @@ namespace CrashEdit.CE.Forms
             }
 
 
-            }
+        }
 
         private void EnvironmentEditor_Load(object sender, EventArgs e)
         {
@@ -246,9 +249,18 @@ namespace CrashEdit.CE.Forms
 
         }
 
-        private void InitializeDefaultPreset() {
+        private void InitializeDefaultPreset()
+        {
 
             string selectedDefaultPreset = Settings.Default.DefaultPreset;
+
+            if (selectedDefaultPreset == null && dpdParticuleEffect.Items.Count > 0)
+            {
+                dpdParticuleEffect.SelectedIndex = 0;
+                return;
+            }
+
+
 
             for (int i = 0; i < savedItems.Count; i++)
             {
@@ -356,7 +368,8 @@ namespace CrashEdit.CE.Forms
                     for (int name = 0; name < savedItems.Count; name++)
                     {
 
-                        if (savedItems[name].Name == inputWindow.Input) {
+                        if (savedItems[name].Name == inputWindow.Input)
+                        {
                             DarkMessageBox.ShowError("This name is already use", "Error name already used");
                             return;
 
@@ -402,7 +415,8 @@ namespace CrashEdit.CE.Forms
             list[0].LowerColor = (uint)pictureBoxLowerColor.BackColor.ToArgb();
 
 
-            if (darkCheckBoxUseOnlyOneColor.Checked) {
+            if (darkCheckBoxUseOnlyOneColor.Checked)
+            {
                 list[0].LowerColor = (uint)pictureBoxUpperColor.BackColor.ToArgb();
             }
 
@@ -523,7 +537,8 @@ namespace CrashEdit.CE.Forms
 
         }
 
-        private void EnableDisableSaveAndRemoveButton() {
+        private void EnableDisableSaveAndRemoveButton()
+        {
 
             bool enable = true;
 
@@ -532,10 +547,108 @@ namespace CrashEdit.CE.Forms
                 enable = false;
 
             }
-                dpdParticuleEffect.Enabled = enable;
-                darkButtonRemovePreset.Enabled = enable;
+            dpdParticuleEffect.Enabled = enable;
+            darkButtonRemovePreset.Enabled = enable;
 
-                darkButtonSavePreset.Enabled = enable;
+            darkButtonSavePreset.Enabled = enable;
+
+        }
+
+        public static List<ListItem> GetBuiltInPresets()//PROTO DUMMMY VALUE
+        {
+            List<ListItem> defaultList = new List<ListItem>();
+
+            defaultList.Add(new ListItem
+            {
+                Name = "Rain",
+                Fields = new List<FieldData>
+        {
+            new FieldData
+            {
+                ParticleAmount = 80,
+                VelocityX = 0,
+                VelocityY = 120,
+                VelocityZ = 0,
+                UpperColor = 0xFF6A8CB0,
+                LowerColor = 0xFF6A8CB0
+            }
+        }
+            });
+
+            defaultList.Add(new ListItem
+            {
+                Name = "Snow",
+                Fields = new List<FieldData>
+        {
+            new FieldData
+            {
+                ParticleAmount = 50,
+                VelocityX = 10,
+                VelocityY = 30,
+                VelocityZ = 0,
+                UpperColor = 0xFFFFFFFF,
+                LowerColor = 0xFFFFFFFF
+            }
+        }
+            });
+
+            defaultList.Add(new ListItem
+            {
+                Name = "Heavy rain",
+                Fields = new List<FieldData>
+        {
+            new FieldData
+            {
+                ParticleAmount = 50,
+                VelocityX = 10,
+                VelocityY = 30,
+                VelocityZ = 0,
+                UpperColor = 0xFFF00FFF,
+                LowerColor = 0xF0FFFFFF
+            }
+        }
+            });
+
+            return defaultList;
+        }
+
+        private void darkButtonRestoreDefaultPreset_Click(object sender, EventArgs e)
+        {
+ 
+
+
+        }
+
+        private void darkButtonRestoreDefaultPreset_Click_1(object sender, EventArgs e)
+        {
+
+            try
+            {
+
+                savedItems.Clear();
+                SaveItemsToFile();
+
+                LoadItemsFromFile();
+                LoadIemsValueInForm();
+                UpdatePourcentTrackBarParticleAmount();
+                EnableDisableParticleEffect();
+                EnableDisableSaveAndRemoveButton();
+                InitializeDefaultPreset();
+
+                DarkMessageBox.ShowInformation($"Restore Default Preset Succes", "Save Properties");
+
+
+
+
+            }
+            catch
+            {
+
+                DarkMessageBox.ShowInformation($"Error Reseting Property.", "Save Properties");
+
+
+            }
+
 
         }
     }

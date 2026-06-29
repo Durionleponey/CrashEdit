@@ -695,5 +695,17 @@ namespace CrashEdit.CE.Properties {
                 this["DefaultParticleIsActive"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string DefaultPreset {
+            get {
+                return ((string)(this["DefaultPreset"]));
+            }
+            set {
+                this["DefaultPreset"] = value;
+            }
+        }
     }
 }

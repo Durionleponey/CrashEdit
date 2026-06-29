@@ -55,7 +55,9 @@ namespace CrashEdit.CE.Forms
             darkCheckBox1.Checked = Settings.Default.DefaultFogIsActive;
             darkCheckBoxUseParticleEffect.Checked = Settings.Default.DefaultParticleIsActive;
 
-            dpdParticuleEffect.SelectedItem = Settings.Default.DefaultParticleIsActive;
+
+            dpdParticuleEffect.Enabled = Settings.Default.DefaultParticleIsActive;
+
 
             //darkCheckBox1.Checked = (flags != null);
 
@@ -105,6 +107,7 @@ namespace CrashEdit.CE.Forms
             Settings.Default.DefaultFogValue = (byte)trackBarFog.Value;
             Settings.Default.DefaultFogIsActive = darkCheckBox1.Checked;
             Settings.Default.DefaultParticleIsActive = darkCheckBoxUseParticleEffect.Checked;
+            Settings.Default.DefaultPreset = dpdParticuleEffect.SelectedItem.ToString();
             Settings.Default.Save();
 
             DarkMessageBox.ShowInformation("Default values saved.", "Settings");
@@ -217,8 +220,23 @@ namespace CrashEdit.CE.Forms
             UpdatePourcentTrackBarParticleAmount();
             EnableDisableParticleEffect();
             EnableDisableRemoveButton();
+            InitializeDefaultPreset();
 
 
+        }
+
+        private void InitializeDefaultPreset() {
+
+            string selectedDefaultPreset = Settings.Default.DefaultPreset;
+
+            for (int i = 0; i < savedItems.Count; i++)
+            {
+                if (savedItems[i].Name == selectedDefaultPreset)
+                {
+                    dpdParticuleEffect.SelectedIndex = i;
+                    break;
+                }
+            }
         }
 
         private void UpdatePourcentTrackBarParticleAmount()
@@ -311,9 +329,19 @@ namespace CrashEdit.CE.Forms
                 {
                     if (inputWindow.Input.Length == 0)
                     {
-
                         DarkMessageBox.ShowError("Please input name of the preset", "Error name empty");
                         return;
+                    }
+
+                    for (int name = 0; name < savedItems.Count; name++)
+                    {
+
+                        if (savedItems[name].Name == inputWindow.Input) {
+                            DarkMessageBox.ShowError("This name is already use", "Error name already used");
+                            return;
+
+                        }
+
                     }
 
                     string presetName = inputWindow.Input;
@@ -355,9 +383,7 @@ namespace CrashEdit.CE.Forms
 
 
             if (darkCheckBoxUseOnlyOneColor.Checked) {
-
                 list[0].LowerColor = (uint)pictureBoxUpperColor.BackColor.ToArgb();
-
             }
 
             return list;

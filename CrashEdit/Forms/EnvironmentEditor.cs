@@ -158,6 +158,14 @@ namespace CrashEdit.CE.Forms
             pictureBoxUpperColor.BackColor = Color.FromArgb(unchecked((int)selectedPreset.UpperColor));
             pictureBoxLowerColor.BackColor = Color.FromArgb(unchecked((int)selectedPreset.LowerColor));
 
+            if (pictureBoxUpperColor.BackColor == pictureBoxLowerColor.BackColor)
+            {
+                darkCheckBoxUseOnlyOneColor.Checked = true;
+            }
+            else {
+                darkCheckBoxUseOnlyOneColor.Checked = false;
+            }
+
 
         }
 
@@ -344,6 +352,13 @@ namespace CrashEdit.CE.Forms
             list[0].VelocityZ = (short)darkNumericUpDownParticleZ.Value;
             list[0].UpperColor = (uint)pictureBoxUpperColor.BackColor.ToArgb();
             list[0].LowerColor = (uint)pictureBoxLowerColor.BackColor.ToArgb();
+
+
+            if (darkCheckBoxUseOnlyOneColor.Checked) {
+
+                list[0].LowerColor = (uint)pictureBoxUpperColor.BackColor.ToArgb();
+
+            }
 
             return list;
 

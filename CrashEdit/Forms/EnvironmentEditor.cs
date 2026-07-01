@@ -291,6 +291,7 @@ namespace CrashEdit.CE.Forms
             darkButtonRemovePreset.Enabled = enable;
             darkButtonSaveAsNewPreset.Enabled = enable;
             darkButtonSavePreset.Enabled = enable;
+            darkButtonRestoreDefaultPreset.Enabled = enable;
 
             pictureBoxUpperColor.Visible = enable;
             pictureBoxLowerColor.Visible = enable;
@@ -627,9 +628,8 @@ namespace CrashEdit.CE.Forms
 
                 savedItems.Clear();
                 SaveItemsToFile();
-
                 LoadItemsFromFile();
-                LoadIemsValueInForm();
+                //LoadIemsValueInForm();
                 UpdatePourcentTrackBarParticleAmount();
                 EnableDisableParticleEffect();
                 EnableDisableSaveAndRemoveButton();

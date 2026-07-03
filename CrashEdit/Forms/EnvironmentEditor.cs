@@ -56,6 +56,13 @@ namespace CrashEdit.CE.Forms
             darkCheckBox1.Checked = Settings.Default.DefaultFogIsActive;
             darkCheckBoxUseParticleEffect.Checked = Settings.Default.DefaultParticleIsActive;
 
+            if (pictureBoxBackgroundTextureGapColor.BackColor != null) {
+
+                pictureBoxBackgroundTextureGapColor.BackColor = Color.FromArgb(Settings.Default.DefaultpictureBoxBackgroundTextureGapColor);
+
+            }
+
+
 
             dpdParticuleEffect.Enabled = Settings.Default.DefaultParticleIsActive;
 
@@ -109,6 +116,7 @@ namespace CrashEdit.CE.Forms
             Settings.Default.DefaultFogIsActive = darkCheckBox1.Checked;
             Settings.Default.DefaultParticleIsActive = darkCheckBoxUseParticleEffect.Checked;
             Settings.Default.DefaultPreset = dpdParticuleEffect.SelectedItem.ToString();
+            Settings.Default.DefaultpictureBoxBackgroundTextureGapColor = pictureBoxBackgroundTextureGapColor.BackColor.ToArgb();
             Settings.Default.Save();
 
             DarkMessageBox.ShowInformation("Default values saved.", "Settings");
@@ -621,7 +629,7 @@ namespace CrashEdit.CE.Forms
 
         private void darkButtonRestoreDefaultPreset_Click(object sender, EventArgs e)
         {
- 
+
 
 
         }
@@ -629,12 +637,13 @@ namespace CrashEdit.CE.Forms
         private void darkButtonRestoreDefaultPreset_Click_1(object sender, EventArgs e)
         {
 
-           try{
+            try
+            {
 
 
 
 
-                if (DarkMessageBox.ShowWarning("Reset every presets by default ?","Confirmation",DarkDialogButton.YesNo) != DialogResult.Yes)
+                if (DarkMessageBox.ShowWarning("Reset every presets by default ?", "Confirmation", DarkDialogButton.YesNo) != DialogResult.Yes)
                 {
                     return;
                 }
@@ -661,6 +670,14 @@ namespace CrashEdit.CE.Forms
 
 
             }
+
+
+        }
+
+        private void pictureBoxBackgroundTextureGapColor_Click(object sender, EventArgs e)
+        {
+
+            pictureBoxBackgroundTextureGapColor.BackColor = colorPicker(pictureBoxUpperColor.BackColor);
 
 
         }

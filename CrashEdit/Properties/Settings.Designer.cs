@@ -707,5 +707,17 @@ namespace CrashEdit.CE.Properties {
                 this["DefaultPreset"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int DefaultpictureBoxBackgroundTextureGapColor {
+            get {
+                return ((int)(this["DefaultpictureBoxBackgroundTextureGapColor"]));
+            }
+            set {
+                this["DefaultpictureBoxBackgroundTextureGapColor"] = value;
+            }
+        }
     }
 }

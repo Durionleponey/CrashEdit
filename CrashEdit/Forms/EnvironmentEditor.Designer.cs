@@ -39,6 +39,8 @@
             darkButton3 = new AltUI.Controls.DarkButton();
             darkTitle5 = new AltUI.Controls.DarkTitle();
             fogSettingsBox = new AltUI.Controls.DarkGroupBox();
+            darkTitleBgColor = new AltUI.Controls.DarkTitle();
+            pictureBoxBackgroundTextureGapColor = new PictureBox();
             darkGroupBoxParticleSettings = new AltUI.Controls.DarkGroupBox();
             darkButtonRestoreDefaultPreset = new AltUI.Controls.DarkButton();
             darkCheckBoxUseParticleEffect = new AltUI.Controls.DarkCheckBox();
@@ -68,6 +70,7 @@
             dpdParticuleEffect = new AltUI.Controls.DarkComboBox();
             ((System.ComponentModel.ISupportInitialize)trackBarFog).BeginInit();
             fogSettingsBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxBackgroundTextureGapColor).BeginInit();
             darkGroupBoxParticleSettings.SuspendLayout();
             darkGroupBoxParticleAmount.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)trackBarParticleAmount).BeginInit();
@@ -136,7 +139,7 @@
             darkButton1.CustomColour = false;
             darkButton1.FlatBottom = false;
             darkButton1.FlatTop = false;
-            darkButton1.Location = new Point(538, 833);
+            darkButton1.Location = new Point(538, 903);
             darkButton1.Name = "darkButton1";
             darkButton1.Padding = new Padding(5);
             darkButton1.Size = new Size(112, 34);
@@ -150,7 +153,7 @@
             darkButton2.CustomColour = false;
             darkButton2.FlatBottom = false;
             darkButton2.FlatTop = false;
-            darkButton2.Location = new Point(689, 833);
+            darkButton2.Location = new Point(689, 903);
             darkButton2.Name = "darkButton2";
             darkButton2.Padding = new Padding(5);
             darkButton2.Size = new Size(112, 34);
@@ -174,7 +177,7 @@
             darkButton3.CustomColour = false;
             darkButton3.FlatBottom = false;
             darkButton3.FlatTop = false;
-            darkButton3.Location = new Point(38, 833);
+            darkButton3.Location = new Point(38, 903);
             darkButton3.Name = "darkButton3";
             darkButton3.Padding = new Padding(5);
             darkButton3.Size = new Size(163, 34);
@@ -195,18 +198,39 @@
             // fogSettingsBox
             // 
             fogSettingsBox.AccessibleName = "Fog Settings";
+            fogSettingsBox.Controls.Add(darkTitleBgColor);
+            fogSettingsBox.Controls.Add(pictureBoxBackgroundTextureGapColor);
             fogSettingsBox.Controls.Add(darkCheckBox1);
             fogSettingsBox.Controls.Add(trackBarFog);
             fogSettingsBox.Controls.Add(darkTitle2);
             fogSettingsBox.Controls.Add(darkTitle3);
             fogSettingsBox.Controls.Add(darkTitle1);
             fogSettingsBox.Controls.Add(darkTitle4);
-            fogSettingsBox.Location = new Point(38, 12);
+            fogSettingsBox.Location = new Point(38, 23);
             fogSettingsBox.Name = "fogSettingsBox";
-            fogSettingsBox.Size = new Size(763, 170);
+            fogSettingsBox.Size = new Size(763, 234);
             fogSettingsBox.TabIndex = 16;
             fogSettingsBox.TabStop = false;
             fogSettingsBox.Text = "Fog Settings";
+            // 
+            // darkTitleBgColor
+            // 
+            darkTitleBgColor.Location = new Point(20, 166);
+            darkTitleBgColor.Margin = new Padding(3, 0, 3, 15);
+            darkTitleBgColor.Name = "darkTitleBgColor";
+            darkTitleBgColor.Size = new Size(258, 30);
+            darkTitleBgColor.TabIndex = 36;
+            darkTitleBgColor.Text = "Background Texture Gap Color";
+            // 
+            // pictureBoxBackgroundTextureGapColor
+            // 
+            pictureBoxBackgroundTextureGapColor.BackColor = Color.Black;
+            pictureBoxBackgroundTextureGapColor.Location = new Point(277, 161);
+            pictureBoxBackgroundTextureGapColor.Name = "pictureBoxBackgroundTextureGapColor";
+            pictureBoxBackgroundTextureGapColor.Size = new Size(36, 39);
+            pictureBoxBackgroundTextureGapColor.TabIndex = 35;
+            pictureBoxBackgroundTextureGapColor.TabStop = false;
+            pictureBoxBackgroundTextureGapColor.Click += pictureBoxBackgroundTextureGapColor_Click;
             // 
             // darkGroupBoxParticleSettings
             // 
@@ -220,7 +244,7 @@
             darkGroupBoxParticleSettings.Controls.Add(darkButtonSavePreset);
             darkGroupBoxParticleSettings.Controls.Add(dpdParticuleEffect);
             darkGroupBoxParticleSettings.Controls.Add(darkTitle5);
-            darkGroupBoxParticleSettings.Location = new Point(38, 210);
+            darkGroupBoxParticleSettings.Location = new Point(38, 280);
             darkGroupBoxParticleSettings.Name = "darkGroupBoxParticleSettings";
             darkGroupBoxParticleSettings.Size = new Size(763, 594);
             darkGroupBoxParticleSettings.TabIndex = 17;
@@ -512,7 +536,7 @@
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             CancelButton = darkButton2;
-            ClientSize = new Size(822, 897);
+            ClientSize = new Size(822, 957);
             Controls.Add(darkGroupBoxParticleSettings);
             Controls.Add(fogSettingsBox);
             Controls.Add(darkButton3);
@@ -528,6 +552,7 @@
             ((System.ComponentModel.ISupportInitialize)trackBarFog).EndInit();
             fogSettingsBox.ResumeLayout(false);
             fogSettingsBox.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxBackgroundTextureGapColor).EndInit();
             darkGroupBoxParticleSettings.ResumeLayout(false);
             darkGroupBoxParticleSettings.PerformLayout();
             darkGroupBoxParticleAmount.ResumeLayout(false);
@@ -587,5 +612,8 @@
         private AltUI.Controls.DarkTitle ParticleAmountPourcent;
         private AltUI.Controls.DarkCheckBox darkCheckBoxUseParticleEffect;
         private AltUI.Controls.DarkButton darkButtonRestoreDefaultPreset;
+        private AltUI.Controls.DarkTitle darkTitleBgColor;
+        private PictureBox pictureBox1;
+        private PictureBox pictureBoxBackgroundTextureGapColor;
     }
 }

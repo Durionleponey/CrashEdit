@@ -3,6 +3,7 @@ using AltUI.Forms;
 using CrashEdit.CE.Properties;
 using CrashEdit.Crash;
 using Cyotek.Windows.Forms;
+using DiscUtils.Streams;
 using System.Collections.Generic;
 using System.Diagnostics.Eventing.Reader;
 using System.Drawing.Drawing2D;
@@ -506,6 +507,11 @@ namespace CrashEdit.CE.Forms
         private void darkButtonRemovePreset_Click_1(object sender, EventArgs e)
         {
 
+            if (DarkMessageBox.ShowWarning("Delete this preset ?", "Confirmation", DarkDialogButton.YesNo) != DialogResult.Yes)
+            {
+                return;
+            }
+
             int targetIndex = dpdParticuleEffect.SelectedIndex;
 
             dpdParticuleEffect.Items.RemoveAt(targetIndex);
@@ -623,8 +629,15 @@ namespace CrashEdit.CE.Forms
         private void darkButtonRestoreDefaultPreset_Click_1(object sender, EventArgs e)
         {
 
-            try
-            {
+           try{
+
+
+
+
+                if (DarkMessageBox.ShowWarning("Reset every presets by default ?","Confirmation",DarkDialogButton.YesNo) != DialogResult.Yes)
+                {
+                    return;
+                }
 
                 savedItems.Clear();
                 SaveItemsToFile();

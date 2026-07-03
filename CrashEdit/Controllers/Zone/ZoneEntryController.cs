@@ -122,39 +122,6 @@ namespace CrashEdit.CE
         {
             try
             {
-                //for (int i = 0; i < ZoneEntry.Entities.Count; i++)
-                //{
-                //    Entity entity = ZoneEntry.Entities[i];
-                //    Console.WriteLine($"[{i}] ID={entity.ID}");
-                //}
-
-
-                //foreach (var key in camera2.KnownProperties)
-                //{
-                //    Console.WriteLine($"------>>>>{key}");
-
-                //}
-                //Console.WriteLine($"------>>>>{camera2.PropertyFields[478].Name}");//fogdistance
-                //Console.WriteLine($"------>>>>{camera2.PropertyFields[478].Attributes}");//Private ??
-                //Console.WriteLine($"------>>>>{camera2.PropertyFields[478].FieldType}");//------>>>>CrashEdit.Crash.EntityUInt32Property
-
-                //var pomme = (EntityUInt32Property)camera2.KnownProperties[478];
-                //foreach (var row in pomme.Rows)
-                //{
-                //    Console.WriteLine($"--->{row.Values}");
-                //    foreach (var value in row.Values) {
-                //        Console.WriteLine($"-value --->-> {value}");
-                //    }
-                //    }
-
-                //Console.WriteLine($"------>>>>{camera2.PropertyFields[478].FieldType}");//------>>>>CrashEdit.Crash.EntityUInt32Property
-
-
-
-
-                //EntityUInt32Property = pommeDeTerre.KnownProperties[];
-
-
 
 
                 Entity camera2 = ZoneEntry.Entities[1];
@@ -180,33 +147,19 @@ namespace CrashEdit.CE
                             flagPropFog = 0x00200000;
 
 
-                            var fogProp = new EntityUInt32Property();
-                            fogProp.Rows.Add(new EntityPropertyRow<uint>());
-                            fogProp.Rows[0].MetaValue = 0;
-                            fogProp.Rows[0].Values.Add(0);
-                            fogProp.Rows[0].Values.Add(1);
+                            var propFogDistance = new EntityUInt32Property();
+                            propFogDistance.Rows.Add(new EntityPropertyRow<uint>());
+                            propFogDistance.Rows[0].MetaValue = 0;
+                            propFogDistance.Rows[0].Values.Add(0);
+                            propFogDistance.Rows[0].Values.Add(1);
 
 
                             byte result = (byte)inputWindows.FogValue;
-                            uint fogValueEx = (0x00000040u & ~0x0000FF00u) | ((uint)result << 8);
-                            Console.WriteLine($"0x{fogValueEx:X8}");
-                            fogProp.Rows[0].Values.Add(fogValueEx);
+                            uint fogValueEx = 0x00000040u | ((uint)result << 8);
+                            propFogDistance.Rows[0].Values.Add(fogValueEx);
 
-                            camera2.FogDistance = fogProp;
-                            camera2.KnownProperties[FogDistanceID] = fogProp;
-
-
-
-                            //short flagsID = 0x185;
-                            //var flagsProp = new EntityUInt32Property();
-
-                            //flagsProp.Rows.Add(new EntityPropertyRow<uint>());
-                            //flagsProp.Rows[0].MetaValue = 0;
-                            //flagsProp.Rows[0].Values.Add(0x00200090);
-
-                            //camera2.Flags = flagsProp;
-                            //camera2.KnownProperties[flagsID] = flagsProp;
-
+                            camera2.FogDistance = propFogDistance;
+                            camera2.KnownProperties[FogDistanceID] = propFogDistance;
 
 
                             short bgColorID = 0x1FA;
@@ -215,20 +168,13 @@ namespace CrashEdit.CE
 
                             bgColorProp.Rows.Add(new EntityPropertyRow<uint>());
                             bgColorProp.Rows[0].MetaValue = 0;
-                            bgColorProp.Rows[0].Values.Add(0x00000001);//ROBIN:try to remove, useless ? 
+                            bgColorProp.Rows[0].Values.Add(0x00000001);
                             bgColorProp.Rows[0].Values.Add(0);
                             bgColorProp.Rows[0].Values.Add(0);
 
                             camera2.Backgrounds = bgColorProp;
                             camera2.KnownProperties[bgColorID] = bgColorProp;
 
-
-
-                            //Console.WriteLine(result);
-
-
-
-                            //Console.WriteLine($"UseFog={inputWindows.UseFog}, UseRain={inputWindows.UseRain}, FogValue={inputWindows.FogValue}");
 
                         }
                         else
@@ -238,16 +184,6 @@ namespace CrashEdit.CE
 
                             camera2.KnownProperties.Remove(FogDistanceID);
 
-
-                            //short flagsID = 0x185;
-                            //var flagsProp = new EntityUInt32Property();
-
-                            //flagsProp.Rows.Add(new EntityPropertyRow<uint>());
-                            //flagsProp.Rows[0].MetaValue = 0;
-                            //flagsProp.Rows[0].Values.Add(0x00000010);
-
-                            //camera2.Flags = flagsProp;
-                            //camera2.KnownProperties[flagsID] = flagsProp;
 
 
                         }
@@ -293,17 +229,6 @@ namespace CrashEdit.CE
                             particules1Prop.Rows[0].Values.Add(new EntityVictim(0x770));
 
 
-                            particules1Prop.Rows.Add(new EntityPropertyRow<EntityVictim>());
-                            particules1Prop.Rows[1].MetaValue = 30;
-
-                            particules1Prop.Rows[1].Values.Add(new EntityVictim(0x20));
-                            particules1Prop.Rows[1].Values.Add(new EntityVictim(0x100));
-                            particules1Prop.Rows[1].Values.Add(new EntityVictim(0x0));
-                            particules1Prop.Rows[1].Values.Add(new EntityVictim(0x11A));
-                            particules1Prop.Rows[1].Values.Add(new EntityVictim(0x0));
-                            particules1Prop.Rows[1].Values.Add(new EntityVictim(0x770));
-
-
 
                             camera2.Particles1 = particules1Prop;
                             camera2.KnownProperties[particules1ID] = particules1Prop;
@@ -341,40 +266,6 @@ namespace CrashEdit.CE
                             particules1Prop.Rows[0].Values.Add(new EntityVictim(0x1EE));
                             particules1Prop.Rows[0].Values.Add(new EntityVictim(0x0));
                             particules1Prop.Rows[0].Values.Add(new EntityVictim(0x770));
-
-
-                            particules1Prop.Rows.Add(new EntityPropertyRow<EntityVictim>());
-                            particules1Prop.Rows[1].MetaValue = 0;
-
-                            particules1Prop.Rows[1].Values.Add(new EntityVictim(0x2));
-                            particules1Prop.Rows[1].Values.Add(new EntityVictim(0x10));
-                            particules1Prop.Rows[1].Values.Add(new EntityVictim(0x0));
-                            particules1Prop.Rows[1].Values.Add(new EntityVictim(0x1EE));
-                            particules1Prop.Rows[1].Values.Add(new EntityVictim(0x0));
-                            particules1Prop.Rows[1].Values.Add(new EntityVictim(0x770));
-
-
-                            particules1Prop.Rows.Add(new EntityPropertyRow<EntityVictim>());
-                            particules1Prop.Rows[2].MetaValue = 28;
-
-                            particules1Prop.Rows[2].Values.Add(new EntityVictim(0x2));
-                            particules1Prop.Rows[2].Values.Add(new EntityVictim(0x10));
-                            particules1Prop.Rows[2].Values.Add(new EntityVictim(0x0));
-                            particules1Prop.Rows[2].Values.Add(new EntityVictim(0x1EE));
-                            particules1Prop.Rows[2].Values.Add(new EntityVictim(0x0));
-                            particules1Prop.Rows[2].Values.Add(new EntityVictim(0x770));
-
-
-
-                            particules1Prop.Rows.Add(new EntityPropertyRow<EntityVictim>());
-                            particules1Prop.Rows[3].MetaValue = 37;
-
-                            particules1Prop.Rows[3].Values.Add(new EntityVictim(0x2));
-                            particules1Prop.Rows[3].Values.Add(new EntityVictim(0x10));
-                            particules1Prop.Rows[3].Values.Add(new EntityVictim(0x0));
-                            particules1Prop.Rows[3].Values.Add(new EntityVictim(0x123));
-                            particules1Prop.Rows[3].Values.Add(new EntityVictim(0x0));
-                            particules1Prop.Rows[3].Values.Add(new EntityVictim(0x770));
 
 
 

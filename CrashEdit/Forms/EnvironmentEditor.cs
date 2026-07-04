@@ -152,6 +152,21 @@ namespace CrashEdit.CE.Forms
 
         private void saveAsDefaultButtonClick(object sender, EventArgs e)
         {
+
+            if (darkCheckBoxUseParticleEffect.Checked) {
+
+                if (dpdParticuleEffect.SelectedItem == null) {
+
+                    DarkMessageBox.ShowInformation("Please select a preset to save as default.", "Settings");
+                    return;
+
+                }
+
+                SavePreset();
+
+            }
+
+
             Settings.Default.DefaultFogValue = (byte)trackBarFog.Value;
             Settings.Default.DefaultFogIsActive = darkCheckBox1.Checked;
             Settings.Default.DefaultParticleIsActive = darkCheckBoxUseParticleEffect.Checked;
@@ -264,6 +279,14 @@ namespace CrashEdit.CE.Forms
 
         private void darkButtonSavePreset_Click(object sender, EventArgs e)
         {
+            SavePreset();
+
+
+        }
+
+        private void SavePreset() {
+
+
             try
             {
 
@@ -285,7 +308,6 @@ namespace CrashEdit.CE.Forms
             {
                 DarkMessageBox.ShowError($"Error updating Preset", Resources.Title_Error);
             }
-
 
         }
 

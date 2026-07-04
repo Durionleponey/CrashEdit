@@ -56,15 +56,21 @@ namespace CrashEdit.CE.Forms
             darkCheckBox1.Checked = Settings.Default.DefaultFogIsActive;
             darkCheckBoxUseParticleEffect.Checked = Settings.Default.DefaultParticleIsActive;
 
-            if (pictureBoxBackgroundTextureGapColor.BackColor != null) {
+            if (pictureBoxBackgroundTextureGapColor.BackColor != null)
+            {
 
                 pictureBoxBackgroundTextureGapColor.BackColor = Color.FromArgb(Settings.Default.DefaultpictureBoxBackgroundTextureGapColor);
+
+            }
+            else {
+
+                pictureBoxBackgroundTextureGapColor.BackColor = Color.FromArgb(0,0,0,0);
 
             }
 
 
 
-            dpdParticuleEffect.Enabled = Settings.Default.DefaultParticleIsActive;
+                dpdParticuleEffect.Enabled = Settings.Default.DefaultParticleIsActive;
 
 
             //darkCheckBox1.Checked = (flags != null);

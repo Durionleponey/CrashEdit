@@ -225,7 +225,7 @@
             // pictureBoxBackgroundTextureGapColor
             // 
             pictureBoxBackgroundTextureGapColor.BackColor = Color.Black;
-            pictureBoxBackgroundTextureGapColor.Location = new Point(277, 161);
+            pictureBoxBackgroundTextureGapColor.Location = new Point(286, 161);
             pictureBoxBackgroundTextureGapColor.Name = "pictureBoxBackgroundTextureGapColor";
             pictureBoxBackgroundTextureGapColor.Size = new Size(36, 39);
             pictureBoxBackgroundTextureGapColor.TabIndex = 35;

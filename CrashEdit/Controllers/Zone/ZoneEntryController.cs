@@ -1,4 +1,4 @@
-using AltUI.Forms;
+﻿using AltUI.Forms;
 using CrashEdit.CE;
 using CrashEdit.CE.Forms;
 using CrashEdit.Crash;
@@ -154,8 +154,8 @@ namespace CrashEdit.CE
                             propFogDistance.Rows[0].Values.Add(1);
 
 
-                            byte result = (byte)inputWindows.FogValue;
-                            uint fogValueEx = 0x00000040u | ((uint)result << 8);
+                            byte resultFogDistance = (byte)inputWindows.FogValue;
+                            uint fogValueEx = 0x00000040u | ((uint)resultFogDistance << 8);
                             propFogDistance.Rows[0].Values.Add(fogValueEx);
 
                             camera2.FogDistance = propFogDistance;
@@ -169,7 +169,17 @@ namespace CrashEdit.CE
                             bgColorProp.Rows.Add(new EntityPropertyRow<uint>());
                             bgColorProp.Rows[0].MetaValue = 0;
                             bgColorProp.Rows[0].Values.Add(0x00000001);
-                            bgColorProp.Rows[0].Values.Add(0);
+
+
+                            uint resultbg = inputWindows.BackgroundTextureGapColor;
+
+
+                            Console.WriteLine($"0x{resultbg:X8}");
+                            // → 0xFFA0B0C0
+                            //uint bgColorValue = ((uint)result << 8);
+                            bgColorProp.Rows[0].Values.Add(resultbg);
+
+
                             bgColorProp.Rows[0].Values.Add(0);
 
                             camera2.Backgrounds = bgColorProp;

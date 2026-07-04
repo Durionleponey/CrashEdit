@@ -23,6 +23,29 @@ namespace CrashEdit.CE.Forms
         public int FogValue => trackBarFog.Value;
         public int ParticleValue => trackBarParticleAmount.Value;
 
+        public uint BackgroundTextureGapColor
+        {
+            get
+            {
+                Console.WriteLine("aaaaaaaaaaaaaaaaaaaaaa");
+
+                int argb = pictureBoxBackgroundTextureGapColor.BackColor.ToArgb();
+                Console.WriteLine(argb);
+                Console.WriteLine($"0x{argb:X8}");
+                Console.WriteLine($"{argb:B32}");
+
+                byte a = (byte)(argb >> 24);
+                Console.WriteLine($"{a:B32}");
+                byte r = (byte)(argb >> 16);
+                Console.WriteLine($"{r:B32}");
+                byte g = (byte)(argb >> 8);
+                Console.WriteLine($"{g:B32}");
+                byte b = (byte)argb;
+                Console.WriteLine($"{b:B32}");
+
+                return (uint)((a << 24) | (b << 16) | (g << 8) | r);
+            }
+        }
 
         private List<ListItem> savedItems = new List<ListItem>();
 
@@ -687,7 +710,7 @@ namespace CrashEdit.CE.Forms
         private void pictureBoxBackgroundTextureGapColor_Click(object sender, EventArgs e)
         {
 
-            pictureBoxBackgroundTextureGapColor.BackColor = colorPicker(pictureBoxUpperColor.BackColor);
+            pictureBoxBackgroundTextureGapColor.BackColor = colorPicker(pictureBoxBackgroundTextureGapColor.BackColor);
 
 
         }

@@ -255,11 +255,10 @@ namespace CrashEdit.CE.Forms
             try
             {
                 SaveItemsToFile();
-                DarkMessageBox.ShowInformation($"Saved selected {fields.Count} field(s) successfully.", "Save Properties");
             }
             catch (Exception ex)
             {
-                DarkMessageBox.ShowError($"Error saving fields: {ex.Message}", Resources.Title_Error);
+                DarkMessageBox.ShowError($"Error saving Preset.", Resources.Title_Error);
             }
         }
 
@@ -273,13 +272,26 @@ namespace CrashEdit.CE.Forms
             }
             catch (Exception ex)
             {
-                DarkMessageBox.ShowError($"Error saving properties list: {ex.Message}", Resources.Title_Error);
+                DarkMessageBox.ShowError($"Error saving Preset", Resources.Title_Error);
             }
         }
 
         private void darkButtonSavePreset_Click(object sender, EventArgs e)
         {
-            SavePreset();
+            try
+            {
+
+                SavePreset();
+                DarkMessageBox.ShowInformation($"Preset updated successfully.", "Save Preset");
+
+
+            }
+            catch {
+
+                DarkMessageBox.ShowError($"Error saving Preset", Resources.Title_Error);
+
+            }
+
 
 
         }
@@ -297,7 +309,6 @@ namespace CrashEdit.CE.Forms
                 try
                 {
                     SaveItemsToFile();
-                    DarkMessageBox.ShowInformation($"Preset updated successfully.", "Save Preset");
                 }
                 catch (Exception ex)
                 {
@@ -428,51 +439,68 @@ namespace CrashEdit.CE.Forms
 
         private void darkButtonSaveAsNewPreset_Click(object sender, EventArgs e)
         {
-
-
-            using (InputWindow inputWindow = new InputWindow(Resources.EntityBox_CmdAdd, "Save As Preset", "Enter Preset Name:", string.Empty, -1))
+            try
             {
 
-                if (inputWindow.ShowDialog(this) == DialogResult.OK)
+                using (InputWindow inputWindow = new InputWindow(Resources.EntityBox_CmdAdd, "Save As Preset", "Enter Preset Name:", string.Empty, -1))
                 {
-                    if (inputWindow.Input.Length == 0)
-                    {
-                        DarkMessageBox.ShowError("Please input name of the preset", "Error name empty");
-                        return;
-                    }
 
-                    for (int name = 0; name < savedItems.Count; name++)
+                    if (inputWindow.ShowDialog(this) == DialogResult.OK)
                     {
-
-                        if (savedItems[name].Name == inputWindow.Input)
+                        if (inputWindow.Input.Length == 0)
                         {
-                            DarkMessageBox.ShowError("This name is already use", "Error name already used");
+                            DarkMessageBox.ShowError("Please input name of the preset", "Error name empty");
                             return;
+                        }
+
+                        for (int name = 0; name < savedItems.Count; name++)
+                        {
+
+                            if (savedItems[name].Name == inputWindow.Input)
+                            {
+                                DarkMessageBox.ShowError("This name is already use", "Error name already used");
+                                return;
+
+                            }
 
                         }
 
+                        string presetName = inputWindow.Input;
+                        List<FieldData> fields = createPresetFields();
+
+
+
+                        AddSavedItem(presetName, fields);
+
                     }
-
-                    string presetName = inputWindow.Input;
-                    List<FieldData> fields = createPresetFields();
-
-
-
-                    AddSavedItem(presetName, fields);
+                    else { return; }
 
                 }
-                else { return; }
+
+                EnableDisableSaveAndRemoveButton();
+
+                if (savedItems.Count == 1)
+                {
+
+                    dpdParticuleEffect.SelectedIndex = 0;
+
+                }
+
+
+                DarkMessageBox.ShowInformation($"Preset saved successfully.", "Save Preset");
+
+
+
+
+            }
+            catch {
+
+                DarkMessageBox.ShowError($"Error saving Preset", Resources.Title_Error);
+
 
             }
 
-            EnableDisableSaveAndRemoveButton();
 
-            if (savedItems.Count == 1)
-            {
-
-                dpdParticuleEffect.SelectedIndex = 0;
-
-            }
 
 
         }

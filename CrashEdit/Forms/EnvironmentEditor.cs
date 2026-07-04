@@ -115,8 +115,12 @@ namespace CrashEdit.CE.Forms
             Settings.Default.DefaultFogValue = (byte)trackBarFog.Value;
             Settings.Default.DefaultFogIsActive = darkCheckBox1.Checked;
             Settings.Default.DefaultParticleIsActive = darkCheckBoxUseParticleEffect.Checked;
-            Settings.Default.DefaultPreset = dpdParticuleEffect.SelectedItem.ToString();
-            Settings.Default.DefaultpictureBoxBackgroundTextureGapColor = pictureBoxBackgroundTextureGapColor.BackColor.ToArgb();
+
+            if (dpdParticuleEffect.SelectedItem != null) {
+                Settings.Default.DefaultPreset = dpdParticuleEffect.SelectedItem.ToString();
+            }
+
+                Settings.Default.DefaultpictureBoxBackgroundTextureGapColor = pictureBoxBackgroundTextureGapColor.BackColor.ToArgb();
             Settings.Default.Save();
 
             DarkMessageBox.ShowInformation("Default values saved.", "Settings");
@@ -247,13 +251,13 @@ namespace CrashEdit.CE.Forms
 
         private void EnvironmentEditor_Load(object sender, EventArgs e)
         {
-            EnableDisableParticleEffect();
             LoadItemsFromFile();
             //LoadIemsValueInForm();
             UpdatePourcentTrackBarParticleAmount();
             EnableDisableParticleEffect();
             EnableDisableSaveAndRemoveButton();
             InitializeDefaultPreset();
+            EnableDisableParticleEffect();
 
 
         }

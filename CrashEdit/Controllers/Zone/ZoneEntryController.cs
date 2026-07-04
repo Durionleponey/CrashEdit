@@ -227,7 +227,9 @@ namespace CrashEdit.CE
                             particules1Prop.Rows[0].Values.Add(new EntityVictim(0x20));
                             particules1Prop.Rows[0].Values.Add(new EntityVictim(0x100));
                             particules1Prop.Rows[0].Values.Add(new EntityVictim(0x0));
-                            particules1Prop.Rows[0].Values.Add(new EntityVictim(0x11A));
+
+
+                            particules1Prop.Rows[0].Values.Add(new EntityVictim((short)inputWindows.ParticleAmountValue));
                             particules1Prop.Rows[0].Values.Add(new EntityVictim(0x0));
                             particules1Prop.Rows[0].Values.Add(new EntityVictim(0x770));
 

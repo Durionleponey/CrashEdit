@@ -23,7 +23,16 @@ namespace CrashEdit.CE.Forms
         public bool ParticleEffecIsActive => darkCheckBoxUseParticleEffect.Checked;
 
         public int FogValue => trackBarFog.Value;
-        public int ParticleValue => trackBarParticleAmount.Value;
+        public int ParticleAmountValue {
+
+            get 
+            {
+
+                return 0x8FF / 100 * trackBarParticleAmount.Value;
+            }
+        
+        }
+        
 
         public uint BackgroundTextureGapColor
         {

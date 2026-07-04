@@ -174,7 +174,6 @@ namespace CrashEdit.CE
                             uint resultbg = inputWindows.BackgroundTextureGapColor;
 
 
-                            Console.WriteLine($"0x{resultbg:X8}");
                             // → 0xFFA0B0C0
                             //uint bgColorValue = ((uint)result << 8);
                             bgColorProp.Rows[0].Values.Add(resultbg);
@@ -201,7 +200,7 @@ namespace CrashEdit.CE
 
 
 
-                        if (inputWindows.ParticleEffec == "None")
+                        if (!inputWindows.ParticleEffecIsActive)
                         {
 
                             camera2.Particles1 = null;
@@ -217,38 +216,32 @@ namespace CrashEdit.CE
                         else 
                         {
 
-                            flagPropFog = flagPropFog | 0x00000010;//change bit nedded for rain or snow
-
-
-                        }
-
-                        if (inputWindows.ParticleEffec == "Rain")
-                        {
+                            flagPropFog = flagPropFog | 0x00000010;//change bit nedded for particle
 
 
                             var particules1Prop = new EntityVictimProperty();
 
                             particules1Prop.Rows.Add(new EntityPropertyRow<EntityVictim>());
-                            particules1Prop.Rows[0].MetaValue = 2;
+                            particules1Prop.Rows[0].MetaValue = 0;
 
                             particules1Prop.Rows[0].Values.Add(new EntityVictim(0x20));
                             particules1Prop.Rows[0].Values.Add(new EntityVictim(0x100));
                             particules1Prop.Rows[0].Values.Add(new EntityVictim(0x0));
-                            particules1Prop.Rows[0].Values.Add(new EntityVictim(0x1));
+                            particules1Prop.Rows[0].Values.Add(new EntityVictim(0x11A));
                             particules1Prop.Rows[0].Values.Add(new EntityVictim(0x0));
                             particules1Prop.Rows[0].Values.Add(new EntityVictim(0x770));
 
 
 
                             camera2.Particles1 = particules1Prop;
-                            camera2.KnownProperties[particules1ID] = particules1Prop;
+                            camera2.KnownProperties[0x1B5] = particules1Prop;
 
 
 
                             var particules2Prop = new EntityUInt32Property();
 
                             particules2Prop.Rows.Add(new EntityPropertyRow<uint>());
-                            particules2Prop.Rows[0].MetaValue = 2;
+                            particules2Prop.Rows[0].MetaValue = 0;
                             particules2Prop.Rows[0].Values.Add(0x00404040);
                             particules2Prop.Rows[0].Values.Add(0x00C0C0C0);
                             particules2Prop.Rows[0].Values.Add(0xE1000A60);
@@ -258,51 +251,7 @@ namespace CrashEdit.CE
 
 
 
-
                         }
-
-
-                        if (inputWindows.ParticleEffec == "Snow")
-                        {
-
-                            var particules1Prop = new EntityVictimProperty();
-
-                            particules1Prop.Rows.Add(new EntityPropertyRow<EntityVictim>());
-                            particules1Prop.Rows[0].MetaValue = 0;
-
-                            particules1Prop.Rows[0].Values.Add(new EntityVictim(0x2));
-                            particules1Prop.Rows[0].Values.Add(new EntityVictim(0x10));
-                            particules1Prop.Rows[0].Values.Add(new EntityVictim(0x0));
-                            particules1Prop.Rows[0].Values.Add(new EntityVictim(0x1EE));
-                            particules1Prop.Rows[0].Values.Add(new EntityVictim(0x0));
-                            particules1Prop.Rows[0].Values.Add(new EntityVictim(0x770));
-
-
-
-                            camera2.Particles1 = particules1Prop;
-                            camera2.KnownProperties[particules1ID] = particules1Prop;
-
-
-
-                            var particules2Prop = new EntityUInt32Property();
-
-                            particules2Prop.Rows.Add(new EntityPropertyRow<uint>());
-                            particules2Prop.Rows[0].MetaValue = 2;
-                            particules2Prop.Rows[0].Values.Add(0x00404040);
-                            particules2Prop.Rows[0].Values.Add(0x00808080);
-                            particules2Prop.Rows[0].Values.Add(0xE1000A20);
-
-                            camera2.Particles2 = particules2Prop;
-                            camera2.KnownProperties[particules2ID] = particules2Prop;
-
-
-
-                            flagPropFog = flagPropFog | 0x00000010;//change bit nedded for rain or snow
-
-
-                        }
-
-
 
 
 

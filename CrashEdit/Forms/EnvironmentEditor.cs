@@ -20,6 +20,8 @@ namespace CrashEdit.CE.Forms
 
         public bool UseFog => darkCheckBox1.Checked;
         public string ParticleEffec => (string)dpdParticuleEffect.SelectedItem;
+        public bool ParticleEffecIsActive => darkCheckBoxUseParticleEffect.Checked;
+
         public int FogValue => trackBarFog.Value;
         public int ParticleValue => trackBarParticleAmount.Value;
 

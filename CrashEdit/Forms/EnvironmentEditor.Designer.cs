@@ -42,6 +42,12 @@
             darkCheckBoxBackgroundTextureGapColor = new AltUI.Controls.DarkCheckBox();
             pictureBoxBackgroundTextureGapColor = new PictureBox();
             darkGroupBoxParticleSettings = new AltUI.Controls.DarkGroupBox();
+            darkGroupBoxParticleVisibility = new AltUI.Controls.DarkGroupBox();
+            ParticleVisibilityPourcent = new AltUI.Controls.DarkTitle();
+            trackBarParticleVisibility = new TrackBar();
+            darkTitle14 = new AltUI.Controls.DarkTitle();
+            darkTitle15 = new AltUI.Controls.DarkTitle();
+            darkTitle16 = new AltUI.Controls.DarkTitle();
             darkButtonRestoreDefaultPreset = new AltUI.Controls.DarkButton();
             darkCheckBoxUseParticleEffect = new AltUI.Controls.DarkCheckBox();
             darkGroupBoxParticleAmount = new AltUI.Controls.DarkGroupBox();
@@ -72,6 +78,8 @@
             fogSettingsBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBoxBackgroundTextureGapColor).BeginInit();
             darkGroupBoxParticleSettings.SuspendLayout();
+            darkGroupBoxParticleVisibility.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)trackBarParticleVisibility).BeginInit();
             darkGroupBoxParticleAmount.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)trackBarParticleAmount).BeginInit();
             darkGroupBoxParticleColor.SuspendLayout();
@@ -139,7 +147,7 @@
             darkButton1.CustomColour = false;
             darkButton1.FlatBottom = false;
             darkButton1.FlatTop = false;
-            darkButton1.Location = new Point(538, 903);
+            darkButton1.Location = new Point(538, 983);
             darkButton1.Name = "darkButton1";
             darkButton1.Padding = new Padding(5);
             darkButton1.Size = new Size(112, 34);
@@ -153,7 +161,7 @@
             darkButton2.CustomColour = false;
             darkButton2.FlatBottom = false;
             darkButton2.FlatTop = false;
-            darkButton2.Location = new Point(689, 903);
+            darkButton2.Location = new Point(689, 983);
             darkButton2.Name = "darkButton2";
             darkButton2.Padding = new Padding(5);
             darkButton2.Size = new Size(112, 34);
@@ -177,7 +185,7 @@
             darkButton3.CustomColour = false;
             darkButton3.FlatBottom = false;
             darkButton3.FlatTop = false;
-            darkButton3.Location = new Point(38, 903);
+            darkButton3.Location = new Point(38, 983);
             darkButton3.Name = "darkButton3";
             darkButton3.Padding = new Padding(5);
             darkButton3.Size = new Size(163, 34);
@@ -206,9 +214,9 @@
             fogSettingsBox.Controls.Add(darkTitle3);
             fogSettingsBox.Controls.Add(darkTitle1);
             fogSettingsBox.Controls.Add(darkTitle4);
-            fogSettingsBox.Location = new Point(38, 23);
+            fogSettingsBox.Location = new Point(38, 12);
             fogSettingsBox.Name = "fogSettingsBox";
-            fogSettingsBox.Size = new Size(763, 234);
+            fogSettingsBox.Size = new Size(763, 214);
             fogSettingsBox.TabIndex = 16;
             fogSettingsBox.TabStop = false;
             fogSettingsBox.Text = "Fog Settings";
@@ -237,6 +245,7 @@
             // 
             // darkGroupBoxParticleSettings
             // 
+            darkGroupBoxParticleSettings.Controls.Add(darkGroupBoxParticleVisibility);
             darkGroupBoxParticleSettings.Controls.Add(darkButtonRestoreDefaultPreset);
             darkGroupBoxParticleSettings.Controls.Add(darkCheckBoxUseParticleEffect);
             darkGroupBoxParticleSettings.Controls.Add(darkGroupBoxParticleAmount);
@@ -247,12 +256,73 @@
             darkGroupBoxParticleSettings.Controls.Add(darkButtonSavePreset);
             darkGroupBoxParticleSettings.Controls.Add(dpdParticuleEffect);
             darkGroupBoxParticleSettings.Controls.Add(darkTitle5);
-            darkGroupBoxParticleSettings.Location = new Point(38, 280);
+            darkGroupBoxParticleSettings.Location = new Point(38, 243);
             darkGroupBoxParticleSettings.Name = "darkGroupBoxParticleSettings";
-            darkGroupBoxParticleSettings.Size = new Size(763, 594);
+            darkGroupBoxParticleSettings.Size = new Size(763, 708);
             darkGroupBoxParticleSettings.TabIndex = 17;
             darkGroupBoxParticleSettings.TabStop = false;
             darkGroupBoxParticleSettings.Text = "Particle Settings";
+            // 
+            // darkGroupBoxParticleVisibility
+            // 
+            darkGroupBoxParticleVisibility.Controls.Add(ParticleVisibilityPourcent);
+            darkGroupBoxParticleVisibility.Controls.Add(trackBarParticleVisibility);
+            darkGroupBoxParticleVisibility.Controls.Add(darkTitle14);
+            darkGroupBoxParticleVisibility.Controls.Add(darkTitle15);
+            darkGroupBoxParticleVisibility.Controls.Add(darkTitle16);
+            darkGroupBoxParticleVisibility.Location = new Point(20, 305);
+            darkGroupBoxParticleVisibility.Name = "darkGroupBoxParticleVisibility";
+            darkGroupBoxParticleVisibility.Size = new Size(719, 130);
+            darkGroupBoxParticleVisibility.TabIndex = 28;
+            darkGroupBoxParticleVisibility.TabStop = false;
+            darkGroupBoxParticleVisibility.Text = "Particle Visibility";
+            // 
+            // ParticleVisibilityPourcent
+            // 
+            ParticleVisibilityPourcent.AutoSize = true;
+            ParticleVisibilityPourcent.Location = new Point(393, 21);
+            ParticleVisibilityPourcent.Margin = new Padding(3, 0, 3, 15);
+            ParticleVisibilityPourcent.Name = "ParticleVisibilityPourcent";
+            ParticleVisibilityPourcent.Size = new Size(137, 25);
+            ParticleVisibilityPourcent.TabIndex = 13;
+            ParticleVisibilityPourcent.Text = "Particle Visibility";
+            // 
+            // trackBarParticleVisibility
+            // 
+            trackBarParticleVisibility.Location = new Point(238, 53);
+            trackBarParticleVisibility.Margin = new Padding(5);
+            trackBarParticleVisibility.Maximum = 100;
+            trackBarParticleVisibility.Name = "trackBarParticleVisibility";
+            trackBarParticleVisibility.Size = new Size(370, 69);
+            trackBarParticleVisibility.TabIndex = 13;
+            trackBarParticleVisibility.Tag = "";
+            // 
+            // darkTitle14
+            // 
+            darkTitle14.Location = new Point(45, 63);
+            darkTitle14.Margin = new Padding(3, 0, 3, 15);
+            darkTitle14.Name = "darkTitle14";
+            darkTitle14.Size = new Size(104, 30);
+            darkTitle14.TabIndex = 14;
+            darkTitle14.Text = "Visibility (%)";
+            // 
+            // darkTitle15
+            // 
+            darkTitle15.AutoSize = true;
+            darkTitle15.Location = new Point(614, 53);
+            darkTitle15.Name = "darkTitle15";
+            darkTitle15.Size = new Size(57, 25);
+            darkTitle15.TabIndex = 16;
+            darkTitle15.Text = "100%";
+            // 
+            // darkTitle16
+            // 
+            darkTitle16.AutoSize = true;
+            darkTitle16.Location = new Point(193, 53);
+            darkTitle16.Name = "darkTitle16";
+            darkTitle16.Size = new Size(37, 25);
+            darkTitle16.TabIndex = 15;
+            darkTitle16.Text = "0%";
             // 
             // darkButtonRestoreDefaultPreset
             // 
@@ -286,9 +356,9 @@
             darkGroupBoxParticleAmount.Controls.Add(darkTitle8);
             darkGroupBoxParticleAmount.Controls.Add(darkTitle7);
             darkGroupBoxParticleAmount.Controls.Add(darkTitle6);
-            darkGroupBoxParticleAmount.Location = new Point(20, 152);
+            darkGroupBoxParticleAmount.Location = new Point(20, 156);
             darkGroupBoxParticleAmount.Name = "darkGroupBoxParticleAmount";
-            darkGroupBoxParticleAmount.Size = new Size(719, 154);
+            darkGroupBoxParticleAmount.Size = new Size(719, 140);
             darkGroupBoxParticleAmount.TabIndex = 27;
             darkGroupBoxParticleAmount.TabStop = false;
             darkGroupBoxParticleAmount.Text = "Particle Amount";
@@ -299,9 +369,9 @@
             ParticleAmountPourcent.Location = new Point(393, 21);
             ParticleAmountPourcent.Margin = new Padding(3, 0, 3, 15);
             ParticleAmountPourcent.Name = "ParticleAmountPourcent";
-            ParticleAmountPourcent.Size = new Size(115, 25);
+            ParticleAmountPourcent.Size = new Size(137, 25);
             ParticleAmountPourcent.TabIndex = 13;
-            ParticleAmountPourcent.Text = "Fog Distance";
+            ParticleAmountPourcent.Text = "Particle Amount";
             // 
             // trackBarParticleAmount
             // 
@@ -348,7 +418,7 @@
             darkGroupBoxParticleColor.Controls.Add(pictureBoxLowerColor);
             darkGroupBoxParticleColor.Controls.Add(darkTitleUpperColor);
             darkGroupBoxParticleColor.Controls.Add(pictureBoxUpperColor);
-            darkGroupBoxParticleColor.Location = new Point(20, 457);
+            darkGroupBoxParticleColor.Location = new Point(20, 585);
             darkGroupBoxParticleColor.Name = "darkGroupBoxParticleColor";
             darkGroupBoxParticleColor.Size = new Size(719, 99);
             darkGroupBoxParticleColor.TabIndex = 29;
@@ -415,7 +485,7 @@
             darkGroupBoxParticleVelocity.Controls.Add(darkNumericUpDownParticleX);
             darkGroupBoxParticleVelocity.Controls.Add(darkTitle12);
             darkGroupBoxParticleVelocity.Controls.Add(darkTitle11);
-            darkGroupBoxParticleVelocity.Location = new Point(20, 324);
+            darkGroupBoxParticleVelocity.Location = new Point(20, 462);
             darkGroupBoxParticleVelocity.Name = "darkGroupBoxParticleVelocity";
             darkGroupBoxParticleVelocity.Size = new Size(722, 107);
             darkGroupBoxParticleVelocity.TabIndex = 28;
@@ -544,7 +614,7 @@
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             CancelButton = darkButton2;
-            ClientSize = new Size(822, 957);
+            ClientSize = new Size(822, 1077);
             Controls.Add(darkGroupBoxParticleSettings);
             Controls.Add(fogSettingsBox);
             Controls.Add(darkButton3);
@@ -563,6 +633,9 @@
             ((System.ComponentModel.ISupportInitialize)pictureBoxBackgroundTextureGapColor).EndInit();
             darkGroupBoxParticleSettings.ResumeLayout(false);
             darkGroupBoxParticleSettings.PerformLayout();
+            darkGroupBoxParticleVisibility.ResumeLayout(false);
+            darkGroupBoxParticleVisibility.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)trackBarParticleVisibility).EndInit();
             darkGroupBoxParticleAmount.ResumeLayout(false);
             darkGroupBoxParticleAmount.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)trackBarParticleAmount).EndInit();
@@ -623,5 +696,12 @@
         private PictureBox pictureBox1;
         private PictureBox pictureBoxBackgroundTextureGapColor;
         private AltUI.Controls.DarkCheckBox darkCheckBoxBackgroundTextureGapColor;
+        private AltUI.Controls.DarkGroupBox darkGroupBoxParticleVisibility;
+        private AltUI.Controls.DarkTitle ParticleVisibilityPourcent;
+        private TrackBar trackBar1;
+        private AltUI.Controls.DarkTitle darkTitle14;
+        private AltUI.Controls.DarkTitle darkTitle15;
+        private AltUI.Controls.DarkTitle darkTitle16;
+        private TrackBar trackBarParticleVisibility;
     }
 }

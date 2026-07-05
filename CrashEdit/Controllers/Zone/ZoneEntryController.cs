@@ -261,7 +261,7 @@ namespace CrashEdit.CE
 
                             if (inputWindows.UseParticleOneColor) { lowerParticleLower = inputWindows.UpperParticleColor; }
                             particules2Prop.Rows[0].Values.Add(lowerParticleLower);
-                            particules2Prop.Rows[0].Values.Add(0xE1000A60);//transition helper???
+                            particules2Prop.Rows[0].Values.Add(0xE1000A20);
 
                             camera2.Particles2 = particules2Prop;
                             camera2.KnownProperties[particules2ID] = particules2Prop;

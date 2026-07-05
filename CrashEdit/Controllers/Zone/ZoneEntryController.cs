@@ -174,12 +174,11 @@ namespace CrashEdit.CE
                                 bgColorProp.Rows[0].Values.Add(0x00000001);
 
 
-                                uint resultbg = inputWindows.BackgroundTextureGapColor;
 
 
                                 // → 0xFFA0B0C0
                                 //uint bgColorValue = ((uint)result << 8);
-                                bgColorProp.Rows[0].Values.Add(resultbg);
+                                bgColorProp.Rows[0].Values.Add(inputWindows.BackgroundTextureGapColor);
 
 
                                 bgColorProp.Rows[0].Values.Add(0);
@@ -253,11 +252,16 @@ namespace CrashEdit.CE
 
                             var particules2Prop = new EntityUInt32Property();
 
+
                             particules2Prop.Rows.Add(new EntityPropertyRow<uint>());
                             particules2Prop.Rows[0].MetaValue = 0;
-                            particules2Prop.Rows[0].Values.Add(0x00404040);
-                            particules2Prop.Rows[0].Values.Add(0x00C0C0C0);
-                            particules2Prop.Rows[0].Values.Add(0xE1000A60);
+                            particules2Prop.Rows[0].Values.Add(inputWindows.UpperParticleColor);
+
+                            uint lowerParticleLower = inputWindows.LowerParticleColor;
+
+                            if (inputWindows.UseParticleOneColor) { lowerParticleLower = inputWindows.UpperParticleColor; }
+                            particules2Prop.Rows[0].Values.Add(lowerParticleLower);
+                            particules2Prop.Rows[0].Values.Add(0xE1000A60);//transition helper???
 
                             camera2.Particles2 = particules2Prop;
                             camera2.KnownProperties[particules2ID] = particules2Prop;

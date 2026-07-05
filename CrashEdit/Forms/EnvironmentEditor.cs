@@ -8,9 +8,11 @@ using System.Collections.Generic;
 using System.Diagnostics.Eventing.Reader;
 using System.Drawing.Drawing2D;
 using System.Net.Security;
+using System.Runtime.InteropServices.Marshalling;
 using System.Security.RightsManagement;
 using System.Text.Json;
 using System.Windows.Documents;
+using System.Windows.Navigation;
 using static CrashEdit.CE.EntityPropertyBox;
 
 
@@ -22,10 +24,9 @@ namespace CrashEdit.CE.Forms
         public bool UseFog => darkCheckBox1.Checked;
         public string ParticleEffec => (string)dpdParticuleEffect.SelectedItem;
         public bool ParticleEffecIsActive => darkCheckBoxUseParticleEffect.Checked;
-
         public int FogValue => trackBarFog.Value;
-
         public bool UseRecolor => darkCheckBoxBackgroundTextureGapColor.Checked;
+        public bool UseParticleOneColor => darkCheckBoxUseOnlyOneColor.Checked;
         public int ParticleAmountValue
         {
 
@@ -42,23 +43,34 @@ namespace CrashEdit.CE.Forms
         {
             get
             {
-                Console.WriteLine("aaaaaaaaaaaaaaaaaaaaaa");
 
                 int argb = pictureBoxBackgroundTextureGapColor.BackColor.ToArgb();
-                Console.WriteLine(argb);
-                Console.WriteLine($"0x{argb:X8}");
-                Console.WriteLine($"{argb:B32}");
+                return colorConverter(argb);
 
-                byte a = (byte)(argb >> 24);
-                Console.WriteLine($"{a:B32}");
-                byte r = (byte)(argb >> 16);
-                Console.WriteLine($"{r:B32}");
-                byte g = (byte)(argb >> 8);
-                Console.WriteLine($"{g:B32}");
-                byte b = (byte)argb;
-                Console.WriteLine($"{b:B32}");
+            }
+        }
 
-                return (uint)((a << 24) | (b << 16) | (g << 8) | r);
+
+        public uint UpperParticleColor
+        {
+            get
+            {
+
+                int argb = pictureBoxUpperColor.BackColor.ToArgb();
+                return colorConverter(argb);
+
+            }
+        }
+
+
+        public uint LowerParticleColor
+        {
+            get
+            {
+
+                int argb = pictureBoxLowerColor.BackColor.ToArgb();
+                return colorConverter(argb);
+
             }
         }
 
@@ -125,6 +137,27 @@ namespace CrashEdit.CE.Forms
 
         }
 
+        private uint colorConverter(int argb) {
+
+            Console.WriteLine(argb);
+            Console.WriteLine($"0x{argb:X8}");
+            Console.WriteLine($"{argb:B32}");
+
+            byte a = (byte)(argb >> 24);
+
+            a = (byte)~a;
+
+            byte r = (byte)(argb >> 16);
+            Console.WriteLine($"{r:B32}");
+            byte g = (byte)(argb >> 8);
+            Console.WriteLine($"{g:B32}");
+            byte b = (byte)argb;
+            Console.WriteLine($"{b:B32}");
+
+            return (uint)((a << 24) | (b << 16) | (g << 8) | r);
+
+        }
+
         private void cancelButtonClick(object sender, EventArgs e)
         {
 
@@ -166,7 +199,7 @@ namespace CrashEdit.CE.Forms
                 if (dpdParticuleEffect.SelectedItem == null)
                 {
 
-                    DarkMessageBox.ShowInformation("Please select a preset to save as default.", "Settings");
+                    DarkMessageBox.ShowError("Please select a preset to save as default.", "Settings");
                     return;
 
                 }

@@ -177,7 +177,7 @@
     <Setting Name="DefaultpictureBoxBackgroundTextureGapColor" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">0</Value>
     </Setting>
-    <Setting Name="DefaultPictureBoxBackgroundTextureGapColorIsActive" Type="System.Boolean" Scope="User">
+    <Setting Name="DefaultRecolorGapIsActive" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
   </Settings>

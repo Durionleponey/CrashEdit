@@ -132,12 +132,7 @@ namespace CrashEdit.CE.Forms
             trackBarFog.Value = Settings.Default.DefaultFogValue;
             darkTitle4.Text = trackBarFog.Value.ToString();
             darkTitle4.Visible = darkCheckBox1.Checked;
-            Console.WriteLine(Settings.Default.DefaultRecolorGapIsActive);
-            Console.WriteLine(Settings.Default.DefaultRecolorGapIsActive);
-            Console.WriteLine(Settings.Default.DefaultRecolorGapIsActive);
-            Console.WriteLine(Settings.Default.DefaultRecolorGapIsActive);
-            Console.WriteLine(Settings.Default.DefaultRecolorGapIsActive);
-            darkCheckBoxBackgroundTextureGapColor.Enabled = Settings.Default.DefaultRecolorGapIsActive;
+            darkCheckBoxBackgroundTextureGapColor.Checked = Settings.Default.DefaultRecolorGapIsActive;
 
 
         }
@@ -224,7 +219,7 @@ namespace CrashEdit.CE.Forms
             }
 
             Settings.Default.DefaultpictureBoxBackgroundTextureGapColor = pictureBoxBackgroundTextureGapColor.BackColor.ToArgb();
-            Settings.Default.DefaultRecolorGapIsActive = darkCheckBoxBackgroundTextureGapColor.Enabled;
+            Settings.Default.DefaultRecolorGapIsActive = darkCheckBoxBackgroundTextureGapColor.Checked;
 
             Settings.Default.Save();
 

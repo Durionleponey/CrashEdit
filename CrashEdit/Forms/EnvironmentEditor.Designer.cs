@@ -426,6 +426,7 @@
             // 
             darkNumericUpDownParticleZ.Location = new Point(514, 42);
             darkNumericUpDownParticleZ.Maximum = new decimal(new int[] { 255, 0, 0, 0 });
+            darkNumericUpDownParticleZ.Minimum = new decimal(new int[] { 255, 0, 0, int.MinValue });
             darkNumericUpDownParticleZ.Name = "darkNumericUpDownParticleZ";
             darkNumericUpDownParticleZ.Size = new Size(72, 31);
             darkNumericUpDownParticleZ.TabIndex = 30;
@@ -434,18 +435,19 @@
             // 
             darkNumericUpDownParticleY.Location = new Point(403, 42);
             darkNumericUpDownParticleY.Maximum = new decimal(new int[] { 255, 0, 0, 0 });
+            darkNumericUpDownParticleY.Minimum = new decimal(new int[] { 255, 0, 0, int.MinValue });
             darkNumericUpDownParticleY.Name = "darkNumericUpDownParticleY";
             darkNumericUpDownParticleY.Size = new Size(72, 31);
             darkNumericUpDownParticleY.TabIndex = 29;
             // 
             // darkTitle13
             // 
-            darkTitle13.Location = new Point(46, 42);
+            darkTitle13.Location = new Point(45, 42);
             darkTitle13.Margin = new Padding(3, 0, 3, 15);
             darkTitle13.Name = "darkTitle13";
-            darkTitle13.Size = new Size(61, 30);
+            darkTitle13.Size = new Size(172, 30);
             darkTitle13.TabIndex = 28;
-            darkTitle13.Text = "[0-255]";
+            darkTitle13.Text = "(min: -255, max: 255)";
             // 
             // darkTitle9
             // 
@@ -460,6 +462,7 @@
             // 
             darkNumericUpDownParticleX.Location = new Point(286, 42);
             darkNumericUpDownParticleX.Maximum = new decimal(new int[] { 255, 0, 0, 0 });
+            darkNumericUpDownParticleX.Minimum = new decimal(new int[] { 255, 0, 0, int.MinValue });
             darkNumericUpDownParticleX.Name = "darkNumericUpDownParticleX";
             darkNumericUpDownParticleX.Size = new Size(72, 31);
             darkNumericUpDownParticleX.TabIndex = 23;

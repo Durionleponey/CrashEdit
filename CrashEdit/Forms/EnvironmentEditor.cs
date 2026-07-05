@@ -379,6 +379,7 @@ namespace CrashEdit.CE.Forms
             InitializeDefaultPreset();
             EnableDisableParticleEffect();
             showHideRecolorBackgroundColor();
+            showHideLowerColor();
 
 
         }

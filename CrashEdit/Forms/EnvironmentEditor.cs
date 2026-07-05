@@ -10,6 +10,7 @@ using System.Drawing.Drawing2D;
 using System.Net.Security;
 using System.Security.RightsManagement;
 using System.Text.Json;
+using System.Windows.Documents;
 using static CrashEdit.CE.EntityPropertyBox;
 
 
@@ -55,6 +56,15 @@ namespace CrashEdit.CE.Forms
                 Console.WriteLine($"{b:B32}");
 
                 return (uint)((a << 24) | (b << 16) | (g << 8) | r);
+            }
+        }
+
+        public List<decimal> VelocityParticleValue {
+            get {
+
+                return [darkNumericUpDownParticleX.Value, darkNumericUpDownParticleY.Value, darkNumericUpDownParticleZ.Value];
+
+
             }
         }
 

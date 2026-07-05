@@ -224,12 +224,15 @@ namespace CrashEdit.CE
                             particules1Prop.Rows.Add(new EntityPropertyRow<EntityVictim>());
                             particules1Prop.Rows[0].MetaValue = 0;
 
-                            particules1Prop.Rows[0].Values.Add(new EntityVictim(0x20));
-                            particules1Prop.Rows[0].Values.Add(new EntityVictim(0x100));
-                            particules1Prop.Rows[0].Values.Add(new EntityVictim(0x0));
+
+
+                            particules1Prop.Rows[0].Values.Add(new EntityVictim((short)inputWindows.VelocityParticleValue[0]));
+                            particules1Prop.Rows[0].Values.Add(new EntityVictim((short)inputWindows.VelocityParticleValue[1]));
+                            particules1Prop.Rows[0].Values.Add(new EntityVictim((short)inputWindows.VelocityParticleValue[2]));
 
 
                             particules1Prop.Rows[0].Values.Add(new EntityVictim((short)inputWindows.ParticleAmountValue));
+
                             particules1Prop.Rows[0].Values.Add(new EntityVictim(0x0));
                             particules1Prop.Rows[0].Values.Add(new EntityVictim(0x770));
 

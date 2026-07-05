@@ -39,7 +39,7 @@
             darkButton3 = new AltUI.Controls.DarkButton();
             darkTitle5 = new AltUI.Controls.DarkTitle();
             fogSettingsBox = new AltUI.Controls.DarkGroupBox();
-            darkTitleBgColor = new AltUI.Controls.DarkTitle();
+            darkCheckBoxBackgroundTextureGapColor = new AltUI.Controls.DarkCheckBox();
             pictureBoxBackgroundTextureGapColor = new PictureBox();
             darkGroupBoxParticleSettings = new AltUI.Controls.DarkGroupBox();
             darkButtonRestoreDefaultPreset = new AltUI.Controls.DarkButton();
@@ -198,7 +198,7 @@
             // fogSettingsBox
             // 
             fogSettingsBox.AccessibleName = "Fog Settings";
-            fogSettingsBox.Controls.Add(darkTitleBgColor);
+            fogSettingsBox.Controls.Add(darkCheckBoxBackgroundTextureGapColor);
             fogSettingsBox.Controls.Add(pictureBoxBackgroundTextureGapColor);
             fogSettingsBox.Controls.Add(darkCheckBox1);
             fogSettingsBox.Controls.Add(trackBarFog);
@@ -213,19 +213,22 @@
             fogSettingsBox.TabStop = false;
             fogSettingsBox.Text = "Fog Settings";
             // 
-            // darkTitleBgColor
+            // darkCheckBoxBackgroundTextureGapColor
             // 
-            darkTitleBgColor.Location = new Point(20, 166);
-            darkTitleBgColor.Margin = new Padding(3, 0, 3, 15);
-            darkTitleBgColor.Name = "darkTitleBgColor";
-            darkTitleBgColor.Size = new Size(258, 30);
-            darkTitleBgColor.TabIndex = 36;
-            darkTitleBgColor.Text = "Background Texture Gap Color";
+            darkCheckBoxBackgroundTextureGapColor.AutoSize = true;
+            darkCheckBoxBackgroundTextureGapColor.Location = new Point(26, 161);
+            darkCheckBoxBackgroundTextureGapColor.Name = "darkCheckBoxBackgroundTextureGapColor";
+            darkCheckBoxBackgroundTextureGapColor.Offset = 1;
+            darkCheckBoxBackgroundTextureGapColor.Size = new Size(342, 29);
+            darkCheckBoxBackgroundTextureGapColor.TabIndex = 36;
+            darkCheckBoxBackgroundTextureGapColor.Text = "Recolor Background Texture Gap Color";
+            darkCheckBoxBackgroundTextureGapColor.CheckedChanged += darkCheckBoxBackgroundTextureGapColor_CheckedChanged;
             // 
             // pictureBoxBackgroundTextureGapColor
             // 
             pictureBoxBackgroundTextureGapColor.BackColor = Color.Black;
-            pictureBoxBackgroundTextureGapColor.Location = new Point(286, 161);
+            pictureBoxBackgroundTextureGapColor.BorderStyle = BorderStyle.FixedSingle;
+            pictureBoxBackgroundTextureGapColor.Location = new Point(374, 157);
             pictureBoxBackgroundTextureGapColor.Name = "pictureBoxBackgroundTextureGapColor";
             pictureBoxBackgroundTextureGapColor.Size = new Size(36, 39);
             pictureBoxBackgroundTextureGapColor.TabIndex = 35;
@@ -375,6 +378,7 @@
             // pictureBoxLowerColor
             // 
             pictureBoxLowerColor.BackColor = Color.White;
+            pictureBoxLowerColor.BorderStyle = BorderStyle.FixedSingle;
             pictureBoxLowerColor.Location = new Point(658, 34);
             pictureBoxLowerColor.Name = "pictureBoxLowerColor";
             pictureBoxLowerColor.Size = new Size(36, 39);
@@ -394,6 +398,7 @@
             // pictureBoxUpperColor
             // 
             pictureBoxUpperColor.BackColor = Color.White;
+            pictureBoxUpperColor.BorderStyle = BorderStyle.FixedSingle;
             pictureBoxUpperColor.Location = new Point(478, 34);
             pictureBoxUpperColor.Name = "pictureBoxUpperColor";
             pictureBoxUpperColor.Size = new Size(36, 39);
@@ -612,8 +617,8 @@
         private AltUI.Controls.DarkTitle ParticleAmountPourcent;
         private AltUI.Controls.DarkCheckBox darkCheckBoxUseParticleEffect;
         private AltUI.Controls.DarkButton darkButtonRestoreDefaultPreset;
-        private AltUI.Controls.DarkTitle darkTitleBgColor;
         private PictureBox pictureBox1;
         private PictureBox pictureBoxBackgroundTextureGapColor;
+        private AltUI.Controls.DarkCheckBox darkCheckBoxBackgroundTextureGapColor;
     }
 }

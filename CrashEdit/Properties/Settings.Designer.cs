@@ -719,5 +719,17 @@ namespace CrashEdit.CE.Properties {
                 this["DefaultpictureBoxBackgroundTextureGapColor"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool DefaultPictureBoxBackgroundTextureGapColorIsActive {
+            get {
+                return ((bool)(this["DefaultPictureBoxBackgroundTextureGapColorIsActive"]));
+            }
+            set {
+                this["DefaultPictureBoxBackgroundTextureGapColorIsActive"] = value;
+            }
+        }
     }
 }

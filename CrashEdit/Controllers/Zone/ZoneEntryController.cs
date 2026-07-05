@@ -162,27 +162,35 @@ namespace CrashEdit.CE
                             camera2.KnownProperties[FogDistanceID] = propFogDistance;
 
 
-                            short bgColorID = 0x1FA;
-
-                            var bgColorProp = new EntityUInt32Property();
-
-                            bgColorProp.Rows.Add(new EntityPropertyRow<uint>());
-                            bgColorProp.Rows[0].MetaValue = 0;
-                            bgColorProp.Rows[0].Values.Add(0x00000001);
+                            if (inputWindows.UseRecolor) {
 
 
-                            uint resultbg = inputWindows.BackgroundTextureGapColor;
+                                short bgColorID = 0x1FA;
+
+                                var bgColorProp = new EntityUInt32Property();
+
+                                bgColorProp.Rows.Add(new EntityPropertyRow<uint>());
+                                bgColorProp.Rows[0].MetaValue = 0;
+                                bgColorProp.Rows[0].Values.Add(0x00000001);
 
 
-                            // → 0xFFA0B0C0
-                            //uint bgColorValue = ((uint)result << 8);
-                            bgColorProp.Rows[0].Values.Add(resultbg);
+                                uint resultbg = inputWindows.BackgroundTextureGapColor;
 
 
-                            bgColorProp.Rows[0].Values.Add(0);
+                                // → 0xFFA0B0C0
+                                //uint bgColorValue = ((uint)result << 8);
+                                bgColorProp.Rows[0].Values.Add(resultbg);
 
-                            camera2.Backgrounds = bgColorProp;
-                            camera2.KnownProperties[bgColorID] = bgColorProp;
+
+                                bgColorProp.Rows[0].Values.Add(0);
+
+                                camera2.Backgrounds = bgColorProp;
+                                camera2.KnownProperties[bgColorID] = bgColorProp;
+
+
+                            }
+
+
 
 
                         }

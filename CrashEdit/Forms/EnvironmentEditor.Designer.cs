@@ -296,6 +296,7 @@
             trackBarParticleVisibility.Size = new Size(370, 69);
             trackBarParticleVisibility.TabIndex = 13;
             trackBarParticleVisibility.Tag = "";
+            trackBarParticleVisibility.Scroll += trackBarParticleVisibility_Scroll;
             // 
             // darkTitle14
             // 

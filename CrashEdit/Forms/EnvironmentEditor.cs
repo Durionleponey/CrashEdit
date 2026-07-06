@@ -38,6 +38,17 @@ namespace CrashEdit.CE.Forms
 
         }
 
+        public int ParticleVisibilityValue
+        {
+
+            get
+            {
+
+                return 0x99 / 100 * trackBarParticleAmount.Value;
+            }
+
+        }
+
 
         public uint BackgroundTextureGapColor
         {
@@ -93,6 +104,7 @@ namespace CrashEdit.CE.Forms
         public class FieldData
         {
             public short ParticleAmount { get; set; }
+            public short ParticleVisibility { get; set; }
 
             public short VelocityX { get; set; }
             public short VelocityY { get; set; }
@@ -137,7 +149,8 @@ namespace CrashEdit.CE.Forms
 
         }
 
-        private uint colorConverter(int argb) {
+        private uint colorConverter(int argb)
+        {
 
             Console.WriteLine(argb);
             Console.WriteLine($"0x{argb:X8}");
@@ -270,6 +283,7 @@ namespace CrashEdit.CE.Forms
 
 
             trackBarParticleAmount.Value = selectedPreset.ParticleAmount;
+            trackBarParticleVisibility.Value = selectedPreset.ParticleVisibility;
             darkNumericUpDownParticleX.Value = selectedPreset.VelocityX;
             darkNumericUpDownParticleY.Value = selectedPreset.VelocityY;
             darkNumericUpDownParticleZ.Value = selectedPreset.VelocityZ;
@@ -374,6 +388,7 @@ namespace CrashEdit.CE.Forms
             LoadItemsFromFile();
             //LoadIemsValueInForm();
             UpdatePourcentTrackBarParticleAmount();
+            UpdatePourcentTrackBarParticleVisibility();
             EnableDisableParticleEffect();
             EnableDisableSaveAndRemoveButton();
             InitializeDefaultPreset();
@@ -414,12 +429,20 @@ namespace CrashEdit.CE.Forms
 
         }
 
+        private void UpdatePourcentTrackBarParticleVisibility()
+        {
+
+            ParticleVisibilityPourcent.Text = trackBarParticleVisibility.Value.ToString() + "%";
+
+        }
+
         private void EnableDisableParticleEffect()
         {
 
             var enable = darkCheckBoxUseParticleEffect.Checked;
 
             darkGroupBoxParticleAmount.Enabled = enable;
+            darkGroupBoxParticleVisibility.Enabled = enable;
             darkGroupBoxParticleVelocity.Enabled = enable;
             darkGroupBoxParticleColor.Enabled = enable;
 
@@ -437,6 +460,7 @@ namespace CrashEdit.CE.Forms
             dpdParticuleEffect.Enabled = enable;
 
             ParticleAmountPourcent.Visible = enable;
+            ParticleVisibilityPourcent.Visible = enable;
 
 
 
@@ -447,6 +471,7 @@ namespace CrashEdit.CE.Forms
         {
             LoadIemsValueInForm();
             UpdatePourcentTrackBarParticleAmount();
+            UpdatePourcentTrackBarParticleVisibility();
 
         }
 
@@ -562,6 +587,7 @@ namespace CrashEdit.CE.Forms
 
             list.Add(new FieldData());
             list[0].ParticleAmount = (short)trackBarParticleAmount.Value;
+            list[0].ParticleVisibility = (short)trackBarParticleVisibility.Value;
             list[0].VelocityX = (short)darkNumericUpDownParticleX.Value;
             list[0].VelocityY = (short)darkNumericUpDownParticleY.Value;
             list[0].VelocityZ = (short)darkNumericUpDownParticleZ.Value;
@@ -725,6 +751,7 @@ namespace CrashEdit.CE.Forms
             new FieldData
             {
                 ParticleAmount = 80,
+                ParticleVisibility = 40,
                 VelocityX = 0,
                 VelocityY = 120,
                 VelocityZ = 0,
@@ -742,6 +769,7 @@ namespace CrashEdit.CE.Forms
             new FieldData
             {
                 ParticleAmount = 50,
+                ParticleVisibility = 40,
                 VelocityX = 10,
                 VelocityY = 30,
                 VelocityZ = 0,
@@ -797,6 +825,7 @@ namespace CrashEdit.CE.Forms
                 LoadItemsFromFile();
                 //LoadIemsValueInForm();
                 UpdatePourcentTrackBarParticleAmount();
+                UpdatePourcentTrackBarParticleVisibility();
                 EnableDisableParticleEffect();
                 EnableDisableSaveAndRemoveButton();
                 InitializeDefaultPreset();
@@ -832,11 +861,19 @@ namespace CrashEdit.CE.Forms
 
         }
 
-        private void showHideRecolorBackgroundColor() {
+        private void showHideRecolorBackgroundColor()
+        {
 
             var enable = darkCheckBoxBackgroundTextureGapColor.Checked;
 
             pictureBoxBackgroundTextureGapColor.Visible = enable;
+        }
+
+        private void trackBarParticleVisibility_Scroll(object sender, EventArgs e)
+        {
+
+            UpdatePourcentTrackBarParticleVisibility();
+
         }
     }
 }

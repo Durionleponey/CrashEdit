@@ -3,17 +3,8 @@ using AltUI.Forms;
 using CrashEdit.CE.Properties;
 using CrashEdit.Crash;
 using Cyotek.Windows.Forms;
-using DiscUtils.Streams;
-using System.Collections.Generic;
-using System.Diagnostics.Eventing.Reader;
 using System.Drawing.Drawing2D;
-using System.Net.Security;
-using System.Runtime.InteropServices.Marshalling;
-using System.Security.RightsManagement;
 using System.Text.Json;
-using System.Windows.Documents;
-using System.Windows.Navigation;
-using static CrashEdit.CE.EntityPropertyBox;
 
 
 namespace CrashEdit.CE.Forms
@@ -158,20 +149,13 @@ namespace CrashEdit.CE.Forms
         private uint colorConverter(int argb)
         {
 
-            Console.WriteLine(argb);
-            Console.WriteLine($"0x{argb:X8}");
-            Console.WriteLine($"{argb:B32}");
 
             byte a = (byte)(argb >> 24);
 
             a = (byte)~a;
-
             byte r = (byte)(argb >> 16);
-            Console.WriteLine($"{r:B32}");
             byte g = (byte)(argb >> 8);
-            Console.WriteLine($"{g:B32}");
             byte b = (byte)argb;
-            Console.WriteLine($"{b:B32}");
 
             return (uint)((a << 24) | (b << 16) | (g << 8) | r);
 
@@ -194,7 +178,6 @@ namespace CrashEdit.CE.Forms
         {
             trackBarFog.Enabled = darkCheckBox1.Checked;
             darkTitle4.Visible = darkCheckBox1.Checked;
-            Console.WriteLine($"hello ---> {trackBarFog.Value}");
 
         }
 
@@ -394,7 +377,6 @@ namespace CrashEdit.CE.Forms
             LoadItemsFromFile();
             //LoadIemsValueInForm();
             UpdatePourcentTrackBarParticleAmount();
-            UpdatePourcentTrackBarParticleVisibility();
             EnableDisableParticleEffect();
             EnableDisableSaveAndRemoveButton();
             InitializeDefaultPreset();
@@ -435,10 +417,6 @@ namespace CrashEdit.CE.Forms
 
         }
 
-        private void UpdatePourcentTrackBarParticleVisibility()
-        {
-
-        }
 
         private void EnableDisableParticleEffect()
         {
@@ -474,7 +452,6 @@ namespace CrashEdit.CE.Forms
         {
             LoadIemsValueInForm();
             UpdatePourcentTrackBarParticleAmount();
-            UpdatePourcentTrackBarParticleVisibility();
 
         }
 
@@ -670,7 +647,6 @@ namespace CrashEdit.CE.Forms
 
             if (form.ShowDialog(this) == DialogResult.OK)
             {
-                Console.WriteLine($"---> {editor.Color}");
                 return editor.Color;
             }
 
@@ -827,9 +803,7 @@ namespace CrashEdit.CE.Forms
                 savedItems.Clear();
                 SaveItemsToFile();
                 LoadItemsFromFile();
-                //LoadIemsValueInForm();
                 UpdatePourcentTrackBarParticleAmount();
-                UpdatePourcentTrackBarParticleVisibility();
                 EnableDisableParticleEffect();
                 EnableDisableSaveAndRemoveButton();
                 InitializeDefaultPreset();
@@ -873,11 +847,6 @@ namespace CrashEdit.CE.Forms
             pictureBoxBackgroundTextureGapColor.Visible = enable;
         }
 
-        private void trackBarParticleVisibility_Scroll(object sender, EventArgs e)
-        {
 
-            UpdatePourcentTrackBarParticleVisibility();
-
-        }
     }
 }

@@ -753,13 +753,13 @@ namespace CrashEdit.CE.Forms
         {
             new FieldData
             {
-                ParticleAmount = 80,
-                ParticleVisibility = 1,
-                VelocityX = 0,
-                VelocityY = 120,
+                ParticleAmount = 10,
+                ParticleVisibility = 0,
+                VelocityX = 32,
+                VelocityY = 255,
                 VelocityZ = 0,
-                UpperColor = 0xFF6A8CB0,
-                LowerColor = 0xFF6A8CB0
+                UpperColor = 0xFF404040,
+                LowerColor = 0xFFC0C0C0
             }
         }
             });
@@ -771,13 +771,13 @@ namespace CrashEdit.CE.Forms
         {
             new FieldData
             {
-                ParticleAmount = 50,
+                ParticleAmount = 10,
                 ParticleVisibility = 2,
-                VelocityX = 10,
-                VelocityY = 30,
+                VelocityX = 2,
+                VelocityY = 16,
                 VelocityZ = 0,
-                UpperColor = 0xFFFFFFFF,
-                LowerColor = 0xFFFFFFFF
+                UpperColor = 0xFF404040,
+                LowerColor = 0xFF808080
             }
         }
             });
@@ -790,12 +790,12 @@ namespace CrashEdit.CE.Forms
             new FieldData
             {
                 ParticleAmount = 50,
-                ParticleVisibility = 2,
-                VelocityX = 10,
-                VelocityY = 30,
+                ParticleVisibility = 0,
+                VelocityX = 32,
+                VelocityY = 255,
                 VelocityZ = 0,
-                UpperColor = 0xFFF00FFF,
-                LowerColor = 0xF0FFFFFF
+                UpperColor = 0xFF404040,
+                LowerColor = 0xFFC0C0C0
             }
         }
             });

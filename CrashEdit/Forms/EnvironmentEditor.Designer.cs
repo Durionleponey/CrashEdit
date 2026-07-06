@@ -43,6 +43,7 @@
             pictureBoxBackgroundTextureGapColor = new PictureBox();
             darkGroupBoxParticleSettings = new AltUI.Controls.DarkGroupBox();
             darkGroupBoxParticleVisibility = new AltUI.Controls.DarkGroupBox();
+            darkTitle10 = new AltUI.Controls.DarkTitle();
             trackBarParticleVisibility = new TrackBar();
             darkTitle14 = new AltUI.Controls.DarkTitle();
             darkTitle16 = new AltUI.Controls.DarkTitle();
@@ -72,7 +73,6 @@
             darkButtonRemovePreset = new AltUI.Controls.DarkButton();
             darkButtonSavePreset = new AltUI.Controls.DarkButton();
             dpdParticuleEffect = new AltUI.Controls.DarkComboBox();
-            darkTitle10 = new AltUI.Controls.DarkTitle();
             ((System.ComponentModel.ISupportInitialize)trackBarFog).BeginInit();
             fogSettingsBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBoxBackgroundTextureGapColor).BeginInit();
@@ -274,6 +274,15 @@
             darkGroupBoxParticleVisibility.TabIndex = 28;
             darkGroupBoxParticleVisibility.TabStop = false;
             darkGroupBoxParticleVisibility.Text = "Particle Visibility";
+            // 
+            // darkTitle10
+            // 
+            darkTitle10.AutoSize = true;
+            darkTitle10.Location = new Point(618, 53);
+            darkTitle10.Name = "darkTitle10";
+            darkTitle10.Size = new Size(39, 25);
+            darkTitle10.TabIndex = 37;
+            darkTitle10.Text = "Full";
             // 
             // trackBarParticleVisibility
             // 
@@ -587,15 +596,6 @@
             dpdParticuleEffect.Size = new Size(182, 32);
             dpdParticuleEffect.TabIndex = 16;
             dpdParticuleEffect.SelectedIndexChanged += dpdParticuleEffect_SelectedIndexChanged;
-            // 
-            // darkTitle10
-            // 
-            darkTitle10.AutoSize = true;
-            darkTitle10.Location = new Point(618, 53);
-            darkTitle10.Name = "darkTitle10";
-            darkTitle10.Size = new Size(50, 25);
-            darkTitle10.TabIndex = 37;
-            darkTitle10.Text = "High";
             // 
             // EnvironmentEditor
             // 

@@ -16,8 +16,11 @@ namespace CrashEdit.CE
             AddMenuSeparator();
             AddMenu(CrashUI.Properties.Resources.ZoneEntryController_AcAddEntity, "Add", Menu_AddEntity);
             AddMenu(CrashUI.Properties.Resources.ZoneEntryController_AcChangeCollisionType, "Wrench", Menu_ChangeCollisionType);
-            AddMenu(CrashUI.Properties.Resources.ZoneEntryController_AcChangeEnvironmentType, "Wrench", Menu_ChangeEnvironmentType);
 
+            if (GameVersion == GameVersion.Crash2 && ZoneEntry.Entities.Count !=0) {
+                AddMenu(CrashUI.Properties.Resources.ZoneEntryController_AcChangeEnvironmentType, "Wrench", Menu_ChangeEnvironmentType);
+
+            }
 
         }
 

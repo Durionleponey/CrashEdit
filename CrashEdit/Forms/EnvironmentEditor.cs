@@ -228,9 +228,6 @@ namespace CrashEdit.CE.Forms
             DarkMessageBox.ShowInformation("Default values saved.", "Settings");
 
 
-
-
-
         }
 
         private void LoadItemsFromFile()
@@ -443,9 +440,6 @@ namespace CrashEdit.CE.Forms
 
             ParticleAmountPourcent.Visible = enable;
 
-
-
-
         }
 
         private void dpdParticuleEffect_SelectedIndexChanged(object sender, EventArgs e)
@@ -657,7 +651,6 @@ namespace CrashEdit.CE.Forms
 
         private void pictureBoxLowerColor_Click(object sender, EventArgs e)
         {
-            Console.WriteLine("hello");
             pictureBoxLowerColor.BackColor = colorPicker(pictureBoxLowerColor.BackColor);
         }
 
@@ -691,7 +684,7 @@ namespace CrashEdit.CE.Forms
             }
             else
             {
-                dpdParticuleEffect.SelectedIndex = -1;
+                dpdParticuleEffect.SelectedIndex = 1;
                 dpdParticuleEffect.SelectedItem = null;
                 dpdParticuleEffect.Text = string.Empty;
                 dpdParticuleEffect.Refresh();
@@ -779,12 +772,6 @@ namespace CrashEdit.CE.Forms
             return defaultList;
         }
 
-        private void darkButtonRestoreDefaultPreset_Click(object sender, EventArgs e)
-        {
-
-
-
-        }
 
         private void darkButtonRestoreDefaultPreset_Click_1(object sender, EventArgs e)
         {

@@ -481,7 +481,7 @@ namespace CrashEdit.CE
         public void OpenNSF()
         {
 
-            Console.WriteLine("hello debug!");
+
             using (OpenFileDialog dialog = new OpenFileDialog())
             {
                 dialog.Filter = FileFilters.NSF + "|" + FileFilters.Any;

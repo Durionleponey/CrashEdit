@@ -44,7 +44,14 @@ namespace CrashEdit.CE.Forms
             get
             {
 
-                return 0x99 / 100 * trackBarParticleAmount.Value;
+                switch(trackBarParticleVisibility.Value){ 
+
+                    case 0: return 0x60;//not found better
+                    case 1: return 0x80;
+                    case 2: return 0x20;
+                    default:return 0x20;
+
+                }
             }
 
         }
@@ -105,7 +112,6 @@ namespace CrashEdit.CE.Forms
         {
             public short ParticleAmount { get; set; }
             public short ParticleVisibility { get; set; }
-
             public short VelocityX { get; set; }
             public short VelocityY { get; set; }
             public short VelocityZ { get; set; }
@@ -432,8 +438,6 @@ namespace CrashEdit.CE.Forms
         private void UpdatePourcentTrackBarParticleVisibility()
         {
 
-            ParticleVisibilityPourcent.Text = trackBarParticleVisibility.Value.ToString() + "%";
-
         }
 
         private void EnableDisableParticleEffect()
@@ -460,7 +464,6 @@ namespace CrashEdit.CE.Forms
             dpdParticuleEffect.Enabled = enable;
 
             ParticleAmountPourcent.Visible = enable;
-            ParticleVisibilityPourcent.Visible = enable;
 
 
 
@@ -751,7 +754,7 @@ namespace CrashEdit.CE.Forms
             new FieldData
             {
                 ParticleAmount = 80,
-                ParticleVisibility = 40,
+                ParticleVisibility = 1,
                 VelocityX = 0,
                 VelocityY = 120,
                 VelocityZ = 0,
@@ -769,7 +772,7 @@ namespace CrashEdit.CE.Forms
             new FieldData
             {
                 ParticleAmount = 50,
-                ParticleVisibility = 40,
+                ParticleVisibility = 2,
                 VelocityX = 10,
                 VelocityY = 30,
                 VelocityZ = 0,
@@ -787,6 +790,7 @@ namespace CrashEdit.CE.Forms
             new FieldData
             {
                 ParticleAmount = 50,
+                ParticleVisibility = 2,
                 VelocityX = 10,
                 VelocityY = 30,
                 VelocityZ = 0,

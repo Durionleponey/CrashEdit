@@ -43,10 +43,8 @@
             pictureBoxBackgroundTextureGapColor = new PictureBox();
             darkGroupBoxParticleSettings = new AltUI.Controls.DarkGroupBox();
             darkGroupBoxParticleVisibility = new AltUI.Controls.DarkGroupBox();
-            ParticleVisibilityPourcent = new AltUI.Controls.DarkTitle();
             trackBarParticleVisibility = new TrackBar();
             darkTitle14 = new AltUI.Controls.DarkTitle();
-            darkTitle15 = new AltUI.Controls.DarkTitle();
             darkTitle16 = new AltUI.Controls.DarkTitle();
             darkButtonRestoreDefaultPreset = new AltUI.Controls.DarkButton();
             darkCheckBoxUseParticleEffect = new AltUI.Controls.DarkCheckBox();
@@ -74,6 +72,7 @@
             darkButtonRemovePreset = new AltUI.Controls.DarkButton();
             darkButtonSavePreset = new AltUI.Controls.DarkButton();
             dpdParticuleEffect = new AltUI.Controls.DarkComboBox();
+            darkTitle10 = new AltUI.Controls.DarkTitle();
             ((System.ComponentModel.ISupportInitialize)trackBarFog).BeginInit();
             fogSettingsBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBoxBackgroundTextureGapColor).BeginInit();
@@ -265,10 +264,9 @@
             // 
             // darkGroupBoxParticleVisibility
             // 
-            darkGroupBoxParticleVisibility.Controls.Add(ParticleVisibilityPourcent);
+            darkGroupBoxParticleVisibility.Controls.Add(darkTitle10);
             darkGroupBoxParticleVisibility.Controls.Add(trackBarParticleVisibility);
             darkGroupBoxParticleVisibility.Controls.Add(darkTitle14);
-            darkGroupBoxParticleVisibility.Controls.Add(darkTitle15);
             darkGroupBoxParticleVisibility.Controls.Add(darkTitle16);
             darkGroupBoxParticleVisibility.Location = new Point(20, 305);
             darkGroupBoxParticleVisibility.Name = "darkGroupBoxParticleVisibility";
@@ -277,21 +275,12 @@
             darkGroupBoxParticleVisibility.TabStop = false;
             darkGroupBoxParticleVisibility.Text = "Particle Visibility";
             // 
-            // ParticleVisibilityPourcent
-            // 
-            ParticleVisibilityPourcent.AutoSize = true;
-            ParticleVisibilityPourcent.Location = new Point(393, 21);
-            ParticleVisibilityPourcent.Margin = new Padding(3, 0, 3, 15);
-            ParticleVisibilityPourcent.Name = "ParticleVisibilityPourcent";
-            ParticleVisibilityPourcent.Size = new Size(137, 25);
-            ParticleVisibilityPourcent.TabIndex = 13;
-            ParticleVisibilityPourcent.Text = "Particle Visibility";
-            // 
             // trackBarParticleVisibility
             // 
+            trackBarParticleVisibility.LargeChange = 1;
             trackBarParticleVisibility.Location = new Point(238, 53);
             trackBarParticleVisibility.Margin = new Padding(5);
-            trackBarParticleVisibility.Maximum = 100;
+            trackBarParticleVisibility.Maximum = 2;
             trackBarParticleVisibility.Name = "trackBarParticleVisibility";
             trackBarParticleVisibility.Size = new Size(370, 69);
             trackBarParticleVisibility.TabIndex = 13;
@@ -300,30 +289,21 @@
             // 
             // darkTitle14
             // 
-            darkTitle14.Location = new Point(45, 63);
+            darkTitle14.Location = new Point(45, 53);
             darkTitle14.Margin = new Padding(3, 0, 3, 15);
             darkTitle14.Name = "darkTitle14";
-            darkTitle14.Size = new Size(104, 30);
+            darkTitle14.Size = new Size(70, 30);
             darkTitle14.TabIndex = 14;
-            darkTitle14.Text = "Visibility (%)";
-            // 
-            // darkTitle15
-            // 
-            darkTitle15.AutoSize = true;
-            darkTitle15.Location = new Point(614, 53);
-            darkTitle15.Name = "darkTitle15";
-            darkTitle15.Size = new Size(57, 25);
-            darkTitle15.TabIndex = 16;
-            darkTitle15.Text = "100%";
+            darkTitle14.Text = "Visibility";
             // 
             // darkTitle16
             // 
             darkTitle16.AutoSize = true;
             darkTitle16.Location = new Point(193, 53);
             darkTitle16.Name = "darkTitle16";
-            darkTitle16.Size = new Size(37, 25);
+            darkTitle16.Size = new Size(44, 25);
             darkTitle16.TabIndex = 15;
-            darkTitle16.Text = "0%";
+            darkTitle16.Text = "Low";
             // 
             // darkButtonRestoreDefaultPreset
             // 
@@ -608,6 +588,15 @@
             dpdParticuleEffect.TabIndex = 16;
             dpdParticuleEffect.SelectedIndexChanged += dpdParticuleEffect_SelectedIndexChanged;
             // 
+            // darkTitle10
+            // 
+            darkTitle10.AutoSize = true;
+            darkTitle10.Location = new Point(618, 53);
+            darkTitle10.Name = "darkTitle10";
+            darkTitle10.Size = new Size(50, 25);
+            darkTitle10.TabIndex = 37;
+            darkTitle10.Text = "High";
+            // 
             // EnvironmentEditor
             // 
             AcceptButton = darkButton1;
@@ -698,11 +687,10 @@
         private PictureBox pictureBoxBackgroundTextureGapColor;
         private AltUI.Controls.DarkCheckBox darkCheckBoxBackgroundTextureGapColor;
         private AltUI.Controls.DarkGroupBox darkGroupBoxParticleVisibility;
-        private AltUI.Controls.DarkTitle ParticleVisibilityPourcent;
         private TrackBar trackBar1;
         private AltUI.Controls.DarkTitle darkTitle14;
-        private AltUI.Controls.DarkTitle darkTitle15;
         private AltUI.Controls.DarkTitle darkTitle16;
         private TrackBar trackBarParticleVisibility;
+        private AltUI.Controls.DarkTitle darkTitle10;
     }
 }

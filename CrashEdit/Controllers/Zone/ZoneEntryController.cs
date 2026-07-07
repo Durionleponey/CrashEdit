@@ -5,6 +5,7 @@ using CrashEdit.Crash;
 using OpenTK.Graphics.OpenGL;
 using System.Text.RegularExpressions;
 using System.Web;
+using System.Windows.Media.Media3D;
 
 namespace CrashEdit.CE
 {
@@ -218,9 +219,8 @@ namespace CrashEdit.CE
                             var propFogDistance = new EntityUInt32Property();
                             propFogDistance.Rows.Add(new EntityPropertyRow<uint>());
                             propFogDistance.Rows[0].MetaValue = 0;
-                            propFogDistance.Rows[0].Values.Add(0);
-                            propFogDistance.Rows[0].Values.Add(1);
 
+                            propFogDistance = addValueToProp([0, 1], 0, propFogDistance);
 
                             byte resultFogDistance = (byte)inputWindows.FogValue;
                             uint fogValueEx = 0x00000040u | ((uint)resultFogDistance << 8);
@@ -368,6 +368,18 @@ namespace CrashEdit.CE
             {
                 DarkMessageBox.ShowError($"Error: {ex.Message}", "");
             }
+        }
+
+
+        static EntityUInt32Property addValueToProp(uint[] values, int Rows, EntityUInt32Property prop)
+        {
+
+            for (int i = 0; i < values.Length; i++) {
+
+                prop.Rows[Rows].Values.Add(values[i]);
+
+            }
+            return prop;
         }
     }
 }

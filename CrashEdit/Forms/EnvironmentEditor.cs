@@ -118,7 +118,7 @@ namespace CrashEdit.CE.Forms
             public List<FieldData> Fields { get; set; } = new List<FieldData>();
         }
 
-        public EnvironmentEditor(EntityUInt32Property flags)
+        public EnvironmentEditor()
         {
             Icon = Embeds.GetIcon("Wrench");
             InitializeComponent();

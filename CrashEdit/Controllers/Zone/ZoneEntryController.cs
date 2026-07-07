@@ -3,6 +3,7 @@ using CrashEdit.CE;
 using CrashEdit.CE.Forms;
 using CrashEdit.Crash;
 using OpenTK.Graphics.OpenGL;
+using System.Text.RegularExpressions;
 using System.Web;
 
 namespace CrashEdit.CE
@@ -17,7 +18,7 @@ namespace CrashEdit.CE
             AddMenu(CrashUI.Properties.Resources.ZoneEntryController_AcAddEntity, "Add", Menu_AddEntity);
             AddMenu(CrashUI.Properties.Resources.ZoneEntryController_AcChangeCollisionType, "Wrench", Menu_ChangeCollisionType);
 
-            if (ZoneEntry.Entities.Count !=0) {
+            if (GameVersion == GameVersion.Crash2 || GameVersion == GameVersion.Crash3 && ZoneEntry.Entities.Count !=0) {
                 AddMenu(CrashUI.Properties.Resources.ZoneEntryController_AcChangeEnvironmentType, "Wrench", Menu_ChangeEnvironmentType);
 
             }
@@ -126,11 +127,76 @@ namespace CrashEdit.CE
             try
             {
 
+                int numberOfCamera = ZoneEntry.Zoneheader.CameraCount;
 
-                Entity camera2 = ZoneEntry.Entities[1];
+                int targetCamera = 1;
+
+                if (numberOfCamera % 3 != 0) {
+                    DarkMessageBox.ShowError($"Error Camera shoud be in group of 3", CrashUI.Properties.Resources.ZoneEntryController_AcChangeCollisionType);
+                }
+
+                if (numberOfCamera > 3)
+                {
+
+                    int maxIndexCam = (numberOfCamera / 3) - 1;
+
+                using (InputWindow inputWindow = new InputWindow($"Multiple Camera Detected In {ZoneEntry.Title}", "Select Camera Number", $"Please Put Cam Number: [0-{maxIndexCam}]", string.Empty, 1))
+                    {
+
+                        if (inputWindow.ShowDialog() == DialogResult.OK)
+                        {
+                            if (inputWindow.Input.Length == 0)
+                            {
+                                DarkMessageBox.ShowError("Please input camera number", "Error empty");
+                                return;
+                            }
 
 
-                using (EnvironmentEditor inputWindows = new EnvironmentEditor(camera2.Flags))
+                            if (Regex.IsMatch(inputWindow.Input, @"^\d$"))
+                            {
+
+                                int Intinput = int.Parse(inputWindow.Input);
+                                if (0 <= Intinput && Intinput <= maxIndexCam) {
+
+
+                                    targetCamera = 1 + (Intinput*3);
+
+                                    //1+ 3
+
+
+
+                                }
+
+
+                            }
+                            else {
+
+                                DarkMessageBox.ShowError("Please input camera number", "Error bad input");
+                                return;
+
+
+                            }
+
+
+                        }
+                        else {
+                            return;
+                        }
+                    }
+                }
+
+
+                Console.WriteLine("cam count");
+                Console.WriteLine(ZoneEntry.Zoneheader.CameraCount);
+                Console.WriteLine(ZoneEntry.Zoneheader.CameraCount);
+                Console.WriteLine(ZoneEntry.Zoneheader.CameraCount);
+                Console.WriteLine(ZoneEntry.Zoneheader.CameraCount);
+
+
+                Entity camera2 = ZoneEntry.Entities[targetCamera];
+
+
+                using (EnvironmentEditor inputWindows = new EnvironmentEditor())
                 {
 
                     
@@ -292,6 +358,10 @@ namespace CrashEdit.CE
                 }
 
                 return;
+
+
+
+
             }
             catch (Exception ex)
             {

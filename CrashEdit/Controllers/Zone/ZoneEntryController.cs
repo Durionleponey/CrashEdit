@@ -160,31 +160,20 @@ namespace CrashEdit.CE
                                 int Intinput = int.Parse(inputWindow.Input);
                                 if (0 <= Intinput && Intinput <= maxIndexCam)
                                 {
-
-
                                     targetCamera = 1 + (Intinput * 3);
-
                                 }
                                 else {
-
                                     DarkMessageBox.ShowError("Out of index please input camera number", "Error bad input");
                                     return;
 
-
-
                                 }
-
 
                             }
                             else {
 
                                 DarkMessageBox.ShowError("Please input camera number", "Error bad input");
                                 return;
-
-
                             }
-
-
                         }
                         else {
                             return;
@@ -222,14 +211,10 @@ namespace CrashEdit.CE
                             flagPropFog = flagPropFogEnable;
 
 
-                            var propFogDistance = new EntityUInt32Property();
-                            propFogDistance.Rows.Add(new EntityPropertyRow<uint>());
-                            propFogDistance.Rows[0].MetaValue = 0;
-
-
                             byte resultFogDistance = (byte)inputWindows.FogValue;
                             uint fogValueEx = fogValueRange | ((uint)resultFogDistance << 8);
 
+                            var propFogDistance = createPropWithRows(0);
                             propFogDistance = addValueToProp([0, 1, fogValueEx], 0, propFogDistance);
 
                             camera2.FogDistance = propFogDistance;
@@ -238,40 +223,23 @@ namespace CrashEdit.CE
                         }
                         else
                         {
-                            camera2.FogDistance = null;
-                            camera2.KnownProperties.Remove(FogDistanceID);
-
+                                camera2.FogDistance = null;
+                                camera2.KnownProperties.Remove(FogDistanceID);
                         }
 
 
                         if (inputWindows.UseRecolor) {
 
+                            short bgColorID = 0x1FA;
 
-                                short bgColorID = 0x1FA;
+                            var bgColorProp = createPropWithRows(0);
+                            bgColorProp = addValueToProp([1, inputWindows.BackgroundTextureGapColor, 0], 0, bgColorProp);
 
-                                var bgColorProp = new EntityUInt32Property();
+                            camera2.Backgrounds = bgColorProp;
+                            camera2.KnownProperties[bgColorID] = bgColorProp;
 
-                                bgColorProp.Rows.Add(new EntityPropertyRow<uint>());
-                                bgColorProp.Rows[0].MetaValue = 0;
-                                bgColorProp.Rows[0].Values.Add(0x00000001);
-
-
-                                bgColorProp.Rows[0].Values.Add(inputWindows.BackgroundTextureGapColor);
-
-
-                                bgColorProp.Rows[0].Values.Add(0);
-
-                                camera2.Backgrounds = bgColorProp;
-                                camera2.KnownProperties[bgColorID] = bgColorProp;
-
-
-                            }
-
-
-
-
-                      
-
+                            
+                        }
 
 
 
@@ -383,6 +351,23 @@ namespace CrashEdit.CE
             }
             return prop;
         }
+
+
+        static EntityUInt32Property createPropWithRows(int Rows) {
+
+
+            var prop = new EntityUInt32Property();
+            prop.Rows.Add(new EntityPropertyRow<uint>());
+            prop.Rows[Rows].MetaValue = 0;
+
+            return prop;
+
+
+        }
+
+
+
+
     }
 }
 

@@ -193,9 +193,11 @@ namespace CrashEdit.CE
                     short FogDistanceID = 0x1DE;
                     short particules1ID = 0x1B5;
                     short particules2ID = 0x1B6;
-
+                    short lastValueForPropertyParticle = 0x770;
+                    uint particleActivation = 0x00000010;
                     uint fogValueRange = 0x00000040u;
                     uint flagPropFogEnable = 0x00200000;
+                    
 
 
 
@@ -238,7 +240,6 @@ namespace CrashEdit.CE
                             camera2.Backgrounds = bgColorProp;
                             camera2.KnownProperties[bgColorID] = bgColorProp;
 
-                            
                         }
 
 
@@ -259,26 +260,16 @@ namespace CrashEdit.CE
                         else 
                         {
 
-                            flagPropFog = flagPropFog | 0x00000010;//change bit nedded for particle
+                            flagPropFog = flagPropFog | particleActivation;//change bit nedded for particle
 
 
                             var particules1Prop = new EntityVictimProperty();
-
                             particules1Prop.Rows.Add(new EntityPropertyRow<EntityVictim>());
                             particules1Prop.Rows[0].MetaValue = 0;
 
 
-
-                            particules1Prop.Rows[0].Values.Add(new EntityVictim((short)inputWindows.VelocityParticleValue[0]));
-                            particules1Prop.Rows[0].Values.Add(new EntityVictim((short)inputWindows.VelocityParticleValue[1]));
-                            particules1Prop.Rows[0].Values.Add(new EntityVictim((short)inputWindows.VelocityParticleValue[2]));
-
-
-                            particules1Prop.Rows[0].Values.Add(new EntityVictim((short)inputWindows.ParticleAmountValue));
-
-                            particules1Prop.Rows[0].Values.Add(new EntityVictim(0x0));
-                            particules1Prop.Rows[0].Values.Add(new EntityVictim(0x770));
-
+                            short[] values = [(short)inputWindows.VelocityParticleValue[0], (short)inputWindows.VelocityParticleValue[1], (short)inputWindows.VelocityParticleValue[2], (short)inputWindows.ParticleAmountValue, 0, lastValueForPropertyParticle];
+                            particules1Prop = addValueToEntityVictimProp(values, 0, particules1Prop);
 
 
                             camera2.Particles1 = particules1Prop;
@@ -347,6 +338,19 @@ namespace CrashEdit.CE
             for (int i = 0; i < values.Length; i++) {
 
                 prop.Rows[Rows].Values.Add(values[i]);
+
+            }
+            return prop;
+        }
+
+
+        static EntityVictimProperty addValueToEntityVictimProp(short[] values, int Rows, EntityVictimProperty prop)
+        {
+
+            for (int i = 0; i < values.Length; i++)
+            {
+
+                prop.Rows[Rows].Values.Add(new EntityVictim((short)values[i]));
 
             }
             return prop;

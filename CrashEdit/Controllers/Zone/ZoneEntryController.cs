@@ -156,12 +156,17 @@ namespace CrashEdit.CE
                             {
 
                                 int Intinput = int.Parse(inputWindow.Input);
-                                if (0 <= Intinput && Intinput <= maxIndexCam) {
+                                if (0 <= Intinput && Intinput <= maxIndexCam)
+                                {
 
 
-                                    targetCamera = 1 + (Intinput*3);
+                                    targetCamera = 1 + (Intinput * 3);
 
-                                    //1+ 3
+                                }
+                                else {
+
+                                    DarkMessageBox.ShowError("Out of index please input camera number", "Error bad input");
+                                    return;
 
 
 

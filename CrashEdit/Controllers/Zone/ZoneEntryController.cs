@@ -205,34 +205,46 @@ namespace CrashEdit.CE
                     short particules1ID = 0x1B5;
                     short particules2ID = 0x1B6;
 
+                    uint fogValueRange = 0x00000040u;
+                    uint flagPropFogEnable = 0x00200000;
+
+
+
+
                     if (inputWindows.ShowDialog() == DialogResult.OK)//PROTO
                     {
 
-                        uint flagPropFog = 0x00000000;
+                        uint flagPropFog = 0;
 
 
                         if (inputWindows.UseFog)
                         {
-                            flagPropFog = 0x00200000;
+                            flagPropFog = flagPropFogEnable;
 
 
                             var propFogDistance = new EntityUInt32Property();
                             propFogDistance.Rows.Add(new EntityPropertyRow<uint>());
                             propFogDistance.Rows[0].MetaValue = 0;
 
-                            propFogDistance = addValueToProp([0, 1], 0, propFogDistance);
 
                             byte resultFogDistance = (byte)inputWindows.FogValue;
-                            uint fogValueEx = 0x00000040u | ((uint)resultFogDistance << 8);
-                            propFogDistance.Rows[0].Values.Add(fogValueEx);
+                            uint fogValueEx = fogValueRange | ((uint)resultFogDistance << 8);
+
+                            propFogDistance = addValueToProp([0, 1, fogValueEx], 0, propFogDistance);
 
                             camera2.FogDistance = propFogDistance;
                             camera2.KnownProperties[FogDistanceID] = propFogDistance;
 
                         }
+                        else
+                        {
+                            camera2.FogDistance = null;
+                            camera2.KnownProperties.Remove(FogDistanceID);
+
+                        }
 
 
-                            if (inputWindows.UseRecolor) {
+                        if (inputWindows.UseRecolor) {
 
 
                                 short bgColorID = 0x1FA;
@@ -258,17 +270,7 @@ namespace CrashEdit.CE
 
 
 
-                        
-                        else
-                        {
-
-                            camera2.FogDistance = null;
-
-                            camera2.KnownProperties.Remove(FogDistanceID);
-
-
-
-                        }
+                      
 
 
 

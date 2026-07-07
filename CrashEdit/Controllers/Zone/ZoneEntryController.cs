@@ -17,7 +17,7 @@ namespace CrashEdit.CE
             AddMenu(CrashUI.Properties.Resources.ZoneEntryController_AcAddEntity, "Add", Menu_AddEntity);
             AddMenu(CrashUI.Properties.Resources.ZoneEntryController_AcChangeCollisionType, "Wrench", Menu_ChangeCollisionType);
 
-            if (GameVersion == GameVersion.Crash2 && ZoneEntry.Entities.Count !=0) {
+            if (ZoneEntry.Entities.Count !=0) {
                 AddMenu(CrashUI.Properties.Resources.ZoneEntryController_AcChangeEnvironmentType, "Wrench", Menu_ChangeEnvironmentType);
 
             }
@@ -177,10 +177,6 @@ namespace CrashEdit.CE
                                 bgColorProp.Rows[0].Values.Add(0x00000001);
 
 
-
-
-                                // → 0xFFA0B0C0
-                                //uint bgColorValue = ((uint)result << 8);
                                 bgColorProp.Rows[0].Values.Add(inputWindows.BackgroundTextureGapColor);
 
 

@@ -18,7 +18,7 @@ namespace CrashEdit.CE
             AddMenu(CrashUI.Properties.Resources.ZoneEntryController_AcAddEntity, "Add", Menu_AddEntity);
             AddMenu(CrashUI.Properties.Resources.ZoneEntryController_AcChangeCollisionType, "Wrench", Menu_ChangeCollisionType);
 
-            if (GameVersion == GameVersion.Crash2 || GameVersion == GameVersion.Crash3 && ZoneEntry.Entities.Count !=0) {
+            if (GameVersion == GameVersion.Crash2 && ZoneEntry.Entities.Count !=0) {
                 AddMenu(CrashUI.Properties.Resources.ZoneEntryController_AcChangeEnvironmentType, "Wrench", Menu_ChangeEnvironmentType);
 
             }
@@ -133,6 +133,7 @@ namespace CrashEdit.CE
 
                 if (numberOfCamera % 3 != 0) {
                     DarkMessageBox.ShowError($"Error Camera shoud be in group of 3", CrashUI.Properties.Resources.ZoneEntryController_AcChangeCollisionType);
+                    return;
                 }
 
                 if (numberOfCamera > 3)
@@ -191,13 +192,6 @@ namespace CrashEdit.CE
                 }
 
 
-                Console.WriteLine("cam count");
-                Console.WriteLine(ZoneEntry.Zoneheader.CameraCount);
-                Console.WriteLine(ZoneEntry.Zoneheader.CameraCount);
-                Console.WriteLine(ZoneEntry.Zoneheader.CameraCount);
-                Console.WriteLine(ZoneEntry.Zoneheader.CameraCount);
-
-
                 Entity camera2 = ZoneEntry.Entities[targetCamera];
 
 
@@ -235,6 +229,8 @@ namespace CrashEdit.CE
                             camera2.FogDistance = propFogDistance;
                             camera2.KnownProperties[FogDistanceID] = propFogDistance;
 
+                        }
+
 
                             if (inputWindows.UseRecolor) {
 
@@ -262,7 +258,7 @@ namespace CrashEdit.CE
 
 
 
-                        }
+                        
                         else
                         {
 
@@ -316,7 +312,7 @@ namespace CrashEdit.CE
 
 
                             camera2.Particles1 = particules1Prop;
-                            camera2.KnownProperties[0x1B5] = particules1Prop;
+                            camera2.KnownProperties[particules1ID] = particules1Prop;
 
 
 
@@ -370,7 +366,7 @@ namespace CrashEdit.CE
             }
             catch (Exception ex)
             {
-                DarkMessageBox.ShowError($"Error: {ex.Message}", CrashUI.Properties.Resources.ZoneEntryController_AcChangeCollisionType);
+                DarkMessageBox.ShowError($"Error: {ex.Message}", "");
             }
         }
     }

@@ -138,7 +138,6 @@
             darkTitle3.Size = new Size(74, 25);
             darkTitle3.TabIndex = 9;
             darkTitle3.Text = "Very Far";
-            darkTitle3.Click += veryFarFogValueTXT;
             // 
             // darkButton1
             // 
@@ -325,7 +324,7 @@
             darkButtonRestoreDefaultPreset.Size = new Size(203, 34);
             darkButtonRestoreDefaultPreset.TabIndex = 30;
             darkButtonRestoreDefaultPreset.Text = "Restore Default Preset";
-            darkButtonRestoreDefaultPreset.Click += darkButtonRestoreDefaultPreset_Click_1;
+            darkButtonRestoreDefaultPreset.Click += darkButtonRestoreDefaultPreset_Click;
             // 
             // darkCheckBoxUseParticleEffect
             // 

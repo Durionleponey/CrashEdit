@@ -123,7 +123,7 @@ namespace CrashEdit.CE
 
 
 
-        void Menu_ChangeEnvironmentType()//PROTO
+        void Menu_ChangeEnvironmentType()
         {
             try
             {
@@ -202,7 +202,7 @@ namespace CrashEdit.CE
 
 
 
-                    if (inputWindows.ShowDialog() == DialogResult.OK)//PROTO
+                    if (inputWindows.ShowDialog() == DialogResult.OK)
                     {
 
                         uint flagPropFog = 0;
@@ -275,12 +275,6 @@ namespace CrashEdit.CE
                             camera2.Particles1 = particules1Prop;
                             camera2.KnownProperties[particules1ID] = particules1Prop;
 
-
-
-                            //var particules2Prop = new EntityUInt32Property();
-
-
-                            //particules2Prop.Rows.Add(new EntityPropertyRow<uint>());
 
                             var particules2Prop = createPropWithRows(0);
 

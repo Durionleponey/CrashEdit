@@ -187,10 +187,6 @@ namespace CrashEdit.CE.Forms
 
         }
 
-        private void veryFarFogValueTXT(object sender, EventArgs e)
-        {
-
-        }
 
         private void saveAsDefaultButtonClick(object sender, EventArgs e)
         {
@@ -372,7 +368,6 @@ namespace CrashEdit.CE.Forms
         private void EnvironmentEditor_Load(object sender, EventArgs e)
         {
             LoadItemsFromFile();
-            //LoadIemsValueInForm();
             UpdatePourcentTrackBarParticleAmount();
             EnableDisableParticleEffect();
             EnableDisableSaveAndRemoveButton();
@@ -684,7 +679,6 @@ namespace CrashEdit.CE.Forms
             }
             else
             {
-                dpdParticuleEffect.SelectedIndex = 1;
                 dpdParticuleEffect.SelectedItem = null;
                 dpdParticuleEffect.Text = string.Empty;
                 dpdParticuleEffect.Refresh();
@@ -711,7 +705,7 @@ namespace CrashEdit.CE.Forms
 
         }
 
-        public static List<ListItem> GetBuiltInPresets()//PROTO DUMMMY VALUE
+        public static List<ListItem> GetBuiltInPresets()
         {
             List<ListItem> defaultList = new List<ListItem>();
 
@@ -773,7 +767,7 @@ namespace CrashEdit.CE.Forms
         }
 
 
-        private void darkButtonRestoreDefaultPreset_Click_1(object sender, EventArgs e)
+        private void darkButtonRestoreDefaultPreset_Click(object sender, EventArgs e)
         {
 
             try

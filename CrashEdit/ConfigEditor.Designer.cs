@@ -75,6 +75,7 @@ namespace CrashEdit.CE
             tbp3D = new TabPage();
             fraCollisionNode = new DarkGroupBox();
             chkUseNeighborZoneTransparency = new CheckBox();
+            chkAnimTexShow0 = new CheckBox();
             tbpDebugDisplay = new TabPage();
             chkShowRenderingErrors = new CheckBox();
             darkGroupBox3 = new DarkGroupBox();
@@ -104,7 +105,6 @@ namespace CrashEdit.CE
             chkSplitViewerPanels = new CheckBox();
             chkLiteralCollisionTypes = new CheckBox();
             chkPatchGOOLC3toC2 = new CheckBox();
-            chkAnimTexShow0 = new CheckBox();
             tableLayoutPanel4 = new TableLayoutPanel();
             tableLayoutPanel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)numFontSize).BeginInit();
@@ -140,30 +140,30 @@ namespace CrashEdit.CE
             tableLayoutPanel4.AutoSize = true;
             tableLayoutPanel4.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             tableLayoutPanel4.ColumnCount = 2;
-            tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 89F));
+            tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 62F));
             tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             tableLayoutPanel4.Controls.Add(lblFontName, 0, 0);
             tableLayoutPanel4.Controls.Add(lblFontSize, 0, 1);
             tableLayoutPanel4.Controls.Add(dpdFont, 1, 0);
             tableLayoutPanel4.Controls.Add(numFontSize, 1, 1);
             tableLayoutPanel4.Dock = DockStyle.Fill;
-            tableLayoutPanel4.Location = new Point(6, 29);
-            tableLayoutPanel4.Margin = new Padding(6, 5, 6, 5);
+            tableLayoutPanel4.Location = new Point(4, 19);
+            tableLayoutPanel4.Margin = new Padding(4, 3, 4, 3);
             tableLayoutPanel4.Name = "tableLayoutPanel4";
             tableLayoutPanel4.RowCount = 2;
             tableLayoutPanel4.RowStyles.Add(new RowStyle());
             tableLayoutPanel4.RowStyles.Add(new RowStyle());
-            tableLayoutPanel4.Size = new Size(402, 92);
+            tableLayoutPanel4.Size = new Size(282, 59);
             tableLayoutPanel4.TabIndex = 5;
             // 
             // lblFontName
             // 
             lblFontName.AutoSize = true;
             lblFontName.Dock = DockStyle.Fill;
-            lblFontName.Location = new Point(6, 0);
-            lblFontName.Margin = new Padding(6, 0, 6, 0);
+            lblFontName.Location = new Point(4, 0);
+            lblFontName.Margin = new Padding(4, 0, 4, 0);
             lblFontName.Name = "lblFontName";
-            lblFontName.Size = new Size(77, 42);
+            lblFontName.Size = new Size(54, 30);
             lblFontName.TabIndex = 3;
             lblFontName.Text = "Font";
             lblFontName.TextAlign = ContentAlignment.MiddleRight;
@@ -172,10 +172,10 @@ namespace CrashEdit.CE
             // 
             lblFontSize.AutoSize = true;
             lblFontSize.Dock = DockStyle.Fill;
-            lblFontSize.Location = new Point(6, 42);
-            lblFontSize.Margin = new Padding(6, 0, 6, 0);
+            lblFontSize.Location = new Point(4, 30);
+            lblFontSize.Margin = new Padding(4, 0, 4, 0);
             lblFontSize.Name = "lblFontSize";
-            lblFontSize.Size = new Size(77, 50);
+            lblFontSize.Size = new Size(54, 29);
             lblFontSize.TabIndex = 4;
             lblFontSize.Text = "Font Size";
             lblFontSize.TextAlign = ContentAlignment.MiddleRight;
@@ -185,21 +185,21 @@ namespace CrashEdit.CE
             dpdFont.CausesValidation = false;
             dpdFont.DrawMode = DrawMode.OwnerDrawFixed;
             dpdFont.FormattingEnabled = true;
-            dpdFont.Location = new Point(95, 5);
-            dpdFont.Margin = new Padding(6, 5, 6, 5);
+            dpdFont.Location = new Point(66, 3);
+            dpdFont.Margin = new Padding(4, 3, 4, 3);
             dpdFont.Name = "dpdFont";
-            dpdFont.Size = new Size(301, 32);
+            dpdFont.Size = new Size(212, 24);
             dpdFont.TabIndex = 1;
             // 
             // numFontSize
             // 
             numFontSize.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
-            numFontSize.Location = new Point(95, 47);
-            numFontSize.Margin = new Padding(6, 5, 6, 5);
+            numFontSize.Location = new Point(66, 33);
+            numFontSize.Margin = new Padding(4, 3, 4, 3);
             numFontSize.Maximum = new decimal(new int[] { 99, 0, 0, 0 });
             numFontSize.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             numFontSize.Name = "numFontSize";
-            numFontSize.Size = new Size(90, 31);
+            numFontSize.Size = new Size(63, 23);
             numFontSize.TabIndex = 3;
             numFontSize.Value = new decimal(new int[] { 20, 0, 0, 0 });
             numFontSize.ValueChanged += numFontSize_ValueChanged;
@@ -210,10 +210,10 @@ namespace CrashEdit.CE
             chkViewerShowHelp.BackColor = Color.Transparent;
             chkViewerShowHelp.Checked = true;
             chkViewerShowHelp.CheckState = CheckState.Checked;
-            chkViewerShowHelp.Location = new Point(10, 93);
-            chkViewerShowHelp.Margin = new Padding(6, 5, 6, 5);
+            chkViewerShowHelp.Location = new Point(7, 56);
+            chkViewerShowHelp.Margin = new Padding(4, 3, 4, 3);
             chkViewerShowHelp.Name = "chkViewerShowHelp";
-            chkViewerShowHelp.Size = new Size(240, 29);
+            chkViewerShowHelp.Size = new Size(160, 19);
             chkViewerShowHelp.TabIndex = 7;
             chkViewerShowHelp.Text = "Show help text by default";
             chkViewerShowHelp.UseVisualStyleBackColor = false;
@@ -223,10 +223,10 @@ namespace CrashEdit.CE
             // 
             chkFont2DEnable.AutoSize = true;
             chkFont2DEnable.BackColor = Color.Transparent;
-            chkFont2DEnable.Location = new Point(10, 135);
-            chkFont2DEnable.Margin = new Padding(6, 5, 6, 5);
+            chkFont2DEnable.Location = new Point(7, 81);
+            chkFont2DEnable.Margin = new Padding(4, 3, 4, 3);
             chkFont2DEnable.Name = "chkFont2DEnable";
-            chkFont2DEnable.Size = new Size(205, 29);
+            chkFont2DEnable.Size = new Size(136, 19);
             chkFont2DEnable.TabIndex = 6;
             chkFont2DEnable.Text = "Show debug console";
             chkFont2DEnable.UseVisualStyleBackColor = false;
@@ -237,10 +237,10 @@ namespace CrashEdit.CE
             chkFont3DEnable.AutoSize = true;
             chkFont3DEnable.Checked = true;
             chkFont3DEnable.CheckState = CheckState.Checked;
-            chkFont3DEnable.Location = new Point(10, 37);
-            chkFont3DEnable.Margin = new Padding(6, 5, 6, 5);
+            chkFont3DEnable.Location = new Point(7, 22);
+            chkFont3DEnable.Margin = new Padding(4, 3, 4, 3);
             chkFont3DEnable.Name = "chkFont3DEnable";
-            chkFont3DEnable.Size = new Size(188, 29);
+            chkFont3DEnable.Size = new Size(126, 19);
             chkFont3DEnable.TabIndex = 5;
             chkFont3DEnable.Text = "Show entity names";
             chkFont3DEnable.UseVisualStyleBackColor = true;
@@ -250,10 +250,10 @@ namespace CrashEdit.CE
             // 
             chkCollisionDisplay.AutoSize = true;
             chkCollisionDisplay.BackColor = Color.Transparent;
-            chkCollisionDisplay.Location = new Point(10, 52);
-            chkCollisionDisplay.Margin = new Padding(6, 5, 6, 5);
+            chkCollisionDisplay.Location = new Point(7, 31);
+            chkCollisionDisplay.Margin = new Padding(4, 3, 4, 3);
             chkCollisionDisplay.Name = "chkCollisionDisplay";
-            chkCollisionDisplay.Size = new Size(288, 29);
+            chkCollisionDisplay.Size = new Size(192, 19);
             chkCollisionDisplay.TabIndex = 2;
             chkCollisionDisplay.Text = "Show collision boxes by default";
             chkCollisionDisplay.UseVisualStyleBackColor = false;
@@ -263,10 +263,10 @@ namespace CrashEdit.CE
             // 
             chkNormalDisplay.AutoSize = true;
             chkNormalDisplay.BackColor = Color.Transparent;
-            chkNormalDisplay.Location = new Point(10, 10);
-            chkNormalDisplay.Margin = new Padding(6, 5, 6, 5);
+            chkNormalDisplay.Location = new Point(7, 6);
+            chkNormalDisplay.Margin = new Padding(4, 3, 4, 3);
             chkNormalDisplay.Name = "chkNormalDisplay";
-            chkNormalDisplay.Size = new Size(336, 29);
+            chkNormalDisplay.Size = new Size(226, 19);
             chkNormalDisplay.TabIndex = 0;
             chkNormalDisplay.Text = "(Crash 1) Show normals in animations";
             chkNormalDisplay.UseVisualStyleBackColor = false;
@@ -280,22 +280,22 @@ namespace CrashEdit.CE
             fraAnimGrid.Controls.Add(numAnimGrid);
             fraAnimGrid.Controls.Add(lblAnimGrid);
             fraAnimGrid.Controls.Add(chkAnimGrid);
-            fraAnimGrid.Location = new Point(10, 10);
-            fraAnimGrid.Margin = new Padding(6, 5, 6, 5);
+            fraAnimGrid.Location = new Point(7, 6);
+            fraAnimGrid.Margin = new Padding(4, 3, 4, 3);
             fraAnimGrid.Name = "fraAnimGrid";
-            fraAnimGrid.Padding = new Padding(6, 5, 6, 5);
-            fraAnimGrid.Size = new Size(229, 145);
+            fraAnimGrid.Padding = new Padding(4, 3, 4, 3);
+            fraAnimGrid.Size = new Size(160, 93);
             fraAnimGrid.TabIndex = 6;
             fraAnimGrid.TabStop = false;
             fraAnimGrid.Text = "Grid";
             // 
             // numAnimGrid
             // 
-            numAnimGrid.Location = new Point(94, 80);
-            numAnimGrid.Margin = new Padding(6, 5, 6, 5);
+            numAnimGrid.Location = new Point(66, 48);
+            numAnimGrid.Margin = new Padding(4, 3, 4, 3);
             numAnimGrid.Maximum = new decimal(new int[] { 255, 0, 0, 0 });
             numAnimGrid.Name = "numAnimGrid";
-            numAnimGrid.Size = new Size(123, 31);
+            numAnimGrid.Size = new Size(86, 23);
             numAnimGrid.TabIndex = 2;
             numAnimGrid.Value = new decimal(new int[] { 4, 0, 0, 0 });
             numAnimGrid.ValueChanged += numAnimGrid_ValueChanged;
@@ -303,20 +303,20 @@ namespace CrashEdit.CE
             // lblAnimGrid
             // 
             lblAnimGrid.AutoSize = true;
-            lblAnimGrid.Location = new Point(11, 83);
-            lblAnimGrid.Margin = new Padding(6, 0, 6, 0);
+            lblAnimGrid.Location = new Point(8, 50);
+            lblAnimGrid.Margin = new Padding(4, 0, 4, 0);
             lblAnimGrid.Name = "lblAnimGrid";
-            lblAnimGrid.Size = new Size(43, 25);
+            lblAnimGrid.Size = new Size(27, 15);
             lblAnimGrid.TabIndex = 1;
             lblAnimGrid.Text = "Size";
             // 
             // chkAnimGrid
             // 
             chkAnimGrid.AutoSize = true;
-            chkAnimGrid.Location = new Point(11, 37);
-            chkAnimGrid.Margin = new Padding(6, 5, 6, 5);
+            chkAnimGrid.Location = new Point(8, 22);
+            chkAnimGrid.Margin = new Padding(4, 3, 4, 3);
             chkAnimGrid.Name = "chkAnimGrid";
-            chkAnimGrid.Size = new Size(101, 29);
+            chkAnimGrid.Size = new Size(68, 19);
             chkAnimGrid.TabIndex = 0;
             chkAnimGrid.Text = "Enabled";
             chkAnimGrid.UseVisualStyleBackColor = true;
@@ -328,11 +328,11 @@ namespace CrashEdit.CE
             fraClearCol.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             fraClearCol.BackColor = Color.Transparent;
             fraClearCol.Controls.Add(picClearCol);
-            fraClearCol.Location = new Point(250, 10);
-            fraClearCol.Margin = new Padding(6, 5, 6, 5);
+            fraClearCol.Location = new Point(175, 6);
+            fraClearCol.Margin = new Padding(4, 3, 4, 3);
             fraClearCol.Name = "fraClearCol";
-            fraClearCol.Padding = new Padding(6, 5, 6, 5);
-            fraClearCol.Size = new Size(121, 151);
+            fraClearCol.Padding = new Padding(4, 3, 4, 3);
+            fraClearCol.Size = new Size(85, 93);
             fraClearCol.TabIndex = 4;
             fraClearCol.TabStop = false;
             fraClearCol.Text = "Clear Color";
@@ -340,10 +340,10 @@ namespace CrashEdit.CE
             // picClearCol
             // 
             picClearCol.BorderStyle = BorderStyle.FixedSingle;
-            picClearCol.Location = new Point(10, 37);
-            picClearCol.Margin = new Padding(6, 5, 6, 5);
+            picClearCol.Location = new Point(7, 22);
+            picClearCol.Margin = new Padding(4, 3, 4, 3);
             picClearCol.Name = "picClearCol";
-            picClearCol.Size = new Size(99, 80);
+            picClearCol.Size = new Size(70, 49);
             picClearCol.TabIndex = 0;
             picClearCol.TabStop = false;
             picClearCol.Click += pictureBox1_Click;
@@ -354,11 +354,11 @@ namespace CrashEdit.CE
             fraFont.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             fraFont.BackColor = Color.Transparent;
             fraFont.Controls.Add(tableLayoutPanel4);
-            fraFont.Location = new Point(10, 175);
-            fraFont.Margin = new Padding(6, 5, 6, 5);
+            fraFont.Location = new Point(7, 105);
+            fraFont.Margin = new Padding(4, 3, 4, 3);
             fraFont.Name = "fraFont";
-            fraFont.Padding = new Padding(6, 5, 6, 22);
-            fraFont.Size = new Size(414, 143);
+            fraFont.Padding = new Padding(4, 3, 4, 13);
+            fraFont.Size = new Size(290, 91);
             fraFont.TabIndex = 8;
             fraFont.TabStop = false;
             fraFont.Text = "3D Text";
@@ -368,10 +368,10 @@ namespace CrashEdit.CE
             chkPatchNSDSavesNSF.AutoSize = true;
             chkPatchNSDSavesNSF.Checked = true;
             chkPatchNSDSavesNSF.CheckState = CheckState.Checked;
-            chkPatchNSDSavesNSF.Location = new Point(10, 52);
-            chkPatchNSDSavesNSF.Margin = new Padding(6, 5, 6, 5);
+            chkPatchNSDSavesNSF.Location = new Point(7, 31);
+            chkPatchNSDSavesNSF.Margin = new Padding(4, 3, 4, 3);
             chkPatchNSDSavesNSF.Name = "chkPatchNSDSavesNSF";
-            chkPatchNSDSavesNSF.Size = new Size(268, 29);
+            chkPatchNSDSavesNSF.Size = new Size(177, 19);
             chkPatchNSDSavesNSF.TabIndex = 7;
             chkPatchNSDSavesNSF.Text = "Save NSF after NSD patching";
             chkPatchNSDSavesNSF.UseVisualStyleBackColor = true;
@@ -382,10 +382,10 @@ namespace CrashEdit.CE
             chkDeleteInvalidEntries.AutoSize = true;
             chkDeleteInvalidEntries.Checked = true;
             chkDeleteInvalidEntries.CheckState = CheckState.Checked;
-            chkDeleteInvalidEntries.Location = new Point(10, 10);
-            chkDeleteInvalidEntries.Margin = new Padding(6, 5, 6, 5);
+            chkDeleteInvalidEntries.Location = new Point(7, 6);
+            chkDeleteInvalidEntries.Margin = new Padding(4, 3, 4, 3);
             chkDeleteInvalidEntries.Name = "chkDeleteInvalidEntries";
-            chkDeleteInvalidEntries.Size = new Size(367, 29);
+            chkDeleteInvalidEntries.Size = new Size(245, 19);
             chkDeleteInvalidEntries.TabIndex = 5;
             chkDeleteInvalidEntries.Text = "Delete non-existent entries from load lists";
             chkDeleteInvalidEntries.UseVisualStyleBackColor = true;
@@ -396,22 +396,22 @@ namespace CrashEdit.CE
             dpdLang.CausesValidation = false;
             dpdLang.DrawMode = DrawMode.OwnerDrawFixed;
             dpdLang.FormattingEnabled = true;
-            dpdLang.Location = new Point(10, 37);
-            dpdLang.Margin = new Padding(6, 5, 6, 5);
-            dpdLang.MaximumSize = new Size(218, 0);
+            dpdLang.Location = new Point(7, 22);
+            dpdLang.Margin = new Padding(4, 3, 4, 3);
+            dpdLang.MaximumSize = new Size(154, 0);
             dpdLang.Name = "dpdLang";
-            dpdLang.Size = new Size(218, 32);
+            dpdLang.Size = new Size(154, 24);
             dpdLang.TabIndex = 0;
             // 
             // numH
             // 
-            numH.Location = new Point(126, 37);
-            numH.Margin = new Padding(6, 5, 6, 5);
+            numH.Location = new Point(88, 22);
+            numH.Margin = new Padding(4, 3, 4, 3);
             numH.Maximum = new decimal(new int[] { 4096, 0, 0, 0 });
-            numH.MaximumSize = new Size(126, 0);
+            numH.MaximumSize = new Size(88, 0);
             numH.Minimum = new decimal(new int[] { 480, 0, 0, 0 });
             numH.Name = "numH";
-            numH.Size = new Size(73, 31);
+            numH.Size = new Size(51, 23);
             numH.TabIndex = 1;
             numH.Value = new decimal(new int[] { 480, 0, 0, 0 });
             numH.ValueChanged += numH_ValueChanged;
@@ -420,23 +420,23 @@ namespace CrashEdit.CE
             // 
             lblWH.AutoSize = true;
             lblWH.Font = new Font("Microsoft Sans Serif", 10F);
-            lblWH.Location = new Point(96, 40);
-            lblWH.Margin = new Padding(6, 0, 6, 0);
+            lblWH.Location = new Point(67, 24);
+            lblWH.Margin = new Padding(4, 0, 4, 0);
             lblWH.Name = "lblWH";
-            lblWH.Size = new Size(22, 25);
+            lblWH.Size = new Size(14, 17);
             lblWH.TabIndex = 2;
             lblWH.Text = "x";
             lblWH.TextAlign = ContentAlignment.MiddleRight;
             // 
             // numW
             // 
-            numW.Location = new Point(11, 37);
-            numW.Margin = new Padding(6, 5, 6, 5);
+            numW.Location = new Point(8, 22);
+            numW.Margin = new Padding(4, 3, 4, 3);
             numW.Maximum = new decimal(new int[] { 8192, 0, 0, 0 });
-            numW.MaximumSize = new Size(126, 0);
+            numW.MaximumSize = new Size(88, 0);
             numW.Minimum = new decimal(new int[] { 640, 0, 0, 0 });
             numW.Name = "numW";
-            numW.Size = new Size(73, 31);
+            numW.Size = new Size(51, 23);
             numW.TabIndex = 0;
             numW.Value = new decimal(new int[] { 640, 0, 0, 0 });
             numW.ValueChanged += numW_ValueChanged;
@@ -447,11 +447,11 @@ namespace CrashEdit.CE
             cmdReset.CustomColour = false;
             cmdReset.FlatBottom = false;
             cmdReset.FlatTop = false;
-            cmdReset.Location = new Point(10, 637);
-            cmdReset.Margin = new Padding(6, 5, 6, 5);
+            cmdReset.Location = new Point(7, 382);
+            cmdReset.Margin = new Padding(4, 3, 4, 3);
             cmdReset.Name = "cmdReset";
-            cmdReset.Padding = new Padding(7, 8, 7, 8);
-            cmdReset.Size = new Size(140, 47);
+            cmdReset.Padding = new Padding(5);
+            cmdReset.Size = new Size(98, 28);
             cmdReset.TabIndex = 1;
             cmdReset.Text = "Reset Settings";
             cmdReset.Click += cmdReset_Click;
@@ -464,11 +464,11 @@ namespace CrashEdit.CE
             fraSize.Controls.Add(numW);
             fraSize.Controls.Add(numH);
             fraSize.Controls.Add(lblWH);
-            fraSize.Location = new Point(10, 808);
-            fraSize.Margin = new Padding(6, 5, 6, 5);
+            fraSize.Location = new Point(7, 485);
+            fraSize.Margin = new Padding(4, 3, 4, 3);
             fraSize.Name = "fraSize";
-            fraSize.Padding = new Padding(6, 5, 6, 5);
-            fraSize.Size = new Size(211, 102);
+            fraSize.Padding = new Padding(4, 3, 4, 3);
+            fraSize.Size = new Size(147, 67);
             fraSize.TabIndex = 1;
             fraSize.TabStop = false;
             fraSize.Text = "Default Window Size";
@@ -486,11 +486,11 @@ namespace CrashEdit.CE
             fraNodeShadeAmt.BackColor = Color.Transparent;
             fraNodeShadeAmt.Controls.Add(lblNodeShadeAmt);
             fraNodeShadeAmt.Controls.Add(sldNodeShadeAmt);
-            fraNodeShadeAmt.Location = new Point(10, 78);
-            fraNodeShadeAmt.Margin = new Padding(6, 5, 6, 5);
+            fraNodeShadeAmt.Location = new Point(7, 47);
+            fraNodeShadeAmt.Margin = new Padding(4, 3, 4, 3);
             fraNodeShadeAmt.Name = "fraNodeShadeAmt";
-            fraNodeShadeAmt.Padding = new Padding(6, 5, 6, 5);
-            fraNodeShadeAmt.Size = new Size(394, 102);
+            fraNodeShadeAmt.Padding = new Padding(4, 3, 4, 3);
+            fraNodeShadeAmt.Size = new Size(276, 61);
             fraNodeShadeAmt.TabIndex = 10;
             fraNodeShadeAmt.TabStop = false;
             fraNodeShadeAmt.Text = "Shade Amount";
@@ -499,10 +499,9 @@ namespace CrashEdit.CE
             // 
             lblNodeShadeAmt.Dock = DockStyle.Top;
             lblNodeShadeAmt.Font = new Font("Microsoft Sans Serif", 10F);
-            lblNodeShadeAmt.Location = new Point(6, 45);
-            lblNodeShadeAmt.Margin = new Padding(4, 0, 4, 0);
+            lblNodeShadeAmt.Location = new Point(4, 35);
             lblNodeShadeAmt.Name = "lblNodeShadeAmt";
-            lblNodeShadeAmt.Size = new Size(382, 38);
+            lblNodeShadeAmt.Size = new Size(268, 23);
             lblNodeShadeAmt.TabIndex = 11;
             lblNodeShadeAmt.Text = "100%";
             lblNodeShadeAmt.TextAlign = ContentAlignment.TopCenter;
@@ -518,12 +517,12 @@ namespace CrashEdit.CE
             sldNodeShadeAmt.Dock = DockStyle.Top;
             sldNodeShadeAmt.HandlerColor = Color.FromArgb(180, 180, 180);
             sldNodeShadeAmt.IsDerivedStyle = true;
-            sldNodeShadeAmt.Location = new Point(6, 29);
-            sldNodeShadeAmt.Margin = new Padding(6, 5, 6, 5);
+            sldNodeShadeAmt.Location = new Point(4, 19);
+            sldNodeShadeAmt.Margin = new Padding(4, 3, 4, 3);
             sldNodeShadeAmt.Maximum = 100;
             sldNodeShadeAmt.Minimum = 0;
             sldNodeShadeAmt.Name = "sldNodeShadeAmt";
-            sldNodeShadeAmt.Size = new Size(382, 16);
+            sldNodeShadeAmt.Size = new Size(268, 16);
             sldNodeShadeAmt.Style = MetroSet_UI.Enums.Style.Light;
             sldNodeShadeAmt.StyleManager = null;
             sldNodeShadeAmt.TabIndex = 0;
@@ -547,12 +546,11 @@ namespace CrashEdit.CE
             tbcSettings.Dock = DockStyle.Fill;
             tbcSettings.IsDerivedStyle = false;
             tbcSettings.ItemSize = new Size(100, 28);
-            tbcSettings.Location = new Point(6, 5);
-            tbcSettings.Margin = new Padding(4, 5, 4, 5);
+            tbcSettings.Location = new Point(4, 3);
             tbcSettings.Name = "tbcSettings";
             tbcSettings.SelectedIndex = 0;
             tbcSettings.SelectedTextColor = Color.White;
-            tbcSettings.Size = new Size(1131, 990);
+            tbcSettings.Size = new Size(792, 594);
             tbcSettings.SizeMode = TabSizeMode.Fixed;
             tbcSettings.Speed = 100;
             tbcSettings.Style = MetroSet_UI.Enums.Style.Dark;
@@ -562,7 +560,6 @@ namespace CrashEdit.CE
             tbcSettings.ThemeName = "MetroDark";
             tbcSettings.UnselectedTextColor = Color.Gray;
             tbcSettings.UseAnimation = false;
-            tbcSettings.SelectedIndexChanged += tbcSettings_SelectedIndexChanged;
             // 
             // tbpGeneral
             // 
@@ -577,21 +574,18 @@ namespace CrashEdit.CE
             tbpGeneral.Controls.Add(fraRecentNSF);
             tbpGeneral.Controls.Add(cmdClearRecentFiles);
             tbpGeneral.Location = new Point(4, 32);
-            tbpGeneral.Margin = new Padding(4, 5, 4, 5);
             tbpGeneral.Name = "tbpGeneral";
-            tbpGeneral.Padding = new Padding(4, 5, 4, 5);
-            tbpGeneral.Size = new Size(1123, 954);
+            tbpGeneral.Padding = new Padding(3);
+            tbpGeneral.Size = new Size(784, 558);
             tbpGeneral.TabIndex = 0;
             tbpGeneral.Text = "General";
             // 
             // fraHexView
             // 
             fraHexView.Controls.Add(dpdHexView);
-            fraHexView.Location = new Point(264, 10);
-            fraHexView.Margin = new Padding(4, 5, 4, 5);
+            fraHexView.Location = new Point(185, 6);
             fraHexView.Name = "fraHexView";
-            fraHexView.Padding = new Padding(4, 5, 4, 5);
-            fraHexView.Size = new Size(191, 107);
+            fraHexView.Size = new Size(134, 64);
             fraHexView.TabIndex = 5;
             fraHexView.TabStop = false;
             fraHexView.Text = "HexView Cell Size";
@@ -600,20 +594,18 @@ namespace CrashEdit.CE
             // 
             dpdHexView.DrawMode = DrawMode.OwnerDrawVariable;
             dpdHexView.FormattingEnabled = true;
-            dpdHexView.Location = new Point(9, 37);
-            dpdHexView.Margin = new Padding(4, 5, 4, 5);
+            dpdHexView.Location = new Point(6, 22);
             dpdHexView.Name = "dpdHexView";
-            dpdHexView.Size = new Size(171, 32);
+            dpdHexView.Size = new Size(121, 24);
             dpdHexView.TabIndex = 6;
             // 
             // chkApplyMica
             // 
             chkApplyMica.AutoSize = true;
             chkApplyMica.BackColor = Color.Transparent;
-            chkApplyMica.Location = new Point(10, 127);
-            chkApplyMica.Margin = new Padding(4, 5, 4, 5);
+            chkApplyMica.Location = new Point(7, 76);
             chkApplyMica.Name = "chkApplyMica";
-            chkApplyMica.Size = new Size(127, 29);
+            chkApplyMica.Size = new Size(86, 19);
             chkApplyMica.TabIndex = 4;
             chkApplyMica.Text = "Apply Mica";
             chkApplyMica.UseVisualStyleBackColor = false;
@@ -626,11 +618,11 @@ namespace CrashEdit.CE
             cmdHelp.CustomColour = false;
             cmdHelp.FlatBottom = false;
             cmdHelp.FlatTop = false;
-            cmdHelp.Location = new Point(10, 580);
-            cmdHelp.Margin = new Padding(6, 5, 6, 5);
+            cmdHelp.Location = new Point(7, 348);
+            cmdHelp.Margin = new Padding(4, 3, 4, 3);
             cmdHelp.Name = "cmdHelp";
-            cmdHelp.Padding = new Padding(7, 8, 7, 8);
-            cmdHelp.Size = new Size(140, 47);
+            cmdHelp.Padding = new Padding(5);
+            cmdHelp.Size = new Size(98, 28);
             cmdHelp.TabIndex = 3;
             cmdHelp.Text = "Show Help";
             cmdHelp.Click += cmdHelp_Click;
@@ -639,11 +631,9 @@ namespace CrashEdit.CE
             // 
             fraLang.BackColor = Color.Transparent;
             fraLang.Controls.Add(dpdLang);
-            fraLang.Location = new Point(10, 10);
-            fraLang.Margin = new Padding(4, 5, 4, 5);
+            fraLang.Location = new Point(7, 6);
             fraLang.Name = "fraLang";
-            fraLang.Padding = new Padding(4, 5, 4, 5);
-            fraLang.Size = new Size(246, 107);
+            fraLang.Size = new Size(172, 64);
             fraLang.TabIndex = 2;
             fraLang.TabStop = false;
             fraLang.Text = "Language (requires restart)";
@@ -651,10 +641,9 @@ namespace CrashEdit.CE
             // chkAllowMultiopenNSF
             // 
             chkAllowMultiopenNSF.AutoSize = true;
-            chkAllowMultiopenNSF.Location = new Point(10, 168);
-            chkAllowMultiopenNSF.Margin = new Padding(4, 5, 4, 5);
+            chkAllowMultiopenNSF.Location = new Point(7, 101);
             chkAllowMultiopenNSF.Name = "chkAllowMultiopenNSF";
-            chkAllowMultiopenNSF.Size = new Size(384, 29);
+            chkAllowMultiopenNSF.Size = new Size(257, 19);
             chkAllowMultiopenNSF.TabIndex = 30;
             chkAllowMultiopenNSF.Text = "Allow opening the same NSF multiple times";
             chkAllowMultiopenNSF.UseVisualStyleBackColor = true;
@@ -664,11 +653,9 @@ namespace CrashEdit.CE
             // 
             fraRecentNSF.BackColor = Color.Transparent;
             fraRecentNSF.Controls.Add(lstRecentNSF);
-            fraRecentNSF.Location = new Point(10, 210);
-            fraRecentNSF.Margin = new Padding(4, 5, 4, 5);
+            fraRecentNSF.Location = new Point(7, 126);
             fraRecentNSF.Name = "fraRecentNSF";
-            fraRecentNSF.Padding = new Padding(4, 5, 4, 5);
-            fraRecentNSF.Size = new Size(1024, 317);
+            fraRecentNSF.Size = new Size(717, 190);
             fraRecentNSF.TabIndex = 31;
             fraRecentNSF.TabStop = false;
             fraRecentNSF.Text = "Recent files";
@@ -680,10 +667,9 @@ namespace CrashEdit.CE
             lstRecentNSF.Cursor = Cursors.Hand;
             lstRecentNSF.Dock = DockStyle.Fill;
             lstRecentNSF.DrawMode = DrawMode.OwnerDrawFixed;
-            lstRecentNSF.Location = new Point(4, 29);
-            lstRecentNSF.Margin = new Padding(4, 5, 4, 5);
+            lstRecentNSF.Location = new Point(3, 19);
             lstRecentNSF.Name = "lstRecentNSF";
-            lstRecentNSF.Size = new Size(1016, 283);
+            lstRecentNSF.Size = new Size(711, 168);
             lstRecentNSF.TabIndex = 0;
             lstRecentNSF.Click += lstRecentNSF_Click;
             lstRecentNSF.DrawItem += lstRecentNSF_DrawItem;
@@ -694,12 +680,12 @@ namespace CrashEdit.CE
             cmdClearRecentFiles.CustomColour = false;
             cmdClearRecentFiles.FlatBottom = false;
             cmdClearRecentFiles.FlatTop = false;
-            cmdClearRecentFiles.Location = new Point(1000, 537);
-            cmdClearRecentFiles.Margin = new Padding(4, 5, 4, 5);
+            cmdClearRecentFiles.Location = new Point(700, 322);
             cmdClearRecentFiles.Name = "cmdClearRecentFiles";
-            cmdClearRecentFiles.Padding = new Padding(7, 8, 7, 8);
-            cmdClearRecentFiles.Size = new Size(34, 40);
+            cmdClearRecentFiles.Padding = new Padding(5);
+            cmdClearRecentFiles.Size = new Size(24, 24);
             cmdClearRecentFiles.TabIndex = 31;
+            cmdClearRecentFiles.Image = new Bitmap(Embeds.Bitmaps["Erase"], new Size(16, 16));
             cmdClearRecentFiles.Click += cmdClearRecentFiles_Click;
             // 
             // tbp3D
@@ -710,10 +696,9 @@ namespace CrashEdit.CE
             tbp3D.Controls.Add(fraClearCol);
             tbp3D.Controls.Add(fraAnimGrid);
             tbp3D.Location = new Point(4, 32);
-            tbp3D.Margin = new Padding(4, 5, 4, 5);
             tbp3D.Name = "tbp3D";
-            tbp3D.Padding = new Padding(4, 5, 4, 5);
-            tbp3D.Size = new Size(1123, 954);
+            tbp3D.Padding = new Padding(3);
+            tbp3D.Size = new Size(784, 558);
             tbp3D.TabIndex = 1;
             tbp3D.Text = "3D Viewer";
             // 
@@ -723,12 +708,10 @@ namespace CrashEdit.CE
             fraCollisionNode.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             fraCollisionNode.BackColor = Color.Transparent;
             fraCollisionNode.Controls.Add(fraNodeShadeAmt);
-            fraCollisionNode.Controls.Add(chkUseNeighborZoneTransparency);
-            fraCollisionNode.Location = new Point(10, 337);
-            fraCollisionNode.Margin = new Padding(4, 5, 4, 5);
+            fraCollisionNode.Controls.Add(chkUseNeighborZoneTransparency);            
+            fraCollisionNode.Location = new Point(7, 202);
             fraCollisionNode.Name = "fraCollisionNode";
-            fraCollisionNode.Padding = new Padding(4, 5, 4, 5);
-            fraCollisionNode.Size = new Size(414, 214);
+            fraCollisionNode.Size = new Size(290, 130);
             fraCollisionNode.TabIndex = 11;
             fraCollisionNode.TabStop = false;
             fraCollisionNode.Text = "Collision Node";
@@ -738,14 +721,14 @@ namespace CrashEdit.CE
             chkUseNeighborZoneTransparency.AutoSize = true;
             chkUseNeighborZoneTransparency.Checked = true;
             chkUseNeighborZoneTransparency.CheckState = CheckState.Checked;
-            chkUseNeighborZoneTransparency.Location = new Point(10, 37);
-            chkUseNeighborZoneTransparency.Margin = new Padding(6, 5, 6, 5);
+            chkUseNeighborZoneTransparency.Location = new Point(7, 22);
+            chkUseNeighborZoneTransparency.Margin = new Padding(4, 3, 4, 3);
             chkUseNeighborZoneTransparency.Name = "chkUseNeighborZoneTransparency";
-            chkUseNeighborZoneTransparency.Size = new Size(329, 29);
+            chkUseNeighborZoneTransparency.Size = new Size(218, 19);
             chkUseNeighborZoneTransparency.TabIndex = 0;
             chkUseNeighborZoneTransparency.Text = "Use transparency for neighbor zones";
             chkUseNeighborZoneTransparency.UseVisualStyleBackColor = true;
-            chkUseNeighborZoneTransparency.CheckedChanged += chkUseNeighborZoneTransparency_CheckedChanged;
+            chkUseNeighborZoneTransparency.CheckedChanged += chkUseNeighborZoneTransparency_CheckedChanged;            
             // 
             // tbpDebugDisplay
             // 
@@ -759,10 +742,9 @@ namespace CrashEdit.CE
             tbpDebugDisplay.Controls.Add(chkNormalDisplay);
             tbpDebugDisplay.Controls.Add(chkCollisionDisplay);
             tbpDebugDisplay.Location = new Point(4, 32);
-            tbpDebugDisplay.Margin = new Padding(4, 5, 4, 5);
             tbpDebugDisplay.Name = "tbpDebugDisplay";
-            tbpDebugDisplay.Padding = new Padding(4, 5, 4, 5);
-            tbpDebugDisplay.Size = new Size(1123, 954);
+            tbpDebugDisplay.Padding = new Padding(3);
+            tbpDebugDisplay.Size = new Size(784, 558);
             tbpDebugDisplay.TabIndex = 3;
             tbpDebugDisplay.Text = "Debug Displays";
             // 
@@ -771,10 +753,9 @@ namespace CrashEdit.CE
             chkShowRenderingErrors.AutoSize = true;
             chkShowRenderingErrors.Checked = true;
             chkShowRenderingErrors.CheckState = CheckState.Checked;
-            chkShowRenderingErrors.Location = new Point(10, 177);
-            chkShowRenderingErrors.Margin = new Padding(4, 5, 4, 5);
+            chkShowRenderingErrors.Location = new Point(7, 106);
             chkShowRenderingErrors.Name = "chkShowRenderingErrors";
-            chkShowRenderingErrors.Size = new Size(214, 29);
+            chkShowRenderingErrors.Size = new Size(142, 19);
             chkShowRenderingErrors.TabIndex = 17;
             chkShowRenderingErrors.Text = "Show rendering errors";
             chkShowRenderingErrors.UseVisualStyleBackColor = true;
@@ -785,11 +766,9 @@ namespace CrashEdit.CE
             darkGroupBox3.BackColor = Color.Transparent;
             darkGroupBox3.Controls.Add(chkViewCamera);
             darkGroupBox3.Controls.Add(chkViewCameraAngle);
-            darkGroupBox3.Location = new Point(4, 478);
-            darkGroupBox3.Margin = new Padding(4, 5, 4, 5);
+            darkGroupBox3.Location = new Point(3, 287);
             darkGroupBox3.Name = "darkGroupBox3";
-            darkGroupBox3.Padding = new Padding(4, 5, 4, 5);
-            darkGroupBox3.Size = new Size(286, 120);
+            darkGroupBox3.Size = new Size(200, 72);
             darkGroupBox3.TabIndex = 16;
             darkGroupBox3.TabStop = false;
             darkGroupBox3.Text = "Cameras";
@@ -799,10 +778,9 @@ namespace CrashEdit.CE
             chkViewCamera.AutoSize = true;
             chkViewCamera.Checked = true;
             chkViewCamera.CheckState = CheckState.Checked;
-            chkViewCamera.Location = new Point(9, 37);
-            chkViewCamera.Margin = new Padding(4, 5, 4, 5);
+            chkViewCamera.Location = new Point(6, 22);
             chkViewCamera.Name = "chkViewCamera";
-            chkViewCamera.Size = new Size(205, 29);
+            chkViewCamera.Size = new Size(138, 19);
             chkViewCamera.TabIndex = 11;
             chkViewCamera.Text = "Show camera entities";
             chkViewCamera.UseVisualStyleBackColor = true;
@@ -813,10 +791,9 @@ namespace CrashEdit.CE
             chkViewCameraAngle.AutoSize = true;
             chkViewCameraAngle.Checked = true;
             chkViewCameraAngle.CheckState = CheckState.Checked;
-            chkViewCameraAngle.Location = new Point(9, 78);
-            chkViewCameraAngle.Margin = new Padding(4, 5, 4, 5);
+            chkViewCameraAngle.Location = new Point(6, 47);
             chkViewCameraAngle.Name = "chkViewCameraAngle";
-            chkViewCameraAngle.Size = new Size(249, 29);
+            chkViewCameraAngle.Size = new Size(167, 19);
             chkViewCameraAngle.TabIndex = 10;
             chkViewCameraAngle.Text = "Show camera entity angles";
             chkViewCameraAngle.UseVisualStyleBackColor = true;
@@ -827,11 +804,9 @@ namespace CrashEdit.CE
             darkGroupBox2.BackColor = Color.Transparent;
             darkGroupBox2.Controls.Add(chkViewZoneBox);
             darkGroupBox2.Controls.Add(chkViewZoneName);
-            darkGroupBox2.Location = new Point(4, 348);
-            darkGroupBox2.Margin = new Padding(4, 5, 4, 5);
+            darkGroupBox2.Location = new Point(3, 209);
             darkGroupBox2.Name = "darkGroupBox2";
-            darkGroupBox2.Padding = new Padding(4, 5, 4, 5);
-            darkGroupBox2.Size = new Size(286, 120);
+            darkGroupBox2.Size = new Size(200, 72);
             darkGroupBox2.TabIndex = 15;
             darkGroupBox2.TabStop = false;
             darkGroupBox2.Text = "Zones";
@@ -841,10 +816,9 @@ namespace CrashEdit.CE
             chkViewZoneBox.AutoSize = true;
             chkViewZoneBox.Checked = true;
             chkViewZoneBox.CheckState = CheckState.Checked;
-            chkViewZoneBox.Location = new Point(10, 78);
-            chkViewZoneBox.Margin = new Padding(4, 5, 4, 5);
+            chkViewZoneBox.Location = new Point(7, 47);
             chkViewZoneBox.Name = "chkViewZoneBox";
-            chkViewZoneBox.Size = new Size(219, 29);
+            chkViewZoneBox.Size = new Size(145, 19);
             chkViewZoneBox.TabIndex = 8;
             chkViewZoneBox.Text = "Show zone boundaries";
             chkViewZoneBox.UseVisualStyleBackColor = true;
@@ -855,10 +829,9 @@ namespace CrashEdit.CE
             chkViewZoneName.AutoSize = true;
             chkViewZoneName.Checked = true;
             chkViewZoneName.CheckState = CheckState.Checked;
-            chkViewZoneName.Location = new Point(10, 37);
-            chkViewZoneName.Margin = new Padding(4, 5, 4, 5);
+            chkViewZoneName.Location = new Point(7, 22);
             chkViewZoneName.Name = "chkViewZoneName";
-            chkViewZoneName.Size = new Size(182, 29);
+            chkViewZoneName.Size = new Size(121, 19);
             chkViewZoneName.TabIndex = 9;
             chkViewZoneName.Text = "Show zone names";
             chkViewZoneName.UseVisualStyleBackColor = true;
@@ -869,11 +842,9 @@ namespace CrashEdit.CE
             darkGroupBox1.BackColor = Color.Transparent;
             darkGroupBox1.Controls.Add(chkFont3DEnable);
             darkGroupBox1.Controls.Add(chkShowEntityParams);
-            darkGroupBox1.Location = new Point(4, 218);
-            darkGroupBox1.Margin = new Padding(4, 5, 4, 5);
+            darkGroupBox1.Location = new Point(3, 131);
             darkGroupBox1.Name = "darkGroupBox1";
-            darkGroupBox1.Padding = new Padding(4, 5, 4, 5);
-            darkGroupBox1.Size = new Size(286, 120);
+            darkGroupBox1.Size = new Size(200, 72);
             darkGroupBox1.TabIndex = 14;
             darkGroupBox1.TabStop = false;
             darkGroupBox1.Text = "Entities";
@@ -883,10 +854,10 @@ namespace CrashEdit.CE
             chkShowEntityParams.AutoSize = true;
             chkShowEntityParams.Checked = true;
             chkShowEntityParams.CheckState = CheckState.Checked;
-            chkShowEntityParams.Location = new Point(10, 78);
-            chkShowEntityParams.Margin = new Padding(6, 5, 6, 5);
+            chkShowEntityParams.Location = new Point(7, 47);
+            chkShowEntityParams.Margin = new Padding(4, 3, 4, 3);
             chkShowEntityParams.Name = "chkShowEntityParams";
-            chkShowEntityParams.Size = new Size(225, 29);
+            chkShowEntityParams.Size = new Size(150, 19);
             chkShowEntityParams.TabIndex = 13;
             chkShowEntityParams.Text = "Show entity parameters";
             chkShowEntityParams.UseVisualStyleBackColor = true;
@@ -898,10 +869,9 @@ namespace CrashEdit.CE
             tbpPatchNSD.Controls.Add(chkDeleteInvalidEntries);
             tbpPatchNSD.Controls.Add(chkPatchNSDSavesNSF);
             tbpPatchNSD.Location = new Point(4, 32);
-            tbpPatchNSD.Margin = new Padding(4, 5, 4, 5);
             tbpPatchNSD.Name = "tbpPatchNSD";
-            tbpPatchNSD.Padding = new Padding(4, 5, 4, 5);
-            tbpPatchNSD.Size = new Size(1123, 954);
+            tbpPatchNSD.Padding = new Padding(3);
+            tbpPatchNSD.Size = new Size(784, 558);
             tbpPatchNSD.TabIndex = 2;
             tbpPatchNSD.Text = "Patch NSD";
             // 
@@ -918,20 +888,18 @@ namespace CrashEdit.CE
             tbpExtra.Controls.Add(chkPatchGOOLC3toC2);
             tbpExtra.Controls.Add(chkAnimTexShow0);
             tbpExtra.Location = new Point(4, 32);
-            tbpExtra.Margin = new Padding(4, 5, 4, 5);
             tbpExtra.Name = "tbpExtra";
-            tbpExtra.Padding = new Padding(4, 5, 4, 5);
-            tbpExtra.Size = new Size(1123, 954);
+            tbpExtra.Padding = new Padding(3);
+            tbpExtra.Size = new Size(784, 558);
             tbpExtra.TabIndex = 2;
             tbpExtra.Text = "Extra";
             // 
             // chkIgnoreDuplicatedEntryError
             // 
             chkIgnoreDuplicatedEntryError.AutoSize = true;
-            chkIgnoreDuplicatedEntryError.Location = new Point(9, 52);
-            chkIgnoreDuplicatedEntryError.Margin = new Padding(4, 5, 4, 5);
+            chkIgnoreDuplicatedEntryError.Location = new Point(6, 31);
             chkIgnoreDuplicatedEntryError.Name = "chkIgnoreDuplicatedEntryError";
-            chkIgnoreDuplicatedEntryError.Size = new Size(424, 29);
+            chkIgnoreDuplicatedEntryError.Size = new Size(282, 19);
             chkIgnoreDuplicatedEntryError.TabIndex = 21;
             chkIgnoreDuplicatedEntryError.Text = "Ignore errors when processing duplicated entries";
             chkIgnoreDuplicatedEntryError.UseVisualStyleBackColor = true;
@@ -943,11 +911,9 @@ namespace CrashEdit.CE
             fraMiscDebug.Controls.Add(chkOutputCopyTextureResult);
             fraMiscDebug.Controls.Add(chkOutputCLUTInfo);
             fraMiscDebug.Controls.Add(chkOutputModelTextureInfo);
-            fraMiscDebug.Location = new Point(0, 262);
-            fraMiscDebug.Margin = new Padding(4, 5, 4, 5);
+            fraMiscDebug.Location = new Point(0, 157);
             fraMiscDebug.Name = "fraMiscDebug";
-            fraMiscDebug.Padding = new Padding(4, 5, 4, 5);
-            fraMiscDebug.Size = new Size(596, 167);
+            fraMiscDebug.Size = new Size(417, 100);
             fraMiscDebug.TabIndex = 20;
             fraMiscDebug.TabStop = false;
             fraMiscDebug.Text = "Debug";
@@ -955,10 +921,10 @@ namespace CrashEdit.CE
             // chkOutputCopyTextureResult
             // 
             chkOutputCopyTextureResult.AutoSize = true;
-            chkOutputCopyTextureResult.Location = new Point(9, 37);
-            chkOutputCopyTextureResult.Margin = new Padding(6, 5, 6, 5);
+            chkOutputCopyTextureResult.Location = new Point(6, 22);
+            chkOutputCopyTextureResult.Margin = new Padding(4, 3, 4, 3);
             chkOutputCopyTextureResult.Name = "chkOutputCopyTextureResult";
-            chkOutputCopyTextureResult.Size = new Size(389, 29);
+            chkOutputCopyTextureResult.Size = new Size(260, 19);
             chkOutputCopyTextureResult.TabIndex = 19;
             chkOutputCopyTextureResult.Text = "Output copying texture result to the console";
             chkOutputCopyTextureResult.UseVisualStyleBackColor = true;
@@ -967,10 +933,10 @@ namespace CrashEdit.CE
             // chkOutputCLUTInfo
             // 
             chkOutputCLUTInfo.AutoSize = true;
-            chkOutputCLUTInfo.Location = new Point(9, 120);
-            chkOutputCLUTInfo.Margin = new Padding(6, 5, 6, 5);
+            chkOutputCLUTInfo.Location = new Point(6, 72);
+            chkOutputCLUTInfo.Margin = new Padding(4, 3, 4, 3);
             chkOutputCLUTInfo.Name = "chkOutputCLUTInfo";
-            chkOutputCLUTInfo.Size = new Size(356, 29);
+            chkOutputCLUTInfo.Size = new Size(239, 19);
             chkOutputCLUTInfo.TabIndex = 19;
             chkOutputCLUTInfo.Text = "Output CLUT information to the console";
             chkOutputCLUTInfo.UseVisualStyleBackColor = true;
@@ -979,10 +945,10 @@ namespace CrashEdit.CE
             // chkOutputModelTextureInfo
             // 
             chkOutputModelTextureInfo.AutoSize = true;
-            chkOutputModelTextureInfo.Location = new Point(9, 78);
-            chkOutputModelTextureInfo.Margin = new Padding(6, 5, 6, 5);
+            chkOutputModelTextureInfo.Location = new Point(6, 47);
+            chkOutputModelTextureInfo.Margin = new Padding(4, 3, 4, 3);
             chkOutputModelTextureInfo.Name = "chkOutputModelTextureInfo";
-            chkOutputModelTextureInfo.Size = new Size(370, 29);
+            chkOutputModelTextureInfo.Size = new Size(248, 19);
             chkOutputModelTextureInfo.TabIndex = 19;
             chkOutputModelTextureInfo.Text = "Output texture information to the console";
             chkOutputModelTextureInfo.UseVisualStyleBackColor = true;
@@ -991,14 +957,26 @@ namespace CrashEdit.CE
             // chkEnableLegacyEntityBox
             // 
             chkEnableLegacyEntityBox.AutoSize = true;
-            chkEnableLegacyEntityBox.Location = new Point(9, 177);
-            chkEnableLegacyEntityBox.Margin = new Padding(6, 5, 6, 5);
+            chkEnableLegacyEntityBox.Location = new Point(6, 106);
+            chkEnableLegacyEntityBox.Margin = new Padding(4, 3, 4, 3);
             chkEnableLegacyEntityBox.Name = "chkEnableLegacyEntityBox";
-            chkEnableLegacyEntityBox.Size = new Size(246, 29);
+            chkEnableLegacyEntityBox.Size = new Size(165, 19);
             chkEnableLegacyEntityBox.TabIndex = 19;
             chkEnableLegacyEntityBox.Text = "Enable legacy entity editor";
             chkEnableLegacyEntityBox.UseVisualStyleBackColor = true;
             chkEnableLegacyEntityBox.CheckedChanged += chkEnableLegacyEntityBox_CheckedChanged;
+            // 
+            // chkAnimTexShow0
+            //
+            chkAnimTexShow0.AutoSize = true;
+            chkAnimTexShow0.Location = new Point(6, 131);
+            chkAnimTexShow0.Margin = new Padding(4, 3, 4, 3);
+            chkAnimTexShow0.Name = "chkAnimTexShow0";
+            chkAnimTexShow0.Size = new Size(165, 19);
+            chkAnimTexShow0.TabIndex = 20;
+            chkAnimTexShow0.Text = "Animated textures display Offset 0 textures";
+            chkAnimTexShow0.UseVisualStyleBackColor = true;
+            chkAnimTexShow0.CheckedChanged += chkAnimTexShow0_CheckedChanged;
             // 
             // fraExtra
             // 
@@ -1006,11 +984,9 @@ namespace CrashEdit.CE
             fraExtra.Controls.Add(chkEnableCustomCrates);
             fraExtra.Controls.Add(chkLagacyPatchNSD);
             fraExtra.Controls.Add(chkEnableC2TT);
-            fraExtra.Location = new Point(0, 437);
-            fraExtra.Margin = new Padding(4, 5, 4, 5);
+            fraExtra.Location = new Point(0, 262);
             fraExtra.Name = "fraExtra";
-            fraExtra.Padding = new Padding(4, 5, 4, 5);
-            fraExtra.Size = new Size(596, 167);
+            fraExtra.Size = new Size(417, 100);
             fraExtra.TabIndex = 18;
             fraExtra.TabStop = false;
             fraExtra.Text = "CrashEdit-tweaked features";
@@ -1018,10 +994,9 @@ namespace CrashEdit.CE
             // chkEnableCustomCrates
             // 
             chkEnableCustomCrates.AutoSize = true;
-            chkEnableCustomCrates.Location = new Point(9, 37);
-            chkEnableCustomCrates.Margin = new Padding(4, 5, 4, 5);
+            chkEnableCustomCrates.Location = new Point(6, 22);
             chkEnableCustomCrates.Name = "chkEnableCustomCrates";
-            chkEnableCustomCrates.Size = new Size(205, 29);
+            chkEnableCustomCrates.Size = new Size(138, 19);
             chkEnableCustomCrates.TabIndex = 15;
             chkEnableCustomCrates.Text = "Enable custom crates";
             chkEnableCustomCrates.UseVisualStyleBackColor = true;
@@ -1031,10 +1006,10 @@ namespace CrashEdit.CE
             // 
             chkLagacyPatchNSD.AutoSize = true;
             chkLagacyPatchNSD.ForeColor = Color.Gold;
-            chkLagacyPatchNSD.Location = new Point(9, 120);
-            chkLagacyPatchNSD.Margin = new Padding(6, 5, 6, 5);
+            chkLagacyPatchNSD.Location = new Point(6, 72);
+            chkLagacyPatchNSD.Margin = new Padding(4, 3, 4, 3);
             chkLagacyPatchNSD.Name = "chkLagacyPatchNSD";
-            chkLagacyPatchNSD.Size = new Size(436, 29);
+            chkLagacyPatchNSD.Size = new Size(288, 19);
             chkLagacyPatchNSD.TabIndex = 9;
             chkLagacyPatchNSD.Text = "Use legacy NSD patching from CrashEdit v0.2.49.0";
             chkLagacyPatchNSD.UseVisualStyleBackColor = true;
@@ -1043,10 +1018,9 @@ namespace CrashEdit.CE
             // chkEnableC2TT
             // 
             chkEnableC2TT.AutoSize = true;
-            chkEnableC2TT.Location = new Point(9, 78);
-            chkEnableC2TT.Margin = new Padding(4, 5, 4, 5);
+            chkEnableC2TT.Location = new Point(6, 47);
             chkEnableC2TT.Name = "chkEnableC2TT";
-            chkEnableC2TT.Size = new Size(280, 29);
+            chkEnableC2TT.Size = new Size(187, 19);
             chkEnableC2TT.TabIndex = 16;
             chkEnableC2TT.Text = "Enable Crash 2 time trial editor";
             chkEnableC2TT.UseVisualStyleBackColor = true;
@@ -1058,11 +1032,9 @@ namespace CrashEdit.CE
             fraUICtrls.Controls.Add(chkShowRebuild);
             fraUICtrls.Controls.Add(chkShowUndockButton);
             fraUICtrls.Controls.Add(chkShowRefresh);
-            fraUICtrls.Location = new Point(0, 617);
-            fraUICtrls.Margin = new Padding(4, 5, 4, 5);
+            fraUICtrls.Location = new Point(0, 370);
             fraUICtrls.Name = "fraUICtrls";
-            fraUICtrls.Padding = new Padding(4, 5, 4, 5);
-            fraUICtrls.Size = new Size(596, 167);
+            fraUICtrls.Size = new Size(417, 100);
             fraUICtrls.TabIndex = 25;
             fraUICtrls.TabStop = false;
             fraUICtrls.Text = "Toolbar UI customization";
@@ -1070,10 +1042,9 @@ namespace CrashEdit.CE
             // chkShowRebuild
             // 
             chkShowRebuild.AutoSize = true;
-            chkShowRebuild.Location = new Point(9, 120);
-            chkShowRebuild.Margin = new Padding(4, 5, 4, 5);
+            chkShowRebuild.Location = new Point(6, 72);
             chkShowRebuild.Name = "chkShowRebuild";
-            chkShowRebuild.Size = new Size(371, 29);
+            chkShowRebuild.Size = new Size(248, 19);
             chkShowRebuild.TabIndex = 24;
             chkShowRebuild.Text = "Show Rebuild (c2export) button in toolbar";
             chkShowRebuild.UseVisualStyleBackColor = true;
@@ -1082,10 +1053,9 @@ namespace CrashEdit.CE
             // chkShowUndockButton
             // 
             chkShowUndockButton.AutoSize = true;
-            chkShowUndockButton.Location = new Point(9, 37);
-            chkShowUndockButton.Margin = new Padding(4, 5, 4, 5);
+            chkShowUndockButton.Location = new Point(6, 22);
             chkShowUndockButton.Name = "chkShowUndockButton";
-            chkShowUndockButton.Size = new Size(289, 29);
+            chkShowUndockButton.Size = new Size(192, 19);
             chkShowUndockButton.TabIndex = 22;
             chkShowUndockButton.Text = "Show Undock button in toolbar";
             chkShowUndockButton.UseVisualStyleBackColor = true;
@@ -1094,10 +1064,9 @@ namespace CrashEdit.CE
             // chkShowRefresh
             // 
             chkShowRefresh.AutoSize = true;
-            chkShowRefresh.Location = new Point(9, 78);
-            chkShowRefresh.Margin = new Padding(4, 5, 4, 5);
+            chkShowRefresh.Location = new Point(6, 47);
             chkShowRefresh.Name = "chkShowRefresh";
-            chkShowRefresh.Size = new Size(282, 29);
+            chkShowRefresh.Size = new Size(187, 19);
             chkShowRefresh.TabIndex = 23;
             chkShowRefresh.Text = "Show Reload button in toolbar";
             chkShowRefresh.UseVisualStyleBackColor = true;
@@ -1106,10 +1075,10 @@ namespace CrashEdit.CE
             // chkSplitViewerPanels
             // 
             chkSplitViewerPanels.AutoSize = true;
-            chkSplitViewerPanels.Location = new Point(9, 135);
-            chkSplitViewerPanels.Margin = new Padding(6, 5, 6, 5);
+            chkSplitViewerPanels.Location = new Point(6, 81);
+            chkSplitViewerPanels.Margin = new Padding(4, 3, 4, 3);
             chkSplitViewerPanels.Name = "chkSplitViewerPanels";
-            chkSplitViewerPanels.Size = new Size(268, 29);
+            chkSplitViewerPanels.Size = new Size(180, 19);
             chkSplitViewerPanels.TabIndex = 17;
             chkSplitViewerPanels.Text = "Split animation viewer panels";
             chkSplitViewerPanels.UseVisualStyleBackColor = true;
@@ -1118,10 +1087,9 @@ namespace CrashEdit.CE
             // chkLiteralCollisionTypes
             // 
             chkLiteralCollisionTypes.AutoSize = true;
-            chkLiteralCollisionTypes.Location = new Point(9, 93);
-            chkLiteralCollisionTypes.Margin = new Padding(4, 5, 4, 5);
+            chkLiteralCollisionTypes.Location = new Point(6, 56);
             chkLiteralCollisionTypes.Name = "chkLiteralCollisionTypes";
-            chkLiteralCollisionTypes.Size = new Size(368, 29);
+            chkLiteralCollisionTypes.Size = new Size(245, 19);
             chkLiteralCollisionTypes.TabIndex = 14;
             chkLiteralCollisionTypes.Text = "Show collision node types as literal values";
             chkLiteralCollisionTypes.UseVisualStyleBackColor = true;
@@ -1130,41 +1098,28 @@ namespace CrashEdit.CE
             // chkPatchGOOLC3toC2
             // 
             chkPatchGOOLC3toC2.AutoSize = true;
-            chkPatchGOOLC3toC2.Location = new Point(9, 10);
-            chkPatchGOOLC3toC2.Margin = new Padding(6, 5, 6, 5);
+            chkPatchGOOLC3toC2.Location = new Point(6, 6);
+            chkPatchGOOLC3toC2.Margin = new Padding(4, 3, 4, 3);
             chkPatchGOOLC3toC2.Name = "chkPatchGOOLC3toC2";
-            chkPatchGOOLC3toC2.Size = new Size(507, 29);
+            chkPatchGOOLC3toC2.Size = new Size(338, 19);
             chkPatchGOOLC3toC2.TabIndex = 8;
             chkPatchGOOLC3toC2.Text = "(Crash 2) Patch GOOL frame groups imported from Crash 3";
             chkPatchGOOLC3toC2.UseVisualStyleBackColor = true;
             chkPatchGOOLC3toC2.CheckedChanged += chkPatchGOOLC3toC2_CheckedChanged;
             chkPatchGOOLC3toC2.Click += chkPatchGOOLC3toC2_Click;
             // 
-            // chkAnimTexShow0
-            // 
-            chkAnimTexShow0.AutoSize = true;
-            chkAnimTexShow0.Location = new Point(9, 218);
-            chkAnimTexShow0.Margin = new Padding(6, 5, 6, 5);
-            chkAnimTexShow0.Name = "chkAnimTexShow0";
-            chkAnimTexShow0.Size = new Size(379, 29);
-            chkAnimTexShow0.TabIndex = 20;
-            chkAnimTexShow0.Text = "Animated textures display Offset 0 textures";
-            chkAnimTexShow0.UseVisualStyleBackColor = true;
-            chkAnimTexShow0.CheckedChanged += chkAnimTexShow0_CheckedChanged;
-            // 
             // ConfigEditor
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoScroll = true;
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
             BackColor = Color.FromArgb(31, 31, 32);
             Controls.Add(tbcSettings);
-            Margin = new Padding(6, 5, 6, 5);
+            Margin = new Padding(4, 3, 4, 3);
             Name = "ConfigEditor";
-            Padding = new Padding(6, 5, 6, 5);
-            Size = new Size(1143, 1000);
-            Load += ConfigEditor_Load;
+            Padding = new Padding(4, 3, 4, 3);
+            Size = new Size(800, 600);
             tableLayoutPanel4.ResumeLayout(false);
             tableLayoutPanel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)numFontSize).EndInit();

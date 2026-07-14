@@ -575,15 +575,5 @@ namespace CrashEdit.CE
             Settings.Default.ShowAnimTex0 = chkAnimTexShow0.Checked;
             Settings.Default.Save();
         }
-
-        private void tbcSettings_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void ConfigEditor_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }

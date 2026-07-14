@@ -49,7 +49,6 @@ namespace CrashEdit.CE
             lbProperties = new DarkListBox();
             fraPropertyID = new DarkGroupBox();
             fraPropertyField = new DarkGroupBox();
-            rbtReloadProp = new MetroSet_UI.Controls.MetroSetRadioButton();
             fraSaveProperties = new DarkGroupBox();
             rbtReload = new MetroSet_UI.Controls.MetroSetRadioButton();
             pnControlsSaved = new Panel();
@@ -75,11 +74,10 @@ namespace CrashEdit.CE
             cmdCopyProperty.CustomColour = false;
             cmdCopyProperty.FlatBottom = false;
             cmdCopyProperty.FlatTop = false;
-            cmdCopyProperty.Location = new Point(9, 652);
-            cmdCopyProperty.Margin = new Padding(4, 5, 4, 5);
+            cmdCopyProperty.Location = new Point(6, 391);
             cmdCopyProperty.Name = "cmdCopyProperty";
-            cmdCopyProperty.Padding = new Padding(7, 8, 7, 8);
-            cmdCopyProperty.Size = new Size(107, 43);
+            cmdCopyProperty.Padding = new Padding(5);
+            cmdCopyProperty.Size = new Size(75, 26);
             cmdCopyProperty.TabIndex = 14;
             cmdCopyProperty.Text = "Save";
             cmdCopyProperty.Click += cmdCopyProperty_Click;
@@ -87,11 +85,9 @@ namespace CrashEdit.CE
             // fraPropertyControls
             // 
             fraPropertyControls.Controls.Add(chkPropertyMetaValue);
-            fraPropertyControls.Location = new Point(650, 265);
-            fraPropertyControls.Margin = new Padding(4, 5, 4, 5);
+            fraPropertyControls.Location = new Point(455, 159);
             fraPropertyControls.Name = "fraPropertyControls";
-            fraPropertyControls.Padding = new Padding(4, 5, 4, 5);
-            fraPropertyControls.Size = new Size(211, 78);
+            fraPropertyControls.Size = new Size(148, 47);
             fraPropertyControls.TabIndex = 13;
             fraPropertyControls.TabStop = false;
             fraPropertyControls.Text = "Data Editor";
@@ -100,10 +96,9 @@ namespace CrashEdit.CE
             // 
             chkPropertyMetaValue.AutoSize = true;
             chkPropertyMetaValue.Enabled = false;
-            chkPropertyMetaValue.Location = new Point(9, 37);
-            chkPropertyMetaValue.Margin = new Padding(4, 5, 4, 5);
+            chkPropertyMetaValue.Location = new Point(6, 22);
             chkPropertyMetaValue.Name = "chkPropertyMetaValue";
-            chkPropertyMetaValue.Size = new Size(186, 29);
+            chkPropertyMetaValue.Size = new Size(124, 19);
             chkPropertyMetaValue.TabIndex = 10;
             chkPropertyMetaValue.Text = "Toggle MetaValues";
             chkPropertyMetaValue.UseVisualStyleBackColor = true;
@@ -114,11 +109,9 @@ namespace CrashEdit.CE
             fraPropertyViewControls.Controls.Add(chkPropertyShowAllFields);
             fraPropertyViewControls.Controls.Add(chkPropertyShowAsHex);
             fraPropertyViewControls.Controls.Add(chkPropertyStyle);
-            fraPropertyViewControls.Location = new Point(650, 95);
-            fraPropertyViewControls.Margin = new Padding(4, 5, 4, 5);
+            fraPropertyViewControls.Location = new Point(455, 57);
             fraPropertyViewControls.Name = "fraPropertyViewControls";
-            fraPropertyViewControls.Padding = new Padding(4, 5, 4, 5);
-            fraPropertyViewControls.Size = new Size(211, 160);
+            fraPropertyViewControls.Size = new Size(148, 96);
             fraPropertyViewControls.TabIndex = 12;
             fraPropertyViewControls.TabStop = false;
             fraPropertyViewControls.Text = "Visuals";
@@ -126,10 +119,9 @@ namespace CrashEdit.CE
             // chkPropertyShowAllFields
             // 
             chkPropertyShowAllFields.AutoSize = true;
-            chkPropertyShowAllFields.Location = new Point(9, 35);
-            chkPropertyShowAllFields.Margin = new Padding(4, 5, 4, 5);
+            chkPropertyShowAllFields.Location = new Point(6, 21);
             chkPropertyShowAllFields.Name = "chkPropertyShowAllFields";
-            chkPropertyShowAllFields.Size = new Size(190, 29);
+            chkPropertyShowAllFields.Size = new Size(126, 19);
             chkPropertyShowAllFields.TabIndex = 9;
             chkPropertyShowAllFields.Text = "Show all properties";
             chkPropertyShowAllFields.UseVisualStyleBackColor = true;
@@ -140,10 +132,9 @@ namespace CrashEdit.CE
             chkPropertyShowAsHex.AutoSize = true;
             chkPropertyShowAsHex.Checked = true;
             chkPropertyShowAsHex.CheckState = CheckState.Checked;
-            chkPropertyShowAsHex.Location = new Point(9, 118);
-            chkPropertyShowAsHex.Margin = new Padding(4, 5, 4, 5);
+            chkPropertyShowAsHex.Location = new Point(6, 71);
             chkPropertyShowAsHex.Name = "chkPropertyShowAsHex";
-            chkPropertyShowAsHex.Size = new Size(68, 29);
+            chkPropertyShowAsHex.Size = new Size(47, 19);
             chkPropertyShowAsHex.TabIndex = 11;
             chkPropertyShowAsHex.Text = "Hex";
             chkPropertyShowAsHex.UseVisualStyleBackColor = true;
@@ -152,10 +143,9 @@ namespace CrashEdit.CE
             // chkPropertyStyle
             // 
             chkPropertyStyle.AutoSize = true;
-            chkPropertyStyle.Location = new Point(9, 77);
-            chkPropertyStyle.Margin = new Padding(4, 5, 4, 5);
+            chkPropertyStyle.Location = new Point(6, 46);
             chkPropertyStyle.Name = "chkPropertyStyle";
-            chkPropertyStyle.Size = new Size(133, 29);
+            chkPropertyStyle.Size = new Size(89, 19);
             chkPropertyStyle.TabIndex = 5;
             chkPropertyStyle.Text = "Toggle View";
             chkPropertyStyle.UseVisualStyleBackColor = true;
@@ -164,10 +154,9 @@ namespace CrashEdit.CE
             // lblFieldType
             // 
             lblFieldType.AutoSize = true;
-            lblFieldType.Location = new Point(650, 60);
-            lblFieldType.Margin = new Padding(4, 0, 4, 0);
+            lblFieldType.Location = new Point(455, 36);
             lblFieldType.Name = "lblFieldType";
-            lblFieldType.Size = new Size(62, 25);
+            lblFieldType.Size = new Size(41, 15);
             lblFieldType.TabIndex = 8;
             lblFieldType.Text = "(int32)";
             // 
@@ -178,21 +167,19 @@ namespace CrashEdit.CE
             lbPropertyRaw.ForeColor = Color.FromArgb(213, 213, 213);
             lbPropertyRaw.FormattingEnabled = true;
             lbPropertyRaw.HorizontalScrollbar = true;
-            lbPropertyRaw.Location = new Point(9, 127);
-            lbPropertyRaw.Margin = new Padding(4, 5, 4, 5);
+            lbPropertyRaw.Location = new Point(6, 76);
             lbPropertyRaw.Name = "lbPropertyRaw";
-            lbPropertyRaw.Size = new Size(485, 77);
+            lbPropertyRaw.Size = new Size(340, 47);
             lbPropertyRaw.TabIndex = 7;
             // 
             // lvPropertyHeader
             // 
             lvPropertyHeader.BorderStyle = BorderStyle.FixedSingle;
             lvPropertyHeader.FullRowSelect = true;
-            lvPropertyHeader.Location = new Point(9, 37);
-            lvPropertyHeader.Margin = new Padding(4, 5, 4, 5);
+            lvPropertyHeader.Location = new Point(6, 22);
             lvPropertyHeader.Name = "lvPropertyHeader";
             lvPropertyHeader.Scrollable = false;
-            lvPropertyHeader.Size = new Size(485, 79);
+            lvPropertyHeader.Size = new Size(340, 48);
             lvPropertyHeader.TabIndex = 6;
             lvPropertyHeader.UseCompatibleStateImageBehavior = false;
             lvPropertyHeader.View = View.Details;
@@ -201,10 +188,9 @@ namespace CrashEdit.CE
             // 
             lblUnsupportedProperty.AutoSize = true;
             lblUnsupportedProperty.ForeColor = Color.Red;
-            lblUnsupportedProperty.Location = new Point(650, 5);
-            lblUnsupportedProperty.Margin = new Padding(4, 0, 4, 0);
+            lblUnsupportedProperty.Location = new Point(455, 3);
             lblUnsupportedProperty.Name = "lblUnsupportedProperty";
-            lblUnsupportedProperty.Size = new Size(235, 50);
+            lblUnsupportedProperty.Size = new Size(153, 30);
             lblUnsupportedProperty.TabIndex = 4;
             lblUnsupportedProperty.Text = "Unsupported property field!\r\n(unknown)";
             lblUnsupportedProperty.Visible = false;
@@ -214,11 +200,10 @@ namespace CrashEdit.CE
             txtProperty.BackColor = Color.FromArgb(26, 26, 28);
             txtProperty.BorderStyle = BorderStyle.FixedSingle;
             txtProperty.ForeColor = Color.FromArgb(213, 213, 213);
-            txtProperty.Location = new Point(9, 425);
-            txtProperty.Margin = new Padding(4, 5, 4, 5);
+            txtProperty.Location = new Point(6, 255);
             txtProperty.MaxLength = 4;
             txtProperty.Name = "txtProperty";
-            txtProperty.Size = new Size(106, 31);
+            txtProperty.Size = new Size(75, 23);
             txtProperty.TabIndex = 3;
             txtProperty.TextChanged += txtProperty_TextChanged;
             txtProperty.KeyPress += txtProperty_KeyPress;
@@ -229,11 +214,10 @@ namespace CrashEdit.CE
             cmdRemoveProperty.CustomColour = false;
             cmdRemoveProperty.FlatBottom = false;
             cmdRemoveProperty.FlatTop = false;
-            cmdRemoveProperty.Location = new Point(9, 527);
-            cmdRemoveProperty.Margin = new Padding(4, 5, 4, 5);
+            cmdRemoveProperty.Location = new Point(6, 316);
             cmdRemoveProperty.Name = "cmdRemoveProperty";
-            cmdRemoveProperty.Padding = new Padding(7, 8, 7, 8);
-            cmdRemoveProperty.Size = new Size(107, 43);
+            cmdRemoveProperty.Padding = new Padding(5);
+            cmdRemoveProperty.Size = new Size(75, 26);
             cmdRemoveProperty.TabIndex = 2;
             cmdRemoveProperty.Text = "Remove";
             cmdRemoveProperty.Click += cmdRemoveProperty_Click;
@@ -244,11 +228,10 @@ namespace CrashEdit.CE
             cmdAppendProperty.CustomColour = false;
             cmdAppendProperty.FlatBottom = false;
             cmdAppendProperty.FlatTop = false;
-            cmdAppendProperty.Location = new Point(9, 473);
-            cmdAppendProperty.Margin = new Padding(4, 5, 4, 5);
+            cmdAppendProperty.Location = new Point(6, 284);
             cmdAppendProperty.Name = "cmdAppendProperty";
-            cmdAppendProperty.Padding = new Padding(7, 8, 7, 8);
-            cmdAppendProperty.Size = new Size(107, 43);
+            cmdAppendProperty.Padding = new Padding(5);
+            cmdAppendProperty.Size = new Size(75, 26);
             cmdAppendProperty.TabIndex = 2;
             cmdAppendProperty.Text = "Append";
             cmdAppendProperty.Click += cmdAppendProperty_Click;
@@ -261,14 +244,13 @@ namespace CrashEdit.CE
             dgvPropertyMetaValues.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             dgvPropertyMetaValues.ColumnHeadersHeight = 24;
             dgvPropertyMetaValues.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dgvPropertyMetaValues.Location = new Point(9, 215);
-            dgvPropertyMetaValues.Margin = new Padding(4, 5, 4, 5);
+            dgvPropertyMetaValues.Location = new Point(6, 129);
             dgvPropertyMetaValues.Name = "dgvPropertyMetaValues";
             dgvPropertyMetaValues.RowHeadersWidth = 24;
             dgvPropertyMetaValues.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             dgvPropertyMetaValues.ScrollBars = ScrollBars.Vertical;
             dgvPropertyMetaValues.ShowCellToolTips = false;
-            dgvPropertyMetaValues.Size = new Size(137, 465);
+            dgvPropertyMetaValues.Size = new Size(96, 279);
             dgvPropertyMetaValues.TabIndex = 1;
             dgvPropertyMetaValues.CellBeginEdit += dgvPropertyMetaValues_CellBeginEdit;
             dgvPropertyMetaValues.CellValidating += dgvPropertyMetaValues_CellValidating;
@@ -284,14 +266,13 @@ namespace CrashEdit.CE
             dgvPropertyValues.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             dgvPropertyValues.ColumnHeadersHeight = 24;
             dgvPropertyValues.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dgvPropertyValues.Location = new Point(154, 215);
-            dgvPropertyValues.Margin = new Padding(4, 5, 4, 5);
+            dgvPropertyValues.Location = new Point(108, 129);
             dgvPropertyValues.Name = "dgvPropertyValues";
             dgvPropertyValues.RowHeadersWidth = 24;
             dgvPropertyValues.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             dgvPropertyValues.ScrollBars = ScrollBars.Vertical;
             dgvPropertyValues.ShowCellToolTips = false;
-            dgvPropertyValues.Size = new Size(340, 465);
+            dgvPropertyValues.Size = new Size(238, 279);
             dgvPropertyValues.TabIndex = 1;
             dgvPropertyValues.CellFormatting += dgvPropertyValues_CellFormatting;
             dgvPropertyValues.CellParsing += dgvPropertyValues_CellParsing;
@@ -305,11 +286,10 @@ namespace CrashEdit.CE
             lbProperties.BorderStyle = BorderStyle.FixedSingle;
             lbProperties.ForeColor = Color.FromArgb(213, 213, 213);
             lbProperties.FormattingEnabled = true;
-            lbProperties.Location = new Point(9, 37);
-            lbProperties.Margin = new Padding(4, 5, 4, 5);
+            lbProperties.Location = new Point(6, 22);
             lbProperties.Name = "lbProperties";
             lbProperties.SelectionMode = SelectionMode.MultiExtended;
-            lbProperties.Size = new Size(106, 377);
+            lbProperties.Size = new Size(75, 227);
             lbProperties.Sorted = true;
             lbProperties.TabIndex = 0;
             lbProperties.SelectedIndexChanged += lbProperties_SelectedIndexChanged;
@@ -323,11 +303,9 @@ namespace CrashEdit.CE
             fraPropertyID.Controls.Add(cmdAppendProperty);
             fraPropertyID.Controls.Add(cmdRemoveProperty);
             fraPropertyID.Controls.Add(cmdCopyProperty);
-            fraPropertyID.Location = new Point(4, 5);
-            fraPropertyID.Margin = new Padding(4, 5, 4, 5);
+            fraPropertyID.Location = new Point(3, 3);
             fraPropertyID.Name = "fraPropertyID";
-            fraPropertyID.Padding = new Padding(4, 5, 4, 5);
-            fraPropertyID.Size = new Size(124, 705);
+            fraPropertyID.Size = new Size(87, 423);
             fraPropertyID.TabIndex = 15;
             fraPropertyID.TabStop = false;
             fraPropertyID.Text = "IDs";
@@ -335,41 +313,16 @@ namespace CrashEdit.CE
             // fraPropertyField
             // 
             fraPropertyField.BackColor = Color.Transparent;
-            fraPropertyField.Controls.Add(rbtReloadProp);
             fraPropertyField.Controls.Add(lvPropertyHeader);
             fraPropertyField.Controls.Add(dgvPropertyValues);
             fraPropertyField.Controls.Add(dgvPropertyMetaValues);
             fraPropertyField.Controls.Add(lbPropertyRaw);
-            fraPropertyField.Location = new Point(137, 5);
-            fraPropertyField.Margin = new Padding(4, 5, 4, 5);
+            fraPropertyField.Location = new Point(96, 3);
             fraPropertyField.Name = "fraPropertyField";
-            fraPropertyField.Padding = new Padding(4, 5, 4, 5);
-            fraPropertyField.Size = new Size(504, 724);
+            fraPropertyField.Size = new Size(353, 423);
             fraPropertyField.TabIndex = 16;
             fraPropertyField.TabStop = false;
             fraPropertyField.Text = "Properties";
-            // 
-            // rbtReloadProp
-            // 
-            rbtReloadProp.BackgroundColor = Color.FromArgb(30, 30, 30);
-            rbtReloadProp.BorderColor = Color.FromArgb(155, 155, 155);
-            rbtReloadProp.Checked = true;
-            rbtReloadProp.CheckSignColor = Color.FromArgb(65, 177, 225);
-            rbtReloadProp.CheckState = MetroSet_UI.Enums.CheckState.Checked;
-            rbtReloadProp.DisabledBorderColor = Color.FromArgb(85, 85, 85);
-            rbtReloadProp.Font = new Font("Microsoft Sans Serif", 10F);
-            rbtReloadProp.Group = 0;
-            rbtReloadProp.IsDerivedStyle = true;
-            rbtReloadProp.Location = new Point(456, 690);
-            rbtReloadProp.Margin = new Padding(4, 5, 4, 5);
-            rbtReloadProp.Name = "rbtReloadProp";
-            rbtReloadProp.Size = new Size(27, 17);
-            rbtReloadProp.Style = MetroSet_UI.Enums.Style.Dark;
-            rbtReloadProp.StyleManager = null;
-            rbtReloadProp.TabIndex = 22;
-            rbtReloadProp.ThemeAuthor = "Narwin";
-            rbtReloadProp.ThemeName = "MetroDark";
-            rbtReloadProp.Click += metroSetRadioButton1_Click;
             // 
             // fraSaveProperties
             // 
@@ -377,11 +330,9 @@ namespace CrashEdit.CE
             fraSaveProperties.Controls.Add(pnControlsSaved);
             fraSaveProperties.Controls.Add(lbSavedProperties);
             fraSaveProperties.Controls.Add(dgvSavePropertyValues);
-            fraSaveProperties.Location = new Point(0, 768);
-            fraSaveProperties.Margin = new Padding(4, 5, 4, 5);
+            fraSaveProperties.Location = new Point(0, 461);
             fraSaveProperties.Name = "fraSaveProperties";
-            fraSaveProperties.Padding = new Padding(4, 5, 4, 5);
-            fraSaveProperties.Size = new Size(857, 470);
+            fraSaveProperties.Size = new Size(600, 282);
             fraSaveProperties.TabIndex = 17;
             fraSaveProperties.TabStop = false;
             fraSaveProperties.Text = "Saved Properties";
@@ -397,10 +348,9 @@ namespace CrashEdit.CE
             rbtReload.Font = new Font("Microsoft Sans Serif", 10F);
             rbtReload.Group = 0;
             rbtReload.IsDerivedStyle = true;
-            rbtReload.Location = new Point(823, 427);
-            rbtReload.Margin = new Padding(4, 5, 4, 5);
+            rbtReload.Location = new Point(576, 256);
             rbtReload.Name = "rbtReload";
-            rbtReload.Size = new Size(27, 17);
+            rbtReload.Size = new Size(19, 17);
             rbtReload.Style = MetroSet_UI.Enums.Style.Dark;
             rbtReload.StyleManager = null;
             rbtReload.TabIndex = 21;
@@ -416,10 +366,9 @@ namespace CrashEdit.CE
             pnControlsSaved.Controls.Add(cmdCopyFromSaved);
             pnControlsSaved.Controls.Add(cmdRemoveSavedList);
             pnControlsSaved.Enabled = false;
-            pnControlsSaved.Location = new Point(9, 350);
-            pnControlsSaved.Margin = new Padding(4, 5, 4, 5);
+            pnControlsSaved.Location = new Point(6, 210);
             pnControlsSaved.Name = "pnControlsSaved";
-            pnControlsSaved.Size = new Size(291, 106);
+            pnControlsSaved.Size = new Size(204, 64);
             pnControlsSaved.TabIndex = 20;
             // 
             // cmdRenameSavedList
@@ -428,11 +377,10 @@ namespace CrashEdit.CE
             cmdRenameSavedList.CustomColour = false;
             cmdRenameSavedList.FlatBottom = false;
             cmdRenameSavedList.FlatTop = false;
-            cmdRenameSavedList.Location = new Point(4, 5);
-            cmdRenameSavedList.Margin = new Padding(4, 5, 4, 5);
+            cmdRenameSavedList.Location = new Point(3, 3);
             cmdRenameSavedList.Name = "cmdRenameSavedList";
-            cmdRenameSavedList.Padding = new Padding(7, 8, 7, 8);
-            cmdRenameSavedList.Size = new Size(107, 43);
+            cmdRenameSavedList.Padding = new Padding(5);
+            cmdRenameSavedList.Size = new Size(75, 26);
             cmdRenameSavedList.TabIndex = 19;
             cmdRenameSavedList.Text = "Rename";
             cmdRenameSavedList.Click += cmdRenameSavedList_Click;
@@ -443,11 +391,10 @@ namespace CrashEdit.CE
             cmdCopyFromSaved.CustomColour = false;
             cmdCopyFromSaved.FlatBottom = false;
             cmdCopyFromSaved.FlatTop = false;
-            cmdCopyFromSaved.Location = new Point(180, 5);
-            cmdCopyFromSaved.Margin = new Padding(4, 5, 4, 5);
+            cmdCopyFromSaved.Location = new Point(126, 3);
             cmdCopyFromSaved.Name = "cmdCopyFromSaved";
-            cmdCopyFromSaved.Padding = new Padding(7, 8, 7, 8);
-            cmdCopyFromSaved.Size = new Size(107, 43);
+            cmdCopyFromSaved.Padding = new Padding(5);
+            cmdCopyFromSaved.Size = new Size(75, 26);
             cmdCopyFromSaved.TabIndex = 18;
             cmdCopyFromSaved.Text = "Apply";
             cmdCopyFromSaved.Click += cmdCopyFromSaved_Click;
@@ -458,11 +405,10 @@ namespace CrashEdit.CE
             cmdRemoveSavedList.CustomColour = false;
             cmdRemoveSavedList.FlatBottom = false;
             cmdRemoveSavedList.FlatTop = false;
-            cmdRemoveSavedList.Location = new Point(4, 58);
-            cmdRemoveSavedList.Margin = new Padding(4, 5, 4, 5);
+            cmdRemoveSavedList.Location = new Point(3, 35);
             cmdRemoveSavedList.Name = "cmdRemoveSavedList";
-            cmdRemoveSavedList.Padding = new Padding(7, 8, 7, 8);
-            cmdRemoveSavedList.Size = new Size(107, 43);
+            cmdRemoveSavedList.Padding = new Padding(5);
+            cmdRemoveSavedList.Size = new Size(75, 26);
             cmdRemoveSavedList.TabIndex = 19;
             cmdRemoveSavedList.Text = "Remove";
             cmdRemoveSavedList.Click += cmdRemoveSavedList_Click;
@@ -472,11 +418,10 @@ namespace CrashEdit.CE
             lbSavedProperties.BackColor = Color.FromArgb(26, 26, 28);
             lbSavedProperties.BorderStyle = BorderStyle.FixedSingle;
             lbSavedProperties.ForeColor = Color.FromArgb(213, 213, 213);
-            lbSavedProperties.Location = new Point(9, 37);
-            lbSavedProperties.Margin = new Padding(4, 5, 4, 5);
+            lbSavedProperties.Location = new Point(6, 22);
             lbSavedProperties.Name = "lbSavedProperties";
             lbSavedProperties.SelectionMode = SelectionMode.MultiExtended;
-            lbSavedProperties.Size = new Size(171, 302);
+            lbSavedProperties.Size = new Size(120, 182);
             lbSavedProperties.TabIndex = 6;
             lbSavedProperties.SelectedIndexChanged += lbSavedProperties_SelectedIndexChanged;
             lbSavedProperties.KeyDown += lbSavedProperties_KeyDown;
@@ -489,21 +434,20 @@ namespace CrashEdit.CE
             dgvSavePropertyValues.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             dgvSavePropertyValues.ColumnHeadersHeight = 24;
             dgvSavePropertyValues.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dgvSavePropertyValues.Location = new Point(189, 37);
-            dgvSavePropertyValues.Margin = new Padding(4, 5, 4, 5);
+            dgvSavePropertyValues.Location = new Point(132, 22);
             dgvSavePropertyValues.Name = "dgvSavePropertyValues";
             dgvSavePropertyValues.RowHeadersWidth = 24;
             dgvSavePropertyValues.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             dgvSavePropertyValues.ScrollBars = ScrollBars.Vertical;
             dgvSavePropertyValues.ShowCellToolTips = false;
-            dgvSavePropertyValues.Size = new Size(657, 303);
+            dgvSavePropertyValues.Size = new Size(460, 182);
             dgvSavePropertyValues.TabIndex = 1;
             dgvSavePropertyValues.CellBeginEdit += dgvSavePropertyValues_CellBeginEdit;
             dgvSavePropertyValues.CellValueChanged += dgvSavePropertyValues_CellValueChanged;
             // 
             // EntityPropertyBox
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoScroll = true;
             BackColor = Color.FromArgb(31, 31, 32);
@@ -514,9 +458,8 @@ namespace CrashEdit.CE
             Controls.Add(fraPropertyViewControls);
             Controls.Add(lblFieldType);
             Controls.Add(lblUnsupportedProperty);
-            Margin = new Padding(4, 5, 4, 5);
             Name = "EntityPropertyBox";
-            Size = new Size(1309, 1387);
+            Size = new Size(916, 832);
             fraPropertyControls.ResumeLayout(false);
             fraPropertyControls.PerformLayout();
             fraPropertyViewControls.ResumeLayout(false);
@@ -562,6 +505,5 @@ namespace CrashEdit.CE
         private DarkButton cmdRemoveSavedList;
         private Panel pnControlsSaved;
         private MetroSet_UI.Controls.MetroSetRadioButton rbtReload;
-        private MetroSet_UI.Controls.MetroSetRadioButton rbtReloadProp;
     }
 }

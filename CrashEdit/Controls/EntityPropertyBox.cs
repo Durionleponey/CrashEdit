@@ -82,9 +82,6 @@ namespace CrashEdit.CE
             tipSavedProperties.SetToolTip(lbProperties, Resources.EntityPropertyBox_tipProperties);
             tipSavedProperties.SetToolTip(lbSavedProperties, Resources.EntityPropertyBox_tipSavedProperties);
             tipReloadTPage.SetToolTip(rbtReload, "Reload");
-            tipReloadTPage.SetToolTip(rbtReloadProp, "Reload Properties");
-
-
 
             chkPropertyShowAsHex.Checked = propertyShowAsHex;
             CreatePropertyHeaderColumns();
@@ -1705,7 +1702,7 @@ namespace CrashEdit.CE
                         }
                     }
                 }
-
+               
             }
         }
 
@@ -1746,7 +1743,7 @@ namespace CrashEdit.CE
             }
             else if (e.Control && e.KeyCode == Keys.R)
             {
-                ReloadSavedProperties();
+                  ReloadSavedProperties();
                 e.Handled = true;
             }
         }
@@ -1792,29 +1789,6 @@ namespace CrashEdit.CE
         {
             ReloadSavedProperties();
             rbtReload.Checked = false;
-        }
-
-        public void RefreshFromEntity()
-        {
-            selectedField = null;
-
-            if (lvPropertyHeader != null) lvPropertyHeader.Items.Clear();
-            if (lbPropertyRaw != null) lbPropertyRaw.Items.Clear();
-            if (dgvPropertyMetaValues != null) dgvPropertyMetaValues.Rows.Clear();
-            if (dgvPropertyValues != null) dgvPropertyValues.Rows.Clear();
-            if (lblUnsupportedProperty != null) lblUnsupportedProperty.Visible = false;
-            if (lbProperties != null) lbProperties.DataSource = null;
-
-            UpdatePropertyIDList();
-        }
-
-        private void metroSetRadioButton1_Click(object sender, EventArgs e)
-        {
-
-            RefreshFromEntity();
-            rbtReloadProp.Checked = false;
-
-
         }
     }
 

@@ -56,10 +56,5 @@ namespace CrashEdit.CE
         {
             DialogResult = DialogResult.Cancel;
         }
-
-        private void txtInput1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }

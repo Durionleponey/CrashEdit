@@ -35,7 +35,7 @@
             darkTitle3 = new AltUI.Controls.DarkTitle();
             darkButton1 = new AltUI.Controls.DarkButton();
             darkButton2 = new AltUI.Controls.DarkButton();
-            darkTitle4 = new AltUI.Controls.DarkTitle();
+            TXTtrackBarvalue = new AltUI.Controls.DarkTitle();
             darkButton3 = new AltUI.Controls.DarkButton();
             darkTitle5 = new AltUI.Controls.DarkTitle();
             fogSettingsBox = new AltUI.Controls.DarkGroupBox();
@@ -169,13 +169,13 @@
             // 
             // darkTitle4
             // 
-            darkTitle4.AutoSize = true;
-            darkTitle4.Location = new Point(459, 25);
-            darkTitle4.Margin = new Padding(3, 0, 3, 15);
-            darkTitle4.Name = "darkTitle4";
-            darkTitle4.Size = new Size(115, 25);
-            darkTitle4.TabIndex = 12;
-            darkTitle4.Text = "Fog Distance";
+            TXTtrackBarvalue.AutoSize = true;
+            TXTtrackBarvalue.Location = new Point(459, 25);
+            TXTtrackBarvalue.Margin = new Padding(3, 0, 3, 15);
+            TXTtrackBarvalue.Name = "darkTitle4";
+            TXTtrackBarvalue.Size = new Size(115, 25);
+            TXTtrackBarvalue.TabIndex = 12;
+            TXTtrackBarvalue.Text = "Fog Distance";
             // 
             // darkButton3
             // 
@@ -211,7 +211,7 @@
             fogSettingsBox.Controls.Add(darkTitle2);
             fogSettingsBox.Controls.Add(darkTitle3);
             fogSettingsBox.Controls.Add(darkTitle1);
-            fogSettingsBox.Controls.Add(darkTitle4);
+            fogSettingsBox.Controls.Add(TXTtrackBarvalue);
             fogSettingsBox.Location = new Point(38, 12);
             fogSettingsBox.Name = "fogSettingsBox";
             fogSettingsBox.Size = new Size(763, 214);
@@ -648,7 +648,7 @@
         private AltUI.Controls.DarkTitle darkTitle3;
         private AltUI.Controls.DarkButton darkButton1;
         private AltUI.Controls.DarkButton darkButton2;
-        private AltUI.Controls.DarkTitle darkTitle4;
+        private AltUI.Controls.DarkTitle TXTtrackBarvalue;
         private AltUI.Controls.DarkButton darkButton3;
         private AltUI.Controls.DarkTitle darkTitle5;
         private AltUI.Controls.DarkGroupBox fogSettingsBox;

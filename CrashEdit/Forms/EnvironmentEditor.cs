@@ -139,8 +139,9 @@ namespace CrashEdit.CE.Forms
 
             dpdParticuleEffect.Enabled = Settings.Default.DefaultParticleIsActive;
             trackBarFog.Value = Settings.Default.DefaultFogValue;
-            darkTitle4.Text = trackBarFog.Value.ToString();
-            darkTitle4.Visible = darkCheckBox1.Checked;
+            trackBarFog.Enabled = Settings.Default.DefaultFogIsActive;
+            TXTtrackBarvalue.Text = trackBarFog.Value.ToString();
+            TXTtrackBarvalue.Visible = darkCheckBox1.Checked;
             darkCheckBoxBackgroundTextureGapColor.Checked = Settings.Default.DefaultRecolorGapIsActive;
 
 
@@ -177,13 +178,13 @@ namespace CrashEdit.CE.Forms
         private void UseFog_CheckedChanged(object sender, EventArgs e)
         {
             trackBarFog.Enabled = darkCheckBox1.Checked;
-            darkTitle4.Visible = darkCheckBox1.Checked;
+            TXTtrackBarvalue.Visible = darkCheckBox1.Checked;
 
         }
 
         private void trackBarFog_ValueChanged(object sender, EventArgs e)
         {
-            darkTitle4.Text = trackBarFog.Value.ToString();
+            TXTtrackBarvalue.Text = trackBarFog.Value.ToString();
 
         }
 

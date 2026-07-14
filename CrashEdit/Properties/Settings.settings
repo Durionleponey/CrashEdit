@@ -166,7 +166,7 @@
       <Value Profile="(Default)">15</Value>
     </Setting>
     <Setting Name="DefaultFogIsActive" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">True</Value>
+      <Value Profile="(Default)">False</Value>
     </Setting>
     <Setting Name="DefaultParticleIsActive" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
@@ -178,7 +178,7 @@
       <Value Profile="(Default)">0</Value>
     </Setting>
     <Setting Name="DefaultRecolorGapIsActive" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">True</Value>
+      <Value Profile="(Default)">False</Value>
     </Setting>
   </Settings>
 </SettingsFile>

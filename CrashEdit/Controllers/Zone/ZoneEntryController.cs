@@ -131,7 +131,7 @@ namespace CrashEdit.CE
                 int targetCamera = 1;
 
                 if (numberOfCamera % 3 != 0) {
-                    DarkMessageBox.ShowError($"Error Camera shoud be in group of 3", CrashUI.Properties.Resources.ZoneEntryController_AcChangeCollisionType);
+                    DarkMessageBox.ShowError($"Cameras should be in groups of 3", CrashUI.Properties.Resources.ZoneEntryController_AcChangeCollisionType);
                     return;
                 }
 
@@ -140,7 +140,7 @@ namespace CrashEdit.CE
 
                     int maxIndexCam = (numberOfCamera / 3) - 1;
 
-                using (InputWindow inputWindow = new InputWindow($"Multiple Camera Detected In {ZoneEntry.Title}", "Select Camera Number", $"Please Put Cam Number: [0-{maxIndexCam}]", string.Empty, 1))
+                using (InputWindow inputWindow = new InputWindow($"Multiple Camera Detected In {ZoneEntry.Title}", "Select Camera Number", $"Enter Cam Number: [0-{maxIndexCam}]", string.Empty, 1))
                     {
 
                         if (inputWindow.ShowDialog() == DialogResult.OK)
@@ -161,7 +161,7 @@ namespace CrashEdit.CE
                                     targetCamera = 1 + (intInput * 3);
                                 }
                                 else {
-                                    DarkMessageBox.ShowError("Out of index please input camera number", "Error bad input");
+                                    DarkMessageBox.ShowError("Index out of range, please enter a valid camera number", "Error bad input");
                                     return;
 
                                 }
@@ -189,8 +189,8 @@ namespace CrashEdit.CE
 
                     short flagsID = 0x185;
                     short FogDistanceID = 0x1DE;
-                    short particules1ID = 0x1B5;
-                    short particules2ID = 0x1B6;
+                    short particles1ID = 0x1B5;
+                    short particles2ID = 0x1B6;
                     short lastValueForPropertyParticle = 0x770;
                     uint particleActivation = 0x00000010;
                     uint fogValueRange = 0x00000040u;
@@ -214,8 +214,8 @@ namespace CrashEdit.CE
                             byte resultFogDistance = (byte)inputWindows.FogValue;
                             uint fogValueEx = fogValueRange | ((uint)resultFogDistance << 8);
 
-                            var propFogDistance = createPropWithRows(0);
-                            propFogDistance = addValueToProp([0, 1, fogValueEx], 0, propFogDistance);
+                            var propFogDistance = CreatePropWithRows(0);
+                            propFogDistance = AddValueToProp([0, 1, fogValueEx], 0, propFogDistance);
 
                             cameraProperty.FogDistance = propFogDistance;
                             cameraProperty.KnownProperties[FogDistanceID] = propFogDistance;
@@ -232,8 +232,8 @@ namespace CrashEdit.CE
 
                             short bgColorID = 0x1FA;
 
-                            var bgColorProp = createPropWithRows(0);
-                            bgColorProp = addValueToProp([1, inputWindows.BackgroundTextureGapColor, 0], 0, bgColorProp);
+                            var bgColorProp = CreatePropWithRows(0);
+                            bgColorProp = AddValueToProp([1, inputWindows.BackgroundTextureGapColor, 0], 0, bgColorProp);
 
                             cameraProperty.Backgrounds = bgColorProp;
                             cameraProperty.KnownProperties[bgColorID] = bgColorProp;
@@ -247,34 +247,34 @@ namespace CrashEdit.CE
 
                             cameraProperty.Particles1 = null;
 
-                            cameraProperty.KnownProperties.Remove(particules1ID);
+                            cameraProperty.KnownProperties.Remove(particles1ID);
 
                             cameraProperty.Particles2 = null;
 
-                            cameraProperty.KnownProperties.Remove(particules2ID);
+                            cameraProperty.KnownProperties.Remove(particles2ID);
 
 
                         }
                         else 
                         {
 
-                            flagPropFog = flagPropFog | particleActivation;//change bit nedded for particle
+                            flagPropFog = flagPropFog | particleActivation;
 
 
-                            var particules1Prop = new EntityVictimProperty();
-                            particules1Prop.Rows.Add(new EntityPropertyRow<EntityVictim>());
-                            particules1Prop.Rows[0].MetaValue = 0;
+                            var particles1Prop = new EntityVictimProperty();
+                            particles1Prop.Rows.Add(new EntityPropertyRow<EntityVictim>());
+                            particles1Prop.Rows[0].MetaValue = 0;
 
 
                             short[] values = [(short)inputWindows.VelocityParticleValue[0], (short)inputWindows.VelocityParticleValue[1], (short)inputWindows.VelocityParticleValue[2], (short)inputWindows.ParticleAmountValue, 0, lastValueForPropertyParticle];
-                            particules1Prop = addValueToEntityVictimProp(values, 0, particules1Prop);
+                            particles1Prop = AddValueToEntityVictimProp(values, 0, particles1Prop);
 
 
-                            cameraProperty.Particles1 = particules1Prop;
-                            cameraProperty.KnownProperties[particules1ID] = particules1Prop;
+                            cameraProperty.Particles1 = particles1Prop;
+                            cameraProperty.KnownProperties[particles1ID] = particles1Prop;
 
 
-                            var particules2Prop = createPropWithRows(0);
+                            var particles2Prop = CreatePropWithRows(0);
 
 
 
@@ -288,17 +288,17 @@ namespace CrashEdit.CE
                             }
 
 
-                            particules2Prop = addValueToProp([upperParticle,lowerParticle, particleVisibility], 0, particules2Prop);
+                            particles2Prop = AddValueToProp([upperParticle,lowerParticle, particleVisibility], 0, particles2Prop);
 
-                            cameraProperty.Particles2 = particules2Prop;
-                            cameraProperty.KnownProperties[particules2ID] = particules2Prop;
+                            cameraProperty.Particles2 = particles2Prop;
+                            cameraProperty.KnownProperties[particles2ID] = particles2Prop;
 
 
 
                         }
 
 
-                        var flagsProp = createPropWithRows(0);
+                        var flagsProp = CreatePropWithRows(0);
 
                         flagsProp.Rows[0].Values.Add(flagPropFog);
 
@@ -326,32 +326,32 @@ namespace CrashEdit.CE
         }
 
 
-        static EntityUInt32Property addValueToProp(uint[] values, int Rows, EntityUInt32Property prop)
+        static EntityUInt32Property AddValueToProp(uint[] values, int rowIndex, EntityUInt32Property prop)
         {
 
             for (int i = 0; i < values.Length; i++) {
 
-                prop.Rows[Rows].Values.Add(values[i]);
+                prop.Rows[rowIndex].Values.Add(values[i]);
 
             }
             return prop;
         }
 
 
-        static EntityVictimProperty addValueToEntityVictimProp(short[] values, int Rows, EntityVictimProperty prop)
+        static EntityVictimProperty AddValueToEntityVictimProp(short[] values, int rowIndex, EntityVictimProperty prop)
         {
 
             for (int i = 0; i < values.Length; i++)
             {
 
-                prop.Rows[Rows].Values.Add(new EntityVictim((short)values[i]));
+                prop.Rows[rowIndex].Values.Add(new EntityVictim((short)values[i]));
 
             }
             return prop;
         }
 
 
-        static EntityUInt32Property createPropWithRows(int Rows) {
+        static EntityUInt32Property CreatePropWithRows(int Rows) {
 
 
             var prop = new EntityUInt32Property();

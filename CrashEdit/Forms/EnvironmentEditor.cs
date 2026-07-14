@@ -13,8 +13,8 @@ namespace CrashEdit.CE.Forms
     {
 
         public bool UseFog => darkCheckBox1.Checked;
-        public string ParticleEffec => (string)dpdParticuleEffect.SelectedItem;
-        public bool ParticleEffecIsActive => darkCheckBoxUseParticleEffect.Checked;
+        public string ParticleEffect => (string)dpdParticleEffect.SelectedItem;
+        public bool ParticleEffectIsActive => darkCheckBoxUseParticleEffect.Checked;
         public int FogValue => trackBarFog.Value;
         public bool UseRecolor => darkCheckBoxBackgroundTextureGapColor.Checked;
         public bool UseParticleOneColor => darkCheckBoxUseOnlyOneColor.Checked;
@@ -54,7 +54,7 @@ namespace CrashEdit.CE.Forms
             {
 
                 int argb = pictureBoxBackgroundTextureGapColor.BackColor.ToArgb();
-                return colorConverter(argb);
+                return ColorConverter(argb);
 
             }
         }
@@ -66,7 +66,7 @@ namespace CrashEdit.CE.Forms
             {
 
                 int argb = pictureBoxUpperColor.BackColor.ToArgb();
-                return colorConverter(argb);
+                return ColorConverter(argb);
 
             }
         }
@@ -78,7 +78,7 @@ namespace CrashEdit.CE.Forms
             {
 
                 int argb = pictureBoxLowerColor.BackColor.ToArgb();
-                return colorConverter(argb);
+                return ColorConverter(argb);
 
             }
         }
@@ -137,7 +137,7 @@ namespace CrashEdit.CE.Forms
 
 
 
-            dpdParticuleEffect.Enabled = Settings.Default.DefaultParticleIsActive;
+            dpdParticleEffect.Enabled = Settings.Default.DefaultParticleIsActive;
             trackBarFog.Value = Settings.Default.DefaultFogValue;
             trackBarFog.Enabled = Settings.Default.DefaultFogIsActive;
             TXTtrackBarvalue.Text = trackBarFog.Value.ToString();
@@ -147,7 +147,7 @@ namespace CrashEdit.CE.Forms
 
         }
 
-        private uint colorConverter(int argb)
+        private uint ColorConverter(int argb)
         {
 
 
@@ -162,14 +162,14 @@ namespace CrashEdit.CE.Forms
 
         }
 
-        private void cancelButtonClick(object sender, EventArgs e)
+        private void CancelButtonClick(object sender, EventArgs e)
         {
 
             DialogResult = DialogResult.Cancel;
 
         }
 
-        private void okButtonClick(object sender, EventArgs e)
+        private void OkButtonClick(object sender, EventArgs e)
         {
             DialogResult = DialogResult.OK;
 
@@ -182,20 +182,20 @@ namespace CrashEdit.CE.Forms
 
         }
 
-        private void trackBarFog_ValueChanged(object sender, EventArgs e)
+        private void TrackBarFog_ValueChanged(object sender, EventArgs e)
         {
             TXTtrackBarvalue.Text = trackBarFog.Value.ToString();
 
         }
 
 
-        private void saveAsDefaultButtonClick(object sender, EventArgs e)
+        private void SaveAsDefaultButtonClick(object sender, EventArgs e)
         {
 
             if (darkCheckBoxUseParticleEffect.Checked)
             {
 
-                if (dpdParticuleEffect.SelectedItem == null)
+                if (dpdParticleEffect.SelectedItem == null)
                 {
 
                     DarkMessageBox.ShowError("Please select a preset to save as default.", "Settings");
@@ -212,9 +212,9 @@ namespace CrashEdit.CE.Forms
             Settings.Default.DefaultFogIsActive = darkCheckBox1.Checked;
             Settings.Default.DefaultParticleIsActive = darkCheckBoxUseParticleEffect.Checked;
 
-            if (dpdParticuleEffect.SelectedItem != null)
+            if (dpdParticleEffect.SelectedItem != null)
             {
-                Settings.Default.DefaultPreset = dpdParticuleEffect.SelectedItem.ToString();
+                Settings.Default.DefaultPreset = dpdParticleEffect.SelectedItem.ToString();
             }
 
             Settings.Default.DefaultpictureBoxBackgroundTextureGapColor = pictureBoxBackgroundTextureGapColor.BackColor.ToArgb();
@@ -236,14 +236,14 @@ namespace CrashEdit.CE.Forms
                     string jsonString = File.ReadAllText(FilePath);
                     savedItems = JsonSerializer.Deserialize<List<ListItem>>(jsonString) ?? new List<ListItem>();
 
-                    dpdParticuleEffect.Items.Clear();
+                    dpdParticleEffect.Items.Clear();
                     if (savedItems.Count == 0) { savedItems = GetBuiltInPresets(); }
 
                     foreach (var item in savedItems)
                     {
                         Console.Write(item);
                         Console.WriteLine(item.Name.ToString());
-                        dpdParticuleEffect.Items.Add(item.Name);
+                        dpdParticleEffect.Items.Add(item.Name);
                     }
 
                     Console.WriteLine("Preset list loaded successfully.");
@@ -255,13 +255,13 @@ namespace CrashEdit.CE.Forms
             }
         }
 
-        private void LoadIemsValueInForm()
+        private void LoadItemsValueInForm()
         {
 
             //Console.WriteLine(savedItems);
 
 
-            var selectedIndex = dpdParticuleEffect.SelectedIndex;
+            var selectedIndex = dpdParticleEffect.SelectedIndex;
             var selectedPreset = savedItems[selectedIndex].Fields[0];
 
 
@@ -292,7 +292,7 @@ namespace CrashEdit.CE.Forms
                 Name = itemName,
                 Fields = fields
             };
-            dpdParticuleEffect.Items.Add(newItem.Name);
+            dpdParticleEffect.Items.Add(newItem.Name);
             savedItems.Add(newItem);
             try
             {
@@ -318,7 +318,7 @@ namespace CrashEdit.CE.Forms
             }
         }
 
-        private void darkButtonSavePreset_Click(object sender, EventArgs e)
+        private void DarkButtonSavePreset_Click(object sender, EventArgs e)
         {
             try
             {
@@ -346,9 +346,9 @@ namespace CrashEdit.CE.Forms
             try
             {
 
-                List<FieldData> fields = createPresetFields();
+                List<FieldData> fields = CreatePresetFields();
 
-                int selectedIndexdpd = dpdParticuleEffect.SelectedIndex;
+                int selectedIndexdpd = dpdParticleEffect.SelectedIndex;
                 savedItems[selectedIndexdpd].Fields = fields;
                 try
                 {
@@ -369,13 +369,13 @@ namespace CrashEdit.CE.Forms
         private void EnvironmentEditor_Load(object sender, EventArgs e)
         {
             LoadItemsFromFile();
-            UpdatePourcentTrackBarParticleAmount();
+            UpdatePercentTrackBarParticleAmount();
             EnableDisableParticleEffect();
             EnableDisableSaveAndRemoveButton();
             InitializeDefaultPreset();
             EnableDisableParticleEffect();
-            showHideRecolorBackgroundColor();
-            showHideLowerColor();
+            ShowHideRecolorBackgroundColor();
+            ShowHideLowerColor();
 
 
         }
@@ -385,9 +385,9 @@ namespace CrashEdit.CE.Forms
 
             string selectedDefaultPreset = Settings.Default.DefaultPreset;
 
-            if (selectedDefaultPreset == null && dpdParticuleEffect.Items.Count > 0)
+            if (selectedDefaultPreset == null && dpdParticleEffect.Items.Count > 0)
             {
-                dpdParticuleEffect.SelectedIndex = 0;
+                dpdParticleEffect.SelectedIndex = 0;
                 return;
             }
 
@@ -397,13 +397,13 @@ namespace CrashEdit.CE.Forms
             {
                 if (savedItems[i].Name == selectedDefaultPreset)
                 {
-                    dpdParticuleEffect.SelectedIndex = i;
+                    dpdParticleEffect.SelectedIndex = i;
                     break;
                 }
             }
         }
 
-        private void UpdatePourcentTrackBarParticleAmount()
+        private void UpdatePercentTrackBarParticleAmount()
         {
 
             ParticleAmountPourcent.Text = trackBarParticleAmount.Value.ToString() + "%";
@@ -432,25 +432,25 @@ namespace CrashEdit.CE.Forms
             darkTitleLowerColor.Visible = enable;
             darkTitleUpperColor.Visible = enable;
 
-            dpdParticuleEffect.Enabled = enable;
+            dpdParticleEffect.Enabled = enable;
 
             ParticleAmountPourcent.Visible = enable;
 
         }
 
-        private void dpdParticuleEffect_SelectedIndexChanged(object sender, EventArgs e)
+        private void DpdParticuleEffect_SelectedIndexChanged(object sender, EventArgs e)
         {
-            LoadIemsValueInForm();
-            UpdatePourcentTrackBarParticleAmount();
+            LoadItemsValueInForm();
+            UpdatePercentTrackBarParticleAmount();
 
         }
 
-        private void trackBarParticleAmount_Scroll(object sender, EventArgs e)
+        private void TrackBarParticleAmount_Scroll(object sender, EventArgs e)
         {
             ParticleAmountPourcent.Text = trackBarParticleAmount.Value.ToString() + "%";
         }
 
-        private void showHideLowerColor()
+        private void ShowHideLowerColor()
         {
 
             var hideLowerColor = darkCheckBoxUseOnlyOneColor.Checked;
@@ -475,13 +475,13 @@ namespace CrashEdit.CE.Forms
 
         }
 
-        private void darkCheckBoxUseOnlyOneColor_CheckedChanged(object sender, EventArgs e)
+        private void DarkCheckBoxUseOnlyOneColor_CheckedChanged(object sender, EventArgs e)
         {
-            showHideLowerColor();
+            ShowHideLowerColor();
 
         }
 
-        private void darkButtonSaveAsNewPreset_Click(object sender, EventArgs e)
+        private void DarkButtonSaveAsNewPreset_Click(object sender, EventArgs e)
         {
             try
             {
@@ -493,7 +493,7 @@ namespace CrashEdit.CE.Forms
                     {
                         if (inputWindow.Input.Length == 0)
                         {
-                            DarkMessageBox.ShowError("Please input name of the preset", "Error name empty");
+                            DarkMessageBox.ShowError("Please enter a preset name", "Error name empty");
                             return;
                         }
 
@@ -502,7 +502,7 @@ namespace CrashEdit.CE.Forms
 
                             if (savedItems[name].Name == inputWindow.Input)
                             {
-                                DarkMessageBox.ShowError("This name is already use", "Error name already used");
+                                DarkMessageBox.ShowError("This name is already used", "Error name already used");
                                 return;
 
                             }
@@ -510,7 +510,7 @@ namespace CrashEdit.CE.Forms
                         }
 
                         string presetName = inputWindow.Input;
-                        List<FieldData> fields = createPresetFields();
+                        List<FieldData> fields = CreatePresetFields();
 
 
 
@@ -526,7 +526,7 @@ namespace CrashEdit.CE.Forms
                 if (savedItems.Count == 1)
                 {
 
-                    dpdParticuleEffect.SelectedIndex = 0;
+                    dpdParticleEffect.SelectedIndex = 0;
 
                 }
 
@@ -550,7 +550,7 @@ namespace CrashEdit.CE.Forms
 
         }
 
-        private List<FieldData> createPresetFields()
+        private List<FieldData> CreatePresetFields()
         {
 
             List<FieldData> list = new List<FieldData>();
@@ -575,20 +575,20 @@ namespace CrashEdit.CE.Forms
 
         }
 
-        private void darkCheckBoxUseParticleEffect_CheckedChanged(object sender, EventArgs e)
+        private void DarkCheckBoxUseParticleEffect_CheckedChanged(object sender, EventArgs e)
         {
             EnableDisableParticleEffect();
         }
 
-        private void pictureBoxUpperColor_Click(object sender, EventArgs e)
+        private void PictureBoxUpperColor_Click(object sender, EventArgs e)
         {
 
-            pictureBoxUpperColor.BackColor = colorPicker(pictureBoxUpperColor.BackColor);
+            pictureBoxUpperColor.BackColor = ColorPicker(pictureBoxUpperColor.BackColor);
 
 
         }
 
-        private Color colorPicker(Color startColor)
+        private Color ColorPicker(Color startColor)
         {
 
 
@@ -645,12 +645,12 @@ namespace CrashEdit.CE.Forms
 
         }
 
-        private void pictureBoxLowerColor_Click(object sender, EventArgs e)
+        private void PictureBoxLowerColor_Click(object sender, EventArgs e)
         {
-            pictureBoxLowerColor.BackColor = colorPicker(pictureBoxLowerColor.BackColor);
+            pictureBoxLowerColor.BackColor = ColorPicker(pictureBoxLowerColor.BackColor);
         }
 
-        private void darkButtonRemovePreset_Click_1(object sender, EventArgs e)
+        private void DarkButtonRemovePreset_Click_1(object sender, EventArgs e)
         {
 
             if (DarkMessageBox.ShowWarning("Delete this preset ?", "Confirmation", DarkDialogButton.YesNo) != DialogResult.Yes)
@@ -658,14 +658,14 @@ namespace CrashEdit.CE.Forms
                 return;
             }
 
-            int targetIndex = dpdParticuleEffect.SelectedIndex;
+            int targetIndex = dpdParticleEffect.SelectedIndex;
 
-            dpdParticuleEffect.Items.RemoveAt(targetIndex);
+            dpdParticleEffect.Items.RemoveAt(targetIndex);
             savedItems.RemoveAt(targetIndex);
             try
             {
                 SaveItemsToFile();
-                DarkMessageBox.ShowInformation($"Remove Preset successfully.", "Remove Preset");
+                DarkMessageBox.ShowInformation($"Preset removed successfully.", "Remove Preset");
             }
             catch (Exception ex)
             {
@@ -675,14 +675,14 @@ namespace CrashEdit.CE.Forms
             if (savedItems.Count > 0)
             {
 
-                dpdParticuleEffect.SelectedIndex = 0;
+                dpdParticleEffect.SelectedIndex = 0;
 
             }
             else
             {
-                dpdParticuleEffect.SelectedItem = null;
-                dpdParticuleEffect.Text = string.Empty;
-                dpdParticuleEffect.Refresh();
+                dpdParticleEffect.SelectedItem = null;
+                dpdParticleEffect.Text = string.Empty;
+                dpdParticleEffect.Refresh();
             }
 
             EnableDisableSaveAndRemoveButton();
@@ -699,7 +699,7 @@ namespace CrashEdit.CE.Forms
                 enable = false;
 
             }
-            dpdParticuleEffect.Enabled = enable;
+            dpdParticleEffect.Enabled = enable;
             darkButtonRemovePreset.Enabled = enable;
 
             darkButtonSavePreset.Enabled = enable;
@@ -768,7 +768,7 @@ namespace CrashEdit.CE.Forms
         }
 
 
-        private void darkButtonRestoreDefaultPreset_Click(object sender, EventArgs e)
+        private void DarkButtonRestoreDefaultPreset_Click(object sender, EventArgs e)
         {
 
             try
@@ -777,7 +777,7 @@ namespace CrashEdit.CE.Forms
 
 
 
-                if (DarkMessageBox.ShowWarning("Reset every presets by default ?", "Confirmation", DarkDialogButton.YesNo) != DialogResult.Yes)
+                if (DarkMessageBox.ShowWarning("Reset all presets to default?", "Confirmation", DarkDialogButton.YesNo) != DialogResult.Yes)
                 {
                     return;
                 }
@@ -785,12 +785,12 @@ namespace CrashEdit.CE.Forms
                 savedItems.Clear();
                 SaveItemsToFile();
                 LoadItemsFromFile();
-                UpdatePourcentTrackBarParticleAmount();
+                UpdatePercentTrackBarParticleAmount();
                 EnableDisableParticleEffect();
                 EnableDisableSaveAndRemoveButton();
                 InitializeDefaultPreset();
 
-                DarkMessageBox.ShowInformation($"Restore Default Preset Succes", "Save Properties");
+                DarkMessageBox.ShowInformation($"Default presets restored", "Save Properties");
 
 
 
@@ -799,7 +799,7 @@ namespace CrashEdit.CE.Forms
             catch
             {
 
-                DarkMessageBox.ShowInformation($"Error Reseting Property.", "Save Properties");
+                DarkMessageBox.ShowInformation($"Error Resetting Property.", "Save Properties");
 
 
             }
@@ -810,18 +810,18 @@ namespace CrashEdit.CE.Forms
         private void pictureBoxBackgroundTextureGapColor_Click(object sender, EventArgs e)
         {
 
-            pictureBoxBackgroundTextureGapColor.BackColor = colorPicker(pictureBoxBackgroundTextureGapColor.BackColor);
+            pictureBoxBackgroundTextureGapColor.BackColor = ColorPicker(pictureBoxBackgroundTextureGapColor.BackColor);
 
 
         }
 
-        private void darkCheckBoxBackgroundTextureGapColor_CheckedChanged(object sender, EventArgs e)
+        private void DarkCheckBoxBackgroundTextureGapColor_CheckedChanged(object sender, EventArgs e)
         {
-            showHideRecolorBackgroundColor();
+            ShowHideRecolorBackgroundColor();
 
         }
 
-        private void showHideRecolorBackgroundColor()
+        private void ShowHideRecolorBackgroundColor()
         {
 
             var enable = darkCheckBoxBackgroundTextureGapColor.Checked;

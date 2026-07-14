@@ -72,7 +72,7 @@
             darkButtonSaveAsNewPreset = new AltUI.Controls.DarkButton();
             darkButtonRemovePreset = new AltUI.Controls.DarkButton();
             darkButtonSavePreset = new AltUI.Controls.DarkButton();
-            dpdParticuleEffect = new AltUI.Controls.DarkComboBox();
+            dpdParticleEffect = new AltUI.Controls.DarkComboBox();
             ((System.ComponentModel.ISupportInitialize)trackBarFog).BeginInit();
             fogSettingsBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBoxBackgroundTextureGapColor).BeginInit();
@@ -110,7 +110,7 @@
             trackBarFog.Size = new Size(370, 69);
             trackBarFog.TabIndex = 6;
             trackBarFog.Tag = "";
-            trackBarFog.ValueChanged += trackBarFog_ValueChanged;
+            trackBarFog.ValueChanged += TrackBarFog_ValueChanged;
             // 
             // darkTitle1
             // 
@@ -151,7 +151,7 @@
             darkButton1.Size = new Size(112, 34);
             darkButton1.TabIndex = 10;
             darkButton1.Text = "Ok";
-            darkButton1.Click += okButtonClick;
+            darkButton1.Click += OkButtonClick;
             // 
             // darkButton2
             // 
@@ -165,7 +165,7 @@
             darkButton2.Size = new Size(112, 34);
             darkButton2.TabIndex = 11;
             darkButton2.Text = "Cancel";
-            darkButton2.Click += cancelButtonClick;
+            darkButton2.Click += CancelButtonClick;
             // 
             // darkTitle4
             // 
@@ -189,7 +189,7 @@
             darkButton3.Size = new Size(163, 34);
             darkButton3.TabIndex = 13;
             darkButton3.Text = "Save As Default";
-            darkButton3.Click += saveAsDefaultButtonClick;
+            darkButton3.Click += SaveAsDefaultButtonClick;
             // 
             // darkTitle5
             // 
@@ -228,7 +228,7 @@
             darkCheckBoxBackgroundTextureGapColor.Size = new Size(342, 29);
             darkCheckBoxBackgroundTextureGapColor.TabIndex = 36;
             darkCheckBoxBackgroundTextureGapColor.Text = "Recolor Background Texture Gap Color";
-            darkCheckBoxBackgroundTextureGapColor.CheckedChanged += darkCheckBoxBackgroundTextureGapColor_CheckedChanged;
+            darkCheckBoxBackgroundTextureGapColor.CheckedChanged += DarkCheckBoxBackgroundTextureGapColor_CheckedChanged;
             // 
             // pictureBoxBackgroundTextureGapColor
             // 
@@ -252,7 +252,7 @@
             darkGroupBoxParticleSettings.Controls.Add(darkButtonSaveAsNewPreset);
             darkGroupBoxParticleSettings.Controls.Add(darkButtonRemovePreset);
             darkGroupBoxParticleSettings.Controls.Add(darkButtonSavePreset);
-            darkGroupBoxParticleSettings.Controls.Add(dpdParticuleEffect);
+            darkGroupBoxParticleSettings.Controls.Add(dpdParticleEffect);
             darkGroupBoxParticleSettings.Controls.Add(darkTitle5);
             darkGroupBoxParticleSettings.Location = new Point(38, 243);
             darkGroupBoxParticleSettings.Name = "darkGroupBoxParticleSettings";
@@ -324,7 +324,7 @@
             darkButtonRestoreDefaultPreset.Size = new Size(203, 34);
             darkButtonRestoreDefaultPreset.TabIndex = 30;
             darkButtonRestoreDefaultPreset.Text = "Restore Default Preset";
-            darkButtonRestoreDefaultPreset.Click += darkButtonRestoreDefaultPreset_Click;
+            darkButtonRestoreDefaultPreset.Click += DarkButtonRestoreDefaultPreset_Click;
             // 
             // darkCheckBoxUseParticleEffect
             // 
@@ -335,7 +335,7 @@
             darkCheckBoxUseParticleEffect.Size = new Size(127, 29);
             darkCheckBoxUseParticleEffect.TabIndex = 13;
             darkCheckBoxUseParticleEffect.Text = "Use Particle";
-            darkCheckBoxUseParticleEffect.CheckedChanged += darkCheckBoxUseParticleEffect_CheckedChanged;
+            darkCheckBoxUseParticleEffect.CheckedChanged += DarkCheckBoxUseParticleEffect_CheckedChanged;
             // 
             // darkGroupBoxParticleAmount
             // 
@@ -370,7 +370,7 @@
             trackBarParticleAmount.Size = new Size(370, 69);
             trackBarParticleAmount.TabIndex = 13;
             trackBarParticleAmount.Tag = "";
-            trackBarParticleAmount.Scroll += trackBarParticleAmount_Scroll;
+            trackBarParticleAmount.Scroll += TrackBarParticleAmount_Scroll;
             // 
             // darkTitle8
             // 
@@ -422,7 +422,7 @@
             darkCheckBoxUseOnlyOneColor.Size = new Size(195, 29);
             darkCheckBoxUseOnlyOneColor.TabIndex = 34;
             darkCheckBoxUseOnlyOneColor.Text = "Use Only One Color";
-            darkCheckBoxUseOnlyOneColor.CheckedChanged += darkCheckBoxUseOnlyOneColor_CheckedChanged;
+            darkCheckBoxUseOnlyOneColor.CheckedChanged += DarkCheckBoxUseOnlyOneColor_CheckedChanged;
             // 
             // darkTitleLowerColor
             // 
@@ -442,7 +442,7 @@
             pictureBoxLowerColor.Size = new Size(36, 39);
             pictureBoxLowerColor.TabIndex = 32;
             pictureBoxLowerColor.TabStop = false;
-            pictureBoxLowerColor.Click += pictureBoxLowerColor_Click;
+            pictureBoxLowerColor.Click += PictureBoxLowerColor_Click;
             // 
             // darkTitleUpperColor
             // 
@@ -462,7 +462,7 @@
             pictureBoxUpperColor.Size = new Size(36, 39);
             pictureBoxUpperColor.TabIndex = 0;
             pictureBoxUpperColor.TabStop = false;
-            pictureBoxUpperColor.Click += pictureBoxUpperColor_Click;
+            pictureBoxUpperColor.Click += PictureBoxUpperColor_Click;
             // 
             // darkGroupBoxParticleVelocity
             // 
@@ -555,7 +555,7 @@
             darkButtonSaveAsNewPreset.Size = new Size(203, 34);
             darkButtonSaveAsNewPreset.TabIndex = 20;
             darkButtonSaveAsNewPreset.Text = "Save As New Preset";
-            darkButtonSaveAsNewPreset.Click += darkButtonSaveAsNewPreset_Click;
+            darkButtonSaveAsNewPreset.Click += DarkButtonSaveAsNewPreset_Click;
             // 
             // darkButtonRemovePreset
             // 
@@ -569,7 +569,7 @@
             darkButtonRemovePreset.Size = new Size(163, 34);
             darkButtonRemovePreset.TabIndex = 19;
             darkButtonRemovePreset.Text = "Remove Preset";
-            darkButtonRemovePreset.Click += darkButtonRemovePreset_Click_1;
+            darkButtonRemovePreset.Click += DarkButtonRemovePreset_Click_1;
             // 
             // darkButtonSavePreset
             // 
@@ -583,17 +583,17 @@
             darkButtonSavePreset.Size = new Size(163, 34);
             darkButtonSavePreset.TabIndex = 18;
             darkButtonSavePreset.Text = "Save Preset";
-            darkButtonSavePreset.Click += darkButtonSavePreset_Click;
+            darkButtonSavePreset.Click += DarkButtonSavePreset_Click;
             // 
             // dpdParticuleEffect
             // 
-            dpdParticuleEffect.DrawMode = DrawMode.OwnerDrawVariable;
-            dpdParticuleEffect.FormattingEnabled = true;
-            dpdParticuleEffect.Location = new Point(196, 86);
-            dpdParticuleEffect.Name = "dpdParticuleEffect";
-            dpdParticuleEffect.Size = new Size(182, 32);
-            dpdParticuleEffect.TabIndex = 16;
-            dpdParticuleEffect.SelectedIndexChanged += dpdParticuleEffect_SelectedIndexChanged;
+            dpdParticleEffect.DrawMode = DrawMode.OwnerDrawVariable;
+            dpdParticleEffect.FormattingEnabled = true;
+            dpdParticleEffect.Location = new Point(196, 86);
+            dpdParticleEffect.Name = "dpdParticuleEffect";
+            dpdParticleEffect.Size = new Size(182, 32);
+            dpdParticleEffect.TabIndex = 16;
+            dpdParticleEffect.SelectedIndexChanged += DpdParticuleEffect_SelectedIndexChanged;
             // 
             // EnvironmentEditor
             // 
@@ -655,7 +655,7 @@
         private AltUI.Controls.DarkGroupBox darkGroupBoxParticleSettings;
         private AltUI.Controls.DarkButton darkButtonRemovePreset;
         private AltUI.Controls.DarkButton darkButtonSavePreset;
-        private AltUI.Controls.DarkComboBox dpdParticuleEffect;
+        private AltUI.Controls.DarkComboBox dpdParticleEffect;
         private TrackBar trackBarParticleAmount;
         private AltUI.Controls.DarkTitle darkTitle6;
         private AltUI.Controls.DarkTitle darkTitle7;

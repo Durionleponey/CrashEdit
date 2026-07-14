@@ -35,6 +35,8 @@ namespace CrashEdit.CE
 
         public ZoneEntry ZoneEntry { get; }
 
+
+
         void Menu_AddEntity()
         {
             short id = 10;
@@ -153,10 +155,10 @@ namespace CrashEdit.CE
                             if (Regex.IsMatch(inputWindow.Input, @"^\d$"))
                             {
 
-                                int Intinput = int.Parse(inputWindow.Input);
-                                if (0 <= Intinput && Intinput <= maxIndexCam)
+                                int intInput = int.Parse(inputWindow.Input);
+                                if (0 <= intInput && intInput <= maxIndexCam)
                                 {
-                                    targetCamera = 1 + (Intinput * 3);
+                                    targetCamera = 1 + (intInput * 3);
                                 }
                                 else {
                                     DarkMessageBox.ShowError("Out of index please input camera number", "Error bad input");
@@ -178,7 +180,7 @@ namespace CrashEdit.CE
                 }
 
 
-                Entity camera2 = ZoneEntry.Entities[targetCamera];
+                Entity cameraProperty = ZoneEntry.Entities[targetCamera];
 
 
                 using (EnvironmentEditor inputWindows = new EnvironmentEditor())
@@ -215,14 +217,14 @@ namespace CrashEdit.CE
                             var propFogDistance = createPropWithRows(0);
                             propFogDistance = addValueToProp([0, 1, fogValueEx], 0, propFogDistance);
 
-                            camera2.FogDistance = propFogDistance;
-                            camera2.KnownProperties[FogDistanceID] = propFogDistance;
+                            cameraProperty.FogDistance = propFogDistance;
+                            cameraProperty.KnownProperties[FogDistanceID] = propFogDistance;
 
                         }
                         else
                         {
-                                camera2.FogDistance = null;
-                                camera2.KnownProperties.Remove(FogDistanceID);
+                                cameraProperty.FogDistance = null;
+                                cameraProperty.KnownProperties.Remove(FogDistanceID);
                         }
 
 
@@ -233,23 +235,23 @@ namespace CrashEdit.CE
                             var bgColorProp = createPropWithRows(0);
                             bgColorProp = addValueToProp([1, inputWindows.BackgroundTextureGapColor, 0], 0, bgColorProp);
 
-                            camera2.Backgrounds = bgColorProp;
-                            camera2.KnownProperties[bgColorID] = bgColorProp;
+                            cameraProperty.Backgrounds = bgColorProp;
+                            cameraProperty.KnownProperties[bgColorID] = bgColorProp;
 
                         }
 
 
 
-                        if (!inputWindows.ParticleEffecIsActive)
+                        if (!inputWindows.ParticleEffectIsActive)
                         {
 
-                            camera2.Particles1 = null;
+                            cameraProperty.Particles1 = null;
 
-                            camera2.KnownProperties.Remove(particules1ID);
+                            cameraProperty.KnownProperties.Remove(particules1ID);
 
-                            camera2.Particles2 = null;
+                            cameraProperty.Particles2 = null;
 
-                            camera2.KnownProperties.Remove(particules2ID);
+                            cameraProperty.KnownProperties.Remove(particules2ID);
 
 
                         }
@@ -268,8 +270,8 @@ namespace CrashEdit.CE
                             particules1Prop = addValueToEntityVictimProp(values, 0, particules1Prop);
 
 
-                            camera2.Particles1 = particules1Prop;
-                            camera2.KnownProperties[particules1ID] = particules1Prop;
+                            cameraProperty.Particles1 = particules1Prop;
+                            cameraProperty.KnownProperties[particules1ID] = particules1Prop;
 
 
                             var particules2Prop = createPropWithRows(0);
@@ -288,8 +290,8 @@ namespace CrashEdit.CE
 
                             particules2Prop = addValueToProp([upperParticle,lowerParticle, particleVisibility], 0, particules2Prop);
 
-                            camera2.Particles2 = particules2Prop;
-                            camera2.KnownProperties[particules2ID] = particules2Prop;
+                            cameraProperty.Particles2 = particules2Prop;
+                            cameraProperty.KnownProperties[particules2ID] = particules2Prop;
 
 
 
@@ -300,8 +302,8 @@ namespace CrashEdit.CE
 
                         flagsProp.Rows[0].Values.Add(flagPropFog);
 
-                        camera2.Flags = flagsProp;
-                        camera2.KnownProperties[flagsID] = flagsProp;
+                        cameraProperty.Flags = flagsProp;
+                        cameraProperty.KnownProperties[flagsID] = flagsProp;
 
                             
 

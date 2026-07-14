@@ -16,12 +16,6 @@
     <PackageReference Include="AltUI" Version="1.0.4" />
   </ItemGroup>
 
-  <ItemGroup>
-    <EmbeddedResource Update="Properties\Resources.resx">
-      <Generator></Generator>
-    </EmbeddedResource>
-  </ItemGroup>
-
 	<PropertyGroup>
 		<NoWarn>WFO1000; WFO5001</NoWarn>		
 	</PropertyGroup>

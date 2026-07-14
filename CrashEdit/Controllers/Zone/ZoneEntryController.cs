@@ -82,17 +82,13 @@ namespace CrashEdit.CE
 
                         searchPattern = BitConverter.GetBytes(Convert.ToUInt16(input, 16));
                         replacementPattern = BitConverter.GetBytes(Convert.ToUInt16(input2, 16));
-
                     }
                     else return;
                 }
 
                 byte[] layout = ZoneEntry.Layout;
-
-
                 for (int i = 0x24; i <= layout.Length - searchPattern.Length; i += 2)
                 {
-
                     bool isMatch = true;
 
                     for (int j = 0; j < searchPattern.Length; j++)

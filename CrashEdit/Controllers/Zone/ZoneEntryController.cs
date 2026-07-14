@@ -130,8 +130,10 @@ namespace CrashEdit.CE
 
                 int targetCamera = 1;
 
+                if (numberOfCamera < 1) { return; }
+
                 if (numberOfCamera % 3 != 0) {
-                    DarkMessageBox.ShowError($"Cameras should be in groups of 3", CrashUI.Properties.Resources.ZoneEntryController_AcChangeCollisionType);
+                    DarkMessageBox.ShowError($"Cameras should be in groups of 3", "Cameras Error");
                     return;
                 }
 
@@ -182,6 +184,13 @@ namespace CrashEdit.CE
 
                 Entity cameraProperty = ZoneEntry.Entities[targetCamera];
 
+                if (cameraProperty.CameraIndex == null || cameraProperty.CameraSubIndex == null)
+                {
+                    DarkMessageBox.ShowError("Error", "Error");
+                    return;
+                }
+
+
 
                 using (EnvironmentEditor inputWindows = new EnvironmentEditor())
                 {
@@ -214,7 +223,7 @@ namespace CrashEdit.CE
                             byte resultFogDistance = (byte)inputWindows.FogValue;
                             uint fogValueEx = fogValueRange | ((uint)resultFogDistance << 8);
 
-                            var propFogDistance = CreatePropWithRows(0);
+                            var propFogDistance = CreatePropWithRows();
                             propFogDistance = AddValueToProp([0, 1, fogValueEx], 0, propFogDistance);
 
                             cameraProperty.FogDistance = propFogDistance;
@@ -232,7 +241,7 @@ namespace CrashEdit.CE
 
                             short bgColorID = 0x1FA;
 
-                            var bgColorProp = CreatePropWithRows(0);
+                            var bgColorProp = CreatePropWithRows();
                             bgColorProp = AddValueToProp([1, inputWindows.BackgroundTextureGapColor, 0], 0, bgColorProp);
 
                             cameraProperty.Backgrounds = bgColorProp;
@@ -274,7 +283,7 @@ namespace CrashEdit.CE
                             cameraProperty.KnownProperties[particles1ID] = particles1Prop;
 
 
-                            var particles2Prop = CreatePropWithRows(0);
+                            var particles2Prop = CreatePropWithRows();
 
 
 
@@ -298,7 +307,7 @@ namespace CrashEdit.CE
                         }
 
 
-                        var flagsProp = CreatePropWithRows(0);
+                        var flagsProp = CreatePropWithRows();
 
                         flagsProp.Rows[0].Values.Add(flagPropFog);
 
@@ -351,12 +360,12 @@ namespace CrashEdit.CE
         }
 
 
-        static EntityUInt32Property CreatePropWithRows(int Rows) {
+        static EntityUInt32Property CreatePropWithRows() {
 
 
             var prop = new EntityUInt32Property();
             prop.Rows.Add(new EntityPropertyRow<uint>());
-            prop.Rows[Rows].MetaValue = 0;
+            prop.Rows[0].MetaValue = 0;
 
             return prop;
 

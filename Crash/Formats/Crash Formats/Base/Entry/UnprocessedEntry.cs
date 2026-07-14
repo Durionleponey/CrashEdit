@@ -18,7 +18,6 @@ namespace CrashEdit.Crash
         public Entry Process(GameVersion gameversion)
         {
             Dictionary<int, EntryLoader> loaders = GetLoaders(gameversion);
-
             if (loaders.ContainsKey(type))
             {
                 var result = loaders[type].Load(((List<byte[]>)Items).ToArray(), EID);

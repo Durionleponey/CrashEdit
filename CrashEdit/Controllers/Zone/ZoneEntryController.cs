@@ -188,8 +188,8 @@ namespace CrashEdit.CE
                 using (EnvironmentEditor inputWindows = new EnvironmentEditor())
                 {
 
-                    
 
+                    short flagsID = 0x185;
                     short FogDistanceID = 0x1DE;
                     short particules1ID = 0x1B5;
                     short particules2ID = 0x1B6;
@@ -197,7 +197,7 @@ namespace CrashEdit.CE
                     uint particleActivation = 0x00000010;
                     uint fogValueRange = 0x00000040u;
                     uint flagPropFogEnable = 0x00200000;
-                    
+                    uint particleVisibilityRange = 0xE1000A00;
 
 
 
@@ -277,20 +277,26 @@ namespace CrashEdit.CE
 
 
 
-                            var particules2Prop = new EntityUInt32Property();
+                            //var particules2Prop = new EntityUInt32Property();
 
 
-                            particules2Prop.Rows.Add(new EntityPropertyRow<uint>());
-                            particules2Prop.Rows[0].MetaValue = 0;
-                            particules2Prop.Rows[0].Values.Add(inputWindows.UpperParticleColor);
+                            //particules2Prop.Rows.Add(new EntityPropertyRow<uint>());
 
-                            uint lowerParticleLower = inputWindows.LowerParticleColor;
+                            var particules2Prop = createPropWithRows(0);
 
-                            if (inputWindows.UseParticleOneColor) { lowerParticleLower = inputWindows.UpperParticleColor; }
-                            particules2Prop.Rows[0].Values.Add(lowerParticleLower);
 
-                            
-                            particules2Prop.Rows[0].Values.Add(0xE1000A00 | (uint)(inputWindows.ParticleVisibilityValue));
+
+                            uint lowerParticle = inputWindows.LowerParticleColor;
+                            uint upperParticle = inputWindows.UpperParticleColor;
+                            uint particleVisibility = particleVisibilityRange | (uint)inputWindows.ParticleVisibilityValue;
+
+                            if (inputWindows.UseParticleOneColor)
+                            {
+                                lowerParticle = inputWindows.UpperParticleColor; 
+                            }
+
+
+                            particules2Prop = addValueToProp([upperParticle,lowerParticle, particleVisibility], 0, particules2Prop);
 
                             camera2.Particles2 = particules2Prop;
                             camera2.KnownProperties[particules2ID] = particules2Prop;
@@ -300,12 +306,8 @@ namespace CrashEdit.CE
                         }
 
 
+                        var flagsProp = createPropWithRows(0);
 
-                        short flagsID = 0x185;
-                        var flagsProp = new EntityUInt32Property();
-
-                        flagsProp.Rows.Add(new EntityPropertyRow<uint>());
-                        flagsProp.Rows[0].MetaValue = 0;
                         flagsProp.Rows[0].Values.Add(flagPropFog);
 
                         camera2.Flags = flagsProp;

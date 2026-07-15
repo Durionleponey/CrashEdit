@@ -228,7 +228,7 @@ namespace CrashEdit.CE
                         }
                         else
                         {
-                                cameraProperty.FogDistance = null;
+                                cameraProperty.FogDistance = null!;
                                 cameraProperty.KnownProperties.Remove(FogDistanceID);
                         }
 
@@ -250,11 +250,11 @@ namespace CrashEdit.CE
                         if (!inputWindows.ParticleEffectIsActive)
                         {
 
-                            cameraProperty.Particles1 = null;
+                            cameraProperty.Particles1 = null!;
 
                             cameraProperty.KnownProperties.Remove(particles1ID);
 
-                            cameraProperty.Particles2 = null;
+                            cameraProperty.Particles2 = null!;
 
                             cameraProperty.KnownProperties.Remove(particles2ID);
 

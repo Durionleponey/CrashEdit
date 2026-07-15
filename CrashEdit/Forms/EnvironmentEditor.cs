@@ -13,7 +13,7 @@ namespace CrashEdit.CE.Forms
     {
 
         public bool UseFog => darkCheckBoxUseFog.Checked;
-        public string ParticleEffect => dpdParticleEffect.SelectedText;
+        public string ParticleEffect => dpdParticleEffect.SelectedItem?.ToString()!;
         public bool ParticleEffectIsActive => darkCheckBoxUseParticleEffect.Checked;
         public int FogValue => trackBarFog.Value;
         public bool UseRecolor => darkCheckBoxBackgroundTextureGapColor.Checked;
@@ -140,8 +140,8 @@ namespace CrashEdit.CE.Forms
             dpdParticleEffect.Enabled = Settings.Default.DefaultParticleIsActive;
             trackBarFog.Value = Settings.Default.DefaultFogValue;
             trackBarFog.Enabled = Settings.Default.DefaultFogIsActive;
-            TXTtrackBarvalue.Text = trackBarFog.Value.ToString();
-            TXTtrackBarvalue.Visible = darkCheckBoxUseFog.Checked;
+            txtTrackBarFogValue.Text = trackBarFog.Value.ToString();
+            txtTrackBarFogValue.Visible = darkCheckBoxUseFog.Checked;
             darkCheckBoxBackgroundTextureGapColor.Checked = Settings.Default.DefaultRecolorGapIsActive;
 
 
@@ -178,13 +178,13 @@ namespace CrashEdit.CE.Forms
         private void UseFog_CheckedChanged(object sender, EventArgs e)
         {
             trackBarFog.Enabled = darkCheckBoxUseFog.Checked;
-            TXTtrackBarvalue.Visible = darkCheckBoxUseFog.Checked;
+            txtTrackBarFogValue.Visible = darkCheckBoxUseFog.Checked;
 
         }
 
         private void TrackBarFog_ValueChanged(object sender, EventArgs e)
         {
-            TXTtrackBarvalue.Text = trackBarFog.Value.ToString();
+            txtTrackBarFogValue.Text = trackBarFog.Value.ToString();
 
         }
 
@@ -408,7 +408,7 @@ namespace CrashEdit.CE.Forms
         private void UpdatePercentTrackBarParticleAmount()
         {
 
-            ParticleAmountPurcent.Text = trackBarParticleAmount.Value.ToString() + "%";
+            ParticleAmountPercent.Text = trackBarParticleAmount.Value.ToString() + "%";
 
         }
 
@@ -436,7 +436,7 @@ namespace CrashEdit.CE.Forms
 
             dpdParticleEffect.Enabled = enable;
 
-            ParticleAmountPurcent.Visible = enable;
+            ParticleAmountPercent.Visible = enable;
 
         }
 
@@ -449,7 +449,7 @@ namespace CrashEdit.CE.Forms
 
         private void TrackBarParticleAmount_Scroll(object sender, EventArgs e)
         {
-            ParticleAmountPurcent.Text = trackBarParticleAmount.Value.ToString() + "%";
+            ParticleAmountPercent.Text = trackBarParticleAmount.Value.ToString() + "%";
         }
 
         private void ShowHideLowerColor()
@@ -803,7 +803,7 @@ namespace CrashEdit.CE.Forms
             catch
             {
 
-                DarkMessageBox.ShowInformation($"Error Resetting Property.", "Save Properties");
+                DarkMessageBox.ShowError($"Error Resetting presets.", "Save Properties");
 
 
             }

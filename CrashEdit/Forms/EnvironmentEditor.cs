@@ -121,6 +121,7 @@ namespace CrashEdit.CE.Forms
         public EnvironmentEditor()
         {
             Icon = Embeds.GetIcon("Wrench");
+
             InitializeComponent();
 
             darkCheckBoxUseFog.Checked = Settings.Default.DefaultFogIsActive;
@@ -132,7 +133,7 @@ namespace CrashEdit.CE.Forms
             }
             else
             {
-                pictureBoxBackgroundTextureGapColor.BackColor = Color.FromArgb(0, 0, 0, 0);
+                pictureBoxBackgroundTextureGapColor.BackColor = Color.FromArgb(255, 0, 0, 0);
             }
 
 
@@ -301,7 +302,7 @@ namespace CrashEdit.CE.Forms
             }
             catch
             {
-                DarkMessageBox.ShowError($"Error saving Preset.", Resources.Title_Error);
+                DarkMessageBox.ShowError("Error saving Preset.", Resources.Title_Error);
             }
         }
 
@@ -315,7 +316,7 @@ namespace CrashEdit.CE.Forms
             }
             catch
             {
-                DarkMessageBox.ShowError($"Error saving Preset", Resources.Title_Error);
+                DarkMessageBox.ShowError("Error saving Preset", Resources.Title_Error);
             }
         }
 
@@ -325,14 +326,14 @@ namespace CrashEdit.CE.Forms
             {
 
                 SavePreset();
-                DarkMessageBox.ShowInformation($"Preset updated successfully.", "Save Preset");
+                DarkMessageBox.ShowInformation("Preset updated successfully.", "Save Preset");
 
 
             }
             catch
             {
 
-                DarkMessageBox.ShowError($"Error saving Preset", Resources.Title_Error);
+                DarkMessageBox.ShowError("Error saving Preset", Resources.Title_Error);
 
             }
 
@@ -359,12 +360,12 @@ namespace CrashEdit.CE.Forms
                 }
                 catch
                 {
-                    DarkMessageBox.ShowError($"Error updating Preset", Resources.Title_Error);
+                    DarkMessageBox.ShowError("Error updating Preset", Resources.Title_Error);
                 }
             }
             catch
             {
-                DarkMessageBox.ShowError($"Error updating Preset", Resources.Title_Error);
+                DarkMessageBox.ShowError("Error updating Preset", Resources.Title_Error);
             }
 
         }
@@ -393,6 +394,8 @@ namespace CrashEdit.CE.Forms
                 return;
             }
 
+            bool flagIsFound = false;
+
 
 
             for (int i = 0; i < savedItems.Count; i++)
@@ -400,8 +403,15 @@ namespace CrashEdit.CE.Forms
                 if (savedItems[i].Name == selectedDefaultPreset)
                 {
                     dpdParticleEffect.SelectedIndex = i;
+                    flagIsFound = true;
                     break;
                 }
+            }
+
+
+            if (!flagIsFound && dpdParticleEffect.Items.Count>0) {
+
+                dpdParticleEffect.SelectedIndex = 0;
             }
         }
 
@@ -416,6 +426,13 @@ namespace CrashEdit.CE.Forms
         private void EnableDisableParticleEffect()
         {
 
+            if (savedItems.Count == 1)
+            {
+
+                dpdParticleEffect.SelectedIndex = 0;
+
+            }
+
             var enable = darkCheckBoxUseParticleEffect.Checked;
 
             darkGroupBoxParticleAmount.Enabled = enable;
@@ -423,10 +440,24 @@ namespace CrashEdit.CE.Forms
             darkGroupBoxParticleVelocity.Enabled = enable;
             darkGroupBoxParticleColor.Enabled = enable;
 
-            darkButtonRemovePreset.Enabled = enable;
+
             darkButtonSaveAsNewPreset.Enabled = enable;
-            darkButtonSavePreset.Enabled = enable;
             darkButtonRestoreDefaultPreset.Enabled = enable;
+
+
+            if (dpdParticleEffect.SelectedIndex >= 0 && enable)
+            {
+
+                darkButtonSavePreset.Enabled = true;
+                darkButtonRemovePreset.Enabled = true;
+
+            }
+            else {
+
+                darkButtonSavePreset.Enabled = false;
+                darkButtonRemovePreset.Enabled = false;
+            }
+
 
             pictureBoxUpperColor.Visible = enable;
             pictureBoxLowerColor.Visible = enable;
@@ -454,6 +485,8 @@ namespace CrashEdit.CE.Forms
 
         private void ShowHideLowerColor()
         {
+
+            if (darkCheckBoxUseParticleEffect.Checked == false) { return; }
 
             var hideLowerColor = darkCheckBoxUseOnlyOneColor.Checked;
 
@@ -533,7 +566,7 @@ namespace CrashEdit.CE.Forms
                 }
 
 
-                DarkMessageBox.ShowInformation($"Preset saved successfully.", "Save Preset");
+                DarkMessageBox.ShowInformation("Preset saved successfully.", "Save Preset");
 
 
 
@@ -542,7 +575,7 @@ namespace CrashEdit.CE.Forms
             catch
             {
 
-                DarkMessageBox.ShowError($"Error saving Preset", Resources.Title_Error);
+                DarkMessageBox.ShowError("Error saving Preset", Resources.Title_Error);
 
 
             }
@@ -669,11 +702,11 @@ namespace CrashEdit.CE.Forms
                 savedItems.RemoveAt(targetIndex);
 
                 SaveItemsToFile();
-                DarkMessageBox.ShowInformation($"Preset removed successfully.", "Remove Preset");
+                DarkMessageBox.ShowInformation("Preset removed successfully.", "Remove Preset");
             }
             catch
             {
-                DarkMessageBox.ShowError($"Error Removing Preset", Resources.Title_Error);
+                DarkMessageBox.ShowError("Error Removing Preset", Resources.Title_Error);
             }
 
             if (savedItems.Count > 0)
@@ -794,7 +827,7 @@ namespace CrashEdit.CE.Forms
                 EnableDisableSaveAndRemoveButton();
                 InitializeDefaultPreset();
 
-                DarkMessageBox.ShowInformation($"Default presets restored", "Save Properties");
+                DarkMessageBox.ShowInformation("Default presets restored", "Save Properties");
 
 
 
@@ -803,7 +836,7 @@ namespace CrashEdit.CE.Forms
             catch
             {
 
-                DarkMessageBox.ShowError($"Error Resetting presets.", "Save Properties");
+                DarkMessageBox.ShowError("Error Resetting presets.", "Save Properties");
 
 
             }

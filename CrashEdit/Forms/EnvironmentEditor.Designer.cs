@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            darkCheckBox1 = new AltUI.Controls.DarkCheckBox();
+            darkCheckBoxUseFog = new AltUI.Controls.DarkCheckBox();
             trackBarFog = new TrackBar();
             darkTitle1 = new AltUI.Controls.DarkTitle();
             darkTitle2 = new AltUI.Controls.DarkTitle();
@@ -50,7 +50,7 @@
             darkButtonRestoreDefaultPreset = new AltUI.Controls.DarkButton();
             darkCheckBoxUseParticleEffect = new AltUI.Controls.DarkCheckBox();
             darkGroupBoxParticleAmount = new AltUI.Controls.DarkGroupBox();
-            ParticleAmountPourcent = new AltUI.Controls.DarkTitle();
+            ParticleAmountPurcent = new AltUI.Controls.DarkTitle();
             trackBarParticleAmount = new TrackBar();
             darkTitle8 = new AltUI.Controls.DarkTitle();
             darkTitle7 = new AltUI.Controls.DarkTitle();
@@ -92,14 +92,14 @@
             // 
             // darkCheckBox1
             // 
-            darkCheckBox1.AutoSize = true;
-            darkCheckBox1.Location = new Point(26, 76);
-            darkCheckBox1.Name = "darkCheckBox1";
-            darkCheckBox1.Offset = 1;
-            darkCheckBox1.Size = new Size(103, 29);
-            darkCheckBox1.TabIndex = 1;
-            darkCheckBox1.Text = "Use Fog";
-            darkCheckBox1.CheckedChanged += UseFog_CheckedChanged;
+            darkCheckBoxUseFog.AutoSize = true;
+            darkCheckBoxUseFog.Location = new Point(26, 76);
+            darkCheckBoxUseFog.Name = "darkCheckBox1";
+            darkCheckBoxUseFog.Offset = 1;
+            darkCheckBoxUseFog.Size = new Size(103, 29);
+            darkCheckBoxUseFog.TabIndex = 1;
+            darkCheckBoxUseFog.Text = "Use Fog";
+            darkCheckBoxUseFog.CheckedChanged += UseFog_CheckedChanged;
             // 
             // trackBarFog
             // 
@@ -206,7 +206,7 @@
             fogSettingsBox.AccessibleName = "Fog Settings";
             fogSettingsBox.Controls.Add(darkCheckBoxBackgroundTextureGapColor);
             fogSettingsBox.Controls.Add(pictureBoxBackgroundTextureGapColor);
-            fogSettingsBox.Controls.Add(darkCheckBox1);
+            fogSettingsBox.Controls.Add(darkCheckBoxUseFog);
             fogSettingsBox.Controls.Add(trackBarFog);
             fogSettingsBox.Controls.Add(darkTitle2);
             fogSettingsBox.Controls.Add(darkTitle3);
@@ -339,7 +339,7 @@
             // 
             // darkGroupBoxParticleAmount
             // 
-            darkGroupBoxParticleAmount.Controls.Add(ParticleAmountPourcent);
+            darkGroupBoxParticleAmount.Controls.Add(ParticleAmountPurcent);
             darkGroupBoxParticleAmount.Controls.Add(trackBarParticleAmount);
             darkGroupBoxParticleAmount.Controls.Add(darkTitle8);
             darkGroupBoxParticleAmount.Controls.Add(darkTitle7);
@@ -353,13 +353,13 @@
             // 
             // ParticleAmountPourcent
             // 
-            ParticleAmountPourcent.AutoSize = true;
-            ParticleAmountPourcent.Location = new Point(393, 21);
-            ParticleAmountPourcent.Margin = new Padding(3, 0, 3, 15);
-            ParticleAmountPourcent.Name = "ParticleAmountPourcent";
-            ParticleAmountPourcent.Size = new Size(137, 25);
-            ParticleAmountPourcent.TabIndex = 13;
-            ParticleAmountPourcent.Text = "Particle Amount";
+            ParticleAmountPurcent.AutoSize = true;
+            ParticleAmountPurcent.Location = new Point(393, 21);
+            ParticleAmountPurcent.Margin = new Padding(3, 0, 3, 15);
+            ParticleAmountPurcent.Name = "ParticleAmountPourcent";
+            ParticleAmountPurcent.Size = new Size(137, 25);
+            ParticleAmountPurcent.TabIndex = 13;
+            ParticleAmountPurcent.Text = "Particle Amount";
             // 
             // trackBarParticleAmount
             // 
@@ -593,7 +593,7 @@
             dpdParticleEffect.Name = "dpdParticuleEffect";
             dpdParticleEffect.Size = new Size(182, 32);
             dpdParticleEffect.TabIndex = 16;
-            dpdParticleEffect.SelectedIndexChanged += DpdParticuleEffect_SelectedIndexChanged;
+            dpdParticleEffect.SelectedIndexChanged += DpdParticleEffect_SelectedIndexChanged;
             // 
             // EnvironmentEditor
             // 
@@ -641,7 +641,7 @@
         #endregion
 
         private MetroSet_UI.Controls.MetroSetCheckBox metroSetCheckBox1;
-        private AltUI.Controls.DarkCheckBox darkCheckBox1;
+        private AltUI.Controls.DarkCheckBox darkCheckBoxUseFog;
         private TrackBar trackBarFog;
         private AltUI.Controls.DarkTitle darkTitle1;
         private AltUI.Controls.DarkTitle darkTitle2;
@@ -678,7 +678,7 @@
         private AltUI.Controls.DarkTitle darkTitleLowerColor;
         private PictureBox pictureBoxLowerColor;
         private AltUI.Controls.DarkCheckBox darkCheckBoxUseOnlyOneColor;
-        private AltUI.Controls.DarkTitle ParticleAmountPourcent;
+        private AltUI.Controls.DarkTitle ParticleAmountPurcent;
         private AltUI.Controls.DarkCheckBox darkCheckBoxUseParticleEffect;
         private AltUI.Controls.DarkButton darkButtonRestoreDefaultPreset;
         private PictureBox pictureBox1;

@@ -12,8 +12,8 @@ namespace CrashEdit.CE.Forms
     public partial class EnvironmentEditor : DarkForm
     {
 
-        public bool UseFog => darkCheckBox1.Checked;
-        public string ParticleEffect => (string)dpdParticleEffect.SelectedItem;
+        public bool UseFog => darkCheckBoxUseFog.Checked;
+        public string ParticleEffect => dpdParticleEffect.SelectedText;
         public bool ParticleEffectIsActive => darkCheckBoxUseParticleEffect.Checked;
         public int FogValue => trackBarFog.Value;
         public bool UseRecolor => darkCheckBoxBackgroundTextureGapColor.Checked;
@@ -114,7 +114,7 @@ namespace CrashEdit.CE.Forms
 
         public class ListItem
         {
-            public string Name { get; set; }
+            public required string Name { get; set; }
             public List<FieldData> Fields { get; set; } = new List<FieldData>();
         }
 
@@ -123,10 +123,10 @@ namespace CrashEdit.CE.Forms
             Icon = Embeds.GetIcon("Wrench");
             InitializeComponent();
 
-            darkCheckBox1.Checked = Settings.Default.DefaultFogIsActive;
+            darkCheckBoxUseFog.Checked = Settings.Default.DefaultFogIsActive;
             darkCheckBoxUseParticleEffect.Checked = Settings.Default.DefaultParticleIsActive;
 
-            if (pictureBoxBackgroundTextureGapColor.BackColor != null)
+            if (Settings.Default.DefaultpictureBoxBackgroundTextureGapColor != 0)
             {
                 pictureBoxBackgroundTextureGapColor.BackColor = Color.FromArgb(Settings.Default.DefaultpictureBoxBackgroundTextureGapColor);
             }
@@ -141,7 +141,7 @@ namespace CrashEdit.CE.Forms
             trackBarFog.Value = Settings.Default.DefaultFogValue;
             trackBarFog.Enabled = Settings.Default.DefaultFogIsActive;
             TXTtrackBarvalue.Text = trackBarFog.Value.ToString();
-            TXTtrackBarvalue.Visible = darkCheckBox1.Checked;
+            TXTtrackBarvalue.Visible = darkCheckBoxUseFog.Checked;
             darkCheckBoxBackgroundTextureGapColor.Checked = Settings.Default.DefaultRecolorGapIsActive;
 
 
@@ -177,8 +177,8 @@ namespace CrashEdit.CE.Forms
 
         private void UseFog_CheckedChanged(object sender, EventArgs e)
         {
-            trackBarFog.Enabled = darkCheckBox1.Checked;
-            TXTtrackBarvalue.Visible = darkCheckBox1.Checked;
+            trackBarFog.Enabled = darkCheckBoxUseFog.Checked;
+            TXTtrackBarvalue.Visible = darkCheckBoxUseFog.Checked;
 
         }
 
@@ -209,7 +209,7 @@ namespace CrashEdit.CE.Forms
 
 
             Settings.Default.DefaultFogValue = (byte)trackBarFog.Value;
-            Settings.Default.DefaultFogIsActive = darkCheckBox1.Checked;
+            Settings.Default.DefaultFogIsActive = darkCheckBoxUseFog.Checked;
             Settings.Default.DefaultParticleIsActive = darkCheckBoxUseParticleEffect.Checked;
 
             if (dpdParticleEffect.SelectedItem != null)
@@ -299,7 +299,7 @@ namespace CrashEdit.CE.Forms
             {
                 SaveItemsToFile();
             }
-            catch (Exception ex)
+            catch
             {
                 DarkMessageBox.ShowError($"Error saving Preset.", Resources.Title_Error);
             }
@@ -313,7 +313,7 @@ namespace CrashEdit.CE.Forms
                 File.WriteAllText(FilePath, jsonString);
                 Console.WriteLine("Environment Preset list saved successfully.");
             }
-            catch (Exception ex)
+            catch
             {
                 DarkMessageBox.ShowError($"Error saving Preset", Resources.Title_Error);
             }
@@ -355,7 +355,7 @@ namespace CrashEdit.CE.Forms
                 {
                     SaveItemsToFile();
                 }
-                catch (Exception ex)
+                catch
                 {
                     DarkMessageBox.ShowError($"Error updating Preset", Resources.Title_Error);
                 }
@@ -371,7 +371,6 @@ namespace CrashEdit.CE.Forms
         {
             LoadItemsFromFile();
             UpdatePercentTrackBarParticleAmount();
-            EnableDisableParticleEffect();
             EnableDisableSaveAndRemoveButton();
             InitializeDefaultPreset();
             EnableDisableParticleEffect();
@@ -407,7 +406,7 @@ namespace CrashEdit.CE.Forms
         private void UpdatePercentTrackBarParticleAmount()
         {
 
-            ParticleAmountPourcent.Text = trackBarParticleAmount.Value.ToString() + "%";
+            ParticleAmountPurcent.Text = trackBarParticleAmount.Value.ToString() + "%";
 
         }
 
@@ -435,11 +434,11 @@ namespace CrashEdit.CE.Forms
 
             dpdParticleEffect.Enabled = enable;
 
-            ParticleAmountPourcent.Visible = enable;
+            ParticleAmountPurcent.Visible = enable;
 
         }
 
-        private void DpdParticuleEffect_SelectedIndexChanged(object sender, EventArgs e)
+        private void DpdParticleEffect_SelectedIndexChanged(object sender, EventArgs e)
         {
             LoadItemsValueInForm();
             UpdatePercentTrackBarParticleAmount();
@@ -448,7 +447,7 @@ namespace CrashEdit.CE.Forms
 
         private void TrackBarParticleAmount_Scroll(object sender, EventArgs e)
         {
-            ParticleAmountPourcent.Text = trackBarParticleAmount.Value.ToString() + "%";
+            ParticleAmountPurcent.Text = trackBarParticleAmount.Value.ToString() + "%";
         }
 
         private void ShowHideLowerColor()
@@ -659,16 +658,18 @@ namespace CrashEdit.CE.Forms
                 return;
             }
 
-            int targetIndex = dpdParticleEffect.SelectedIndex;
 
-            dpdParticleEffect.Items.RemoveAt(targetIndex);
-            savedItems.RemoveAt(targetIndex);
             try
             {
+                int targetIndex = dpdParticleEffect.SelectedIndex;
+
+                dpdParticleEffect.Items.RemoveAt(targetIndex);
+                savedItems.RemoveAt(targetIndex);
+
                 SaveItemsToFile();
                 DarkMessageBox.ShowInformation($"Preset removed successfully.", "Remove Preset");
             }
-            catch (Exception ex)
+            catch
             {
                 DarkMessageBox.ShowError($"Error Removing Preset", Resources.Title_Error);
             }

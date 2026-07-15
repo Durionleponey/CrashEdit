@@ -343,6 +343,8 @@ namespace CrashEdit.CE.Forms
         private void SavePreset()
         {
 
+            if (dpdParticleEffect.SelectedIndex < 0) return;
+
 
             try
             {

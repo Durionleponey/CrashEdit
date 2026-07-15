@@ -569,7 +569,7 @@
             darkButtonRemovePreset.Size = new Size(163, 34);
             darkButtonRemovePreset.TabIndex = 19;
             darkButtonRemovePreset.Text = "Remove Preset";
-            darkButtonRemovePreset.Click += DarkButtonRemovePreset_Click_1;
+            darkButtonRemovePreset.Click += DarkButtonRemovePreset_Click;
             // 
             // darkButtonSavePreset
             // 

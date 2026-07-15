@@ -235,19 +235,17 @@ namespace CrashEdit.CE.Forms
                 {
                     string jsonString = File.ReadAllText(FilePath);
                     savedItems = JsonSerializer.Deserialize<List<ListItem>>(jsonString) ?? new List<ListItem>();
+                }
 
                     dpdParticleEffect.Items.Clear();
                     if (savedItems.Count == 0) { savedItems = GetBuiltInPresets(); }
 
                     foreach (var item in savedItems)
                     {
-                        Console.Write(item);
-                        Console.WriteLine(item.Name.ToString());
                         dpdParticleEffect.Items.Add(item.Name);
                     }
 
-                    Console.WriteLine("Preset list loaded successfully.");
-                }
+                
             }
             catch (Exception ex)
             {
@@ -259,6 +257,9 @@ namespace CrashEdit.CE.Forms
         {
 
             //Console.WriteLine(savedItems);
+
+            if (dpdParticleEffect.SelectedIndex < 0) return;
+
 
 
             var selectedIndex = dpdParticleEffect.SelectedIndex;
@@ -650,7 +651,7 @@ namespace CrashEdit.CE.Forms
             pictureBoxLowerColor.BackColor = ColorPicker(pictureBoxLowerColor.BackColor);
         }
 
-        private void DarkButtonRemovePreset_Click_1(object sender, EventArgs e)
+        private void DarkButtonRemovePreset_Click(object sender, EventArgs e)
         {
 
             if (DarkMessageBox.ShowWarning("Delete this preset ?", "Confirmation", DarkDialogButton.YesNo) != DialogResult.Yes)

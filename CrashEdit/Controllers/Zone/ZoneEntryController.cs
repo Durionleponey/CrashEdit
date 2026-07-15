@@ -1,11 +1,7 @@
 ﻿using AltUI.Forms;
-using CrashEdit.CE;
 using CrashEdit.CE.Forms;
 using CrashEdit.Crash;
-using OpenTK.Graphics.OpenGL;
 using System.Text.RegularExpressions;
-using System.Web;
-using System.Windows.Media.Media3D;
 
 namespace CrashEdit.CE
 {
